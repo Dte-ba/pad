@@ -16,7 +16,7 @@
 <div data-bind="visible: !isLoading()" style="display: none;">
   <div class="baraja-main clearfix">
 
-    <ul id="baraja-el" class="baraja-container" data-bind="click: itemClick">
+    <ul id="baraja-el" class="baraja-container">
       {{#each barajas}}
         <li data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
           <img src="/images/{{img}}" alt="{{alt}}">
@@ -25,13 +25,15 @@
       {{/each}}
     </ul>
 
-    <ul class="pager">
-      <!--<li><a href="#" data-bind="click: barajaPrev">&laquo;</a></li>-->
-      <li><a href="#" data-bind="click: seleccionarBaraja">Seleccionar</a></li>
-      <li><a href="/explorar">Explorar</a></li>
-      <!--<li><a href="#" data-bind="click: barajaNext">&raquo;</a></li>-->
-    </ul>
+  </div>
 
+  <div>
+    <ul class="nav-buttons">
+      <li><a class="btn btn-default" href="#" data-bind="click: barajaPrev">&laquo;</a></li>
+      <li><a class="btn  btn-default" href="#" data-bind="click: seleccionarBaraja">Seleccionar</a></li>
+      <li><a class="btn  btn-default" href="/explorar">Explorar</a></li>
+      <li><a class="btn  btn-default" href="#" data-bind="click: barajaNext">&raquo;</a></li>
+    </ul>
   </div>
 
 </div>

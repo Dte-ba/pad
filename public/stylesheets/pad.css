@@ -30,3 +30,4 @@ li[rel="Matemática"]{border-color:#3872b6}li[rel="Matemática"] span.cover{back
 li[rel="Prácticas del Lenguaje"]{border-color:#e57e40}li[rel="Prácticas del Lenguaje"] span.cover{background:rgba(229,126,64,0.7)}
 li[rel="Educación Artística"]{border-color:#7f2aff}li[rel="Educación Artística"] span.cover{background:rgba(127,42,255,0.7)}
 .ups-msg{text-align:center;font-weight:bold;color:#fff;font-size:150%}
+ul.nav-buttons{list-style-type:none;width:300px;margin:0 auto;padding-bottom:10px}ul.nav-buttons li{display:inline-block}
