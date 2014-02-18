@@ -1,6 +1,6 @@
 {{#contentFor 'pageStyles'}}
   {{#unless production}}
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/pad.css" />
   {{/unless}}
 {{/contentFor}}
 
@@ -10,12 +10,18 @@
   {{/unless}}
 {{/contentFor}}
 
-<ul class="tangibles">
-  {{#each tangibles}}
-    <li>
-      <a href="/tangible/{{uid}}" title="{{content.title}}">
-        <img src="/package/{{uid}}/image/front" alt="{{content.title}}">
-      </a>
-    </li>
-  {{/each}}
-</ul>
+<div class="container">
+  <ul class="tangibles">
+    {{#each tangibles}}
+      <li class="box tangible-box" rel="{{content.area}}">
+        <a href="/tangible/{{uid}}" title="{{content.title}}">
+          <span class="cover">{{content.title}}</span>
+          <img src="/package/{{uid}}/image/front" alt="{{content.title}}">
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+  {{#if isEmpty}}
+    <p class="ups-msg">Ups! No hay tangibles por el momento.</p>
+  {{/if}}
+</div>

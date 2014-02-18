@@ -29,7 +29,7 @@ var app = express();
 var auth = express.basicAuth('pad', 'pad');
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 1500);
 app.set('views', __dirname + '/views');
 
 // define Handlebars engine
@@ -39,7 +39,7 @@ app.engine('hbs', hbs.express3({
 }));
 app.set('view engine', 'hbs');
 
-app.use(express.favicon());
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());

@@ -35,7 +35,7 @@
     if (level === 1) {
       var uri = '/bloques/' + level + '/' + target;
     } else {
-      var uri = '/bloques/' + level + '/' + owner + '/' + target;  
+      var uri = '/tangibles/' + owner + '/' + target;  
     }
 
     window.location.href = uri;

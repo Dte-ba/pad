@@ -1,0 +1,32 @@
+body{padding-top:0;color:#000}
+html,body{height:100%}
+#wrap{min-height:100%;height:auto !important;height:100%;margin:0 auto -60px}
+#content{padding-top:3%}
+#push,footer{height:60px}
+footer{background-color:#fff}
+.footer-dte-logo{float:left;width:268px;height:60px;background:url('../images/footer-dte-logo.png')}
+.footer-ba-logo{float:right;width:202px;height:60px;background:url('../images/footer-ba-logo.png')}
+#cloud a{margin:3px}
+ul.blocks,ul.tangibles{padding-top:30px;list-style:none}ul.blocks li,ul.tangibles li{margin:5px;display:-moz-inline-box;display:inline-block;*display:inline;*zoom:1}
+ul.tangibles li img{height:120px}
+article.tangible{padding-top:30px}
+@media (max-width:767px){footer{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}ul.baraja-container{width:200px;height:310px;margin:0 auto;position:relative;padding:0;list-style-type:none}ul.baraja-container li{width:100%;height:75%;margin:0;position:absolute;top:0;left:0;cursor:pointer;background:#fff;pointer-events:auto;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden}ul.baraja-container li h4{text-align:center}
+.no-js ul.baraja-container{width:auto;height:auto;text-align:center}.no-js ul.baraja-container li{position:relative;display:inline-block;width:200px;height:310px;margin:10px}
+.baraja-main{width:200px;margin:0 auto;color:#aaa}.baraja-main h4{color:#666;font-size:14px;padding:8px 10px 5px;margin:20px 3px 5px;border-bottom:1px solid #f0f0f0}
+.baraja-main p{font-size:12px;font-weight:700;padding:0 10px;margin:10px 3px 0}
+.baraja-main ul.baraja-container li{border-radius:10px;padding:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08);-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.baraja-main li img{display:block;margin:0 auto;width:100%;border-radius:10px 10px 0 0}
+.loader .logo{width:238px;height:115px;background-image:url(/images/logo-pad.png);margin:0 auto}
+.loader span{color:#fff;font-size:150%;font-weight:bold;padding:20px;text-shadow:1px 1px 1px #303857}
+body{background:url(../images/bg.jpg) #ff9500 repeat}
+#wrap{background:url(../images/fondo_netstramahome.png) center bottom repeat-x}
+li.box{border:solid 7px;-webkit-box-shadow:2px 2px 5px rgba(50,50,50,0.75);-moz-box-shadow:2px 2px 5px rgba(50,50,50,0.75);box-shadow:2px 2px 5px rgba(50,50,50,0.75);position:relative;cursor:pointer}li.box span.cover{top:20%;left:0;width:100%;height:80%;position:absolute;color:#fff;padding:5px;font-style:italic;font-weight:bold;overflow:hidden;text-align:center;text-shadow:1px 1px 1px #303857;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;-ms-transition:all .3s ease-out;transition:all .3s ease-out;opacity:0}
+li.box:hover span.cover{top:0;height:100%;opacity:1}
+li[rel="Inglés"]{border-color:#7f2aff}li[rel="Inglés"] span.cover{background:rgba(127,42,255,0.7)}
+li[rel="Ciencias Naturales"]{border-color:#428140}li[rel="Ciencias Naturales"] span.cover{background:rgba(66,129,64,0.7)}
+li[rel="Educación Física"]{border-color:#00a1b3}li[rel="Educación Física"] span.cover{background:rgba(0,161,179,0.7)}
+li[rel="Ciencias Sociales"]{border-color:#6f6559}li[rel="Ciencias Sociales"] span.cover{background:rgba(111,101,89,0.7)}
+li[rel="Matemática"]{border-color:#3872b6}li[rel="Matemática"] span.cover{background:rgba(56,114,182,0.7)}
+li[rel="Prácticas del Lenguaje"]{border-color:#e57e40}li[rel="Prácticas del Lenguaje"] span.cover{background:rgba(229,126,64,0.7)}
+li[rel="Educación Artística"]{border-color:#7f2aff}li[rel="Educación Artística"] span.cover{background:rgba(127,42,255,0.7)}
+.ups-msg{text-align:center;font-weight:bold;color:#fff;font-size:150%}

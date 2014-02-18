@@ -121,8 +121,13 @@ exports.bloques = function(req, res){
     }
 
   }
-
-  res.render('blocks', { blocks: bls });
+  
+  var vm = {};
+    vm.blocks = bls;
+    if (bls.length == 0) {
+      vm.isEmpty = true;
+    }
+  res.render('blocks', vm);
 
 };
 
@@ -138,7 +143,14 @@ exports.tangibles = function(req, res){
     path: path.resolve('./repo'),
     word: word
   }, function(err, data){
-    res.render('tangibles', { tangibles: data });
+    
+    var vm = {};
+    vm.tangibles = data;
+    if (data.length === 0) {
+      vm.isEmpty = true;
+    }
+
+    res.render('tangibles', vm);
   });
 
   //res.render('tangibles');
@@ -162,7 +174,13 @@ exports.explorar = function(req, res){
 
   var _repo = new repo.Repository('./repo');
 
+
+
   _repo.getWords({}, function(err, data){
+    data = data.filter(function(w){
+      return w.word.replace(/\s/g, '') !== '';
+    });
+
     res.render('cloud', { words: data } );
   });
  

@@ -1,6 +1,6 @@
 {{#contentFor 'pageStyles'}}
 	{{#unless production}}
-		<link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/pad.css" />
 	{{/unless}}
 {{/contentFor}}
 
@@ -13,7 +13,10 @@
 {{/contentFor}}
 
 
-<div data-bind="visible: isLoading">Loading ...</div>
+<div data-bind="visible: isLoading" class="text-center loader">
+  <div class="logo"></div>
+  <span>Cargando ...</span>
+</div>
 <div data-bind="visible: !isLoading()" style="display: none;">
   <div class="baraja-main clearfix">
 
