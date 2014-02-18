@@ -7,18 +7,16 @@
 {{/contentFor}}
 
 <div class="container">
-  <ul class="blocks">
-    {{#each blocks}}
-      <li class="box block-box" rel="{{area}}">
-        <a href="{{href}}" title="{{name}}">
-          <span class="cover">{{name}}</span>
-          <img src="/images/{{img}}" alt="{{name}}">
-        </a>
+  <ul class="ejes no-js">
+    {{#each ejes}}
+      <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
+        <img src="/images/{{img}}" alt="{{alt}}">
+        <a href="{{href}}"><h4>{{title}}</h4></a>
       </li>
     {{/each}}
   </ul>
   {{#if isEmpty}}
-    <p class="ups-msg">Ups! No hay tangibles por el momento.</p>
+    <p class="ups-msg">Ups! No hay ejes por el momento.</p>
   {{/if}}
 </div>
 

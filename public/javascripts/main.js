@@ -48,10 +48,13 @@
     var owner = $el.data('owner');
 
     var uri = '/';
-    if (level === 1) {
-      var uri = '/bloques/' + level + '/' + target;
+
+    if (level === 0) {
+      uri = '/ba';
+    } else if (level === 1) {
+      uri = '/ejes/' + target;
     } else {
-      var uri = '/tangibles/' + owner + '/' + target;  
+      uri = '/tangibles/' + owner + '/' + target;  
     }
 
     window.location.href = uri;
@@ -80,8 +83,12 @@
       $(function(){
         // when de DOM is loaded
         _baraja = $('#baraja-el').baraja();
-        _baraja.fanSettings.range = 180;
-        def.resolve();
+        _baraja.fanSettings.range = 270;
+
+
+        $('#baraja-el a').click(function(event){
+          event.stopPropagation();
+        });
 
         $(document).keydown(function(event) {
           
@@ -106,6 +113,8 @@
           }
 
         });
+
+        def.resolve();
 
       });
 

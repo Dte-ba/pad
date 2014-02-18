@@ -18,9 +18,9 @@
 
     <ul id="baraja-el" class="baraja-container">
       {{#each barajas}}
-        <li data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
+        <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
           <img src="/images/{{img}}" alt="{{alt}}">
-          <h4>{{title}}</h4>
+          <a href="{{href}}"><h4>{{title}}</h4></a>
         </li>
       {{/each}}
     </ul>

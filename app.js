@@ -116,9 +116,10 @@ function configureLogs(app) {
 function configureRoutes(app, ops) {
 
   app.get('/', routes.index);
-  app.get('/bloques/:lvl/:owner/:target?', routes.bloques);
+  app.get('/ejes/:area', routes.ejes);
+  app.get('/bloques/:owner/:target', routes.bloques);
   app.get('/tangibles/:owner/:target?', routes.tangibles);
-  app.get('/tangible/:uid?', routes.tangible);
+  app.get('/tangible/:uid', routes.tangible);
   app.get('/explorar', routes.explorar);
 
   if (ops.panelEnabled) {
