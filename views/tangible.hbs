@@ -1,13 +1,9 @@
 {{#contentFor 'pageStyles'}}
-  {{#unless production}}
-    <link rel="stylesheet" href="/stylesheets/pad.css" />
-  {{/unless}}
+<link rel="stylesheet" href="/stylesheets/pad.css" />
 {{/contentFor}}
 
 {{#contentFor 'pageScripts'}}
-  {{#unless production}}
-    <script src="/javascripts/blocks.js"></script>
-  {{/unless}}
+<script src="/javascripts/blocks.js"></script>
 {{/contentFor}}
 
 {{#with tangible}}
@@ -25,7 +21,7 @@
         </p>
         <div class="panel panel-default">
           <div class="panel-body text-center">
-            <a class="btn btn-sm-lg" style="width: 100%;" href="/package/{{uid}}/content">
+            <a class="btn btn-sm-lg" style="width: 100%;" href="/package/{{uid}}/content" target="_blank">
             <i class="icon-download"></i> Descargar contenido</a>
           </div>
         </div>

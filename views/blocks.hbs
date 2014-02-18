@@ -1,20 +1,16 @@
 {{#contentFor 'pageStyles'}}
-  {{#unless production}}
-    <link rel="stylesheet" href="/stylesheets/pad.css" />
-  {{/unless}}
+<link rel="stylesheet" href="/stylesheets/pad.css" />
 {{/contentFor}}
 
 {{#contentFor 'pageScripts'}}
-  {{#unless production}}
-    <script src="/javascripts/blocks.js"></script>
-  {{/unless}}
+<script src="/javascripts/blocks.js"></script>
 {{/contentFor}}
 
 <div class="container">
   <ul class="blocks">
     {{#each blocks}}
       <li class="box block-box" rel="{{area}}">
-        <a href="/tangibles/{{area}}/{{axis}}" title="{{name}}">
+        <a href="/tangibles/{{name}}" title="{{name}}">
           <span class="cover">{{name}}</span>
           <img src="/images/{{img}}" alt="{{name}}">
         </a>

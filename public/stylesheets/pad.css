@@ -19,7 +19,7 @@ article.tangible{padding-top:30px}
 .loader .logo{width:238px;height:115px;background-image:url(/images/logo-pad.png);margin:0 auto}
 .loader span{color:#fff;font-size:150%;font-weight:bold;padding:20px;text-shadow:1px 1px 1px #303857}
 body{background:url(../images/bg.jpg) #ff9500 repeat}
-#wrap{background:url(../images/fondo_netstramahome.png) center bottom repeat-x}
+#wrap{background:url(../images/fondo_netstramahome.png) repeat-x;background-position:center bottom 60px}
 li.box{border:solid 7px;-webkit-box-shadow:2px 2px 5px rgba(50,50,50,0.75);-moz-box-shadow:2px 2px 5px rgba(50,50,50,0.75);box-shadow:2px 2px 5px rgba(50,50,50,0.75);position:relative;cursor:pointer}li.box span.cover{top:20%;left:0;width:100%;height:80%;position:absolute;color:#fff;padding:5px;font-style:italic;font-weight:bold;overflow:hidden;text-align:center;text-shadow:1px 1px 1px #303857;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;-ms-transition:all .3s ease-out;transition:all .3s ease-out;opacity:0}
 li.box:hover span.cover{top:0;height:100%;opacity:1}
 li[rel="Inglés"]{border-color:#7f2aff}li[rel="Inglés"] span.cover{background:rgba(127,42,255,0.7)}
