@@ -6,6 +6,7 @@
 
 body {
   background: url(../images/bg.jpg) rgb(255,149,0) repeat;
+  min-height: 500px;
 }
 
 #wrap {
@@ -119,7 +120,7 @@ ul.nav-buttons {
   padding-bottom: 10px;
 
   li {
-    display: inline-block;
+    display: inline-table;
 
     a {
       border-color: #1F7988;
@@ -136,6 +137,20 @@ ul.nav-buttons {
 
 }
 
-ul.ejes {
+ul.ejes,
+ul.encuadres {
   list-style-type: none;
+}
+
+ul.encuadres {
+  li {
+    display: inline-table;
+    width: 200px;
+    height: 160px;
+    margin: 5px;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }

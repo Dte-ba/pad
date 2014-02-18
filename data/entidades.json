@@ -144,7 +144,8 @@
                 "blocks": {}
             }
         },
-        "alias": "ciencias naturales"
+        "alias": "ciencias naturales",
+        "encuadre": "/files/encuadre_naturales.pdf"
     },
     "Educación Física": {
         "axis": {
@@ -208,7 +209,8 @@
                 "blocks": {}
             }
         },
-        "alias": "ciencias sociales"
+        "alias": "ciencias sociales",
+        "encuadre": "/files/encuadre_sociales.pdf"
     },
     "Matemática": {
         "axis": {
@@ -253,7 +255,8 @@
                 "blocks": {}
             }
         },
-        "alias": "matematica"
+        "alias": "matematica",
+        "encuadre": "/files/encuadre_matematica.pdf"
     },
     "Prácticas del Lenguaje": {
         "axis": {
@@ -310,7 +313,8 @@
                 "blocks": {}
             }
         },
-        "alias": "practicas del lenguaje"
+        "alias": "practicas del lenguaje",
+        "encuadre": "/files/encuadre_pdl.pdf"
     },
     "Educación Artística": {
         "axis": {

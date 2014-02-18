@@ -29,7 +29,7 @@ exports.index = function(req, res){
     
     var area = data[an];
 
-    filename = (area.alias + '/padnet.png').replace(/\s/g, '_');
+    filename = (area.alias.replace(/\s+/g, '_') + '/padnet.png').replace(/\s/g, '_');
     filename = fs.existsSync(path.join(imgPath, filename)) ? filename: 'padnet.png';
 
     barajas.push({
@@ -170,8 +170,6 @@ exports.explorar = function(req, res){
 
   var _repo = new repo.Repository('./repo');
 
-
-
   _repo.getWords({}, function(err, data){
     data = data.filter(function(w){
       return w.word.replace(/\s/g, '') !== '';
@@ -179,5 +177,29 @@ exports.explorar = function(req, res){
 
     res.render('cloud', { words: data } );
   });
+ 
+};
+
+// /explorar
+exports.ba = function(req, res){
+
+  var data = JSON.parse(fs.readFileSync(path.resolve('./data/entidades.json'), 'utf-8'));
+
+  var encuadres = [];
+
+  for (var an in data) {
+    var area = data[an];
+
+    if (area.encuadre !== undefined) {
+      encuadres.push({
+        img: '/images/' + area.alias.replace(/\s+/g, '_') + '/encuadre.png',
+        alt: 'Encuadre para ' + an,
+        href: area.encuadre
+      });
+    }
+
+  }
+
+  res.render('ba', { encuadres: encuadres } );
  
 };

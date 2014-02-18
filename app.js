@@ -1,10 +1,4 @@
-/*!
- * PAD-Repository
- *
- * Copyright(c) 2013-2014 Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)
- * GPL Plublic License v3
- */
- 
+
 /**
  * Module dependencies.
  */
@@ -121,6 +115,7 @@ function configureRoutes(app, ops) {
   app.get('/tangibles/:owner/:target?', routes.tangibles);
   app.get('/tangible/:uid', routes.tangible);
   app.get('/explorar', routes.explorar);
+  app.get('/ba', routes.ba);
 
   if (ops.panelEnabled) {
     //panel

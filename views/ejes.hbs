@@ -10,12 +10,15 @@
   <ul class="ejes no-js">
     {{#each ejes}}
       <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
-        <img src="/images/{{img}}" alt="{{alt}}">
+        <a href="{{href}}"><img src="/images/{{img}}" alt="{{alt}}"></a>
         <a href="{{href}}"><h4>{{title}}</h4></a>
       </li>
     {{/each}}
   </ul>
   {{#if isEmpty}}
+    <div class="on-contruction">
+      <img src="/images/padnet-construction.png" alt="">
+    </div>
     <p class="ups-msg">Ups! No hay ejes por el momento.</p>
   {{/if}}
 </div>
