@@ -1,0 +1,141 @@
+body { 
+	padding-top: 0;
+  	color: black;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+#push,
+footer {
+	height: 60px;
+}
+
+footer {
+	background-color: white;
+}
+
+.footer-dte-logo {
+	float: left;
+	width: 268px;
+	height: 60px;
+	background: url('../images/footer-dte-logo.png');
+}
+
+.footer-ba-logo {
+	float: right;
+	width: 202px;
+	height: 60px;
+	background: url('../images/footer-ba-logo.png');	
+}
+
+
+// Barajas
+
+ul.baraja-container {
+	width: 200px;
+	height: 310px;
+	margin: 0 auto 30px;
+	position: relative;
+	padding: 0;
+	list-style-type: none;
+
+	li {
+		width: 100%;
+		height: 75%;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		cursor: pointer;
+		background: #fff;
+		pointer-events: auto;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		h4 {
+			text-align: center;
+		}
+	}
+}
+
+.no-js ul.baraja-container {
+	width: auto;
+	height: auto;
+	text-align: center;
+
+	li {
+		position: relative;
+		display: inline-block;
+		width: 200px;
+		height: 310px;
+		margin: 10px;
+	}
+}
+
+.baraja-main {
+	width: 200px;
+	margin: 30px auto;
+	color: #aaa;
+
+	h4 {
+		color: #666;
+		font-size: 14px;
+		padding: 8px 10px 5px;
+		margin: 20px 3px 5px;
+		border-bottom: 1px solid #f0f0f0;
+	}
+	
+	p {
+		font-size: 12px;
+		font-weight: 700;
+		padding: 0 10px;
+		margin: 10px 3px 0;
+	}
+		
+	ul.baraja-container li {
+		border-radius: 10px;
+		padding: 5px;
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	li img {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		border-radius: 10px 10px 0 0;
+	}
+}
+
+// /Barajas
+
+#cloud a {
+	margin: 3px;
+}
+
+// reponsive
+@media (max-width: 767px) {
+	footer {
+	  margin-left: -20px;
+	  margin-right: -20px;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	}
+}

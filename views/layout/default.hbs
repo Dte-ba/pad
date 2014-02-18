@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{> title}}</title>
+    
+    {{> header}}
+
+    {{> styles}}
+
+    {{{block "pageStyles"}}}
+    
+    {{> modernizr}}
+    
+  </head>
+  <body>
+    
+    <!-- content -->
+    <div id="wrap">
+      
+      <div id="content">
+        {{{body}}}  
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="container clearfix">
+        <div class="footer-dte-logo"></div><div class="footer-ba-logo"></div>
+      </div>
+    </footer>
+    
+    {{> scripts}}
+
+    {{{block 'pageScripts'}}}
+
+  </body>
+</html>
