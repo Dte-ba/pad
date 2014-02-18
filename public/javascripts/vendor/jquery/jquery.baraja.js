@@ -606,10 +606,8 @@
 	};
 	
 	$.fn.baraja = function( options ) {
-		var self = this
-		  , $this = $(this);
 
-		var instance = $this.data( 'baraja' );
+		var instance = $.data( this, 'baraja' );
 		
 		if ( typeof options === 'string' ) {
 			
@@ -648,7 +646,7 @@
 				}
 				else {
 
-					instance = $this.data('baraja', new $.Baraja( options, this ) );
+					instance = $.data( this, 'baraja', new $.Baraja( options, this ) );
 				
 				}
 

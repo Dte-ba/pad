@@ -1,0 +1,20 @@
+{{#contentFor 'pageStyles'}}
+  {{#unless production}}
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  {{/unless}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+  {{#unless production}}
+    <script src="/javascripts/vendor/jquery/jquery.tagcloud.js"></script> 
+    <script src="/javascripts/cloud.js"></script>
+  {{/unless}}
+{{/contentFor}}
+
+<div class="cloud-main">
+  <div id="cloud">
+  {{#each words}}
+    <a href="/tangibles/{{word}}" rel="{{weight}}">{{word}}</a>
+  {{/each}}
+  </div>
+</div>

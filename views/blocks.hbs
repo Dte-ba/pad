@@ -1,0 +1,21 @@
+{{#contentFor 'pageStyles'}}
+  {{#unless production}}
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  {{/unless}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+  {{#unless production}}
+    <script src="/javascripts/blocks.js"></script>
+  {{/unless}}
+{{/contentFor}}
+
+<ul class="blocks">
+  {{#each blocks}}
+    <li>
+      <a href="/tangibles/{{area}}/{{axis}}" title="{{name}}">
+        <img src="/images/{{img}}" alt="{{name}}">
+      </a>
+    </li>
+  {{/each}}
+</ul>

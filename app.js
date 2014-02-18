@@ -11,15 +11,25 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , panel = require('./routes/panel')
   , http = require('http')
   , path = require('path')
   , hbs = require('express-hbs')
+  , repo = require('pad-repository')
   ;
+
+var logger = require('custom-logger').config({ 
+    level: 0,
+    format: "\x1b[36m[pad-repo]\x1b[0m %timestamp% - %event% :%padding%%message%"
+});
+
 
 var app = express();
 
+var auth = express.basicAuth('pad', 'pad');
+
 // all environments
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 
 // define Handlebars engine
@@ -42,7 +52,26 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/bloques/:lvl/:owner/:target?', routes.bloques);
+app.get('/tangibles/:owner/:target?', routes.tangibles);
+app.get('/tangible/:uid?', routes.tangible);
+app.get('/explorar', routes.explorar);
+//panel
+app.get('/panel', auth, panel.index);
+app.get('/panel/packages/:filter?', auth, panel.packages);
+app.get('/panel/package/:uid', auth, panel.package);
+app.get('/panel/package/status/:uid/:status', auth, panel.packageStatus);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('PAD aplicaction listening on port ' + app.get('port'));
+});
+
+var _repo = new repo.HttpRepo('./repo', app);
+  
+_repo
+.on('init', function(data) {
+  logger.info('repository initialized on ' + _repo.path);
+})
+.on('log', function(msg) {
+  logger.info(msg);
 });

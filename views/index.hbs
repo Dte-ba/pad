@@ -1,1 +1,38 @@
-<h1>Index</h1>
+{{#contentFor 'pageStyles'}}
+	{{#unless production}}
+		<link rel="stylesheet" href="/stylesheets/main.css" />
+	{{/unless}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+	{{#unless production}}
+		<script src="/javascripts/vendor/jquery/jquery.baraja.js"></script>
+		<script src="/javascripts/koExtender.bindings.js"></script>
+    <script src="/javascripts/main.js"></script>
+	{{/unless}}
+{{/contentFor}}
+
+
+<div data-bind="visible: isLoading">Loading ...</div>
+<div data-bind="visible: !isLoading()" style="display: none;">
+  <div class="baraja-main clearfix">
+
+    <ul id="baraja-el" class="baraja-container" data-bind="click: itemClick">
+      {{#each barajas}}
+        <li data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
+          <img src="/images/{{img}}" alt="{{alt}}">
+          <h4>{{title}}</h4>
+        </li>
+      {{/each}}
+    </ul>
+
+    <ul class="pager">
+      <!--<li><a href="#" data-bind="click: barajaPrev">&laquo;</a></li>-->
+      <li><a href="#" data-bind="click: seleccionarBaraja">Seleccionar</a></li>
+      <li><a href="/explorar">Explorar</a></li>
+      <!--<li><a href="#" data-bind="click: barajaNext">&raquo;</a></li>-->
+    </ul>
+
+  </div>
+
+</div>

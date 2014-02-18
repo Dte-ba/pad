@@ -1,0 +1,36 @@
+{{#contentFor 'pageStyles'}}
+  {{#unless production}}
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  {{/unless}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+  {{#unless production}}
+    <script src="/javascripts/blocks.js"></script>
+  {{/unless}}
+{{/contentFor}}
+
+{{#with tangible}}
+<div class="container">
+  <article class="tangible">
+    <div class="row">
+      <div class="col-sm-6">
+        <img class="img-responsive" src="/package/{{uid}}/image/content" alt="{{content.title}}"/>
+      </div>
+      <div class="col-sm-6">
+        <h4>Ficha Técnica</h4>
+        <p>
+          {{content.content}}
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-body text-center">
+        <a class="btn btn-sm-lg" style="width: 100%; font-size: 150%" href="/package/{{uid}}/content">
+        <i class="icon-download"></i> Descargar contenido</a>
+      </div>
+    </div>
+  </article>
+</div>
+{{/with}}

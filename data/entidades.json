@@ -1,0 +1,340 @@
+{
+    "Inglés": {
+        "axis": {
+            "Poesía": {
+                "alias": "poesia",
+                "blocks": {
+                    "Rimas": {
+                        "alias": "rimas"
+                    },
+                    "Poemas": {
+                        "alias": "poemas"
+                    },
+                    "Canciones": {
+                        "alias": "canciones"
+                    },
+                    "Trabalenguas": {
+                        "alias": "trabalenguas"
+                    }
+                }
+            },
+            "Géneros no ficcionales": {
+                "alias": "generos no ficcionales",
+                "blocks": {
+                    "Cuarto": {
+                        "alias": "cuarto"
+                    },
+                    "Quinto": {
+                        "alias": "quinto"
+                    },
+                    "Sexto": {
+                        "alias": "sexto"
+                    }
+                }
+            },
+            "Drama": {
+                "alias": "drama",
+                "blocks": {
+                    "Guiones": {
+                        "alias": "guiones"
+                    },
+                    "Obras de teatro": {
+                        "alias": "obras de teatro"
+                    },
+                    "Juegos Interactivos": {
+                        "alias": "juegos interactivos"
+                    },
+                    "Entrevistas": {
+                        "alias": "entrevistas"
+                    }
+                }
+            },
+            "Ficción": {
+                "alias": "ficcion",
+                "blocks": {
+                    "Cuentos": {
+                        "alias": "cuentos"
+                    },
+                    "Fábulas": {
+                        "alias": "fabulas"
+                    }
+                }
+            },
+            "Medios": {
+                "alias": "medios",
+                "blocks": {
+                    "Cancionero": {
+                        "alias": "cancionero"
+                    },
+                    "Textos informativos": {
+                        "alias": "textos informativos"
+                    }
+                }
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "ingles"
+    },
+    "Ciencias Naturales": {
+        "axis": {
+            "La Tierra y el Universo": {
+                "alias": "la tierra y el universo",
+                "blocks": {
+                    "Historia de la Tierra": {
+                        "alias": "historia de la tierra"
+                    },
+                    "Universo": {
+                        "alias": "universo"
+                    }
+                }
+            },
+            "Materiales": {
+                "alias": "materiales",
+                "blocks": {
+                    "Calor": {
+                        "alias": "calor"
+                    },
+                    "Cambios Químicos": {
+                        "alias": "cambios quimicos"
+                    },
+                    "Electricidad": {
+                        "alias": "electricidad"
+                    },
+                    "Estados de Agregación y Mezclas": {
+                        "alias": "estados de agregacion y mezclas"
+                    },
+                    "Magnetismo": {
+                        "alias": "magnetismo"
+                    }
+                }
+            },
+            "Mundo Físico": {
+                "alias": "mundo fisico",
+                "blocks": {
+                    "Fuerzas": {
+                        "alias": "fuerzas"
+                    },
+                    "Luz": {
+                        "alias": "luz"
+                    },
+                    "Sonido": {
+                        "alias": "sonido"
+                    }
+                }
+            },
+            "Seres Vivos": {
+                "alias": "seres vivos",
+                "blocks": {
+                    "Diversidad": {
+                        "alias": "diversidad"
+                    },
+                    "Animales": {
+                        "alias": "animales"
+                    },
+                    "Hábitat": {
+                        "alias": "habitat"
+                    }
+                }
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "ciencias naturales"
+    },
+    "Educación Física": {
+        "axis": {
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "educacion fisica"
+    },
+    "Ciencias Sociales": {
+        "axis": {
+            "Las Sociedades a través del Tiempo": {
+                "alias": "las sociedades a traves del tiempo",
+                "blocks": {
+                    "Pueblos originarios y del actual territorio argentino": {
+                        "alias": "pueblos originarios y del actual territorio argentino"
+                    },
+                    "Período Colonial": {
+                        "alias": "periodo colonial"
+                    },
+                    "Revoluciones y Guerras de Independencia": {
+                        "alias": "revoluciones y guerras de independencia"
+                    },
+                    "Autonomías Provinciales. Unitarios y Federales": {
+                        "alias": "autonomias provinciales. unitarios y federales"
+                    },
+                    "Construcción del Estado Nacional Argentino (1853-1880)": {
+                        "alias": "construccion del estado nacional argentino (1853-1880)"
+                    },
+                    "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)": {
+                        "alias": "regimen politico oligarquico. auge y crisis (1880 - 1916)"
+                    },
+                    "Democracias y Dictaduras": {
+                        "alias": "democracias y dictaduras"
+                    }
+                }
+            },
+            "Sociedades y Territorios": {
+                "alias": "sociedades y territorios",
+                "blocks": {
+                    "Provincia de Buenos Aires": {
+                        "alias": "provincia de buenos aires"
+                    },
+                    "Argentina": {
+                        "alias": "argentina"
+                    },
+                    "Latinoamérica y el Mundo": {
+                        "alias": "latinoamerica y el mundo"
+                    },
+                    "Constitución de la Provincia de Buenos Aires": {
+                        "alias": "constitucion de la provincia de buenos aires"
+                    },
+                    "Constitución de la Nación Argentina": {
+                        "alias": "constitucion de la nacion argentina"
+                    }
+                }
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "ciencias sociales"
+    },
+    "Matemática": {
+        "axis": {
+            "Geometría, Espacio y Medida": {
+                "alias": "geometria, espacio y medida",
+                "blocks": {
+                    "Figuras y Cuerpos Geométricos": {
+                        "alias": "figuras y cuerpos geometricos"
+                    },
+                    "Planos y Recorridos": {
+                        "alias": "planos y recorridos"
+                    }
+                }
+            },
+            "Números": {
+                "alias": "numeros",
+                "blocks": {
+                    "Números Naturales": {
+                        "alias": "numeros naturales"
+                    },
+                    "Números Racionales": {
+                        "alias": "numeros racionales"
+                    }
+                }
+            },
+            "Operaciones": {
+                "alias": "operaciones",
+                "blocks": {
+                    "Suma y Resta": {
+                        "alias": "suma y resta"
+                    },
+                    "Multiplicación y División": {
+                        "alias": "multiplicacion y division"
+                    },
+                    "Proporcionalidad": {
+                        "alias": "proporcionalidad"
+                    }
+                }
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "matematica"
+    },
+    "Prácticas del Lenguaje": {
+        "axis": {
+            "Formación del lector literario": {
+                "alias": "formacion del lector literario",
+                "blocks": {
+                    "Cuentos": {
+                        "alias": "cuentos"
+                    },
+                    "Leyendas": {
+                        "alias": "leyendas"
+                    },
+                    "Coplas": {
+                        "alias": "coplas"
+                    },
+                    "Refranes": {
+                        "alias": "refranes"
+                    },
+                    "Audiolibros": {
+                        "alias": "audiolibros"
+                    }
+                }
+            },
+            "Formación del estudiante": {
+                "alias": "formacion del estudiante",
+                "blocks": {
+                    "Textos informativos": {
+                        "alias": "textos informativos"
+                    }
+                }
+            },
+            "Formación ciudadana": {
+                "alias": "formacion ciudadana",
+                "blocks": {
+                    "Afiches": {
+                        "alias": "afiches"
+                    },
+                    "Publicidades": {
+                        "alias": "publicidades"
+                    },
+                    "Graffitis": {
+                        "alias": "graffitis"
+                    },
+                    "Textos periodisticos": {
+                        "alias": "textos periodisticos"
+                    },
+                    "Adicciones": {
+                        "alias": "adicciones"
+                    }
+                }
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "practicas del lenguaje"
+    },
+    "Educación Artística": {
+        "axis": {
+            "Plástica": {
+                "alias": "plastica",
+                "blocks": {}
+            },
+            "Música": {
+                "alias": "musica",
+                "blocks": {}
+            },
+            "Danza": {
+                "alias": "danza",
+                "blocks": {}
+            },
+            "Teatro": {
+                "alias": "teatro",
+                "blocks": {}
+            },
+            "Sala de Docentes": {
+                "alias": "sala de docentes",
+                "blocks": {}
+            }
+        },
+        "alias": "educacion artistica"
+    }
+}
