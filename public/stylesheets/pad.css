@@ -39,3 +39,4 @@ ul.nav-buttons li a:hover{border-color:#b64016;background-color:#1f7988;color:#f
 ul.ejes,ul.encuadres{list-style-type:none}
 ul.encuadres li{display:inline-table;width:200px;height:160px;margin:5px}
 ul.encuadres a{text-decoration:none}
+.to-cloud{text-align:center;padding-bottom:20px}

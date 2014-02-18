@@ -76,7 +76,7 @@ exports.ejes = function(req, res){
 
   }
 
-  res.render('ejes', { ejes: ejes });
+  res.render('ejes', { ejes: ejes, area: area });
 };
 // /bloques/:owner/:target
 exports.bloques = function(req, res){
@@ -119,6 +119,8 @@ exports.bloques = function(req, res){
   
   var vm = {};
   vm.blocks = bls;
+  vm.axis = target;
+  
   if (bls.length == 0) {
     vm.isEmpty = true;
   }
@@ -142,6 +144,8 @@ exports.tangibles = function(req, res){
     
     var vm = {};
     vm.tangibles = data;
+    vm.toExplore = word;
+
     if (data.length === 0) {
       vm.isEmpty = true;
     }
@@ -167,12 +171,16 @@ exports.tangible = function(req, res){
 
 // /explorar
 exports.explorar = function(req, res){
+  var match = req.params.match
+      , forceLevel = req.query.fl;
 
   var _repo = new repo.Repository('./repo');
 
-  _repo.getWords({}, function(err, data){
+  _repo.getWords({ filter: match, forceLevel: forceLevel}, function(err, data){
+    data = data || [];
+
     data = data.filter(function(w){
-      return w.word.replace(/\s/g, '') !== '';
+      return w.replace(/\s/g, '') !== '';
     });
 
     res.render('cloud', { words: data } );
