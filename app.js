@@ -20,9 +20,11 @@ var express = require('express')
   , fs = require('fs')
   ;
 
+var members = require('./data/security.json');
 
-var auth = express.basicAuth('pad', 'pad')
-  , testAuth = express.basicAuth('test', 'test');
+var auth = express.basicAuth(members.admin.username, members.admin.password)
+  , testAuth = express.basicAuth(members.test.username, members.test.password)
+  ;
 
 var logger = module.exports.logger = require('custom-logger').config({ 
     level: 0,

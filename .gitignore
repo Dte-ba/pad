@@ -54,3 +54,6 @@ Thumbs.db
 # User
 /.mimosa
 /repo
+
+# Security
+/data/security.json
