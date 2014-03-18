@@ -122,6 +122,8 @@ exports.bloques = function(req, res){
   vm.axis = target;
   
   if (bls.length == 0) {
+    // redirect to tangibles
+    res.redirect('/tangibles/' + owner + '/' + target);
     vm.isEmpty = true;
   }
 
