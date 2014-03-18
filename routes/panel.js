@@ -90,7 +90,7 @@ exports.packages = function(req, res){
 exports.package = function(req, res){
   var uid = req.params.uid;
 
-  var _repo = new repo.Repository('./repo');
+  var _repo = new repo.Repository(path.resolve('./repo'));
 
   var flags = loadFlags();
 
@@ -122,6 +122,41 @@ exports.package = function(req, res){
 };
 
 /*
+ * GET clean.
+ * 
+ * /panel/clean
+ */
+exports.cleanCache = function(req, res){
+  
+  res.render('panel/clean-cache', {  } );
+
+};
+
+/*
+ * POST restore.
+ * 
+ * /panel/restore
+ */
+exports.restoreCache = function(req, res){
+    
+    var _repo = new repo.Repository(path.resolve('./repo'));
+
+    _repo.restore(function(err){
+
+      if (err) {
+         console.error('Error inesperado', err);
+         res.send(500, 'Error inesperado');
+        return;
+      }
+
+      res.status(200);
+      res.send('Cache restaurado');
+      console.log('ready!');
+    });
+
+};
+
+/*
  * POST package.
  * 
  * /panel/package/status/:uid/:status
@@ -144,7 +179,6 @@ exports.packageStatus = function(req, res){
   res.end(JSON.stringify({ status: status }));
 
 };
-
 
 //
 // private functions

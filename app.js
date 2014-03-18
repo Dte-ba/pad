@@ -44,7 +44,7 @@ var createServer = module.exports.createServer = function(ops) {
   ops.panelEnabled = (ops.panelEnabled === undefined) ? false : ops.panelEnabled;
 
   // all environments
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 8000);
   app.set('views', __dirname + '/views');
 
   app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
@@ -131,6 +131,8 @@ function configureRoutes(app, ops) {
     app.get('/panel/packages/:filter?', auth, panel.packages);
     app.get('/panel/package/:uid', auth, panel.package);
     app.get('/panel/package/status/:uid/:status', auth, panel.packageStatus);
+    app.get('/panel/clean', auth, panel.cleanCache);
+    app.post('/panel/restore', auth, panel.restoreCache);
   }
   
   if (!isProd) return;
