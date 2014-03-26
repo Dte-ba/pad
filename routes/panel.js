@@ -180,6 +180,26 @@ exports.packageStatus = function(req, res){
 
 };
 
+exports.stats = function(req, res){
+  var  type = req.query.type;
+  var _repo = new repo.Repository('./repo');
+
+
+  _repo.getStats(function(err, data){
+    
+    if (type === 'json') {
+      res.charset = 'utf-8';
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end(JSON.stringify(data));
+      return;
+    }
+
+    res.render('panel/stats', { stats: data } );
+
+  });
+  
+}
+
 //
 // private functions
 

@@ -125,6 +125,7 @@ function configureRoutes(app, ops) {
   app.get('/explorar/:match?', routes.explorar);
   app.get('/ba', routes.ba);
 
+
   if (ops.panelEnabled) {
     //panel
     app.get('/panel', auth, panel.index);
@@ -133,6 +134,7 @@ function configureRoutes(app, ops) {
     app.get('/panel/package/status/:uid/:status', auth, panel.packageStatus);
     app.get('/panel/clean', auth, panel.cleanCache);
     app.post('/panel/restore', auth, panel.restoreCache);
+    app.get('/panel/stats', panel.stats);
   }
   
   if (!isProd) return;
