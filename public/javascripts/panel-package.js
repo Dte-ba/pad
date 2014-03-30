@@ -1,5 +1,5 @@
 /**
- * The stats page of PAD
+ * The blocks page of PAD
  */
 !function($, ko, _, window, undefined){
   "use strict";

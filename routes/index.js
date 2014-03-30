@@ -25,24 +25,29 @@ exports.index = function(req, res){
   var imgPath = './public/images/';
   var filename;
 
+
+  
+  
+
   for (var an in data) {
     
     var area = data[an];
 
     filename = (area.alias.replace(/\s+/g, '_') + '/padnet.png').replace(/\s/g, '_');
     filename = fs.existsSync(path.join(imgPath, filename)) ? filename: 'padnet.png';
-
-    barajas.push({
-      img: filename,
-      alt: an,
-      title: an,
-      level: 1,
-      owner: '',
-      href: '/ejes/' + an
-    });
-
-  }
-
+    
+    //console.log(an);
+    if (!(an == 'Temas Transversales' || an == 'Orientación PAD')) {
+      barajas.push({
+        img: filename,
+        alt: an,
+        title: an,
+        level: 1,
+        owner: '',
+        href: '/ejes/' + an
+      });
+    }
+}
   res.render('index', { barajas: barajas });
 };
 
@@ -73,7 +78,6 @@ exports.ejes = function(req, res){
       owner: as,
       href: '/bloques/' + area + '/' + ax
     });
-
   }
 
   res.render('ejes', { ejes: ejes, area: area });
@@ -120,6 +124,7 @@ exports.bloques = function(req, res){
   var vm = {};
   vm.blocks = bls;
   vm.axis = target;
+  vm.owner = owner;
   
   if (bls.length == 0) {
     // redirect to tangibles
@@ -190,7 +195,7 @@ exports.explorar = function(req, res){
  
 };
 
-// /explorar
+// /encuadres
 exports.ba = function(req, res){
 
   var data = JSON.parse(fs.readFileSync(path.resolve('./data/entidades.json'), 'utf-8'));
@@ -207,8 +212,13 @@ exports.ba = function(req, res){
         href: area.encuadre
       });
     }
-
   }
+
+  encuadres.push({
+    img: '/images/artistica/encuadre.png',
+    alt: 'Encuadre para artistica',
+    href: '/files/encuadre_artistica.pdf'
+  });
 
   res.render('ba', { encuadres: encuadres } );
  

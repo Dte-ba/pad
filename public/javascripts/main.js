@@ -82,9 +82,16 @@
 
       $(function(){
         // when de DOM is loaded
-        _baraja = $('#baraja-el').baraja();
+        _baraja = $('#baraja-el').baraja();        
         _baraja.fanSettings.range = 270;
-
+        /*
+        _baraja.fanSettings.range = 100;        
+        _baraja.fanSettings.origin.x=25;
+        _baraja.fanSettings.origin.y=300;
+        _baraja.fanSettings.easing='ease-out';
+        _baraja.fanSettings.center=true;
+        _baraja.fanSettings.direction='right';
+        */
 
         $('#baraja-el a').click(function(event){
           event.stopPropagation();

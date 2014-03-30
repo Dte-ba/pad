@@ -1,17 +1,40 @@
 {{#contentFor 'pageStyles'}}
 <link rel="stylesheet" href="/stylesheets/pad.css" />
+<link rel="stylesheet" href="/stylesheets/dock-left.css" />
 {{/contentFor}}
 
 {{#contentFor 'pageScripts'}}
 <script src="/javascripts/blocks.js"></script>
+<script type='text/javascript' src='/javascripts/jquery.jqDock.min.js'></script>
+<script type='text/javascript' src='/javascripts/clicks.js'></script>
+<script type='text/javascript' src='/javascripts/jqdoc.anim.js'></script>
 {{/contentFor}}
 
-<div class="container">
-  <div class="to-cloud">
-    <a id="btn-explorar" href="/explorar/{{area}}" title="Explorar desde aquí">
+<!--
+ <div class="container">
+  <div class="path">
+    <>
       <img src="/images/cloud-icon.png" alt="">
     </a>
-  </div>
+  </div> 
+  -->
+<!--
+ <div class="container">
+  <div class="path">
+     <p>{{area}}</p>
+  </div> 
+ </div> 
+-->
+  <div id='page'>
+    <div id='menu'>
+      <img src='../images/dock_left/inicio.png' title='Inicio' alt='' />
+      <img src='../../images/dock_left/bienvenida.png' title='Bienvenida' alt='' />
+      <img src='../images/dock_left/nubesemantica.png' title='Nube' alt='' />
+      <img src='../images/dock_left/orientaciones.png' title='Orientaciones' alt='' />
+      <img src='../images/dock_left/temastransversales.png' title='Transversales' alt='' />
+      <img src='../images/dock_left/contacto.png' title='Contacto' alt='' />      
+    </div>
+  </div>  
   <ul class="ejes no-js">
     {{#each ejes}}
       <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">

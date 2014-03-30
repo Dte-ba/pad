@@ -1,344 +1,692 @@
 {
-    "Inglés": {
-        "axis": {
-            "Poesía": {
-                "alias": "poesia",
-                "blocks": {
-                    "Rimas": {
-                        "alias": "rimas"
-                    },
-                    "Poemas": {
-                        "alias": "poemas"
-                    },
-                    "Canciones": {
-                        "alias": "canciones"
-                    },
-                    "Trabalenguas": {
-                        "alias": "trabalenguas"
-                    }
-                }
-            },
-            "Géneros no ficcionales": {
-                "alias": "generos no ficcionales",
-                "blocks": {
-                    "Cuarto": {
-                        "alias": "cuarto"
-                    },
-                    "Quinto": {
-                        "alias": "quinto"
-                    },
-                    "Sexto": {
-                        "alias": "sexto"
-                    }
-                }
-            },
-            "Drama": {
-                "alias": "drama",
-                "blocks": {
-                    "Guiones": {
-                        "alias": "guiones"
-                    },
-                    "Obras de teatro": {
-                        "alias": "obras de teatro"
-                    },
-                    "Juegos Interactivos": {
-                        "alias": "juegos interactivos"
-                    },
-                    "Entrevistas": {
-                        "alias": "entrevistas"
-                    }
-                }
-            },
-            "Ficción": {
-                "alias": "ficcion",
-                "blocks": {
-                    "Cuentos": {
-                        "alias": "cuentos"
-                    },
-                    "Fábulas": {
-                        "alias": "fabulas"
-                    }
-                }
-            },
-            "Medios": {
-                "alias": "medios",
-                "blocks": {
-                    "Cancionero": {
-                        "alias": "cancionero"
-                    },
-                    "Textos informativos": {
-                        "alias": "textos informativos"
-                    }
-                }
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "ingles"
+  "Inglés": {
+    "axis": {
+      "Contextos de la Vida Cotidiana Escolar": {
+        "alias": "contextos de la vida cotidiana escolar",
+        "blocks": {
+          "Yo": {
+            "alias": "yo"
+          },
+          "Mi Escuela": {
+            "alias": "mi escuela"
+          },
+          "Mis amigos": {
+            "alias": "mis amigos"
+          },
+          "Mi Familia y mi Hogar": {
+            "alias": "mi familia y mi hogar"
+          },
+          "Mi Mascota": {
+            "alias": "mi mascota"
+          },
+          "Mi Día a Día": {
+            "alias": "mi dia a dia"
+          },
+          "Mi barrio - Ciudad - Provincia - País": {
+            "alias": "mi barrio ciudad provincia pais"
+          }
+        }
+      },
+      "Contextos de los Contenidos Escolares": {
+        "alias": "contextos de los contenidos escolares",
+        "blocks": {
+          "El Espacio": {
+            "alias": "el espacio"
+          },
+          "Cuidado del Medio Ambiente": {
+            "alias": "cuidado del medio ambiente"
+          },
+          "Los Cambios en la Naturaleza": {
+            "alias": "los cambios en la naturaleza"
+          },
+          "Los Seres Vivos": {
+            "alias": "los seres vivos"
+          },
+          "Animales Extintos": {
+            "alias": "animales extintos"
+          },
+          "Las Actividades Humanas": {
+            "alias": "las actividades humanas"
+          },
+          "La Organización Social": {
+            "alias": "la organizacion social"
+          }
+        }
+      },
+      "Contextos Literarios y Populares": {
+        "alias": "contextos literarios y populares",
+        "blocks": {
+          "Ficción": {
+            "alias": "ficcion"
+          },
+          "Poesía": {
+            "alias": "poesia"
+          },
+          "Drama": {
+            "alias": "drama"
+          },
+          "Géneros no Ficcionales": {
+            "alias": "generos no ficcionales"
+          },
+          "Medios": {
+            "alias": "medios"
+          },
+          "Colecciones": {
+            "alias": "colecciones"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Ciencias Naturales": {
-        "axis": {
-            "La Tierra y el Universo": {
-                "alias": "la tierra y el universo",
-                "blocks": {
-                    "Historia de la Tierra": {
-                        "alias": "historia de la tierra"
-                    },
-                    "Universo": {
-                        "alias": "universo"
-                    }
-                }
-            },
-            "Materiales": {
-                "alias": "materiales",
-                "blocks": {
-                    "Calor": {
-                        "alias": "calor"
-                    },
-                    "Cambios Químicos": {
-                        "alias": "cambios quimicos"
-                    },
-                    "Electricidad": {
-                        "alias": "electricidad"
-                    },
-                    "Estados de Agregación y Mezclas": {
-                        "alias": "estados de agregacion y mezclas"
-                    },
-                    "Magnetismo": {
-                        "alias": "magnetismo"
-                    }
-                }
-            },
-            "Mundo Físico": {
-                "alias": "mundo fisico",
-                "blocks": {
-                    "Fuerzas": {
-                        "alias": "fuerzas"
-                    },
-                    "Luz": {
-                        "alias": "luz"
-                    },
-                    "Sonido": {
-                        "alias": "sonido"
-                    }
-                }
-            },
-            "Seres Vivos": {
-                "alias": "seres vivos",
-                "blocks": {
-                    "Diversidad": {
-                        "alias": "diversidad"
-                    },
-                    "Animales": {
-                        "alias": "animales"
-                    },
-                    "Hábitat": {
-                        "alias": "habitat"
-                    }
-                }
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "ciencias naturales",
-        "encuadre": "/files/encuadre_naturales.pdf"
+    "alias": "ingles",
+    "encuadre": "/files/encuadre_ingles.pdf"
+  },
+  "Ciencias Naturales": {
+    "axis": {
+      "La Tierra y el Universo": {
+        "alias": "la tierra y el universo",
+        "blocks": {
+          "Historia de la Tierra": {
+            "alias": "historia de la tierra"
+          },
+          "Universo": {
+            "alias": "universo"
+          }
+        }
+      },
+      "Materiales": {
+        "alias": "materiales",
+        "blocks": {
+          "Calor": {
+            "alias": "calor"
+          },
+          "Cambios Químicos": {
+            "alias": "cambios quimicos"
+          },
+          "Electricidad": {
+            "alias": "electricidad"
+          },
+          "Estados de Agregación y Mezclas": {
+            "alias": "estados de agregacion y mezclas"
+          },
+          "Magnetismo": {
+            "alias": "magnetismo"
+          }
+        }
+      },
+      "Mundo Físico": {
+        "alias": "mundo fisico",
+        "blocks": {
+          "Fuerzas": {
+            "alias": "fuerzas"
+          },
+          "Luz": {
+            "alias": "luz"
+          },
+          "Sonido": {
+            "alias": "sonido"
+          }
+        }
+      },
+      "Seres Vivos": {
+        "alias": "seres vivos",
+        "blocks": {
+          "Animales": {
+            "alias": "animales"
+          },
+          "Plantas": {
+            "alias": "plantas"
+          },
+          "Hongos y Microorganismos": {
+            "alias": "hongos y microorganismos"
+          },
+          "Paisajes y Ambientes": {
+            "alias": "paisajes ambientales"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Educación Física": {
-        "axis": {
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "educacion fisica"
+    "alias": "ciencias naturales",
+    "encuadre": "/files/encuadre_naturales.pdf"
+  },
+  "Educación Física": {
+    "axis": {
+      "Constitución Corporal": {
+        "alias": "constitucion corporal",
+        "blocks": {
+          "Capacidades Condicionales": {
+            "alias": "capacidades condicionales"
+          },
+          "Capacidades Coordinativas": {
+            "alias": "capacidades coordinativas"
+          }
+        }
+      },
+      "Consciencia Corporal": {
+        "alias": "consciencia corporal",
+        "blocks": {}
+      },
+      "Habilidades Motrices": {
+        "alias": "habilidades motrices",
+        "blocks": {
+          "Desplazamiento": {
+            "alias": "desplazamiento"
+          },
+          "Dominio Corporal": {
+            "alias": "dominio corporal"
+          },
+          "Manipulación": {
+            "alias": "manipulacion"
+          },
+          "Combinadas en Juego": {
+            "alias": "combinadas en juego"
+          },
+          "Combinadas en Recorrido ": {
+            "alias": "combinadas en recorrido"
+          }
+        }
+      },
+      "Construcción del juego socio-motor": {
+        "alias": "construccion del juego socio motor",
+        "blocks": {
+          "Cooperativo y de Oposición": {
+            "alias": "cooperativo y de oposicion"
+          },
+          "Reglamentos": {
+            "alias": "reglamentos"
+          },
+          "Juegos Tradicionales": {
+            "alias": "juegos tradicionales"
+          }
+        }
+      },
+      "Comunicación corporal": {
+        "alias": "comunicacion corporal",
+        "blocks": {
+          "Expresión corporal": {
+            "alias": "expresion corporal"
+          },
+          "Secuencias motrices": {
+            "alias": "secuencias motrices"
+          }
+        }
+      },
+      "Vida en la naturaleza": {
+        "alias": "vida en la naturaleza",
+        "blocks": {}
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Ciencias Sociales": {
-        "axis": {
-            "Las Sociedades a través del Tiempo": {
-                "alias": "las sociedades a traves del tiempo",
-                "blocks": {
-                    "Pueblos originarios y del actual territorio argentino": {
-                        "alias": "pueblos originarios y del actual territorio argentino"
-                    },
-                    "Período Colonial": {
-                        "alias": "periodo colonial"
-                    },
-                    "Revoluciones y Guerras de Independencia": {
-                        "alias": "revoluciones y guerras de independencia"
-                    },
-                    "Autonomías Provinciales. Unitarios y Federales": {
-                        "alias": "autonomias provinciales. unitarios y federales"
-                    },
-                    "Construcción del Estado Nacional Argentino (1853-1880)": {
-                        "alias": "construccion del estado nacional argentino (1853-1880)"
-                    },
-                    "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)": {
-                        "alias": "regimen politico oligarquico. auge y crisis (1880 - 1916)"
-                    },
-                    "Democracias y Dictaduras": {
-                        "alias": "democracias y dictaduras"
-                    }
-                }
-            },
-            "Sociedades y Territorios": {
-                "alias": "sociedades y territorios",
-                "blocks": {
-                    "Provincia de Buenos Aires": {
-                        "alias": "provincia de buenos aires"
-                    },
-                    "Argentina": {
-                        "alias": "argentina"
-                    },
-                    "Latinoamérica y el Mundo": {
-                        "alias": "latinoamerica y el mundo"
-                    },
-                    "Constitución de la Provincia de Buenos Aires": {
-                        "alias": "constitucion de la provincia de buenos aires"
-                    },
-                    "Constitución de la Nación Argentina": {
-                        "alias": "constitucion de la nacion argentina"
-                    }
-                }
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "ciencias sociales",
-        "encuadre": "/files/encuadre_sociales.pdf"
+    "alias": "educacion fisica",
+    "encuadre": "/files/encuadre_ef.pdf"
+  },
+  "Ciencias Sociales": {
+    "axis": {
+      "Las Sociedades a través del Tiempo": {
+        "alias": "las sociedades a traves del tiempo",
+        "blocks": {
+          "Pueblos originarios y del actual territorio argentino": {
+            "alias": "pueblos originarios y del actual territorio argentino"
+          },
+          "Período Colonial": {
+            "alias": "periodo colonial"
+          },
+          "Revoluciones y Guerras de Independencia": {
+            "alias": "revoluciones y guerras de independencia"
+          },
+          "Autonomías Provinciales. Unitarios y Federales": {
+            "alias": "autonomias provinciales. unitarios y federales"
+          },
+          "Construcción del Estado Nacional Argentino (1853-1880)": {
+            "alias": "construccion del estado nacional argentino (1853-1880)"
+          },
+          "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)": {
+            "alias": "regimen politico oligarquico. auge y crisis (1880 - 1916)"
+          },
+          "Democracias y Dictaduras": {
+            "alias": "democracias y dictaduras"
+          }
+        }
+      },
+      "Sociedades y Territorios": {
+        "alias": "sociedades y territorios",
+        "blocks": {
+          "Provincia de Buenos Aires": {
+            "alias": "provincia de buenos aires"
+          },
+          "Argentina": {
+            "alias": "argentina"
+          },
+          "Latinoamérica y el Mundo": {
+            "alias": "latinoamerica y el mundo"
+          },
+          "Constitución de la Provincia de Buenos Aires": {
+            "alias": "constitucion de la provincia de buenos aires"
+          },
+          "Constitución de la Nación Argentina": {
+            "alias": "constitucion de la nacion argentina"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Matemática": {
-        "axis": {
-            "Geometría, Espacio y Medida": {
-                "alias": "geometria, espacio y medida",
-                "blocks": {
-                    "Figuras y Cuerpos Geométricos": {
-                        "alias": "figuras y cuerpos geometricos"
-                    },
-                    "Planos y Recorridos": {
-                        "alias": "planos y recorridos"
-                    }
-                }
-            },
-            "Números": {
-                "alias": "numeros",
-                "blocks": {
-                    "Números Naturales": {
-                        "alias": "numeros naturales"
-                    },
-                    "Números Racionales": {
-                        "alias": "numeros racionales"
-                    }
-                }
-            },
-            "Operaciones": {
-                "alias": "operaciones",
-                "blocks": {
-                    "Suma y Resta": {
-                        "alias": "suma y resta"
-                    },
-                    "Multiplicación y División": {
-                        "alias": "multiplicacion y division"
-                    },
-                    "Proporcionalidad": {
-                        "alias": "proporcionalidad"
-                    }
-                }
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "matematica",
-        "encuadre": "/files/encuadre_matematica.pdf"
+    "alias": "ciencias sociales",
+    "encuadre": "/files/encuadre_sociales.pdf"
+  },
+  "Matemática": {
+    "axis": {
+      "Geometría, Espacio y Medida": {
+        "alias": "geometria, espacio y medida",
+        "blocks": {
+          "Figuras y Cuerpos Geométricos": {
+            "alias": "figuras y cuerpos geometricos"
+          },
+          "Planos y Recorridos": {
+            "alias": "planos y recorridos"
+          }
+        }
+      },
+      "Números": {
+        "alias": "numeros",
+        "blocks": {
+          "Números Naturales": {
+            "alias": "numeros naturales"
+          },
+          "Números Racionales": {
+            "alias": "numeros racionales"
+          }
+        }
+      },
+      "Operaciones": {
+        "alias": "operaciones",
+        "blocks": {
+          "Suma y Resta": {
+            "alias": "suma y resta"
+          },
+          "Multiplicación y División": {
+            "alias": "multiplicacion y division"
+          },
+          "Proporcionalidad": {
+            "alias": "proporcionalidad"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Prácticas del Lenguaje": {
-        "axis": {
-            "Formación del lector literario": {
-                "alias": "formacion del lector literario",
-                "blocks": {
-                    "Cuentos": {
-                        "alias": "cuentos"
-                    },
-                    "Leyendas": {
-                        "alias": "leyendas"
-                    },
-                    "Coplas": {
-                        "alias": "coplas"
-                    },
-                    "Refranes": {
-                        "alias": "refranes"
-                    },
-                    "Audiolibros": {
-                        "alias": "audiolibros"
-                    }
-                }
-            },
-            "Formación del estudiante": {
-                "alias": "formacion del estudiante",
-                "blocks": {
-                    "Textos informativos": {
-                        "alias": "textos informativos"
-                    }
-                }
-            },
-            "Formación ciudadana": {
-                "alias": "formacion ciudadana",
-                "blocks": {
-                    "Afiches": {
-                        "alias": "afiches"
-                    },
-                    "Publicidades": {
-                        "alias": "publicidades"
-                    },
-                    "Graffitis": {
-                        "alias": "graffitis"
-                    },
-                    "Textos periodisticos": {
-                        "alias": "textos periodisticos"
-                    },
-                    "Adicciones": {
-                        "alias": "adicciones"
-                    }
-                }
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "practicas del lenguaje",
-        "encuadre": "/files/encuadre_pdl.pdf"
+    "alias": "matematica",
+    "encuadre": "/files/encuadre_matematica.pdf"
+  },
+  "Prácticas del Lenguaje": {
+    "axis": {
+      "Formación del lector literario": {
+        "alias": "formacion del lector literario",
+        "blocks": {
+          "Cuentos": {
+            "alias": "cuentos"
+          },
+          "Leyendas": {
+            "alias": "leyendas"
+          },
+          "Coplas": {
+            "alias": "coplas"
+          },
+          "Refranes": {
+            "alias": "refranes"
+          },
+          "Audiolibros": {
+            "alias": "audiolibros"
+          }
+        }
+      },
+      "Formación del estudiante": {
+        "alias": "formacion del estudiante",
+        "blocks": {
+          "Textos informativos": {
+            "alias": "textos informativos"
+          }
+        }
+      },
+      "Formación ciudadana": {
+        "alias": "formacion ciudadana",
+        "blocks": {
+          "Afiches": {
+            "alias": "afiches"
+          },
+          "Publicidades": {
+            "alias": "publicidades"
+          },
+          "Graffitis": {
+            "alias": "graffitis"
+          },
+          "Textos periodisticos": {
+            "alias": "textos periodisticos"
+          },
+          "Adicciones": {
+            "alias": "adicciones"
+          }
+        }
+      },
+      "Programas y Proyectos": {
+        "alias": "programas y proyectos",
+        "blocks": {
+          "Educación Para la Salud": {
+            "alias": "educacion para la salud"
+          },
+          "Educación Sexual Integral": {
+            "alias": "educacion sexual integral"
+          },
+          "Educación Ambiental": {
+            "alias": "educación ambiental"
+          },
+          "Educación Científica": {
+            "alias": "educación cientifica"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
     },
-    "Educación Artística": {
-        "axis": {
-            "Plástica": {
-                "alias": "plastica",
-                "blocks": {}
-            },
-            "Música": {
-                "alias": "musica",
-                "blocks": {}
-            },
-            "Danza": {
-                "alias": "danza",
-                "blocks": {}
-            },
-            "Teatro": {
-                "alias": "teatro",
-                "blocks": {}
-            },
-            "Sala de Docentes": {
-                "alias": "sala de docentes",
-                "blocks": {}
-            }
-        },
-        "alias": "educacion artistica"
-    }
+    "alias": "practicas del lenguaje",
+    "encuadre": "/files/encuadre_pdl.pdf"
+  },
+  "Educación Artística - Plástica": {
+    "axis": {
+      "Imagen": {
+        "alias": "imagen",
+        "blocks": {
+          "La imagen": {
+            "alias": "la imagen"
+          },
+          "Imágenes Artísticas": {
+            "alias": "imagenes artisticas"
+          },
+          "Imágenes Informativas": {
+            "alias": "imagenes informativas"
+          },
+          "Imágenes Persuasivas": {
+            "alias": "imagenes persuasivas"
+          },
+          "Imágenes Lúdicas": {
+            "alias": "imagenes ludicas"
+          }
+        }
+      },
+      "Recepción": {
+        "alias": "recepcion",
+        "blocks": {
+          "La Mirada como Construcción Cultural": {
+            "alias": "la mirada como construccion cultural"
+          },
+          "Relaciones intertextuales": {
+            "alias": "relaciones intertextuales"
+          },
+          "Construcción de Ciudadanos Críticos": {
+            "alias": "construccion de ciudadanos criticos"
+          },
+          "Motivos": {
+            "alias": "motivos"
+          },
+          "Otros aspectos": {
+            "alias": "otros aspectos"
+          }
+        }
+      },
+      "Producción": {
+        "alias": "produccion",
+        "blocks": {
+          "Producción de la Imagen": {
+            "alias": "produccion de la imagen"
+          },
+          "Tradicionales": {
+            "alias": "tradicionales"
+          },
+          "Contemporáneos": {
+            "alias": "contemporaneos"
+          },
+          "Nuevas Tecnologías": {
+            "alias": "nuevas tecnologias"
+          }
+        }
+      },
+      "Proyectos": {
+        "alias": "proyectos",
+        "blocks": {
+          "Texto Escrito para el Programa": {
+            "alias": "texto escrito para el programa"
+          },
+          "Construcción de Proyectos": {
+            "alias": "construccion de proyectos"
+          },
+          "Construcción de Problemáticas": {
+            "alias": "construccion de problematicas"
+          },
+          "Banco de Imágenes": {
+            "alias": "banco de imagenes"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
+    },
+    "alias": "educacion artistica plastica"
+  },
+  "Educación Artística - Música": {
+    "axis": {
+      "Materiales del Lenguaje Musical": {
+        "alias": "materiales del lenguaje musical",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Música - Materiales)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Música  - Materiales)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Música  - Materiales)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Música - Materiales)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "Organización del Lenguaje Musical": {
+        "alias": "organizacion del lenguaje musical",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Música - Lenguaje)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Música  - Lenguaje)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Música  - Lenguaje)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Música - Lenguaje)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "Composición": {
+        "alias": "composicion",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Música - Composición)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Música - Composición)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Música - Composición)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Música - Composición)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
+        "blocks": {}
+      }
+    },
+    "alias": "educacion artistica musica"
+  },
+  "Educación Artística - Danza": {
+    "axis": {
+      "El cuerpo en relación con...": {
+        "alias": "el cuerpo en relacion",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Danza - El cuerpo)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Danza - El cuerpo)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Danza - El cuerpo)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "La danza como lenguaje": {
+        "alias": "la danza como lenguaje",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Danza - Lenguaje)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Danza - Lenguaje)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Danza - Lenguaje)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "Los discursos corporales y el contexto socio–cultural": {
+        "alias": "los discursos corporales y contexto",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Danza - Discursos)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Danza - Discursos)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Danza - Discursos)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Danza - Discursos)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      }
+    },
+    "alias": "educacion artistica danza"
+  },
+  "Educación Artística - Teatro": {
+    "axis": {
+      "Elementos del Lenguaje Teatral": {
+        "alias": "elementos del lenguaje teatral",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Teatro - Lenguaje)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Teatro - Lenguaje)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Teatro - Lenguaje)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Teatro - Lenguaje)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      },
+      "Organización de los Elementos del Lenguaje Teatral": {
+        "alias": "organización de los elementos del lenguaje teatral",
+        "blocks": {
+          "Lenguaje (Ed.Ar. - Teatro - Elementos)": {
+            "alias": "lenguaje"
+          },
+          "Producción (Ed.Ar. - Teatro - Elementos)": {
+            "alias": "produccion"
+          },
+          "Recepción (Ed.Ar. - Teatro - Elementos)": {
+            "alias": "recepcion"
+          },
+          "Contexto sociocultural (Ed.Ar. - Teatro - Elementos)": {
+            "alias": "contexto sociocultural"
+          }
+        }
+      }
+    },
+    "alias": "educacion artistica teatro"
+  },
+  "EOE": {
+    "axis": {
+      "Convivencia escolar": {
+        "alias": "convivencia escolar",
+        "blocks": {}
+      } 
+    },
+    "alias": "EOE"
+  },
+  "CEC": {
+    "axis": {
+      "Construcción de Lazos sociales y comunitarios": {
+        "alias": "construccion de lazos sociales y comunitarios",
+        "blocks": {}
+      },
+      "Alfabetización y Múltiples Lenguajes": {
+        "alias": "alfabetizacion y multiples lenguajes",
+        "blocks": {}
+      },
+      "Salud: cuidado de sí y cuidado del otro": {
+        "alias": "salud, cuidado de si y cuidado del otro",
+        "blocks": {}
+      }           
+    },
+    "alias": "CEC"
+  },
+  "Orientación PAD": {
+    "axis": {
+      "Convivencia escolar": {
+        "alias": "convivencia escolar",
+        "blocks": {}
+      }      
+    },    
+  "alias": "orientacion pad"
+  },
+  "Temas Transversales": {
+    "axis": {
+      "Planes y Programas": {
+        "alias": "planes y programas",
+        "blocks": {}
+      }      
+    },    
+  "alias": "temas transversales"
+  }
 }
