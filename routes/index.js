@@ -141,12 +141,14 @@ exports.tangibles = function(req, res){
   
   var owner = req.params.owner;
   var target = req.params.target;
-
+    
   var word = target !== undefined ? target : owner;
+  var area =  target === 'Sala de Docentes' ? owner : undefined ;
 
   repo.find({ 
     path: path.resolve('./repo'),
-    word: word
+    word: word,
+    area: area
   }, function(err, data){
     
     var vm = {};
@@ -158,8 +160,9 @@ exports.tangibles = function(req, res){
     }
 
     res.render('tangibles', vm);
-  });
 
+  });
+  
   //res.render('tangibles');
 };
 
