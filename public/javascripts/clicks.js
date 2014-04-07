@@ -34,8 +34,24 @@ var DBG = function(c, x){
 					location.href="http://nticx.net/pad/contacto"
 					break;
 				case "Nube":
-					location.href="/"
+					var pathArray = window.location.pathname.split( '/' );
+
+					switch(pathArray.length){
+						case 2:
+							var r = pathArray[2] !== undefined ? pathArray[2] : "/";
+							break;
+						case 3:
+							var r = pathArray[2] !== undefined ? pathArray[2] : "/";
+							break;
+						case 4:
+						alert(pathArray[2]);
+						var r = pathArray[3] !== undefined ? pathArray[3] : "/";
+							break;
+					}
+
+					location.href="/explorar/"+r;
 					break;
+
 				case "Orientaciones":
 					location.href="/ejes/Orientación PAD"
 					break;
