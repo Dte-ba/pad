@@ -12,17 +12,22 @@
 
 body{padding-top:0;color:#000}
 html,body{height:100%}
-#wrap{min-height:100%;height:auto !important;height:100%;margin:0 auto -60px}
+#wrap{min-height:100%;height:auto !important;height:100%; margin-bottom: -60px; position: relative;}
+
 #content{padding-top:3%}
-#push,footer{height:60px}
-footer{background-color:#fff}
+#push,footer{height:0px}
+
+footer{background-color:#fff;  position: fixed; bottom: 0px; width: 100%; height: 60px; }
+
+
 .footer-dte-logo{float:left;width:268px;height:60px;background:url('../images/footer-dte-logo.png')}
 .footer-ba-logo{float:right;width:202px;height:60px;background:url('../images/footer-ba-logo.png')}
 #cloud a{margin:3px}
 ul.blocks,ul.tangibles{margin-left: 120px; padding-top:30px;list-style:none;}ul.blocks li,ul.tangibles li{margin:5px;display:-moz-inline-box;display:inline-block;*display:inline;*zoom:1}
 ul.tangibles li img{height:120px}
 article.tangible{padding-top:30px}
-@media (max-width:767px){footer{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}ul.baraja-container{width:212px;height:310px;margin:0 auto;position:relative;padding:0;list-style-type:none}
+@media (max-width:767px){footer{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
+ul.baraja-container{width:212px;height:310px;margin:0 auto;position:relative;padding:0;list-style-type:none}
 .no-js ul.baraja-container{width:auto;height:auto;text-align:center}
 .baraja-main{width:206px;margin:0 auto;color:#aaa}
 li.baraja{width:100%;height:75%;margin:0;position:absolute;top:0;left:0;cursor:pointer;background:#fff;pointer-events:auto;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;border-radius:10px;padding:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08);-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}li.baraja h4{color:#666;font-size:14px;padding:8px 10px 5px;margin:20px 3px 5px;border-bottom:1px solid #f0f0f0;text-align:center}
@@ -47,7 +52,7 @@ li.baraja a h4{background-image: url('../images/_borrar.png');background-repeat:
 body{background-color: #FDDFB3; min-height:500px}
 
 //#wrap{background:url(../images/fondo_netstramahome.png) repeat-x;background-position:center bottom 60px}
-#wrap{background:url(../images/fondo_netstramahome.png) repeat-x;background-position:center bottom}
+#wrap{background:url(../images/fondo_netstramahome.png) repeat-x;background-position:center bottom 60px}
 li.box{border:solid 7px;-webkit-box-shadow:2px 2px 5px rgba(50,50,50,0.75);-moz-box-shadow:2px 2px 5px rgba(50,50,50,0.75);box-shadow:2px 2px 5px rgba(50,50,50,0.75);position:relative;cursor:pointer}li.box span.cover{top:20%;left:0;width:100%;height:80%;position:absolute;color:#fff;padding:5px;font-style:italic;font-weight:bold;overflow:hidden;text-align:center;text-shadow:1px 1px 1px #303857;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-o-transition:all .3s ease-out;-ms-transition:all .3s ease-out;transition:all .3s ease-out;opacity:0}
 li.box:hover span.cover{top:0;height:100%;opacity:1}
 li[rel="Inglés"]{border-color:#7f2aff}li[rel="Inglés"] span.cover{background:rgba(127,42,255,0.7)}
