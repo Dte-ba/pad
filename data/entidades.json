@@ -175,23 +175,7 @@
       },
       "Habilidades Motrices": {
         "alias": "habilidades motrices",
-        "blocks": {
-          "Desplazamiento": {
-            "alias": "desplazamiento"
-          },
-          "Dominio Corporal": {
-            "alias": "dominio corporal"
-          },
-          "Manipulación": {
-            "alias": "manipulacion"
-          },
-          "Combinadas en Juego": {
-            "alias": "combinadas en juego"
-          },
-          "Combinadas en Recorrido ": {
-            "alias": "combinadas en recorrido"
-          }
-        }
+        "blocks": {}
       },
       "Construcción del juego socio-motor": {
         "alias": "construccion del juego socio motor",
@@ -210,16 +194,13 @@
       "Comunicación corporal": {
         "alias": "comunicacion corporal",
         "blocks": {
-          "Expresión corporal": {
-            "alias": "expresion corporal"
-          },
           "Secuencias motrices": {
             "alias": "secuencias motrices"
           }
         }
       },
-      "Vida en la naturaleza": {
-        "alias": "vida en la naturaleza",
+      "Las acciones motrices en el ambiente": {
+        "alias": "las acciones motrices en el ambiente",
         "blocks": {}
       },
       "Sala de Docentes": {
@@ -645,16 +626,16 @@
     },
     "alias": "educacion artistica teatro"
   },
-  "EOE": {
+  "Equipos de Orientación Escolar": {
     "axis": {
       "Convivencia escolar": {
         "alias": "convivencia escolar",
         "blocks": {}
       } 
     },
-    "alias": "EOE"
+    "alias": "equipos de orientacion escolar"
   },
-  "CEC": {
+  "Centros Educativos Complementarios": {
     "axis": {
       "Construcción de Lazos sociales y comunitarios": {
         "alias": "construccion de lazos sociales y comunitarios",
@@ -665,11 +646,11 @@
         "blocks": {}
       },
       "Salud: cuidado de sí y cuidado del otro": {
-        "alias": "salud, cuidado de si y cuidado del otro",
+        "alias": "salud cuidado de si y cuidado del otro",
         "blocks": {}
       }           
     },
-    "alias": "CEC"
+    "alias": "centros educativos complementarios"
   },
   "Orientación PAD": {
     "axis": {
