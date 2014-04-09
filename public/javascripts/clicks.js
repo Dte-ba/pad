@@ -48,8 +48,7 @@ var DBG = function(c, x){
 						var r = pathArray[3] !== undefined ? pathArray[3] : "/";
 							break;
 					}
-
-					location.href="/explorar/"+r;
+					location.href= r !== "/" ? "/explorar/"+r : "/explorar/";
 					break;
 
 				case "Orientaciones":
