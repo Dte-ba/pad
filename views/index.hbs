@@ -1,23 +1,28 @@
 {{#contentFor 'pageStyles'}}
 <link rel="stylesheet" href="/stylesheets/pad.css" />
 <link rel="stylesheet" href="/stylesheets/dock-left.css" />
+<link rel="stylesheet" href="/stylesheets/vendor/magnific/magnific-popup.css">
 {{/contentFor}}
 
 {{#contentFor 'pageScripts'}}
 <script src="/javascripts/vendor/jquery/jquery.baraja.js"></script>
 <script src="/javascripts/koExtender.bindings.js"></script>
 <script src="/javascripts/main.js"></script>
-<script type='text/javascript' src='/javascripts/jquery.jqDock.min.js'></script>
-<script type='text/javascript' src='/javascripts/clicks.js'></script>
-<script type='text/javascript' src='/javascripts/jqdoc.anim.js'></script>
+<script src='/javascripts/jquery.jqDock.min.js'></script>
+<script src='/javascripts/clicks.js'></script>
+<script src='/javascripts/jqdoc.anim.js'></script>
+<script src="/javascripts/vendor/magnific/jquery.magnific-popup.js"></script>
+<script src="/javascripts/vendor/magnific/bienvenida.js"></script>
+<script type="text/javascript">
 {{/contentFor}}
+
 <div id='page'>
   <div id='menu'>
-    <img src='images/dock_left/bienvenida.png' title='Bienvenida' alt='' />
+    <img src='images/dock_left/bienvenida.png' id="open-popup" title='Bienvenida' alt='' />
     <img src='images/dock_left/nubesemantica.png' title='Nube' alt='' />
     <img src='images/dock_left/orientaciones.png' title='Orientaciones' alt='' />
     <img src='images/dock_left/temastransversales.png' title='Transversales' alt='' />
-	<img src='images/dock_left/contacto.png' title='Contacto' alt='' />    
+	  <img src='images/dock_left/contacto.png' title='Contacto' alt='' />    
   </div>
 </div>
 <div data-bind="visible: isLoading" class="text-center loader">
@@ -48,3 +53,7 @@
   </div>
 
 </div>
+<div id="my-popup" class="mfp-hide white-popup">
+  Inline popup
+</div>
+
