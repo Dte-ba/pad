@@ -25,7 +25,6 @@ footer{background-color:#fff;  position: fixed; bottom: 0px; width: 100%; height
 #cloud a{margin:3px}
 ul.blocks,ul.tangibles{margin-left: 120px; padding-top:30px;list-style:none;}ul.blocks li,ul.tangibles li{margin:5px;display:-moz-inline-box;display:inline-block;*display:inline;*zoom:1}
 ul.tangibles li img{height:120px}
-article.tangible{padding-top:30px}
 @media (max-width:767px){footer{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
 ul.baraja-container{width:212px;height:310px;margin:0 auto;position:relative;padding:0;list-style-type:none}
 .no-js ul.baraja-container{width:auto;height:auto;text-align:center}
@@ -69,8 +68,5 @@ ul.ejes,ul.encuadres{list-style-type:none;margin-left: 120px;}
 ul.encuadres li{display:inline-table;width:200px;height:160px;margin:5px}
 ul.encuadres a{text-decoration:none}
 .to-cloud{text-align:center;padding-bottom:20px}
-
-.container-tangible {
-	margin-left: 120px;
-
-}
+article.tangible{margin-left: 60px; margin-right: 60px; padding-top:30px; 	position:fixed;}
+//.container-tangible {margin-left: 120px;}
