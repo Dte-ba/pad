@@ -650,7 +650,8 @@
         "blocks": {}
       }           
     },
-    "alias": "centros educativos complementarios"
+    "alias": "centros educativos complementarios",
+    "encuadre": "/files/encuadre_cec.pdf"
   },
   "Orientación PAD": {
     "axis": {
