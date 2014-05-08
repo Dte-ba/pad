@@ -13,7 +13,7 @@
 body{padding-top:0;color:#000}
 html,body{height:100%}
 #wrap{min-height:100%;height:auto !important;height:100%; margin-bottom: -60px; position: relative;}
-#content{padding-top:3%}
+#content{padding-top:3%; margin-left: 100px}
 #push,footer{height:60px}
 footer{background-color:#fff;  position: fixed; bottom: 0px; width: 100%; height: 60px; }
 .footer-dte-logo{float:left;width:268px;height:60px;background:url('../images/footer-dte-logo.png')}
@@ -61,3 +61,5 @@ ul.ejes,ul.encuadres{list-style-type:none}
 ul.encuadres li{display:inline-table;width:200px;height:160px;margin:5px;}
 ul.encuadres a{text-decoration:none}
 .to-cloud{text-align:center;padding-bottom:20px}
+h1, h2 {text-align: center;}
+

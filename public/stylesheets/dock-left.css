@@ -26,6 +26,7 @@ a.targetBlank {background:transparent url(target_blank.gif) no-repeat 100% 0;}
 #menu {position:absolute; top:20px; left:31px; display:none;}
 /*dock styling...*/
 /*...set the cursor...*/
-#menu div.jqDock {cursor:pointer;}
+#menu div.jqDock {cursor:pointer;z-index: 1}
 /*label styling...*/
 div.jqDockLabel {padding-bottom:8px; font-weight:bold; white-space:nowrap; color:#000000; cursor:pointer; padding:0 1px;}
+

@@ -68,5 +68,5 @@ ul.ejes,ul.encuadres{list-style-type:none;margin-left: 120px;}
 ul.encuadres li{display:inline-table;width:200px;height:160px;margin:5px}
 ul.encuadres a{text-decoration:none}
 .to-cloud{text-align:center;padding-bottom:20px}
-article.tangible{margin-left: 60px; margin-right: 60px; padding-top:30px; 	position:fixed;}
-//.container-tangible {margin-left: 120px;}
+article.tangible{margin-left: 60px; margin-right: 60px; padding-top:30px; margin-bottom:  60px;}
+.fichatecnica{background-color: #FDDFB3; opacity: 0.77; padding-left:10px; padding-right: 10px;}
