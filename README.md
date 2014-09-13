@@ -5,6 +5,20 @@ Plataforma de alfabetización digital
 
 ## Como distribuir
 
+### Mediante npm
+
+```
+// instalamos globalmente pad-dist (-g)
+npm install -g pad-dist
+
+pad-dist create path/to/
+
+// sin descargar elrepositorio
+pad-dist create --without-pad path/to/
+```
+
+### Manualmente
+
 **Crear 2 carpetas**
 
 1 - path/to/**app** (archivos del PAD)
