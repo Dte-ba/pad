@@ -7,13 +7,13 @@ Plataforma de alfabetización digital
 
 **Crear 2 carpetas**
 
-path/to/**app** (archivos del PAD)
+1 - path/to/**app** (archivos del PAD)
 
 Dentro de esta carpeta descargar el repositorio del PAD o una distrubución propia, luego colocar los paquetes dentro de `path/to/app/repo/data/`
 
 *NOTA: si se posee una gran cantidad de contenido se debe generar el cache antes de su distribución*
 
-path/to/**bin** (archivos ejecutables de Node.js)
+2 - path/to/**bin** (archivos ejecutables de Node.js)
 
 Dentro de esta carpeta irán los ejetables de Node.js para que sea portable.
 
@@ -29,12 +29,13 @@ path/to/
 
 **Descargar binarios de Node.js desde el [Sitio Oficial](http://nodejs.org/download/)**
 
-  - **Windows Binary (.exe)** *copiar el archivo node.exe en bin/node.exe*
-  - **Linux Binaries (.tar.gz)** *extraer los archivos en bin/gnu-linux*
+- Windows Binary (.exe) copiar el archivo node.exe en bin/node.exe
+- Linux Binaries (.tar.gz) extraer los archivos en bin/gnu-linux
 
-**Como ejecutar la aplicación: **
-  - **Windows: ** ejecutar el archivos iniciar-windows.bat
-  - **Linux: ** abrir una terminal en `path/to/` y ejecutar el comando `sh iniciar-en-gnu.sh`  
+**Como ejecutar la aplicacion: **
+  
+- Windows: ejecutar el archivos iniciar-windows.bat
+- Linux: abrir una terminal en `path/to/` y ejecutar el comando `sh iniciar-en-gnu.sh`  
 
 
 ## LICENSE
