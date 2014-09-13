@@ -29,13 +29,13 @@ path/to/
 
 **Descargar binarios de Node.js desde el [Sitio Oficial](http://nodejs.org/download/)**
 
-- Windows Binary (.exe) copiar el archivo node.exe en bin/node.exe
-- Linux Binaries (.tar.gz) extraer los archivos en bin/gnu-linux
+  - **Windows Binary (.exe)** copiar el archivo node.exe en bin/node.exe
+  - **Linux Binaries (.tar.gz)** extraer los archivos en bin/gnu-linux
 
-**Como ejecutar la aplicacion: **
+**Como ejecutar la aplicacion:**
   
-- Windows: ejecutar el archivos iniciar-windows.bat
-- Linux: abrir una terminal en `path/to/` y ejecutar el comando `sh iniciar-en-gnu.sh`  
+  - **Windows:** ejecutar el archivos iniciar-windows.bat
+  - **Linux:** abrir una terminal en `path/to/` y ejecutar el comando `sh iniciar-en-gnu.sh`  
 
 
 ## LICENSE
