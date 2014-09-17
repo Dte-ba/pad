@@ -21,5 +21,8 @@ padpanelApp.config ['$routeProvider', '$locationProvider', ($routeProvider, $loc
       .when '/share',
         templateUrl: '/panel/partials/share.html',
         controller: 'ShareCtrl'
+      .when '/repository/add',
+        templateUrl: '/panel/partials/repository-add.html',
+        controller: 'RepositoryAddCtrl'
       .otherwise redirectTo: '/packages'
   ]

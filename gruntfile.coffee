@@ -4,6 +4,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
 
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
@@ -14,6 +15,12 @@ module.exports = (grunt) ->
             clean: false
         files:
           "public/pad/css/site.css": ['public/pad/css/bienvenida.less', 'public/pad/css/dock.less', 'public/pad/css/app.less', 'public/pad/css/pad.less']
+      panel:
+        options:
+            compress: true
+            clean: false
+        files:
+          "public/panel/css/panel.css": ['public/panel/css/panel.less']
     coffee:
       panel:
         files:
@@ -25,12 +32,19 @@ module.exports = (grunt) ->
             'lib/panel/src/app/controllers.coffee'
             'lib/panel/src/app/services.coffee'
           ]
+    uglify:
+      qrcode:
+        files:
+          'public/vendor/js/qr/html5-qrcode.min.js': ['public/vendor/js/qr/html5-qrcode.js']
     watch:
       less:
-        files: [ '/pad/css/*.less' ]
+        files: [ '/public/pad/css/*.less', '/public/panel/css/*.less' ]
         tasks: [ 'less' ]
       coffee:
         files: [ 'lib/panel/src/**/*.coffee' ]
         tasks: [ 'coffee' ]
+      uglify:
+        files: [ 'public/vendor/js/qr/html5-qrcode.js' ]
+        tasks: [ 'uglify' ]
 
-  grunt.registerTask 'default', ['less', 'coffee', 'watch']
+  grunt.registerTask 'default', ['less', 'coffee', 'uglify', 'watch']

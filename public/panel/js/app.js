@@ -16,6 +16,9 @@
       }).when('/share', {
         templateUrl: '/panel/partials/share.html',
         controller: 'ShareCtrl'
+      }).when('/repository/add', {
+        templateUrl: '/panel/partials/repository-add.html',
+        controller: 'RepositoryAddCtrl'
       }).otherwise({
         redirectTo: '/packages'
       });
@@ -129,6 +132,52 @@
       return RepositoryInfo.getAddress(repo).then(function(ad) {
         return $scope.address = ad;
       });
+    }
+  ]);
+
+  padpanelControllers.controller('RepositoryAddCtrl', [
+    '$scope', '$location', 'RepositoryInfo', function($scope, $location, RepositoryInfo) {
+      var repo;
+      repo = $location.search().repo;
+      if (!repo) {
+        repo = 'local';
+      }
+      $scope.packages = [];
+      $scope.selectedRepo = repo;
+      $scope.readingQr = false;
+      $scope.epmUri = '';
+      $scope.isScanning = true;
+      $scope.isFinding = false;
+      $scope.loadingMessage = 'Buscando paquetes, espere por favor ...';
+      $scope.hasFinded = false;
+      $scope.find = function(uri) {
+        var url;
+        $scope.isScanning = false;
+        $scope.isFinding = true;
+        url = "" + uri + "?expand=content";
+        return $.getJSON("/request?uri=" + url).done(function(data) {
+          var pkgs;
+          pkgs = _.map(data, function(p) {
+            return {
+              uid: p.uid,
+              title: p.content.title,
+              img: "/request?uri=" + encodeURIComponent("" + uri + "?uid=" + p.uid + "&asset=front")
+            };
+          });
+          return $scope.$apply(function() {
+            $scope.packages = pkgs;
+            $scope.isFinding = false;
+            return $scope.hasFinded = true;
+          });
+        });
+      };
+      return $('#reader').html5_qrcode(function(data) {
+        return $scope.$apply(function() {
+          $scope.epmUri = data;
+          $('#reader').attr('data-qr-remove', '');
+          return $scope.find(data);
+        });
+      }, function(error) {}, function(videoError) {});
     }
   ]);
 
