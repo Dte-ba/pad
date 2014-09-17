@@ -70,6 +70,7 @@ padpanelControllers.controller 'RepositoryAddCtrl', [ '$scope', '$location', 'Pa
                 img: "/request?uri=" + encodeURIComponent "#{uri}?uid=#{p.uid}&asset=front"
                 hasLocal: _.any local, (l) ->
                   # check the build
+                  console.log exp: "#{l.uid} == #{p.uid} ", value: l.uid == p.uid
                   l.uid == p.uid
               $scope.$apply () ->
                 $scope.packages = pkgs

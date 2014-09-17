@@ -161,12 +161,17 @@
             var pkgs;
             $scope.packagesLocal = local;
             pkgs = _.map(data, function(p) {
+              console.log( "========")
               return {
                 uid: p.uid,
                 title: p.content.title,
                 content: p.content.content,
                 img: "/request?uri=" + encodeURIComponent("" + uri + "?uid=" + p.uid + "&asset=front"),
                 hasLocal: _.any(local, function(l) {
+                  console.log({
+                    exp: "" + l.uid + " == " + p.uid + " ",
+                    value: l.uid === p.uid
+                  });
                   return l.uid === p.uid;
                 })
               };
