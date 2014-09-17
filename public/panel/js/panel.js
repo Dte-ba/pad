@@ -136,7 +136,7 @@
   ]);
 
   padpanelControllers.controller('RepositoryAddCtrl', [
-    '$scope', '$location', 'RepositoryInfo', function($scope, $location, RepositoryInfo) {
+    '$scope', '$location', 'Package', 'RepositoryInfo', function($scope, $location, Package, RepositoryInfo) {
       var repo;
       repo = $location.search().repo;
       if (!repo) {
@@ -150,24 +150,32 @@
       $scope.isFinding = false;
       $scope.loadingMessage = 'Buscando paquetes, espere por favor ...';
       $scope.hasFinded = false;
+      $scope.packagesLocal = [];
       $scope.find = function(uri) {
         var url;
         $scope.isScanning = false;
         $scope.isFinding = true;
         url = "" + uri + "?expand=content";
         return $.getJSON("/request?uri=" + url).done(function(data) {
-          var pkgs;
-          pkgs = _.map(data, function(p) {
-            return {
-              uid: p.uid,
-              title: p.content.title,
-              img: "/request?uri=" + encodeURIComponent("" + uri + "?uid=" + p.uid + "&asset=front")
-            };
-          });
-          return $scope.$apply(function() {
-            $scope.packages = pkgs;
-            $scope.isFinding = false;
-            return $scope.hasFinded = true;
+          return $.getJSON("/package?repo=" + repo).done(function(local) {
+            var pkgs;
+            $scope.packagesLocal = local;
+            pkgs = _.map(data, function(p) {
+              return {
+                uid: p.uid,
+                title: p.content.title,
+                content: p.content.content,
+                img: "/request?uri=" + encodeURIComponent("" + uri + "?uid=" + p.uid + "&asset=front"),
+                hasLocal: _.any(local, function(l) {
+                  return l.uid === p.uid;
+                })
+              };
+            });
+            return $scope.$apply(function() {
+              $scope.packages = pkgs;
+              $scope.isFinding = false;
+              return $scope.hasFinded = true;
+            });
           });
         });
       };

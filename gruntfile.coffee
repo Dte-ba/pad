@@ -25,7 +25,7 @@ module.exports = (grunt) ->
       panel:
         files:
           'lib/panel/routes.js': 'lib/panel/src/routes.coffee'
-          'public/panel/js/app.js': [
+          'public/panel/js/panel.js': [
             'lib/panel/src/app/app.coffee'
             'lib/panel/src/app/directives.coffee'
             'lib/panel/src/app/factory.coffee'

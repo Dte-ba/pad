@@ -39,7 +39,7 @@ padpanelControllers.controller 'ShareCtrl', [ '$scope', '$location', 'Package', 
         $scope.address = ad
   ]
 
-padpanelControllers.controller 'RepositoryAddCtrl', [ '$scope', '$location', 'RepositoryInfo', ($scope, $location, RepositoryInfo) ->
+padpanelControllers.controller 'RepositoryAddCtrl', [ '$scope', '$location', 'Package', 'RepositoryInfo', ($scope, $location, Package, RepositoryInfo) ->
     {repo} = $location.search()
     if !repo
       repo = 'local'
@@ -52,20 +52,29 @@ padpanelControllers.controller 'RepositoryAddCtrl', [ '$scope', '$location', 'Re
     $scope.loadingMessage = 'Buscando paquetes, espere por favor ...'
     $scope.hasFinded = false
 
+    $scope.packagesLocal = []
+
     $scope.find = (uri) ->
       $scope.isScanning = false
       $scope.isFinding = true
       url = "#{uri}?expand=content"
       $.getJSON "/request?uri=#{url}"
         .done (data) ->
-          pkgs = _.map data, (p) ->
-            uid: p.uid
-            title: p.content.title
-            img: "/request?uri=" + encodeURIComponent "#{uri}?uid=#{p.uid}&asset=front"
-          $scope.$apply () ->
-            $scope.packages = pkgs
-            $scope.isFinding = false
-            $scope.hasFinded = true
+          $.getJSON "/package?repo=#{repo}"
+            .done (local) ->
+              $scope.packagesLocal = local
+              pkgs = _.map data, (p) ->
+                uid: p.uid
+                title: p.content.title
+                content: p.content.content
+                img: "/request?uri=" + encodeURIComponent "#{uri}?uid=#{p.uid}&asset=front"
+                hasLocal: _.any local, (l) ->
+                  # check the build
+                  l.uid == p.uid
+              $scope.$apply () ->
+                $scope.packages = pkgs
+                $scope.isFinding = false
+                $scope.hasFinded = true
     # qr
     $('#reader').html5_qrcode(
       (data) ->
