@@ -9,12 +9,14 @@
         <tr>
           <th>#</th>
           <th>Titulo</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="package in packages | filter:searchText">
           <td>{{package.uid}}</td>
           <td>{{package.content.title}}</td>
+          <td><a href="/tangible/{{package.uid}}?repo={{selectedRepo}}" target="_blank"><i class="fa fa-eye"></i></a></td>
         </tr>
       </tbody>
     </table>
