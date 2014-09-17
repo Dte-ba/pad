@@ -1,0 +1,24 @@
+{{#with tangible}}
+<div class="container">
+  <article class="tangible">
+    <h2>{{content.title}}</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <img class="img-responsive" src="/package?uid={{uid}}&asset=content" alt="{{content.title}}"/>
+      </div>
+      <div class="col-sm-6">
+        <h4>Ficha Técnica</h4>
+        <p>
+          {{content.content}}
+        </p>
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <a class="btn btn-sm-lg" style="width: 100%;" href="/package?content={{uid}}" target="_blank">
+            <i class="icon-download"></i> Descargar Tangible</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+{{/with}}

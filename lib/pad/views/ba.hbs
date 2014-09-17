@@ -1,0 +1,21 @@
+{{#contentFor 'pageStyles'}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+{{/contentFor}}
+
+<div class="page-header">
+  <h1>Marco general del Programa</h1>  
+</div>
+
+<div class="text-center">
+  <a href="/pad/files/PAD con nomina y bibliografia.pdf"><img src="/pad/img/padnet-ba.png" alt="Marco general del Programa"></a>
+</div>
+
+<h2>Encuadres</h2>
+<hr>
+<ul class="encuadres">
+  {{#each encuadres}}
+    <li><a href="{{href}}"><img src="{{img}}" alt="{{alt}}"></a></li>
+  {{/each}}
+</ul>

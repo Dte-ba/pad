@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>{{axis}}</h1>
+</div>
+<ul class="blocks">
+  {{#each blocks}}
+    <li class="box block-box" rel="{{area}}">
+      <a href="{{href}}" title="{{name}}">
+        <span class="cover">{{name}}</span>
+        <img src="/pad/img/{{img}}" alt="{{name}}">
+      </a>
+    </li>
+  {{/each}}
+</ul>
+{{#if isEmpty}}
+  <div class="on-contruction">
+    <img src="/pad/img/padnet-construction.png" alt="">
+  </div>
+  <p class="ups-msg">Ups! No hay bloques por el momento.</p>
+{{/if}}

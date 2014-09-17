@@ -1,0 +1,37 @@
+{{#contentFor 'pageStyles'}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+<script src="/vendor/js/jquery/jquery.baraja.js"></script>
+<script src="/pad/js/home.js"></script>
+{{/contentFor}}
+
+<div data-bind="visible: isLoading" class="text-center loader">
+  <div class="logo"></div>
+  <span>Cargando ...</span>
+</div>
+<div data-bind="visible: !isLoading()" style="display: none;">
+  <div id="baraja-wrapper">
+    <div class="baraja-main clearfix">
+
+      <ul id="baraja-el" class="baraja-container">
+        {{#each barajas}}
+          <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
+            <img src="/pad/img/{{img}}" alt="{{alt}}">
+            <a href="{{href}}"><h4>{{title}}</h4></a>
+          </li>
+        {{/each}}
+      </ul>
+
+    </div>
+    
+    <div>
+      <ul class="nav-buttons">
+        <li><a class="btn btn-default" href="#" data-bind="click: barajaPrev">&laquo;</a></li>
+        <li><a class="btn  btn-default" href="#" data-bind="click: seleccionarBaraja">Seleccionar</a></li>
+        <li><a class="btn  btn-default" href="/explorar">Explorar</a></li>
+        <li><a class="btn  btn-default" href="#" data-bind="click: barajaNext">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

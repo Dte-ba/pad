@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-3 col-md-2 sidebar">
+    
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <input type="text" class="form-control search-input" ng-model="searchText" placeholder="filtro">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Titulo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="package in packages | filter:searchText">
+          <td>{{package.uid}}</td>
+          <td>{{package.content.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
