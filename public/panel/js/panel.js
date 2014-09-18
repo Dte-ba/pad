@@ -161,7 +161,6 @@
             var pkgs;
             $scope.packagesLocal = local;
             pkgs = _.map(data, function(p) {
-              console.log( "========")
               return {
                 uid: p.uid,
                 title: p.content.title,
