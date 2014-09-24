@@ -23,6 +23,11 @@ installnode(){
 	sudo chmod +x /usr/bin/node
 }
 
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "Debe ser root para ejecutar este script" 1>&2
+   exit 1
+fi
 
 if which node >/dev/null; then
     runpad 
