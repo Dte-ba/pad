@@ -38,7 +38,7 @@ module.exports = (grunt) ->
           'public/vendor/js/qr/html5-qrcode.min.js': ['public/vendor/js/qr/html5-qrcode.js']
     watch:
       less:
-        files: [ '/public/pad/css/*.less', '/public/panel/css/*.less' ]
+        files: [ 'public/pad/css/*.less', 'public/panel/css/*.less' ]
         tasks: [ 'less' ]
       coffee:
         files: [ 'lib/panel/src/**/*.coffee' ]

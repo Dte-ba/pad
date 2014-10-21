@@ -17,9 +17,9 @@
     }
     
     var vidTag = '<video id="html5_qrcode_video" width="' + width + 'px" height="' + height + 'px"></video>' 
-    var canvasTag = '<canvas id="qr-canvas" width="' + (width - 2) + 'px" height="' + (height - 2) + 'px" class="flip-horizontally"></canvas>' 
+    var canvasTag = '<canvas id="qr-canvas" width="' + (width - 2) + 'px" height="' + (height - 2) + 'px" style="display: none"></canvas>' 
   
-    $(canvasTag).addClass('flip-horizontally');
+    //$(canvasTag).addClass('flip-horizontally');
 
     this.append(vidTag);
     this.append(canvasTag);

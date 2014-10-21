@@ -5,7 +5,9 @@ padpanelApp = angular.module 'panelApp', [
     'padpanelFactory',
     'padpanelDirective',
     'padpanelControllers',
-    'padpanelServices'
+    'padpanelServices',
+    # vendor
+    'xeditable'
   ]
 
 padpanelApp.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
@@ -15,7 +17,7 @@ padpanelApp.config ['$routeProvider', '$locationProvider', ($routeProvider, $loc
       .when '/packages/:reponame?',
         templateUrl: '/panel/partials/package-list.html',
         controller: 'PackageListCtrl'
-      .when '/package/:id',
+      .when '/package/view/:id',
         templateUrl: '/panel/partials/package-detail.html',
         controller: 'PackageDetailCtrl'
       .when '/share',
@@ -24,5 +26,11 @@ padpanelApp.config ['$routeProvider', '$locationProvider', ($routeProvider, $loc
       .when '/repository/add',
         templateUrl: '/panel/partials/repository-add.html',
         controller: 'RepositoryAddCtrl'
+      .when '/package/add',
+        templateUrl: '/panel/partials/package-add.html',
+        controller: 'PackageAddCtrl'
       .otherwise redirectTo: '/packages'
   ]
+
+padpanelApp.run (editableOptions) ->
+  editableOptions.theme = 'bs3'

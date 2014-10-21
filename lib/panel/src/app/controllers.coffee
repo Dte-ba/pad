@@ -84,7 +84,15 @@ padpanelControllers.controller 'RepositoryAddCtrl', [ '$scope', '$location', 'Pa
           $('#reader').attr('data-qr-remove', '');
           $scope.find data
       (error) ->
+        console.debug error
       (videoError) ->
+        console.debug videoError
      )
 
   ]
+
+padpanelControllers.controller 'PackageAddCtrl', [ '$scope', '$location', 'Package', 'RepositoryInfo', ($scope, $location, Package, RepositoryInfo) ->
+    $scope.package = 
+      title: ''
+  ]
+  

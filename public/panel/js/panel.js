@@ -2,7 +2,7 @@
   'use strict';
   var padpanelApp;
 
-  padpanelApp = angular.module('panelApp', ['ngRoute', 'padpanelFactory', 'padpanelDirective', 'padpanelControllers', 'padpanelServices']);
+  padpanelApp = angular.module('panelApp', ['ngRoute', 'padpanelFactory', 'padpanelDirective', 'padpanelControllers', 'padpanelServices', 'xeditable']);
 
   padpanelApp.config([
     '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -10,7 +10,7 @@
       return $routeProvider.when('/packages/:reponame?', {
         templateUrl: '/panel/partials/package-list.html',
         controller: 'PackageListCtrl'
-      }).when('/package/:id', {
+      }).when('/package/view/:id', {
         templateUrl: '/panel/partials/package-detail.html',
         controller: 'PackageDetailCtrl'
       }).when('/share', {
@@ -19,11 +19,18 @@
       }).when('/repository/add', {
         templateUrl: '/panel/partials/repository-add.html',
         controller: 'RepositoryAddCtrl'
+      }).when('/package/add', {
+        templateUrl: '/panel/partials/package-add.html',
+        controller: 'PackageAddCtrl'
       }).otherwise({
         redirectTo: '/packages'
       });
     }
   ]);
+
+  padpanelApp.run(function(editableOptions) {
+    return editableOptions.theme = 'bs3';
+  });
 
 }).call(this);
 
@@ -189,7 +196,19 @@
           $('#reader').attr('data-qr-remove', '');
           return $scope.find(data);
         });
-      }, function(error) {}, function(videoError) {});
+      }, function(error) {
+        return console.debug(error);
+      }, function(videoError) {
+        return console.debug(videoError);
+      });
+    }
+  ]);
+
+  padpanelControllers.controller('PackageAddCtrl', [
+    '$scope', '$location', 'Package', 'RepositoryInfo', function($scope, $location, Package, RepositoryInfo) {
+      return $scope["package"] = {
+        title: ''
+      };
     }
   ]);
 
