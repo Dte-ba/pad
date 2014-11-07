@@ -34,7 +34,7 @@
       outlineColour: '#ff9999',
       reverse: true,
       depth: 1.5,
-      maxSpeed: 0.05
+      maxSpeed: 0.015
     },'wordList')) {
       // something went wrong, hide the canvas container
       $('#cloudContainer').hide();
