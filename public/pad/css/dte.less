@@ -1,0 +1,39 @@
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -@footer-height; 
+
+  &::after {
+    content: "";
+    display: block;
+  }
+}
+
+.dte-footer,
+.page-wrap:after {
+  height: @footer-height; 
+}
+
+.dte-footer {
+  background: #232425;
+  position: relative;
+}
+
+.dte-footer .logo-dte {
+  float: left;
+  height: @footer-height;
+  width: 225px;
+  background: url('../img/logo-dte.png') center center no-repeat;
+  margin-left: 5%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: @footer-height;
+  width: 151px;
+  background: url('../img/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}

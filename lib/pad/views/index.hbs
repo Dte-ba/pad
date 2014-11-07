@@ -2,36 +2,49 @@
 {{/contentFor}}
 
 {{#contentFor 'pageScripts'}}
-<script src="/vendor/js/jquery/jquery.baraja.js"></script>
+<script src="/pad/js/menu.roulette.js"></script>
 <script src="/pad/js/home.js"></script>
 {{/contentFor}}
 
-<div data-bind="visible: isLoading" class="text-center loader">
-  <div class="logo"></div>
-  <span>Cargando ...</span>
-</div>
-<div data-bind="visible: !isLoading()" style="display: none;">
-  <div id="baraja-wrapper">
-    <div class="baraja-main clearfix">
-
-      <ul id="baraja-el" class="baraja-container">
-        {{#each barajas}}
-          <li class="baraja" data-level="{{level}}" data-target="{{alt}}" data-owner="{{owner}}">
-            <img src="/pad/img/{{img}}" alt="{{alt}}">
-            <a href="{{href}}"><h4>{{title}}</h4></a>
-          </li>
-        {{/each}}
-      </ul>
-
-    </div>
-    
-    <div>
-      <ul class="nav-buttons">
-        <li><a class="btn btn-default" href="#" data-bind="click: barajaPrev">&laquo;</a></li>
-        <li><a class="btn  btn-default" href="#" data-bind="click: seleccionarBaraja">Seleccionar</a></li>
-        <li><a class="btn  btn-default" href="/explorar">Explorar</a></li>
-        <li><a class="btn  btn-default" href="#" data-bind="click: barajaNext">&raquo;</a></li>
-      </ul>
-    </div>
-  </div>
+<div id="main-menu" class="inactive">
+  <ul class="roulette">
+    <li class="bg-cec">
+      <a href="javascript:void(0)"><div data-area="cec" class="item-area"></div></a>
+    </li>
+    <li class="bg-eoe">
+      <a href="javascript:void(0)"><div data-area="eoe" class="item-area"></div></a>
+    </li>
+    <li class="bg-edart">
+      <a href="javascript:void(0)"><div data-area="edart" class="item-area"></div></a>
+    </li>
+    <li class="bg-edard">
+      <a href="javascript:void(0)"><div data-area="edard" class="item-area"></div></a>
+    </li>
+    <li class="bg-edarm">
+      <a href="javascript:void(0)"><div data-area="edarm" class="item-area"></div></a>
+    </li>
+    <li class="bg-edarp">
+      <a href="javascript:void(0)"><div data-area="edarp" class="item-area"></div></a>
+    </li>
+    <li class="bg-pdl">
+      <a href="javascript:void(0)"><div data-area="pdl" class="item-area"></div></a>
+    </li>
+    <li class="bg-mat">
+      <a href="javascript:void(0)"><div data-area="mat" class="item-area"></div></a>
+    </li>
+    <li class="bg-cs">
+      <a href="javascript:void(0)"><div data-area="cs" class="item-area"></div></a>
+    </li>
+    <li class="bg-ef">
+      <a href="javascript:void(0)"><div data-area="ef" class="item-area"></div></a>
+    </li>
+    <li class="bg-cn">
+      <a href="javascript:void(0)"><div data-area="cn" class="item-area"></div></a>
+    </li>
+    <li class="bg-ing">
+      <a href="javascript:void(0)"><div data-area="ing" class="item-area"></div></a>
+    </li>
+  </ul>
+  <div class="center-roulette"></div>
+  <div class="border-roulette"></div>
 </div>

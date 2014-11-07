@@ -11,6 +11,7 @@
     "epm": "^0.3.27",
     "epm-middleware": "^1.0.5",
     "epm-pad-engine": "0.0.21",
+    "eql-engine": "0.0.9",
     "express": "^4.9.0",
     "express-hbs": "^0.7.11",
     "handlebars": "^2.0.0",

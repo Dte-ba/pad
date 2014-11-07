@@ -6,29 +6,16 @@
   </head>
   <body>
     
-    <!-- content -->
-    <div id="wrap">
-      <div class="container-fluid">
-
-        <div class="row">
-          <div id="content" class="col-sm-11 col-sm-offset-1">
-            {{{body}}}
-          </div>
-        </div>
-
+    <div class="page-wrap">
+      <div id="content">
+        {{{body}}}
       </div>
-
-      <div id="push"></div>
     </div>
 
-    <!-- footer -->
-    <footer>
-      <div class="container clearfix">
-      <div class="footer-dte-logo"></div><div class="footer-ba-logo"></div>
-      </div>
+    <footer class="dte-footer">
+      <div class="logo-dte"></div>
+      <div class="logo-ba"></div>
     </footer>
-    
-    {{> menu}}
 
     {{> gallery}}
               

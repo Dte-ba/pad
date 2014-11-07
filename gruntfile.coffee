@@ -11,10 +11,10 @@ module.exports = (grunt) ->
     less:
       pad:
         options:
-            compress: true
+            compress: false
             clean: false
         files:
-          "public/pad/css/site.css": ['public/pad/css/bienvenida.less', 'public/pad/css/dock.less', 'public/pad/css/app.less', 'public/pad/css/pad.less']
+          "public/pad/css/pad.css": ['public/pad/css/pad.less']
       panel:
         options:
             compress: true

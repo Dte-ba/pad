@@ -1,132 +1,63 @@
-/**
- * The main page of PAD
+;
+/*
+ * PAD home page
  */
-!function($, ko, window, undefined){
+
+!function($, ko, window, document, undefined){
   "use strict";
-  var isLoading = ko.observable(true)
-    , _baraja
-    , $lastElement;
 
-  var barajaPrev = function() {
-    if (_baraja === undefined) return;
+  var getRotationDegrees = function(obj) {
+      var matrix = obj.css("-webkit-transform") ||
+      obj.css("-moz-transform")    ||
+      obj.css("-ms-transform")     ||
+      obj.css("-o-transform")      ||
+      obj.css("transform");
+      if(matrix !== 'none') {
+          var values = matrix.split('(')[1].split(')')[0].split(',');
+          var a = values[0];
+          var b = values[1];
+          var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+      } else { var angle = 0; }
 
-    _baraja.previous();
+      if(angle < 0) angle +=360;
+      return angle;
   };
 
-  var barajaNext = function() {
-    if (_baraja === undefined) return;
-
-    _baraja.next();
-  };
-
-  var getCurrent = function () {
-    var $li
-      , maxz = -9999;
-
-    $('#baraja-el li').each(function(){
-      var $this = $(this);
-
-      var zi = $this.css('z-index');
-      var i = zi !== undefined ? parseInt(zi) : 0;
-
-      if (i > maxz) {
-        $li = $this;
-        maxz = i;
-      }
-
-    });
-
-    return $li;
-  };
-
-  var seleccionarBaraja = function() {
-    
-    var $el = getCurrent();
-
-    var level = parseInt($el.data('level'));
-    var target = $el.data('target');
-    var owner = $el.data('owner');
-
-    var uri = '/';
-
-    if (level === 0) {
-      uri = '/ba';
-    } else if (level === 1) {
-      uri = '/ejes/' + target;
-    } else {
-      uri = '/tangibles/' + owner + '/' + target;  
+  var convertDegs = function (type, num) {
+    if (type == "rads") {
+      return num*180/Math.PI;
     }
 
-    window.location.href = uri;
+    if (type == "degs") {
+      return num*Math.PI/180;
+    }
   };
 
-  // create the context
-  var vm = {
-    isLoading: isLoading,
-    barajaPrev: barajaPrev,
-    barajaNext: barajaNext,
-    seleccionarBaraja: seleccionarBaraja
-  };
+  $(function(){
+    $(document).ready(function(){
 
-  ko.applyBindings(vm);
+      $('#main-menu').roulette();
 
-  $.when(init())
-   .then(function(){ 
-      isLoading(false);
-    });
+      $('#main-menu').click(function(){
+        var rotation = getRotationDegrees($('#main-menu .border-roulette'));
+        
+        $('#main-menu').toggleClass('inactive');
 
-  return vm;
-
-  function init() {
-    return $.Deferred(function(def){
-
-      $(function(){
-        // when de DOM is loaded
-        _baraja = $('#baraja-el').baraja();        
-        _baraja.fanSettings.range = 270;
-        /*
-        _baraja.fanSettings.range = 100;        
-        _baraja.fanSettings.origin.x=25;
-        _baraja.fanSettings.origin.y=300;
-        _baraja.fanSettings.easing='ease-out';
-        _baraja.fanSettings.center=true;
-        _baraja.fanSettings.direction='right';
-        */
-
-        $('#baraja-el a').click(function(event){
-          event.stopPropagation();
+        $('#main-menu .border-roulette').css({
+            //webkitTransform: 'rotate('+now+'deg)',
+            //mozTransform: 'rotate('+now+'deg)',
+            //msTransform: 'rotate('+now+'deg)',
+            //oTransform: 'rotate('+now+'deg)',
+            transform: 'rotate('+rotation+'deg)'
         });
 
-        $(document).keydown(function(event) {
-          
-          if (event.keyCode == 37) {
-            // left 
-            barajaPrev();
-          } else if (event.keyCode == 39) {
-            // right
-            barajaNext();
-          } else if (event.keyCode == 13) {
-            // enter
-            seleccionarBaraja();
-          } else if (event.keyCode == 69) {
-            // e
-            window.location.href = '/explorar';
-          } else if (event.keyCode == 38) {
-            // up
-            if (_baraja !== undefined && _baraja.closed === true) {
-              _baraja.fan();
-            }
-            
-          }
-
+        $('#main-menu').roulette({
+          initAngle: convertDegs("degs", rotation) 
         });
-
-        def.resolve();
 
       });
 
-    }).promise();
-  }
+    });
+  });
 
-}(jQuery, ko, window);
-
+}(jQuery, ko, window, document)
