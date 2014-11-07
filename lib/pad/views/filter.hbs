@@ -1,0 +1,37 @@
+<div class="page-header">
+    <h3>Filtrado de paquetes mediante EQL</h3>
+  </div>
+
+  <form role="form" action="filter" method="POST">
+      
+    <div class="input-group">
+      <input name="filter" type="text" class="form-control" placeholder="select area:matematica && tag:suma"
+              value="{{filter}}">
+      <span class="input-group-btn" >
+        <button class="btn btn-default" type="submit" >Ejecutar</button>
+      </span>
+    </div><!-- /input-group -->
+
+  </form>
+
+  {{#if isError}}
+    <div class="alert alert-danger">La cunsulta es erronea</div>
+  {{/if}}
+
+  <ul class="tangibles">
+    {{#each tangibles}}
+      <li class="box tangible-box" rel="{{content.area}}">
+        <a href="/tangible/{{uid}}" title="{{content.title}}">
+          <span class="cover">{{content.title}}</span>
+          <img src="/package/?uid={{uid}}&asset=front" alt="{{content.title}}">
+          
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+  {{#if isEmpty}}
+    <div class="on-contruction">
+      <img src="/pad/img/padnet-construction.png" alt="">
+    </div>
+    <p class="ups-msg">Ups! La consulta no devolvió ningún resultado.</p>
+  {{/if}}

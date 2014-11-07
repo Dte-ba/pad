@@ -1,175 +1,89 @@
-/*!
- * PAD web application
- *
- * Copyright(c) 2013-2014 Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)
- * GPL Plublic License v3
- */
+'use strict';
 
-/**
- * Module dependencies.
- */
+var express = require('express');
+var path = require('path');
+var epmMiddleware = require('epm-middleware');
+var padEngine = require('epm-pad-engine');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var request = require('request');
 
-var express = require('express')
-  , routes = require('./routes')
-  , panel = require('./routes/panel')
-  , test = require('./routes/test')
-  , http = require('http')
-  , path = require('path')
-  , hbs = require('express-hbs')
-  , repo = require('pad-repository')
-  , fs = require('fs')
-  ;
+var pad = require('./lib/pad');
+var panel = require('./lib/panel');
 
-var members = require('./data/security.json');
+var epmApp = epmMiddleware({
+    path: path.resolve('./repos'), 
+    engines: [{ name: 'epm-pad-engine', engine: padEngine }],
+    default: 'local'
+  });
 
-var auth = express.basicAuth(members.admin.username, members.admin.password)
-  , testAuth = express.basicAuth(members.test.username, members.test.password)
-  ;
+var padApp = pad({ public: path.join(__dirname, 'public'), epm: epmApp })
 
-var logger = module.exports.logger = require('custom-logger').config({ 
-    level: 0,
-    format: "\x1b[36m[pad-repo]\x1b[0m %timestamp% - %event% :%padding%%message%"
+var panelApp = panel();
+
+var app = module.exports = express();
+
+// configure main app
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// add epm, pad and panel
+app.use(epmApp);
+app.use(padApp);
+app.use(panelApp);
+
+app.get('/request', function(req, res){
+    var uri = req.query.uri;
+
+    if (uri === undefined) return res.end('');
+
+    request(uri).pipe(res);
 });
 
-// define if is production
-var isProd = (process.env.NODE_ENV == 'production');
+/// catch 404 and forwarding to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
-/**
- * Expose create a server
- */
-var createServer = module.exports.createServer = function(ops) {
-  var app = express();
-
-  ops = ops || {};
-  ops.panelEnabled = (ops.panelEnabled === undefined) ? false : ops.panelEnabled;
-
-  // all environments
-  app.set('port', process.env.PORT || 8000);
-  app.set('views', __dirname + '/views');
-
-  app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
-  configureLogs(app);
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-
-  if (!isProd) {
-    app.use(express.errorHandler());
-  } else {
-    process.on('uncaughtException', function (err) {
-      logger.error(err);
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        console.error(err.stack);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  }
-
-  configureHbs(app);
-
-  configureRoutes(app, ops);
-
-  var _repo = configureRepository(app);
-
-  return app;
-};
-
-//
-// private function for configurations
-
-// configure Handlebars
-function configureHbs(app) {
-  // define Handlebars engine
-  app.engine('hbs', hbs.express3({
-    partialsDir: __dirname + '/views/partials',
-    defaultLayout: __dirname + '/views/layout/default.hbs',
-    layoutsDir: __dirname + '/views/layout'
-  }));
-
-  app.set('view engine', 'hbs');
-
-  if (!isProd) return;
-
-  var partialsDir = __dirname + '/views/partials';
-
-  var filenames = fs.readdirSync(partialsDir);
-
-  filenames.forEach(function (filename) {
-    var matches = /^([^.]+).hbs$/.exec(filename);
-    if (!matches) {
-      return;
-    }
-    var name = matches[1];
-    var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
-    hbs.registerPartial(name, template);
-  });
-
 }
 
-// configure log
-function configureLogs(app) {
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
-  if (isProd) {
-    var logFile = fs.createWriteStream(__dirname + '/expressjs.log', {flags: 'a'});
-    app.use(express.logger({stream: logFile}));
-  } else {
-    app.use(express.logger('dev'));
-  }
+// TODO: fix this, dev? prod?
+epmApp.listenRepositories(function(err, info){
 
-}
-
-function configureRoutes(app, ops) {
-
-  app.get('/', routes.index);
-  app.get('/ejes/:area', routes.ejes);
-  app.get('/bloques/:owner/:target', routes.bloques);
-  app.get('/tangibles/:owner/:target?', routes.tangibles);
-  app.get('/tangible/:uid', routes.tangible);
-  app.get('/explorar/:match?', routes.explorar);
-  app.get('/ba', routes.ba);
-
-
-  if (ops.panelEnabled) {
-    //panel
-    app.get('/panel', auth, panel.index);
-    app.get('/panel/packages/:filter?', auth, panel.packages);
-    app.get('/panel/package/:uid', auth, panel.package);
-    app.get('/panel/package/status/:uid/:status', auth, panel.packageStatus);
-    app.get('/panel/clean', auth, panel.cleanCache);
-    app.post('/panel/restore', auth, panel.restoreCache);
-    app.get('/panel/stats', panel.stats);
-  }
-  
-  if (!isProd) return;
-
-  // test only for dev
-  app.get('/test', testAuth, test.index);
-
-}
-
-function configureRepository(app) {
-  var r = new repo.HttpRepo(__dirname + '/repo', app);
-
-  r
-  .on('init', function(data) {
-    logger.info('repository initialized on ' + r.path);
+  app.listen(8000, function(err){
+    console.log('app listen on http://localhost:8000');
   })
-  .on('log', function(msg) {
-    logger.info(msg);
-  });
 
-  return r;
-
-}
-
-function listenServer(app) {
-
-  http.createServer(app).listen(app.get('port'), function() {
-    console.log('PAD aplicaction listening on port ' + app.get('port'));
-  });
-
-}
-
-if (!isProd) {
-  var app = createServer({ panelEnabled: true });
-
-  listenServer(app);
-}
-
+});

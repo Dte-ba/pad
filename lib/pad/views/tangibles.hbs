@@ -1,0 +1,17 @@
+<ul class="tangibles">
+  {{#each tangibles}}
+    <li class="box tangible-box" rel="{{content.area}}">
+      <a href="/tangible/{{uid}}" title="{{content.title}}">
+        <span class="cover">{{content.title}}</span>
+        <img src="/package/?uid={{uid}}&asset=front" alt="{{content.title}}">
+        
+      </a>
+    </li>
+  {{/each}}
+</ul>
+{{#if isEmpty}}
+  <div class="on-contruction">
+    <img src="/pad/img/padnet-construction.png" alt="">
+  </div>
+  <p class="ups-msg">Ups! No hay tangibles por el momento.</p>
+{{/if}}

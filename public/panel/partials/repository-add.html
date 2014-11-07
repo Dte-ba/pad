@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-sm-3 col-md-2 sidebar">
+    
+  </div>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="page-header">
+      <h1>Agregando un nuevo repositorio de paquetes</h1>  
+    </div>
+    <div class="well well-sm text-center" ng-show="isFinding">
+      <span><i class="fa fa-cog fa-spin"></i> {{loadingMessage}}</span>
+    </div>
+    <div class="row" ng-show="!isFinding">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-cubes"></i></div>
+            <input ng-model="epmUri" class="form-control" type="text" placeholder="URL del repositorio de paquetes">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="find(epmUri)"><i class="fa fa-cloud-download"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-show="isScanning && !isFinding">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h3>Acercá el QR a la webcam</h3>
+        <div class="center" id="reader" style="width:300px;height:250px;"></div>
+      </div>
+    </div>
+
+    <div ng-show="hasFinded">
+      <hr>
+      <section class="packages">
+        <article ng-repeat="package in packages | filter:searchText">
+          <div class="row">
+            <div class="col-sm-3">
+              <img class="img-responsive center" src="{{package.img}}" alt="{{package.title}}">
+            </div>
+            <div class="col-sm-9">
+              <h4>{{package.title}} <small>{{package.uid}}</small></h4>
+              <p>{{package.content}}</p>
+              <button class="btn btn-default btn-sm" ng-disabled="package.hasLocal">
+                <i class="fa fa-download"></i> {{package.hasLocal ? 'Paquete existente' : 'Agregar a ' + selectedRepo}}
+              </button>
+            </div>
+          </div>
+          <hr>
+        </article>
+      </section>
+      <hr>
+    </div>
+  </div>
+</div>

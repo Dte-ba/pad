@@ -1,0 +1,27 @@
+{{#contentFor 'pageStyles'}}
+{{/contentFor}}
+
+{{#contentFor 'pageScripts'}}
+<script src="/vendor/js/jquery/jquery.tagcanvas.js"></script>
+<script src="/pad/js/cloud.js"></script>
+{{/contentFor}}
+
+<div class="cloudWrapper">
+  <div id="cloudContainer">
+    <canvas width="300" height="600" id="cloudCanvas" crossOrigin="anonymous">
+      <div class="text-center loader">
+        <div class="logo"></div>
+        <span>Cargando ...</span>
+      </div>
+    </canvas>
+  </div>
+
+  <div id="cloud-pusher" style="height: 205px">
+  </div>
+</div>
+
+<ul id="wordList" style="display: none">
+{{#each words}}
+  <li><a href="/tangibles?tag={{this}}">{{this}}</a></li>
+{{/each}}
+</ul>

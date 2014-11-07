@@ -1,0 +1,24 @@
+<div id='menu'>
+  {{#unless home}}
+    <a href="/">
+      <img src='/pad/img/dock_left/inicio.png' title='Inicio' alt='' />
+    </a>
+  {{/unless}}
+  <a href="#">
+    <img src='/pad/img/dock_left/bienvenida.png' id='image-gallery-button' title='Bienvenida' alt='' />
+  </a>
+  {{#unless cloud}}
+  <a href="/explorar{{toExplore}}">
+    <img src='/pad/img/dock_left/nubesemantica.png' title='Nube' alt='' />
+  </a>
+  {{/unless}}
+  <a href="/ejes/Orientación PAD">
+    <img src='/pad/img/dock_left/orientaciones.png' title='Orientaciones' alt='' />
+  </a>
+  <a href="/ejes/Temas Transversales">
+    <img src='/pad/img/dock_left/temastransversales.png' title='Transversales' alt='' />
+  </a>
+  <a href="http://nticx.net/pad/contacto">
+    <img src='/pad/img/dock_left/contacto.png' title='Contacto' alt='' />
+  </a>
+</div>
