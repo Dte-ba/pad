@@ -1,6 +1,10 @@
 
 <!DOCTYPE html>
-<html>
+{{#if areaClass}}
+  <html class="{{areaClass}}" data-area="{{area}}">
+{{else}}
+  <html>
+{{/if}}
   <head>
      {{> header}}
   </head>
@@ -10,15 +14,23 @@
       <div id="content">
         {{{body}}}
       </div>
-    </div>
 
+      {{#if showCartoon}}
+        <div class="area-cartoon active"></div>
+      {{else}}
+        <div class="area-cartoon"></div>
+      {{/if}}
+    </div>
+       
     <footer class="dte-footer">
       <div class="logo-dte"></div>
       <div class="logo-ba"></div>
     </footer>
 
+    {{> menu}}
+
     {{> gallery}}
-              
+
     <!-- common scripts -->
     {{> scripts}}
 

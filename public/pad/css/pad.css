@@ -11,9 +11,34 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Patua One';
+  src: url('../fonts/PatuaOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Comfortaa Bold';
+  src: url('../fonts/Comfortaa-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Comfortaa Light';
+  src: url('../fonts/Comfortaa-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Comfortaa Regular';
+  src: url('../fonts/Comfortaa-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 html,
 body {
   background-color: #eeebd5;
+  color: white;
 }
 .bg-ing {
   background-color: #41235f;
@@ -51,6 +76,139 @@ body {
 .bg-cn {
   background-color: #9ba23d;
 }
+.area-ing {
+  background-color: #41235f;
+}
+.area-cec {
+  background-color: #c51d64;
+}
+.area-eoe {
+  background-color: #007f8e;
+}
+.area-edart {
+  background-color: #81388a;
+}
+.area-edard {
+  background-color: #ed1c24;
+}
+.area-edarm {
+  background-color: #ebbf1c;
+}
+.area-edarp {
+  background-color: #6bb144;
+}
+.area-pdl {
+  background-color: #004c33;
+}
+.area-mat {
+  background-color: #21418a;
+}
+.area-cs {
+  background-color: #761113;
+}
+.area-ef {
+  background-color: #00adef;
+}
+.area-cn {
+  background-color: #9ba23d;
+}
+html.area-ing body {
+  background-color: #41235f;
+}
+html.area-cec body {
+  background-color: #c51d64;
+}
+html.area-eoe body {
+  background-color: #007f8e;
+}
+html.area-edart body {
+  background-color: #81388a;
+}
+html.area-edard body {
+  background-color: #ed1c24;
+}
+html.area-edarm body {
+  background-color: #ebbf1c;
+}
+html.area-edarp body {
+  background-color: #6bb144;
+}
+html.area-pdl body {
+  background-color: #004c33;
+}
+html.area-mat body {
+  background-color: #21418a;
+}
+html.area-cs body {
+  background-color: #761113;
+}
+html.area-ef body {
+  background-color: #00adef;
+}
+html.area-cn body {
+  background-color: #9ba23d;
+}
+.area-cartoon {
+  background-position: 0px -340px;
+  background: url(../img/assets.png);
+  bottom: 45px;
+  height: 226px;
+  position: absolute;
+  right: 20px;
+  visibility: hidden;
+  width: 216px;
+}
+.area-cartoon.active {
+  visibility: visible;
+}
+html[data-area="ing"] .area-cartoon {
+  background-position: 0px -340px;
+}
+html[data-area="cec"] .area-cartoon {
+  background-position: -216px -340px;
+}
+html[data-area="eoe"] .area-cartoon {
+  background-position: -432px -340px;
+}
+html[data-area="edart"] .area-cartoon {
+  background-position: -648px -340px;
+}
+html[data-area="edard"] .area-cartoon {
+  background-position: -864px -340px;
+}
+html[data-area="edarm"] .area-cartoon {
+  background-position: -1080px -340px;
+}
+html[data-area="edarp"] .area-cartoon {
+  background-position: -1296px -340px;
+}
+html[data-area="pdl"] .area-cartoon {
+  background-position: -1512px -340px;
+}
+html[data-area="mat"] .area-cartoon {
+  background-position: -1728px -340px;
+}
+html[data-area="cs"] .area-cartoon {
+  background-position: -1944px -340px;
+}
+html[data-area="ef"] .area-cartoon {
+  background-position: -2160px -340px;
+}
+html[data-area="cn"] .area-cartoon {
+  background-position: -2376px -340px;
+}
+html.active {
+  visibility: visible;
+}
+ul.ejes {
+  list-style: none;
+}
+ul.ejes li {
+  display: inline-block;
+}
+.section-header {
+  font-family: 'Patua One';
+}
 html,
 body {
   height: 100%;
@@ -58,6 +216,7 @@ body {
 .page-wrap {
   min-height: 100%;
   margin-bottom: -45px;
+  position: relative;
 }
 .page-wrap::after {
   content: "";
@@ -112,8 +271,54 @@ body {
   border-radius: 50%;
   background: url('../img/logo_pad_home.png') center center no-repeat;
 }
-#main-menu.inactive ul.roulette {
+#main-menu .center-roulette-area {
+  position: absolute;
+  width: 176px;
+  height: 176px;
+  top: 62px;
+  left: 62px;
+  border-radius: 50%;
+  background: url(../img/assets.png);
   visibility: hidden;
+}
+#main-menu .center-roulette-area[data-area="ing"] {
+  background-position: 0px -160px;
+}
+#main-menu .center-roulette-area[data-area="cec"] {
+  background-position: -180px -160px;
+}
+#main-menu .center-roulette-area[data-area="eoe"] {
+  background-position: -360px -160px;
+}
+#main-menu .center-roulette-area[data-area="edart"] {
+  background-position: -540px -160px;
+}
+#main-menu .center-roulette-area[data-area="edard"] {
+  background-position: -720px -160px;
+}
+#main-menu .center-roulette-area[data-area="edarm"] {
+  background-position: -900px -160px;
+}
+#main-menu .center-roulette-area[data-area="edarp"] {
+  background-position: -1080px -160px;
+}
+#main-menu .center-roulette-area[data-area="pdl"] {
+  background-position: -1260px -160px;
+}
+#main-menu .center-roulette-area[data-area="mat"] {
+  background-position: -1440px -160px;
+}
+#main-menu .center-roulette-area[data-area="cs"] {
+  background-position: -1620px -160px;
+}
+#main-menu .center-roulette-area[data-area="ef"] {
+  background-position: -1800px -160px;
+}
+#main-menu .center-roulette-area[data-area="cn"] {
+  background-position: -1980px -160px;
+}
+#main-menu .center-roulette-area.active {
+  visibility: visible;
 }
 #main-menu ul.roulette {
   list-style: none;
@@ -125,34 +330,34 @@ body {
 #main-menu ul.roulette li {
   border-radius: 50%;
   border: 0px;
-  height: 61px;
-  margin-left: -30px;
-  margin-top: -30px;
+  height: 62px;
+  margin-left: -31px;
+  margin-top: -31px;
   position: absolute;
-  width: 61px;
+  width: 62px;
   top: 150px;
   left: 150px;
 }
 #main-menu ul.roulette li .item-area {
-  height: 55px;
-  width: 55px;
+  height: 56px;
+  width: 56px;
   margin-top: 3px;
   margin-left: 3px;
   border-radius: 50%;
   background-color: white;
-  background-image: url(../img/area-circle.png);
+  background-image: url(../img/assets.png);
 }
 #main-menu ul.roulette li:hover,
 #main-menu ul.roulette li:focus {
-  height: 101px;
-  margin-left: -50px;
-  margin-top: -50px;
-  width: 101px;
+  height: 94px;
+  margin-left: -47px;
+  margin-top: -47px;
+  width: 94px;
 }
 #main-menu ul.roulette li:hover .item-area,
 #main-menu ul.roulette li:focus .item-area {
-  height: 94px;
-  width: 94px;
+  height: 88px;
+  width: 88px;
   margin-top: 3px;
   margin-left: 3px;
 }
@@ -198,7 +403,7 @@ body {
 }
 #main-menu ul.roulette li:hover .item-area[data-area="cn"],
 #main-menu ul.roulette li:focus .item-area[data-area="cn"] {
-  background-position: -1000px -60px;
+  background-position: -1100px -60px;
 }
 #main-menu ul.roulette li:hover .item-area[data-area="ing"],
 #main-menu ul.roulette li:focus .item-area[data-area="ing"] {
@@ -269,4 +474,92 @@ body {
   to {
     -moz-transform: rotate(360deg);
   }
+}
+#aside-menu {
+  cursor: pointer;
+  height: 100px;
+  left: -7px;
+  margin-top: -72.5px;
+  position: fixed;
+  top: 50%;
+  width: 50px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+#aside-menu:hover,
+#aside-menu:focus,
+#aside-menu.active {
+  left: 0px;
+}
+#aside-menu.active ul li[data-target="bienvenida"] {
+  top: -45px;
+  left: 54px;
+}
+#aside-menu.active ul li[data-target="cloud"] {
+  top: -5px;
+  left: 109px;
+}
+#aside-menu.active ul li[data-target="orientaciones"] {
+  top: 60px;
+  left: 130px;
+}
+#aside-menu.active ul li[data-target="transversales"] {
+  top: 125px;
+  left: 109px;
+}
+#aside-menu.active ul li[data-target="contacto"] {
+  top: 165px;
+  left: 54px;
+}
+#aside-menu ul {
+  list-style: none;
+  position: relative;
+}
+#aside-menu ul li {
+  margin: none;
+  background: url(../img/assets.png);
+  width: 64px;
+  height: 60px;
+  margin-top: -32px;
+  margin-left: -30px;
+  background-position: 0px -566px;
+  position: absolute;
+  top: 70px;
+  left: -20px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+#aside-menu ul li a {
+  border-radius: 50%;
+  position: absolute;
+}
+#aside-menu ul li a .expand {
+  width: 64px;
+  height: 60px;
+}
+#aside-menu ul li[data-target="bienvenida"] {
+  background-position: 0px -566px;
+}
+#aside-menu ul li[data-target="cloud"] {
+  background-position: -66px -566px;
+}
+#aside-menu ul li[data-target="orientaciones"] {
+  background-position: -132px -566px;
+}
+#aside-menu ul li[data-target="transversales"] {
+  background-position: -198px -566px;
+}
+#aside-menu ul li[data-target="contacto"] {
+  background-position: -264px -566px;
+}
+.center-aside-menu {
+  width: 50px;
+  height: 100px;
+  background: url(../img/assets.png) no-repeat;
+  background-position: 0px -632px;
+  position: absolute;
 }

@@ -12,21 +12,77 @@
   // Librería global de Matemática
   var Math = window.Math;
 
-  function convert(type, num) {
-    if (type == "rads") {
-      return num*180/Math.PI;
-    }
+  var Menu = function(elem, opciones) {
+    var self = this;
+    
+    var opts = $.extend( {}, $.fn.roulette.defaults, opciones );
 
-    if (type == "degs") {
-      result = num*Math.PI/180;
-    }
-  }
+    var w = elem.width();
+    
+    self.opened = false;
 
-  $.fn.roulette = function(opciones){
+    self.show = function( degs ){
+      var count = 0;
+      var radio = (w / 2);
 
-    var setPosicion = function(elem, h, radio, initAngle, count){
-      count = count || 0;
+      elem
+        .children('ul.roulette')
+        .children('li')
+        .each(function(){
+          var $l = $(this);
+          $l._roulettePosition(count++, radio, degs);
+      });
+
+      // TODO: warning
+      self.opened = true;
+    };
+
+    self.hide = function(){
+      elem
+        .children('ul.roulette')
+        .children('li')
+        .each(function(){
+          var count = 0;
+          var $l = $(this);
+          $l
+            .stop()
+            .animate(
+              {  'top': (w/2) + 'px', 'left': (w/2) + 'px' },
+              { duration: 200 + (count++ * 15) }
+            );
+      });
+      // TODO: warning
+      self.opened = false;
+    };
+
+    self.toggle = function(degs){
+      if (self.opened === true) {
+        self.hide();
+      } else {
+        self.show(degs);
+      }
+    };
+
+    //init 
+    elem
+      .children('ul.roulette')
+      .children('li')
+      .each(function(){
+        var count = 0;
+        var $l = $(this);
+        $l
+          .stop()
+          .css({  'top': (w/2) + 'px', 'left': (w/2) + 'px' })
+        });
+    return self;
+  };
+
+  $.fn._roulettePosition = function(h, radio, initAngle, w, cb){
+    return this.each(function(){
+      var elem  = $(this);
+      
       initAngle = initAngle || 0;
+
       // definicion del angulo 360 en Radianes
       var A360 = parseFloat(2*Math.PI);
 
@@ -37,33 +93,24 @@
       var y = Math.round(radio*Math.sin(angulo));
       var x = Math.round(radio*Math.cos(angulo));
 
-      elem.css({  'top': '150px', 'left': '150px' });
-      elem.animate(
-        {  'top': y + radio, 'left': x + radio },
-        {
-          duration: 150 + (count*15)
-        });
-    };
-
-    // Extendemos las opciones por default
-    var opts = $.extend( {}, $.fn.roulette.defaults, opciones );
-    
-    var count = 0;
-    var radio = (opts.anchoAlto / 2);
-
-    return this.each(function(){
-
-      var elem  = $(this);
-
       elem
-        .children('ul.roulette')
-        .children('li')
-        .each(function(){
-          var $l = $(this);
-          setPosicion($l, count++, radio, opts.initAngle, count);
-      });
-      
+        .stop()
+        .css({  'top': (w/2) + 'px', 'left': (w/2) + 'px' })
+        .animate({  
+            'top': y + radio, 
+            'left': x + radio 
+          },
+          {
+            duration: 150 + (h*15)
+        }, cb);
+
     });
+  };
+
+  $.fn.roulette = function(opciones){
+    
+    var elem  = $(this).first();
+    return new Menu(elem, opciones);
 
   };
 

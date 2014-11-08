@@ -46,3 +46,218 @@
   background-color: @cn-color;
 }
 
+
+.area-ing {
+  .bg-ing;
+}
+
+.area-cec {
+  .bg-cec;
+}
+
+.area-eoe {
+  .bg-eoe;
+}
+
+.area-edart {
+  .bg-edart;
+}
+
+.area-edard {
+  .bg-edard;
+}
+
+.area-edarm {
+  .bg-edarm;
+}
+
+.area-edarp {
+  .bg-edarp;
+}
+
+.area-pdl {
+  .bg-pdl;
+}
+
+.area-mat {
+  .bg-mat;
+}
+
+.area-cs {
+  .bg-cs;
+}
+
+.area-ef {
+  .bg-ef;
+}
+
+.area-cn {
+  .bg-cn;
+}
+
+
+html.area-ing {
+  body {
+    .area-ing;
+  }
+}
+html.area-cec {
+  body {
+    .area-cec;
+  }
+}
+html.area-eoe {
+  body {
+    .area-eoe;
+  }
+}
+html.area-edart {
+  body {
+    .area-edart;
+  }
+}
+html.area-edard {
+  body {
+    .area-edard;
+  }
+}
+html.area-edarm {
+  body {
+    .area-edarm;
+  }
+}
+html.area-edarp {
+  body {
+    .area-edarp;
+  }
+}
+html.area-pdl {
+  body {
+    .area-pdl;
+  }
+}
+html.area-mat {
+  body {
+    .area-mat;
+  }
+}
+html.area-cs {
+  body {
+    .area-cs;
+  }
+}
+html.area-ef {
+  body {
+    .area-ef;
+  }
+}
+html.area-cn {
+  body {
+    .area-cn;
+  }
+}
+
+.area-cartoon {
+  background-position: 0px -340px;
+  background: url(../img/assets.png);
+  bottom: @footer-height;
+  height: 226px;
+  position: absolute;
+  right: 20px;
+  visibility: hidden;
+  width: 216px;
+}
+
+.area-cartoon.active {
+  visibility: visible;
+}
+
+html { 
+  &[data-area="ing"] {
+    .area-cartoon {
+      background-position: 0px -340px;
+    }
+  }
+
+  &[data-area="cec"] {
+    .area-cartoon {
+      background-position: -216px -340px;    
+    }
+  }
+
+  &[data-area="eoe"] {
+    .area-cartoon {
+      background-position: -432px -340px; 
+    }
+  }
+
+  &[data-area="edart"] {
+    .area-cartoon {
+      background-position: -648px -340px;
+    }
+  }
+
+  &[data-area="edard"] {
+    .area-cartoon {
+      background-position: -864px -340px;
+    }
+  }
+
+  &[data-area="edarm"] {
+    .area-cartoon {
+      background-position: -1080px -340px;
+    }
+  }
+
+  &[data-area="edarp"] {
+    .area-cartoon {
+      background-position: -1296px -340px;
+    }
+  }
+
+  &[data-area="pdl"] {
+    .area-cartoon {
+      background-position: -1512px -340px;
+    }
+  }
+
+  &[data-area="mat"] {
+    .area-cartoon {
+      background-position: -1728px -340px;
+    }
+  }
+
+  &[data-area="cs"] {
+    .area-cartoon {
+      background-position: -1944px -340px;
+    }
+  }
+
+  &[data-area="ef"] {
+    .area-cartoon {
+      background-position: -2160px -340px;
+    }
+  }
+
+  &[data-area="cn"] {
+    .area-cartoon {
+      background-position: -2376px -340px;
+    }
+  }
+
+  &.active {
+    visibility: visible;
+  }
+}
+
+ul.ejes {
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.section-header {
+  font-family: 'Patua One';
+}
