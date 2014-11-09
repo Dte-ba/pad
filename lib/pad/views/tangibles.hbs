@@ -1,17 +1,41 @@
-<ul class="tangibles">
-  {{#each tangibles}}
-    <li class="box tangible-box" rel="{{content.area}}">
+<div class="container-fluid">
+  <div class="tangibles-wrapper">
+    <div class="tangibles-columns">
+    {{#each tangibles}}
       <a href="/tangible/{{uid}}" title="{{content.title}}">
-        <span class="cover">{{content.title}}</span>
-        <img src="/package/?uid={{uid}}&asset=front" alt="{{content.title}}">
-        
+        <div class="pin {{bg}}">
+          <img class="img-responsive" src="/package/?uid={{uid}}&asset=front" alt="{{content.title}}">
+          <p>{{content.title}}</p>
+        </div>
       </a>
-    </li>
-  {{/each}}
-</ul>
-{{#if isEmpty}}
-  <div class="on-contruction">
-    <img src="/pad/img/padnet-construction.png" alt="">
+    {{/each}}
+    </div>
   </div>
-  <p class="ups-msg">Ups! No hay tangibles por el momento.</p>
-{{/if}}
+
+  <!--<div class="row tangibles-wrap">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <div class="row">
+      {{#each tangibles}}
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="tangible">
+            <a href="/tangible/{{uid}}" title="{{content.title}}">
+              <div class="tangible-cover text-center">
+                <img class="img-responsive" src="/package/?uid={{uid}}&asset=front" alt="{{content.title}}">
+              </div>
+              <div class="tangible-fotter">
+                <p>{{content.title}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>-->
+  {{#if isEmpty}}
+    <div class="on-contruction">
+      <img src="/pad/img/padnet-construction.png" alt="">
+    </div>
+    <p class="ups-msg">Ups! No hay tangibles por el momento.</p>
+  {{/if}}
+</div>

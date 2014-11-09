@@ -134,17 +134,14 @@
       "Seres Vivos": {
         "alias": "seres vivos",
         "blocks": {
-          "Animales": {
-            "alias": "animales"
+          "Diversidad de los seres vivos": {
+            "alias": "diversidad de los seres vivos"
           },
-          "Plantas": {
-            "alias": "plantas"
+          "Funciones de los seres vivos": {
+            "alias": "funciones de los seres vivos"
           },
-          "Hongos y Microorganismos": {
-            "alias": "hongos y microorganismos"
-          },
-          "Paisajes y Ambientes": {
-            "alias": "paisajes ambientales"
+          "Interacciones entre los seres vivos y el ambiente": {
+            "alias": "interacciones entre los seres vivos y el ambiente"
           }
         }
       },
@@ -158,49 +155,16 @@
   },
   "Educación Física": {
     "axis": {
-      "Constitución Corporal": {
-        "alias": "constitucion corporal",
-        "blocks": {
-          "Capacidades Condicionales": {
-            "alias": "capacidades condicionales"
-          },
-          "Capacidades Coordinativas": {
-            "alias": "capacidades coordinativas"
-          }
-        }
-      },
-      "Consciencia Corporal": {
-        "alias": "consciencia corporal",
+      "Corporeidad y motricidad": {
+        "alias": "corporeidad y motricidad",
         "blocks": {}
       },
-      "Habilidades Motrices": {
-        "alias": "habilidades motrices",
+      "Corporeidad y sociomotricidad": {
+        "alias": "corporeidad y sociomotricidad",
         "blocks": {}
       },
-      "Construcción del juego socio-motor": {
-        "alias": "construccion del juego socio motor",
-        "blocks": {
-          "Cooperativo y de Oposición": {
-            "alias": "cooperativo y de oposicion"
-          },
-          "Reglamentos": {
-            "alias": "reglamentos"
-          },
-          "Juegos Tradicionales": {
-            "alias": "juegos tradicionales"
-          }
-        }
-      },
-      "Comunicación corporal": {
-        "alias": "comunicacion corporal",
-        "blocks": {
-          "Secuencias motrices": {
-            "alias": "secuencias motrices"
-          }
-        }
-      },
-      "Las acciones motrices en el ambiente": {
-        "alias": "las acciones motrices en el ambiente",
+      "Corporeidad y motricidad en relación con el ambiente": {
+        "alias": "corporeidad y motricidad en relacion con el ambiente",
         "blocks": {}
       },
       "Sala de Docentes": {
@@ -313,70 +277,76 @@
     "alias": "matematica",
     "encuadre": "/files/encuadre_matematica.pdf"
   },
-  "Prácticas del Lenguaje": {
+   "Prácticas del Lenguaje": {
     "axis": {
-      "Formación del lector literario": {
-        "alias": "formacion del lector literario",
+      "Formación Literaria": {
+        "alias": "formacion literaria",
         "blocks": {
-          "Cuentos": {
-            "alias": "cuentos"
+          "Para leer, ver y escuchar literatura: Narrativa": {
+            "alias": "para leer ver y escuchar literatura narrativa"
           },
-          "Leyendas": {
-            "alias": "leyendas"
+          "Para leer, ver y escuchar literatura: Poesía": {
+            "alias": "para leer ver y escuchar literatura poesia"
           },
-          "Coplas": {
-            "alias": "coplas"
+          "Para leer, ver y escuchar literatura: Teatro": {
+            "alias": "para leer ver y escuchar literatura teatro"
           },
-          "Refranes": {
-            "alias": "refranes"
+          "Para escribir en torno a la literatura: Textos Digitales": {
+            "alias": "para escribir en torno a la literatura textos digitales"
           },
-          "Audiolibros": {
-            "alias": "audiolibros"
+          "Para escribir en torno a la literatura: Recursos Multimediales": {
+            "alias": "para escribir en torno a la literatura recursos multimediales"
           }
         }
       },
       "Formación del estudiante": {
         "alias": "formacion del estudiante",
         "blocks": {
-          "Textos informativos": {
-            "alias": "textos informativos"
+          "Para buscar y seleccionar información: Textos digitales": {
+            "alias": "para buscar y seleccionar informacion textos digitales"
+          },
+          "Para buscar y seleccionar información: Recursos Multimediales": {
+            "alias": "para buscar y seleccionar informacion recursos multimediales"
+          },
+          "Para comunicar lo aprendido: Textos Digitales": {
+            "alias": "para comunicar lo aprendido textos digitales"
+          },
+          "Para comunicar lo aprendido: Recursos": {
+            "alias": "para comunicar lo aprendido recursos"
           }
         }
       },
-      "Formación ciudadana": {
-        "alias": "formacion ciudadana",
+      "Formación del Ciudadano": {
+        "alias": "formacion del ciudadano",
         "blocks": {
-          "Afiches": {
-            "alias": "afiches"
+          "Para construir y expresar opiniones: Textos Digitales": {
+            "alias": "para construir y expresar opiniones textos digitales"
           },
-          "Publicidades": {
-            "alias": "publicidades"
+          "Para construir y expresar opiniones: Recursos Multimediales": {
+            "alias": "para construir y expresar opiniones recursos multimediales"
           },
-          "Graffitis": {
-            "alias": "graffitis"
+          "Para leer y comentar: Prensa": {
+            "alias": "para leer y comentar prensa"
           },
-          "Textos periodisticos": {
-            "alias": "textos periodisticos"
-          },
-          "Adicciones": {
-            "alias": "adicciones"
+          "Para leer y comentar: Publicidad": {
+            "alias": "para leer y comentar publicidad"
           }
         }
       },
-      "Programas y Proyectos": {
-        "alias": "programas y proyectos",
+      "Reflexión sobre el lenguaje": {
+        "alias": "reflexion sobre el lenguaje",
         "blocks": {
-          "Educación Para la Salud": {
-            "alias": "educacion para la salud"
+          "Para reflexionar sobre las gramáticas": {
+            "alias": "para reflexionar sobre las gramaticas"
           },
-          "Educación Sexual Integral": {
-            "alias": "educacion sexual integral"
+          "Para reflexionar sobre el sistema de escritura y la ortografía": {
+            "alias": "para reflexionar sobre el sistema de escritura y la ortografia"
           },
-          "Educación Ambiental": {
-            "alias": "educacion ambiental"
+          "Para reflexionar sobre la historia de la lengua": {
+            "alias": "para reflexionar sobre la historia de la lengua"
           },
-          "Educación Científica": {
-            "alias": "educacion cientifica"
+          "Para reflexionar sobre los usos sociales del lenguaje": {
+            "alias": "para reflexionar sobre los usos sociales del lenguaje"
           }
         }
       },
@@ -631,7 +601,15 @@
       "Convivencia escolar": {
         "alias": "convivencia escolar",
         "blocks": {}
-      } 
+      },
+      "Inclusión Educativa": {
+        "alias": "inclusion educativa",
+        "blocks": {}
+      },
+      "Situaciones Emergentes": {
+        "alias": "situaciones emergentes",
+        "blocks": {}
+      }
     },
     "alias": "equipos de orientacion escolar"
   },
@@ -647,6 +625,10 @@
       },
       "Salud: cuidado de sí y cuidado del otro": {
         "alias": "salud cuidado de si y cuidado del otro",
+        "blocks": {}
+      },
+      "Sala de Docentes": {
+        "alias": "sala de docentes",
         "blocks": {}
       }           
     },
@@ -666,7 +648,38 @@
     "axis": {
       "Planes y Programas": {
         "alias": "planes y programas",
-        "blocks": {}
+        "blocks": {
+            "Programa Provincial de Actividades Científicas y Tecnológicas Educativas": {
+              "alias": "programa provincial de actividades cientificas y tecnologicas educativas"
+            },
+            "Programa de Derechos Humanos, Memoria y Educación": {
+              "alias": "programa de derechos humanos memoria y educacion"
+            },
+            "Educación en Contextos de Encierro": {
+              "alias": "educacion en contextos de encierro"
+            },
+            "Programa de Educación y Seguridad Vial": {
+              "alias": "programa de educacion y seguridad vial"
+            },
+            "Programa de Educación Intercultural": {
+              "alias": "programa de educacion intercultural"
+            },
+            "Programa de promoción de derechos de niñas niños y adolescentes": {
+              "alias": "programa de promocion de derechos de ninias ninios y adolescentes"
+            },
+            "Programa de Educación Plurilingüe": {
+              "alias": "programa de educacion plurilingue"
+            },
+            "Programa de Educación para la Ruralidad continental y de Islas": {
+              "alias": "programa de educacion para la ruralidad continental y de islas"
+            },
+            "Programa de Arte y Medios en la Escuela": {
+              "alias": "programa de arte y medios en la escuela"
+            },
+            "Programa Escuelas Promotoras de Salud": {
+              "alias": "programa escuelas promotoras de salud"
+            }
+          }
       }      
     },    
   "alias": "temas transversales"

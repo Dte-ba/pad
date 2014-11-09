@@ -26,6 +26,10 @@
       <div class="logo-dte"></div>
       <div class="logo-ba"></div>
     </footer>
+    
+    {{#unless home}}
+      <a id="to-home" href="/"></a>
+    {{/unless}}
 
     {{> menu}}
 
@@ -33,6 +37,7 @@
 
     <!-- common scripts -->
     {{> scripts}}
+
 
   </body>
 </html>
