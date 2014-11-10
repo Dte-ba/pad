@@ -635,6 +635,12 @@ p.ups-msg {
   font-family: 'Comfortaa Bold';
   font-size: 22px;
 }
+.users-online {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #eeebd5;
+}
 html,
 body {
   height: 100%;

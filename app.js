@@ -64,6 +64,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
+    console.error(req.url + ' Not Found');
     console.error(err.stack);
     res.render('error', {
       message: err.message,
@@ -82,16 +83,22 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var status = { status: 'loading' };
+var usersOnline = 0;
+
+var status = { status: 'loading', usersOnline: 0 };
 
 var statusSend = function() {
+  status.usersOnline = usersOnline;
   io.emit('status', status);
 };
 
 io.on('connection', function(socket){
+  usersOnline++;
   statusSend();
+  io.emit('users change', usersOnline);
   socket.on('disconnect', function(){
-    //console.log('user disconnected');
+    usersOnline--;
+    io.emit('users change', usersOnline);
   });
 });
 
@@ -105,4 +112,10 @@ http.listen(8000, function(err){
     statusSend();
   });
 
+});
+
+
+process.on("uncaughtException", function(err){
+  console.log('uncaughtException');
+  console.error(err);
 });

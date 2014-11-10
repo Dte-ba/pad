@@ -35,6 +35,12 @@
         }
       });
 
+      socket.on('users change', function(usersOnline){
+        console.log('usersOnline: ' + usersOnline);
+        $('.users-online').text('online: ' + usersOnline);
+      });
+      
+
       $(document).click(function(){
         if ($('#aside-menu').hasClass('active')) {
           $('#aside-menu').removeClass('active');
