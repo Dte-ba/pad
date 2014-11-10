@@ -17,7 +17,7 @@ var epmApp = epmMiddleware({
   path: path.resolve('./repos'), 
   engines: [{ name: 'epm-pad-engine', engine: padEngine }],
   default: 'local'
-  });
+});
 
 var padApp = pad({ public: path.join(__dirname, 'public'), epm: epmApp })
 

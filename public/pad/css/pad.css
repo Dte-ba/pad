@@ -623,6 +623,18 @@ ul.tangible-tags .cloud i {
   padding: 20px;
   border-radius: 6px;
 }
+.on-empty {
+  margin-bottom: 15px;
+}
+.on-empty img {
+  border-radius: 6px;
+  margin: 0 auto;
+}
+p.ups-msg {
+  color: #242526;
+  font-family: 'Comfortaa Bold';
+  font-size: 22px;
+}
 html,
 body {
   height: 100%;
