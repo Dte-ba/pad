@@ -6,22 +6,31 @@
 <script src="/pad/js/cloud.js"></script>
 {{/contentFor}}
 
-<div class="cloudWrapper">
-  <div id="cloudContainer">
-    <canvas width="300" height="600" id="cloudCanvas" crossOrigin="anonymous">
-      <div class="text-center loader">
-        <div class="logo"></div>
-        <span>Cargando ...</span>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-11 col-lg-offset-1">
+      
+      <div class="cloudWrapper">
+        <div id="cloudContainer">
+          <canvas width="300" height="600" id="cloudCanvas" crossOrigin="anonymous">
+            <div class="text-center loader">
+              <div class="logo"></div>
+              <span>Cargando ...</span>
+            </div>
+          </canvas>
+        </div>
+
+        <div id="cloud-pusher" style="height: 205px">
+        </div>
       </div>
-    </canvas>
-  </div>
 
-  <div id="cloud-pusher" style="height: 205px">
-  </div>
+      <ul id="wordList" style="display: none">
+      {{#each words}}
+        <li><a href="/tangibles?tag={{this}}">{{this}}</a></li>
+      {{/each}}
+      </ul>
+
+    </div>
+  </div>    
 </div>
-
-<ul id="wordList" style="display: none">
-{{#each words}}
-  <li><a href="/tangibles?tag={{this}}">{{this}}</a></li>
-{{/each}}
-</ul>

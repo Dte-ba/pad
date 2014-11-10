@@ -1,8 +1,26 @@
 ;
 // common js for each pages
 
-!function($, io, ko, window, document, undefined){
+(function($, io, ko, window, document, undefined){
   "use strict";
+
+  var isLoadaded = false;
+
+  var loadedComplete = function(){
+    for (var i = 0; i < window.__listeners.length; i++) {
+      var func = window.__listeners[i];
+
+      func.apply(window);
+    };
+  };
+
+  window.__listeners = [];
+  window.onLoaded = function(func){
+    window.__listeners.push(func);
+    if (isLoadaded) {
+      loadedComplete();   
+    }
+  };
 
   var socket = io();
 
@@ -12,6 +30,8 @@
       socket.on('status', function(info){
         if (info.status === "complete") {
           $('body').removeClass('loading');
+          isLoadaded = true;
+          loadedComplete();
         }
       });
 
@@ -32,4 +52,4 @@
     });
   });
   
-}(jQuery, io, ko, window, document)
+})(jQuery, io, ko, window, document)

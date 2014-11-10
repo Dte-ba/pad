@@ -16,13 +16,13 @@
     $('#cloudCanvas').attr('height', cHeight);
 
     if(!$('#cloudCanvas').tagcanvas({
-      textColour: '#FDDFB3',
-      outlineColour: '#1F7988',
+      textColour: '#242526',
+      outlineColour: '#ec7f24',
       freezeActive: false,
       freezeDecel: false,
       clickToFront: false,
       reverse: true,
-      depth: 1,
+      depth: 7,
       frontSelect: true,
       maxSpeed: 0.015
     },'wordList')) {
@@ -43,6 +43,10 @@
     $(window).resize(function($){
       refresh();
     });
+
+     window.onLoaded(function(){
+      refresh();
+     });
 
   });
 
