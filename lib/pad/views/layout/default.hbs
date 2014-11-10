@@ -8,8 +8,13 @@
   <head>
      {{> header}}
   </head>
-  <body>
+  <body class="loading">
     
+    <div class="loading-wrap center-screen">
+      <div class="bg-loading"></div>
+      <div class="sandclock-loading"></div>
+    </div>
+
     <div class="page-wrap">
       <div id="content">
         {{{body}}}
@@ -22,9 +27,10 @@
       {{/if}}
     </div>
        
-    <footer class="dte-footer">
+    <footer class="dte-footer clearfix">
       <div class="logo-dte"></div>
       <div class="logo-ba"></div>
+      <div class="logo-pad"></div>
     </footer>
     
     {{#unless home}}
@@ -33,11 +39,8 @@
 
     {{> menu}}
 
-    {{> gallery}}
-
     <!-- common scripts -->
     {{> scripts}}
-
 
   </body>
 </html>

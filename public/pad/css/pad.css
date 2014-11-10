@@ -40,13 +40,89 @@ body {
   background-color: #eeebd5;
   color: white;
 }
+.center-screen {
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+}
+.loading-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  position: absolute;
+  display: none;
+}
+.loading-wrap .bg-loading {
+  margin-top: -28px;
+  margin-left: -28px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  border-radius: 50%;
+  background: #242526 url(../img/loading.png) center center no-repeat;
+  left: 0px;
+  top: 0px;
+}
+.loading-wrap .sandclock-loading {
+  margin-top: -28px;
+  margin-left: -28px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: url(../img/clock_load.png) center center no-repeat;
+}
+body.loading #content,
+body.loading #aside-menu,
+body.loading #to-home,
+body.loading .area-cartoon {
+  display: none;
+}
+body.loading .loading-wrap {
+  display: block;
+}
+.loading .bg-loading {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 2.5s;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 2.5s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
 #to-home {
   position: absolute;
   width: 52px;
   height: 52px;
   background: url(../img/home_btn.png) center center no-repeat;
   top: 10px;
-  left: 3%;
+  left: 10px;
+}
+.bg-opad,
+.bg-tt {
+  background-color: #ec7f24;
 }
 .bg-ing {
   background-color: #41235f;
@@ -192,6 +268,12 @@ body {
 .area-cn p {
   color: #ffffff;
 }
+.area-opad {
+  background-color: #ec7f24;
+}
+.area-tt {
+  background-color: #ec7f24;
+}
 html.area-ing body {
   background-color: #41235f;
 }
@@ -263,6 +345,12 @@ html.area-cn body {
 }
 html.area-cn body p {
   color: #ffffff;
+}
+html.area-opad body {
+  background-color: #ec7f24;
+}
+html.area-tt body {
+  background-color: #ec7f24;
 }
 .area-cartoon {
   background-position: 0px -340px;
@@ -379,13 +467,13 @@ html.active {
 }
 .tangibles-columns {
   -webkit-column-count: 3;
-  -webkit-column-gap: 10px;
+  -webkit-column-gap: 5px;
   -webkit-column-fill: auto;
   -moz-column-count: 3;
-  -moz-column-gap: 10px;
+  -moz-column-gap: 5px;
   -moz-column-fill: auto;
   column-count: 3;
-  column-gap: 15px;
+  column-gap: 5px;
   column-fill: auto;
 }
 .tangible {
@@ -449,6 +537,7 @@ html.active {
   margin: 3px;
   color: white;
   font-size: 20px;
+  font-family: 'Patua One';
 }
 .tangible-body h4,
 .tangible-body p {
@@ -497,6 +586,43 @@ ul.tangible-tags .cloud {
 ul.tangible-tags .cloud i {
   color: white;
 }
+.mapa-bienvenida {
+  position: absolute;
+  left: 10px;
+  bottom: 60px;
+  width: 120px;
+  height: 124px;
+  background: url(../img/mapa_bienvenida.png) center center no-repeat;
+}
+.welcome-wrap {
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+.welcome-content {
+  border-radius: 6px;
+}
+.welcome-content .presentation img {
+  margin: 0 auto;
+}
+.aboutus {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+.aboutus h4 {
+  font-family: 'Patua One';
+  font-size: 18px;
+  color: #ec7f24;
+}
+.aboutus p,
+.aboutus ul li {
+  font-size: 14px;
+  color: #242526;
+}
+.encuadre {
+  padding: 20px;
+  border-radius: 6px;
+}
 html,
 body {
   height: 100%;
@@ -524,6 +650,13 @@ body {
   width: 225px;
   background: url('../img/logo-dte.png') center center no-repeat;
   margin-left: 5%;
+}
+.dte-footer .logo-pad {
+  float: right;
+  height: 45px;
+  width: 170px;
+  background: url('../img/logo_pad_footer.png') center center no-repeat;
+  margin-right: 2%;
 }
 .dte-footer .logo-ba {
   float: right;
@@ -809,7 +942,7 @@ body {
   margin: none;
   background: url(../img/assets.png);
   width: 64px;
-  height: 60px;
+  height: 61px;
   margin-top: -32px;
   margin-left: -30px;
   background-position: 0px -566px;
@@ -827,7 +960,7 @@ body {
 }
 #aside-menu ul li a .expand {
   width: 64px;
-  height: 60px;
+  height: 61px;
 }
 #aside-menu ul li[data-target="bienvenida"] {
   background-position: 0px -566px;
@@ -850,4 +983,41 @@ body {
   background: url(../img/assets.png) no-repeat;
   background-position: 0px -632px;
   position: absolute;
+}
+#menu-welcome {
+  list-style: none;
+  padding: 0px;
+}
+#menu-welcome li {
+  background: url(../img/menu-bienvenida.png) no-repeat;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+}
+#menu-welcome li[data-target="Presentación"] {
+  background-position: 0px 0px;
+}
+#menu-welcome li[data-target="Acerca de"] {
+  background-position: -64px 0px;
+}
+#menu-welcome li[data-target="Marco General"] {
+  background-position: -128px 0px;
+}
+#menu-welcome li[data-target="Encuadre"] {
+  background-position: -192px 0px;
+}
+#menu-welcome li:hover,
+#menu-welcome li:active,
+#menu-welcome li.active {
+  background-position-y: -64px;
+}
+#menu-welcome li a {
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+#menu-welcome li a .expand {
+  width: 64px;
+  height: 64px;
 }

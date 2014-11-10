@@ -30,6 +30,11 @@
         event.stopPropagation();
       });
 
+      $('#main-menu ul.roulette li a').click(function(e){
+
+        event.stopPropagation();
+      });
+
       $('#main-menu ul.roulette li').hover(function(e){
         var elem = $(e.currentTarget);
 

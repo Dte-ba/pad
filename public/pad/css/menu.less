@@ -335,7 +335,7 @@
       margin: none;
       background: url(../img/assets.png);
       width: 64px;
-      height: 60px;
+      height: 61px;
       margin-top: -32px;
       margin-left: -30px;
       background-position: 0px -566px;
@@ -354,7 +354,7 @@
         position: absolute;
         .expand {
           width: 64px;
-          height: 60px;
+          height: 61px;
         }
       }
     }
@@ -389,4 +389,47 @@
   background: url(../img/assets.png) no-repeat;
   background-position: 0px -632px;
   position: absolute;
+}
+
+#menu-welcome {
+  list-style: none;
+  padding: 0px;
+
+  li {
+    background: url(../img/menu-bienvenida.png) no-repeat;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+
+    &[data-target="Presentación"] {
+      background-position: 0px 0px;
+    }
+    &[data-target="Acerca de"] {
+      background-position: -64px 0px;
+    }
+    &[data-target="Marco General"] {
+      background-position: -128px 0px;
+    }
+    &[data-target="Encuadre"] {
+      background-position: -192px 0px;
+    }
+
+    &:hover,
+    &:active,
+    &.active, {
+      background-position-y: -64px;
+    }
+    
+    a {
+      width: 64px;
+      height: 64px;
+      display: block;
+
+      .expand {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
 }

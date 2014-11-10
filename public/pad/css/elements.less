@@ -1,11 +1,96 @@
 
+.center-screen {
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+}
+
+.loading-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  position: absolute;
+  display: none;
+  
+  .bg-loading {
+    margin-top: -28px;
+    margin-left: -28px;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    border-radius: 50%;
+    background: @black-color url(../img/loading.png) center center no-repeat;
+    left: 0px;
+    top: 0px;
+  }
+
+  .sandclock-loading {
+    margin-top: -28px;
+    margin-left: -28px;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: url(../img/clock_load.png) center center no-repeat;
+  }
+
+}
+
+body.loading {
+  #content,
+  #aside-menu,
+  #to-home,
+  .area-cartoon {
+    display: none;
+  }
+  
+  .loading-wrap {
+    display: block;  
+  }
+}
+
+
+.loading .bg-loading {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 2.5s;
+
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 2.5s;
+
+  -webkit-animation-name: rotate; 
+  -webkit-animation-duration: 5s; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: rotate; 
+  -moz-animation-duration: 5s; 
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
 #to-home {
   position:absolute;
   width: 52px;
   height: 52px;
   background: url(../img/home_btn.png) center center no-repeat;
   top: 10px;
-  left: 3%;
+  left: 10px;
+}
+
+.bg-opad,
+.bg-tt {
+  background-color: @ba-color;
 }
 
 .bg-ing {
@@ -141,6 +226,14 @@
   .bg-cn;
 }
 
+.area-opad {
+  .bg-opad;
+}
+
+.area-tt {
+  .bg-tt;
+}
+
 
 html.area-ing {
   body {
@@ -202,6 +295,20 @@ html.area-cn {
     .area-cn;
   }
 }
+
+html.area-opad {
+  body {
+    .area-opad;
+  }
+}
+
+
+html.area-tt {
+  body {
+    .area-tt;
+  }
+}
+
 
 .area-cartoon {
   background-position: 0px -340px;
@@ -372,13 +479,13 @@ html {
 }
   .tangibles-columns {
     -webkit-column-count: 3;
-    -webkit-column-gap: 10px;
+    -webkit-column-gap: 5px;
     -webkit-column-fill: auto;
     -moz-column-count: 3;
-    -moz-column-gap: 10px;
+    -moz-column-gap: 5px;
     -moz-column-fill: auto;
     column-count: 3;
-    column-gap: 15px;
+    column-gap: 5px;
     column-fill: auto;
   }
 
@@ -461,6 +568,7 @@ html {
     margin: 3px;
     color: white;
     font-size: 20px;
+    font-family: 'Patua One';
   }
 
   margin-bottom: 10px;
@@ -521,3 +629,50 @@ ul.tangible-tags {
   }
 }
 
+.mapa-bienvenida {
+  position: absolute;
+  left: 10px;
+  bottom: 60px;
+  width: 120px;
+  height: 124px;
+  background: url(../img/mapa_bienvenida.png) center center no-repeat;
+}
+
+.welcome-wrap {
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+.welcome-content {
+  border-radius: 6px;
+
+  .presentation  {
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+.aboutus {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+
+  h4 {
+    font-family: 'Patua One';
+    font-size: 18px;
+    color: @ba-color;
+  }
+
+  p,
+  ul li {
+    font-size: 14px;
+    color: @black-color;
+  }
+}
+
+
+.encuadre {
+  padding: 20px;
+  border-radius: 6px;
+}
