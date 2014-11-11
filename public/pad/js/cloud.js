@@ -22,7 +22,7 @@
       freezeDecel: false,
       clickToFront: false,
       reverse: true,
-      depth: 7,
+      depth: 3,
       frontSelect: true,
       maxSpeed: 0.015
     },'wordList')) {
