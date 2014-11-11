@@ -621,6 +621,10 @@ ul.tangible-tags .cloud i {
   font-size: 14px;
   color: #242526;
 }
+.aboutus .importante {
+  padding: 10px;
+  border: solid 1px #242526;
+}
 .encuadre {
   padding: 20px;
   border-radius: 6px;
