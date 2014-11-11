@@ -36,6 +36,16 @@
     {{#unless home}}
       <a id="to-home" href="/"></a>
     {{/unless}}
+  
+    {{#unless home}}
+      <div id="aside-area-menu" >
+        <div class="center-aside-area-menu"></div>
+        <div class="roulette-aside-area-menu"></div>
+      </div>
+      <div class="bg-lock" class="showing">
+        {{> menu_areas}}
+      </div>
+    {{/unless}}
 
     {{> menu}}
 

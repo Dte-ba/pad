@@ -39,7 +39,73 @@
         console.log('usersOnline: ' + usersOnline);
         $('.users-online').text('online: ' + usersOnline);
       });
-      
+        
+      if ($('#main-menu').length > 0){
+        var menu = $('#main-menu').roulette();
+
+        $(document).click(function(){
+          if (menu.opened === true) {
+            menu.hide();
+            $('#main-menu').addClass('inactive');  
+          }
+        });
+
+        $('#main-menu').click(function(e){
+          
+          var rotation = $('#main-menu .border-roulette').rotation();
+          
+          $('#main-menu').toggleClass('inactive');
+          $('#main-menu .border-roulette').rotation(rotation);
+          
+          menu.toggle( window.Math.convertDegs("degs", rotation) );
+
+          event.stopPropagation();
+        });
+
+        $('#main-menu ul.roulette li a').click(function(e){
+
+          event.stopPropagation();
+        });
+
+        $('#main-menu ul.roulette li').hover(function(e){
+          var elem = $(e.currentTarget);
+
+          var area = elem.children('a').children('.item-area').attr('data-area');
+          
+          var currentArea = $('html').data('area');
+
+          if(e.type === "mouseover" || e.type === "mouseenter" ) {
+            $('#main-menu .center-roulette-area').addClass('active');
+            $('.area-cartoon').addClass('active');
+            
+            $('#main-menu .center-roulette-area').attr('data-area', area);
+            $('html').attr('data-area', area);
+          } else {
+            $('#main-menu .center-roulette-area').removeClass('active');
+            $('.area-cartoon').removeClass('active');
+            $('#main-menu .center-roulette-area').removeAttr('data-area');
+            $('html').attr('data-area', area);
+
+            if (currentArea !== undefined) {
+              $('.area-cartoon').addClass('active');
+              $('html').attr('data-area', currentArea);              
+            }
+          }
+        });
+
+        $('.bg-lock').click(function(){
+          $('.bg-lock').removeClass('showing');
+          if (menu !== undefined){
+            menu.hide();  
+          }
+          
+          event.stopPropagation();
+        });
+
+        $('#aside-area-menu').click(function(){
+          $('.bg-lock').toggleClass('showing');
+        });
+      }
 
       $(document).click(function(){
         if ($('#aside-menu').hasClass('active')) {

@@ -361,6 +361,7 @@ html.area-tt body {
   right: 0px;
   visibility: hidden;
   width: 216px;
+  z-index: 10002;
 }
 .area-cartoon.active {
   visibility: visible;
@@ -768,6 +769,12 @@ body {
 #main-menu .center-roulette-area.active {
   visibility: visible;
 }
+.bg-lock {
+  display: none;
+}
+.bg-lock.showing {
+  display: block;
+}
 #main-menu ul.roulette {
   list-style: none;
   position: relative;
@@ -923,6 +930,44 @@ body {
     -moz-transform: rotate(360deg);
   }
 }
+#aside-area-menu {
+  cursor: pointer;
+  height: 110px;
+  right: -60px;
+  margin-top: -77.5px;
+  position: fixed;
+  top: 50%;
+  width: 110px;
+}
+#aside-area-menu .roulette-aside-area-menu {
+  height: 110px;
+  width: 110px;
+  background: url(../img/circle_color_sec.png);
+  position: absolute;
+}
+#aside-area-menu .center-aside-area-menu {
+  height: 110px;
+  width: 110px;
+  top: 5px;
+  left: 5px;
+  background: url(../img/assets.png) center center;
+  background-position: 0px -741px;
+  position: absolute;
+}
+#aside-area-menu:hover .roulette-aside-area-menu {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 10s;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 10s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 20s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
 #aside-menu {
   cursor: pointer;
   height: 100px;
@@ -1047,4 +1092,13 @@ body {
 #menu-welcome li a .expand {
   width: 64px;
   height: 64px;
+}
+.bg-lock {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
 }
