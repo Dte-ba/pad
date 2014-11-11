@@ -418,7 +418,8 @@ html.active {
   max-width: 158px;
   max-height: 144px;
 }
-.eje .img-wrap {
+.eje .img-wrap,
+.eje .img-wrap img {
   border-radius: 6px;
 }
 .eje .title-wrap {
@@ -650,6 +651,17 @@ p.ups-msg {
 }
 .transversales h1 {
   color: #242526;
+}
+#to-cloud {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  background: url(../img/cloud_white.png) no-repeat;
+  right: 10px;
+  top: 10px;
+}
+#to-cloud:hover {
+  background-position: 0px -44px;
 }
 html,
 body {

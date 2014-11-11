@@ -418,7 +418,8 @@ html {
     max-height: 144px;
   }
 
-  .img-wrap {
+  .img-wrap,
+  .img-wrap img {
     border-radius: 6px;
   }
 
@@ -713,5 +714,18 @@ p.ups-msg {
 .transversales {
   h1 {
     color: @black-color;
+  }
+}
+
+#to-cloud {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  background: url(../img/cloud_white.png) no-repeat;
+  right: 10px;
+  top: 10px;
+
+  &:hover {
+    background-position: 0px -44px;
   }
 }
