@@ -131,19 +131,19 @@ body.loading .loading-wrap {
   color: #ffffff;
 }
 .bg-cec {
-  background-color: #c51d64;
+  background-color: #ec7f24;
 }
 .bg-cec p {
   color: #ffffff;
 }
 .bg-eoe {
-  background-color: #007f8e;
+  background-color: #ec7f24;
 }
 .bg-eoe p {
   color: #ffffff;
 }
 .bg-edart {
-  background-color: #81388a;
+  background-color: #c51d64;
 }
 .bg-edart p {
   color: #ffffff;
@@ -203,19 +203,19 @@ body.loading .loading-wrap {
   color: #ffffff;
 }
 .area-cec {
-  background-color: #c51d64;
+  background-color: #ec7f24;
 }
 .area-cec p {
   color: #ffffff;
 }
 .area-eoe {
-  background-color: #007f8e;
+  background-color: #ec7f24;
 }
 .area-eoe p {
   color: #ffffff;
 }
 .area-edart {
-  background-color: #81388a;
+  background-color: #c51d64;
 }
 .area-edart p {
   color: #ffffff;
@@ -281,19 +281,19 @@ html.area-ing body p {
   color: #ffffff;
 }
 html.area-cec body {
-  background-color: #c51d64;
+  background-color: #ec7f24;
 }
 html.area-cec body p {
   color: #ffffff;
 }
 html.area-eoe body {
-  background-color: #007f8e;
+  background-color: #ec7f24;
 }
 html.area-eoe body p {
   color: #ffffff;
 }
 html.area-edart body {
-  background-color: #81388a;
+  background-color: #c51d64;
 }
 html.area-edart body p {
   color: #ffffff;
@@ -639,7 +639,16 @@ p.ups-msg {
   position: absolute;
   right: 10px;
   top: 10px;
-  color: #eeebd5;
+  color: #242526;
+}
+.stats h2,
+.stats h4,
+.stats ul li,
+.stats p {
+  color: #242526;
+}
+.transversales h1 {
+  color: #242526;
 }
 html,
 body {

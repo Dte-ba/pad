@@ -86,7 +86,7 @@
       // definicion del angulo 360 en Radianes
       var A360 = parseFloat(2*Math.PI);
 
-      var dif = parseFloat(A360/12);
+      var dif = parseFloat(A360/10);
 
       var angulo = initAngle + (dif*h) - Math.PI / 2;
       
