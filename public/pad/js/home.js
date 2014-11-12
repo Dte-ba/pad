@@ -8,7 +8,7 @@
   
   $(function(){
     $(document).ready(function(){
-
+      $('body').addClass('home');
     });
   });
 

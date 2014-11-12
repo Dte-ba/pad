@@ -86,7 +86,7 @@
             $('#main-menu .center-roulette-area').removeAttr('data-area');
             $('html').attr('data-area', area);
 
-            if (currentArea !== undefined) {
+            if (currentArea !== undefined && !$('body').hasClass('home')) {
               $('.area-cartoon').addClass('active');
               $('html').attr('data-area', currentArea);              
             }
