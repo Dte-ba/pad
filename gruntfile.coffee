@@ -11,7 +11,7 @@ module.exports = (grunt) ->
     less:
       pad:
         options:
-            compress: false
+            compress: true
             clean: false
         files:
           "public/pad/css/pad.css": ['public/pad/css/pad.less']

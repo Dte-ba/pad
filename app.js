@@ -26,7 +26,7 @@ var padApp = pad({ public: path.join(__dirname, 'public'), epm: epmApp })
 
 var panelApp = panel();
 
-var app = module.exports = express();
+var app = express();
 
 // configure main app
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // add epm, pad and panel
 app.use(epmApp);
 app.use(padApp);
-app.use(panelApp);
+// app.use(panelApp);
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -105,21 +105,28 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(8000, function(err){
-  console.log('app listen on http://localhost:8000');
-  status = { status: 'loading' };
-  statusSend();
-
-  epmApp.listenRepositories(function(err, info){
-    status = { status: 'complete' };
-    statusSend();
-  });
-
-});
-
 process.on("uncaughtException", function(err){
   console.log('Uncaught Exception');
   if (err !== undefined) {
     console.log(err.message);
   }
 });
+
+module.exports = function(ops){
+
+  var port = ops.port || process.env.PORT || 8000;
+
+  http.listen(port, function(err){
+    console.log('app listen on http://localhost:' + port);
+    status = { status: 'loading' };
+    statusSend();
+
+    epmApp.listenRepositories(function(err, info){
+      status = { status: 'complete' };
+      statusSend();
+    });
+
+  });
+
+  return http;
+};
