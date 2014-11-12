@@ -9,12 +9,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
+var fs = require('fs');
 
 var pad = require('./lib/pad');
 var panel = require('./lib/panel');
 
+var direrepos = JSON.parse(fs.readFileSync('./package.json', 'utf-8')).repository;
+
 var epmApp = epmMiddleware({
-  path: path.resolve('./repos'), 
+  path: path.resolve( direrepos ), 
   engines: [{ name: 'epm-pad-engine', engine: padEngine }],
   default: 'local'
 });
@@ -115,6 +118,8 @@ http.listen(8000, function(err){
 });
 
 process.on("uncaughtException", function(err){
-  console.log('uncaughtException');
-  console.error(err);
+  console.log('Uncaught Exception');
+  if (err !== undefined) {
+    console.log(err.message);
+  }
 });

@@ -2,6 +2,7 @@
   "name": "pad",
   "version": "5.0.0",
   "private": true,
+  "repository": "./repos",
   "scripts": {
     "test": "node test/packages.js"
   },
