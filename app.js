@@ -68,11 +68,15 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    console.error(err.stack);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    if (err.status !== 404) {
+      console.error(err.stack);
+    }
+    if (!res.headersSent) {
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
+    }
   });
 }
 
