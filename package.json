@@ -30,7 +30,6 @@
     "xregexp": "^2.0.0"
   },
   "devDependencies": {
-    "async": "^0.9.0",
     "chai": "^1.10.0",
     "chai-fs": "^0.1.0",
     "grunt": "^0.4.5",
