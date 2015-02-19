@@ -59,3 +59,9 @@ Thumbs.db
 /data/security.json
 
 /repos
+
+# Automatic
+
+pad.vbs
+win-run.bat
+app-win.log
