@@ -14,12 +14,12 @@ echo "APP_PATH=$APP_PATH_VAR" >> $INITD
 echo "case \$1 in" >> $INITD
 echo "  start)" >> $INITD
 echo "    echo -n \$\"Starting pad: \"" >> $INITD
-echo "    exec 2>&1 $NODE_APP $APP_PATH_VAR >> $APP_PATH_DIR/app.log &"  >> $INITD
+echo "    exec 2>&1 $NODE_APP  \$APP_PATH >> $APP_PATH_DIR/app.log &"  >> $INITD
 echo "    echo \" [ OK ]\"" >> $INITD
 echo "  ;;" >> $INITD
 echo "  stop)" >> $INITD
 echo "    echo -n \$\"Stoping pad: \"" >> $INITD
-echo "    pkill -f 'node $APP_PATH_VAR'"  >> $INITD
+echo "    pkill -f 'node \$APP_PATH'"  >> $INITD
 echo "    echo \" [ OK ]\"" >> $INITD
 echo "  ;;" >> $INITD
 
