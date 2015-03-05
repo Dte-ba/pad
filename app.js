@@ -2,6 +2,7 @@
 
 var express = require('express');
 var path = require('path');
+var Epm  = require('Epm');
 var epmMiddleware = require('epm-middleware');
 var padEngine = require('epm-pad-engine');
 var favicon = require('serve-favicon');
@@ -10,14 +11,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var request = require('request');
 var fs = require('fs');
+var mkdirp = require('mkdirp');
+var async = require('async');
 
 var pad = require('./lib/pad');
 var panel = require('./lib/panel');
 
-var direrepos = JSON.parse(fs.readFileSync('./package.json', 'utf-8')).repository;
+var repodir = path.resolve( JSON.parse(fs.readFileSync('./package.json', 'utf-8')).repository );
+var reponames = ['local', 'dev'];
 
 var epmApp = epmMiddleware({
-  path: path.resolve( direrepos ), 
+  path: repodir, 
   engines: [{ name: 'epm-pad-engine', engine: padEngine }],
   default: 'local'
 });
@@ -127,10 +131,44 @@ module.exports = function(ops){
     status = { status: 'loading' };
     statusSend();
 
-    epmApp.listenRepositories(function(err, info){
-      status = { status: 'complete' };
-      statusSend();
-    });
+    // check if the repo exists or create them
+    async.eachSeries(reponames, function(rname, cb){
+        var fullpath = path.join(repodir, rname);
+
+        if (!fs.existsSync(fullpath)){
+          mkdirp.sync(fullpath);
+        }
+
+        var repo = new Epm(fullpath);
+
+        repo.on('error', function(err){
+          cb && cb(err)
+        });
+
+        repo.on('init', function(info){
+          if (info.created){
+            console.info('epm repository created at ' + info.path);
+          } else {
+            console.info('epm repository reinitialized at ' + info.path);
+          }
+
+          cb && cb(null);
+        });
+
+        repo.init({ name: rname });
+
+      },function(err){
+        if (err){
+          throw err;
+        }
+
+        // then listen
+        epmApp.listenRepositories(function(err, info){
+          status = { status: 'complete' };
+          statusSend();
+        });
+
+      });
 
   });
 

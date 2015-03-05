@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# first check if is root
+if [ "$UID" -ne 0 ] ; then
+  echo "Debes ser root para correr este script!"
+  exit 1
+fi
+
 INITD='/etc/init.d/pad'
 APP_PATH_DIR="`pwd`"
 APP_PATH_VAR="`pwd`/desktop.js"
@@ -7,7 +13,7 @@ NODE_APP="`which node`"
 
 echo "#!/bin/bash" > $INITD
 echo "# /etc/init.d/pad" >> $INITD
-echo "# Aplicación PAD" >> $INITD
+echo "#description: Aplicación PAD" >> $INITD
 echo "case \$1 in" >> $INITD
 echo "  start)" >> $INITD
 echo "    echo -n \$\"Starting pad: \"" >> $INITD
