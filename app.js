@@ -2,7 +2,7 @@
 
 var express = require('express');
 var path = require('path');
-var Epm  = require('Epm');
+var Epm  = require('epm');
 var epmMiddleware = require('epm-middleware');
 var padEngine = require('epm-pad-engine');
 var favicon = require('serve-favicon');
