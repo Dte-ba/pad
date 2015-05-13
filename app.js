@@ -13,12 +13,13 @@ var request = require('request');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var async = require('async');
+var osenv = require('osenv');
 
 var pad = require('./lib/pad');
 var panel = require('./lib/panel');
 
 var repodir = path.resolve( JSON.parse(fs.readFileSync('./package.json', 'utf-8')).repository );
-var reponames = ['local', 'dev'];
+var reponames = ['local'];
 
 var epmApp = epmMiddleware({
   path: repodir, 
