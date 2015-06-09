@@ -13,6 +13,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+      <link rel="stylesheet" href="bower_components/swiper/dist/css/swiper.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -26,9 +28,21 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div ui-view=""></div>
-
+    <div class="page-wrap">
+      <div id="content">
+        <div ui-view=""></div>
+      </div>
+        <div class="area-cartoon" ng-class="{active: showCartoon}"></div>
+    </div>
+       
+    <footer class="dte-footer clearfix">
+      <div class="logo-dte"></div>
+      <div class="logo-ba"></div>
+      <div class="logo-pad"></div>
+    </footer>
+    
+    <div id="aside-menu" pad-aside-menu></div>
+        
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     
     <!--[if lt IE 9]>
@@ -44,12 +58,19 @@
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/swiper/dist/js/swiper.js"></script>
       <!-- endbower -->
+      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/bienvenido/bienvenido.controller.js"></script>
+          <script src="app/bienvenido/bienvenido.js"></script>
+          <script src="app/directives/padAsideMenu/padAsideMenu.directive.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <!-- endinjector -->
