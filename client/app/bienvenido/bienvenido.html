@@ -8,17 +8,9 @@
       <div class="row">
         <div class="col-xs-10 col-xs-offset-2 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
           <ul id="menu-welcome">
-            <li data-target="Presentación" ng-class="{ active: $state.includes('bienvenido.presentacion') }">
-              <a data-toggle="tooltip" data-placement="bottom" title="Presentación"><div class="expand"></div></a>
-            </li>
-            <li data-target="Acerca de" class="{{aClass}}">
-              <a href="{{aHref}}" data-toggle="tooltip" data-placement="bottom" title="Acerca del PAD"><div class="expand"></div></a>
-            </li>
-            <li data-target="Marco General" class="{{mClass}}">
-              <a href="{{mHref}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Marco General"><div class="expand"></div></a>
-            </li>
-            <li data-target="Encuadre" class="{{eClass}}">
-              <a href="{{eHref}}" data-toggle="tooltip" data-placement="bottom" title="Encuadre de la Areas y CEC"><div class="expand"></div></a>
+            <li ng-repeat="item in menuItems" data-target="{{item.title}}"  ng-class="{ active: $state.includes(item.state) }">
+              <a data-toggle="tooltip" data-placement="bottom" 
+                 ui-sref="{{item.state}}" title="{{item.title}}"><div class="expand"></div></a>
             </li>
           </ul>
         </div>

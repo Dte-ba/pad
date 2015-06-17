@@ -32,6 +32,17 @@ angular.module('padApp')
           element.toggleClass('active');
           event.stopPropagation();
         });
+
+        angular
+          .element(window.document)
+          .bind('click', function() {
+          
+          if (element.hasClass('active')) {
+            element.removeClass('active');
+          }
+
+        });
+          
       }
     };
   });
