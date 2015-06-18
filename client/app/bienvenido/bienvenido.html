@@ -12,6 +12,10 @@
               <a data-toggle="tooltip" data-placement="bottom" 
                  ui-sref="{{item.state}}" title="{{item.title}}"><div class="expand"></div></a>
             </li>
+            <li data-target="Marco General"  ng-class="{ active: $state.includes(item.state) }">
+              <a data-toggle="tooltip" data-placement="bottom" 
+                 href="/assets/files/marco_general.pdf" target="_blank" title="Marco General"><div class="expand"></div></a>
+            </li>
           </ul>
         </div>
       </div>

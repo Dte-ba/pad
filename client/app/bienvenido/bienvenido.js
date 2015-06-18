@@ -17,10 +17,10 @@ angular.module('padApp')
               state: 'bienvenido.acercade',
               title: 'Acerca del PAD'
             },
-            {
+            /*{
               state: 'bienvenido.marco',
               title: 'Marco General'
-            },
+            },*/
             {
               state: 'bienvenido.encuadres',
               title: 'Encuadre de la Areas y CEC'
@@ -59,19 +59,26 @@ angular.module('padApp')
           }
         }
       })
-      .state('bienvenido.marco', {
+      /*.state('bienvenido.marco', {
         url: '/Marco',
         views: {
           "content": {
             templateUrl: 'app/bienvenido/marco.html'
           }
         }
-      })
+      })*/
       .state('bienvenido.encuadres', {
         url: '/Encuadres',
         views: {
           "content": {
-            templateUrl: 'app/bienvenido/encuadres.html'
+            templateUrl: 'app/bienvenido/encuadres.html',
+            controller: function($scope, $window, $http) {
+              $http
+                .get('/api/design/encuadres')
+                .success(function(data){
+                  $scope.encuadres = data;
+                });
+            }
           }
         }
       })

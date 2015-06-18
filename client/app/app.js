@@ -17,4 +17,5 @@ angular.module('padApp', [
   .run(function ($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+    $rootScope.showCartoon = false;
   });;
