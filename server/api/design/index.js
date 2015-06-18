@@ -37,4 +37,15 @@ router.get('/ejes/:area', function(req, res) {
   
 });
 
+router.get('/bloques/:area/:eje', function(req, res) {
+  var area = req.params.area;
+  var eje = req.params.eje;
+
+  design.bloques(area, eje, function(err, bloques){
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
+    res.json(bloques);
+  });
+  
+});
+
 module.exports = router;

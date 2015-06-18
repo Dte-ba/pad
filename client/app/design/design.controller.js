@@ -20,7 +20,14 @@ angular.module('padApp')
       $http
         .get('/api/design/ejes/'+$scope.area)
         .success(function(data){
-          $scope.items = data;
+          $scope.axisCollection = data;
+          console.log(data);
+        });
+    } else if ($scope.lvl === 1){
+      $http
+        .get('/api/design/bloques/'+$scope.area+'/'+$scope.axis)
+        .success(function(data){
+          $scope.blocksCollection = data;
           console.log(data);
         });
     }
