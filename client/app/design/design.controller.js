@@ -21,6 +21,22 @@ angular.module('padApp')
       $scope.lvl=2;
     }
 
+    /*$http
+      .get('http://localhost:9000/epm/query/local/all')
+      .success(function(data){
+        console.log(
+            _.groupBy(
+              _.map(data, function(a){ return a.content; })
+              , 'area')
+          );
+      });*/
+
+    $http
+      .get('/epm/query/local/select area:EOE || area:Equipos de Orientación Escolar')
+      .success(function(data){
+        console.log( data);
+      });
+
     if ($scope.lvl === 0){
       $http
         .get('/api/design/ejes/'+$scope.target)

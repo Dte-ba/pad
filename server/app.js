@@ -9,8 +9,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var config = require('./config/environment');
+
+var empRest = require('epm-rest')({path: 'D:/dev/repository'});
+
 // Setup server
 var app = express();
+app.use(empRest);
+
 var server = require('http').createServer(app);
 require('./config/express')(app);
 require('./routes')(app);

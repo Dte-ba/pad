@@ -7,7 +7,8 @@ angular.module('padApp', [
   'ui.router',
   'ngAnimate',
   'angular-loading-bar',
-  'ngGridPanel'
+  'ngGridPanel',
+  'angular-preload-image'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
