@@ -185,62 +185,106 @@ body.loading {
 }
 
 
-.area-ing {
+.area-ing { .bg-ing; }
+.area-cec { .bg-cec; }
+.area-eoe { .bg-eoe; }
+.area-edart { .bg-edart; }
+.area-edard { .bg-edard; }
+.area-edarm { .bg-edarm; }
+.area-edarp { .bg-edarp; }
+.area-pdl { .bg-pdl; }
+.area-mat { .bg-mat; }
+.area-cs { .bg-cs; }
+.area-ef { .bg-ef; }
+.area-cn { .bg-cn; }
+.area-opad { .bg-opad; }
+.area-tt { .bg-tt; }
+
+//body[data-area="PAD en acción"] { .bg- }
+html[data-area="Inglés"] { 
   .bg-ing;
+  body {
+    .bg-ing;
+  }
 }
-
-.area-cec {
-  .bg-cec;
-}
-
-.area-eoe {
-  .bg-eoe;
-}
-
-.area-edart {
-  .bg-edart;
-}
-
-.area-edard {
-  .bg-edard;
-}
-
-.area-edarm {
-  .bg-edarm;
-}
-
-.area-edarp {
-  .bg-edarp;
-}
-
-.area-pdl {
-  .bg-pdl;
-}
-
-.area-mat {
-  .bg-mat;
-}
-
-.area-cs {
-  .bg-cs;
-}
-
-.area-ef {
-  .bg-ef;
-}
-
-.area-cn {
+html[data-area="Ciencias Naturales"] { 
   .bg-cn;
+  body {
+    .bg-cn;
+  }
 }
-
-.area-opad {
+html[data-area="Educación Física"] { 
+  .bg-ef;
+  body {
+    .bg-ef;
+  }
+}
+html[data-area="Ciencias Sociales"] { 
+  .bg-cs;
+  body {
+    .bg-cs;
+  }
+}
+html[data-area="Matemática"] { 
+  .bg-mat;
+  body {
+    .bg-mat;
+  }
+}
+html[data-area="Prácticas del Lenguaje"] { 
+  .bg-pdl;
+  body {
+    .bg-pdl;
+  }
+}
+html[data-area="Ed. Artística - Plástica"] { 
+  .bg-edarp;
+  body {
+    .bg-edarp;
+  }
+}
+html[data-area="Ed. Artística - Música"] { 
+  .bg-edarm;
+  body {
+    .bg-edarm;
+  }
+}
+html[data-area="Ed. Artística - Danza"] { 
+  .bg-edard;
+  body {
+    .bg-edard;
+  }
+}
+html[data-area="Ed. Artística - Teatro"] { 
+  .bg-edart;
+  body {
+    .bg-edart;
+  }
+}
+html[data-area="Equipos de Orientación Escolar"] { 
+  .bg-eoe;
+  body {
+    .bg-eoe;
+  }
+}
+html[data-area="Centros Educativos Complementarios"] { 
+  .bg-cec;
+  body {
+    .bg-cec;
+  }
+}
+html[data-area="Orientación PAD"] { 
   .bg-opad;
+  body {
+    .bg-opad;
+  }
 }
-
-.area-tt {
+html[data-area="Temas Transversales"] { 
   .bg-tt;
+  body {
+    .bg-tt;
+  }
 }
-
 
 html.area-ing {
   body {
@@ -316,6 +360,21 @@ html.area-tt {
   }
 }
 
+.grid-panel-content-block {
+  border-radius: 6px;
+  //background-color: @pad-cream-color;
+  .triangle{
+    //background-color: @pad-cream-color;
+  }
+
+  h4 {
+    color: white;
+  }
+}
+
+.grid-panel-ejes{
+  margin-bottom: 15px;
+}
 
 .area-cartoon {
   background-position: 0px -340px;
@@ -334,73 +393,85 @@ html.area-tt {
 }
 
 html { 
-  &[data-area="ing"] {
+  &[data-area="ing"],
+  &[data-area="Inglés"] {
     .area-cartoon {
       background-position: 0px -852px;
     }
   }
 
-  &[data-area="cec"] {
+  &[data-area="cec"],
+  &[data-area="Centros Educativos Complementarios"] {
     .area-cartoon {
       background-position: -216px -852px;    
     }
   }
 
-  &[data-area="eoe"] {
+  &[data-area="eoe"],
+  &[data-area="Equipos de Orientación Escolar"] {
     .area-cartoon {
       background-position: -432px -852px; 
     }
   }
 
-  &[data-area="edart"] {
+  &[data-area="edart"],
+  &[data-area="Ed. Artística - Teatro"] {
     .area-cartoon {
       background-position: -648px -852px;
     }
   }
 
-  &[data-area="edard"] {
+  &[data-area="edard"],
+  &[data-area="Ed. Artística - Danza"] {
     .area-cartoon {
       background-position: -864px -852px;
     }
   }
 
-  &[data-area="edarm"] {
+  &[data-area="edarm"],
+  &[data-area="Ed. Artística - Música"] {
     .area-cartoon {
       background-position: -1080px -852px;
     }
   }
 
-  &[data-area="edarp"] {
+  &[data-area="edarp"],
+  &[data-area="Ed. Artística - Plástica"] {
     .area-cartoon {
       background-position: -1296px -852px;
     }
   }
 
-  &[data-area="pdl"] {
+  &[data-area="pdl"],
+  &[data-area="Prácticas del Lenguaje"] {
     .area-cartoon {
       background-position: -1512px -852px;
     }
   }
 
-  &[data-area="mat"] {
+  &[data-area="mat"],
+  &[data-area="Matemática"] {
     .area-cartoon {
       background-position: -1728px -852px;
     }
   }
 
-  &[data-area="cs"] {
+  &[data-area="cs"],
+  &[data-area="Ciencias Sociales"] {
     .area-cartoon {
       background-position: -1944px -852px;
     }
   }
 
-  &[data-area="ef"] {
+  &[data-area="ef"],
+  &[data-area="Educación Física"] {
     .area-cartoon {
       background-position: -2160px -852px;
     }
   }
 
-  &[data-area="cn"] {
+  &[data-area="cn"],
+  &[data-area="Ciencias Naturales"] {
     .area-cartoon {
       background-position: -2376px -852px;
     }
@@ -414,12 +485,12 @@ html {
 .eje {
   width: 166px;
   height: 186px;
-  margin: 0 auto;
+  margin: 10px;
   background: white;
   padding: 4px;
   border-radius: 6px;
   margin-bottom: 5px;
-
+  
   img {
     max-width: 158px;
     max-height: 144px;
@@ -443,6 +514,7 @@ html {
   
   a {
     text-decoration: none;
+    display: block;
   }
 
   a:hover,
@@ -540,6 +612,60 @@ html {
   padding: 5px;
   font-family: 'Comfortaa Regular';
   font-size: 13px;
+}
+
+ul.blocks-list {
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+
+
+  a {
+    text-decoration: none;
+    display: block;
+  }
+
+  a:hover,
+  a:focus {
+    .title-wrap {
+      //font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  li {
+    width: 166px;
+    height: 186px;
+    max-height: 186px;
+    margin: 10px;
+    background: white;
+    padding: 4px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    display: inline-block;
+    vertical-align: top;
+
+    img {
+      max-width: 158px;
+      max-height: 144px;
+    }
+
+    .img-wrap,
+    .img-wrap img {
+      border-radius: 6px;
+    }
+
+    .title-wrap {
+      font-family: 'Comfortaa Bold';
+      color: black;
+      text-align: center;
+      padding-top: 5px;
+      font-size: 13px;
+      color: black;
+
+      .transition(.1s);
+    }
+  }
 }
 
 @media (min-width: 960px) {

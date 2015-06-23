@@ -6,7 +6,8 @@ angular.module('padApp', [
   'ngSanitize',
   'ui.router',
   'ngAnimate',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'ngGridPanel'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -18,4 +19,9 @@ angular.module('padApp', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.showCartoon = false;
+
+    $rootScope.$on('$stateChangeStart', function (event, next) {
+      $rootScope.showCartoon = false;
+      $rootScope.area = '';
+    });
   });;

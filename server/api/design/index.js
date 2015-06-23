@@ -27,6 +27,14 @@ router.get('/encuadres', function(req, res) {
   
 });
 
+router.get('/areas', function(req, res) {
+  design.manager.areas(false, function(err, areas){
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
+    res.json(areas);
+  });
+  
+});
+
 router.get('/ejes/:area', function(req, res) {
   var area = req.params.area;
 

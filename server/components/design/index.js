@@ -9,6 +9,8 @@ var config = require('../../config/environment');
 
 var design = {};
 
+design.manager = require('./manager');
+
 var getAreas = function(cb){
   var filename = path.join(__dirname, 'areas.json');
 
@@ -61,6 +63,18 @@ design.encuadres = function(cb){
 
 design.ejes = function(area, cb){
 
+  design.manager.areas(false, function(err, areas){
+    var a = _.find(areas, { name: area });
+    if (a === undefined){
+      return cb && cb(null, []);
+    }
+
+    cb && cb(null, a.axis);
+  });
+  return;
+
+  var a = _.find(areas, { area: area });
+
   var client = config.env === 'production' ? 'public' : 'client';
   var imgFolder = path.join(config.root, client);
   var defaultImg = '/assets/img/areas/portada.png'
@@ -99,14 +113,16 @@ design.bloques = function(area, eje, cb){
   getAreas(function(err, areas){
     var a = _.find(areas, { area: area });
     var e = _.find(a.axis, { name: eje });
-
+    if (e === undefined) {
+      return cb && cb(null, []);
+    }
     var encodeArea = _.kebabCase(area).replace(/\-/ig, '_');
     var encodeAx = _.kebabCase(eje).replace(/\-/ig, '_');
     var sub = '/assets/img/areas/'
 
     var blocks = e.blocks.map(function(b){
       var encodeBlock = _.kebabCase(b).replace(/\-/ig, '_');
-      var relative = path.join('/assets/img/areas/', encodeArea, encodeAx, encodeBlock, 'padnet.png');
+      var relative = path.join('/assets/img/areas/', encodeArea, encodeAx, encodeBlock, 'portada.png');
       var full = path.join(imgFolder, relative);
       var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
 
@@ -114,7 +130,8 @@ design.bloques = function(area, eje, cb){
         area: area,
         eje: eje,
         name: b,
-        img: img
+        img: img,
+        full: full,
       };
     });
 

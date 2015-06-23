@@ -277,28 +277,28 @@
         {
           "name": "Materiales del Lenguaje Musical",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Música - Materiales)",
-            "Producción (Ed.Ar. - Música - Materiales)",
-            "Recepción (Ed.Ar. - Música - Materiales)",
-            "Contexto sociocultural (Ed.Ar. - Música - Materiales)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
           "name": "Organización del Lenguaje Musical",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Música - Lenguaje)",
-            "Producción (Ed.Ar. - Música - Lenguaje)",
-            "Recepción (Ed.Ar. - Música - Lenguaje)",
-            "Contexto sociocultural (Ed.Ar. - Música - Lenguaje)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
           "name": "Composición",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Música - Composición)",
-            "Producción (Ed.Ar. - Música - Composición)",
-            "Recepción (Ed.Ar. - Música - Composición)",
-            "Contexto sociocultural (Ed.Ar. - Música - Composición)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
@@ -313,28 +313,28 @@
         {
           "name": "El cuerpo en relación con...",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Danza - El cuerpo)",
-            "Producción (Ed.Ar. - Danza - El cuerpo)",
-            "Recepción (Ed.Ar. - Danza - El cuerpo)",
-            "Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
           "name": "La danza como lenguaje",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Danza - Lenguaje)",
-            "Producción (Ed.Ar. - Danza - Lenguaje)",
-            "Recepción (Ed.Ar. - Danza - Lenguaje)",
-            "Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
           "name": "Los discursos corporales y el contexto socio–cultural",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Danza - Discursos)",
-            "Producción (Ed.Ar. - Danza - Discursos)",
-            "Recepción (Ed.Ar. - Danza - Discursos)",
-            "Contexto sociocultural (Ed.Ar. - Danza - Discursos)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
@@ -349,19 +349,19 @@
         {
           "name": "Elementos del Lenguaje Teatral",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Teatro - Lenguaje)",
-            "Producción (Ed.Ar. - Teatro - Lenguaje)",
-            "Recepción (Ed.Ar. - Teatro - Lenguaje)",
-            "Contexto sociocultural (Ed.Ar. - Teatro - Lenguaje)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {
           "name": "Organización de los Elementos del Lenguaje Teatral",
           "blocks": [
-            "Lenguaje (Ed.Ar. - Teatro - Elementos)",
-            "Producción (Ed.Ar. - Teatro - Elementos)",
-            "Recepción (Ed.Ar. - Teatro - Elementos)",
-            "Contexto sociocultural (Ed.Ar. - Teatro - Elementos)"
+            "Lenguaje",
+            "Producción",
+            "Recepción",
+            "Contexto sociocultural"
           ]
         },
         {

@@ -15,6 +15,7 @@
     "lodash": "^3.9.3",
     "method-override": "~1.0.0",
     "morgan": "~1.0.0",
+    "osenv": "^0.1.2",
     "serve-favicon": "~2.0.1"
   },
   "devDependencies": {

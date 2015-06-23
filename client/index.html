@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="padApp" data-area="{{area}}"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
       <link rel="stylesheet" href="bower_components/swiper/dist/css/swiper.css" />
       <!-- endbower -->
+      <link href="bower_components/ng-grid-panel/ng-grid-panel.min.css" rel="stylesheet" type="text/css">
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
@@ -23,7 +24,7 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="padApp">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -32,7 +33,7 @@
       <div id="content">
         <div ui-view=""></div>
       </div>
-        <div class="area-cartoon"></div>
+        <div class="area-cartoon" ng-class="{active: showCartoon}"></div>
     </div>
        
     <footer class="dte-footer clearfix">
@@ -71,6 +72,7 @@
       <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
       <script src="bower_components/angular-animate/angular-animate.js"></script>
       <script src="bower_components/swiper/dist/js/swiper.js"></script>
+      <script src="bower_components/ng-grid-panel/ng-grid-panel.js"></script>
       <!-- endbower -->
       <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
       <script src="assets/js/menu.roulette.js"></script>
@@ -88,6 +90,8 @@
           <script src="app/directives/padMenuAreas/padMenuAreas.directive.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/tangibles/tangibles.controller.js"></script>
+          <script src="app/tangibles/tangibles.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>
