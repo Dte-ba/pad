@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="section-header">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h1>
+          <a ui-sref="design({area: tangible.content.area})">
+            {{tangible.content.area}} &rsaquo; 
+          </a>
+          <a ui-sref="design({area: tangible.content.area, axis: tangible.content.axis})"><small>
+            {{tangible.content.axis}}</small>
+          </a>
+          <a href="tangibles.design({
+                    area: tangible.content.area,
+                    axis: tangible.content.axis, 
+                    block: tangible.content.block})">
+          <small> &rsaquo; {{tangible.content.block}}</small></a></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container tangible-content">
+  <div class="tangible-header">
+    <h3>{{tangible.content.title}}</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 text-center">
+      <img class="img-responsive" 
+           ng-src="/epm/asset/local/{{tangible.uid}}/cover/content"
+           alt="{{tangible.title}}"/>
+    </div>
+    <div class="col-sm-6 tangible-body">
+      <h4>Ficha Técnica</h4>
+      <p> {{tangible.content.content}} </p>
+      <a class="btn btn-default btn-tangible" style="width: 100%;" 
+         href="/package?content={{tangible.uid}}" target="_blank"></i> Acceder Tangible</a>
+    </div>
+    <div class="col-sm-12">
+      <hr>
+      <ul class="tangible-tags">
+        <li class="cloud text-center">
+          <i class="fa fa-cloud"></i>
+        </li>
+        <li ng-repeat="tag in tangible.content.tags.split(',')">
+          <a href="/tangibles/?tag={{tag}}">{{tag}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

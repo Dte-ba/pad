@@ -42,6 +42,7 @@ angular.module('padApp')
       .get('/epm/query/local/' + q)
       .success(function(data){
         $scope.tangibles = data;
+        
       });
 
   });

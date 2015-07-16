@@ -6,14 +6,18 @@ var path = require('path');
 var http = require('http');
 
 var cfg = path.join(process.cwd(), '/../server/config/environment/index.js');
-console.log(cfg);
 var config = require(cfg);
-console.log(config);
 
 var options = {
   host: 'localhost',
   port: config.port
 };
+
+process.on('uncaughtException', function(err) {
+  console.log('Caught exception: ' + err);
+});
+
+//require('nw.gui').Window.get().showDevTools();
 
 //check if server is already running
 http.get(options, function(res) {

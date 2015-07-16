@@ -1,5 +1,24 @@
+
 <div class="container-fluid">
-<ul>
+  <div class="section-header">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h1>
+          <a ui-sref="design({area: tangible.content.area})">
+            {{area}} &rsaquo; 
+          </a>
+          <a ui-sref="design({area: tangible.content.area, axis: tangible.content.axis})"><small>
+            {{axis}}</small>
+          </a>
+          <a href="tangibles.design({
+                    area: area,
+                    axis: axis, 
+                    block: block})">
+          <small> &rsaquo; {{block}}</small></a></h1>
+      </div>
+    </div>
+  </div>
+<!--<ul>
   <li ng-repeat="tangible in tangibles" style="min-width: 50px; min-hieght: 50px">
     <img class="img-responsive" 
          style="min-width: 56px; min-height: 56px; "
@@ -8,11 +27,12 @@
          ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
          alt="{{tangible.content.title}}">
   </li>
-</ul>
-  <!--<div class="tangibles-wrapper">
+</ul>-->
+  <div class="tangibles-wrapper">
     <div class="tangibles-columns">
       <div ng-repeat="tangible in tangibles" >
-        <a href="/tangible/{{tangible.uid}}" title="{{tangible.content.title}}">
+        <a ui-sref="tangibles.ver({uid: tangible.uid})"
+           title="{{tangible.content.title}}">
           <div class="pin" data-area="{{tangible.content.area}}">
             <img class="img-responsive" 
                  spinkit-image-preloader="three-bounce-spinner"
@@ -23,5 +43,5 @@
         </a>
       </div>
     </div>
-  </div>-->
+  </div>
 </div>

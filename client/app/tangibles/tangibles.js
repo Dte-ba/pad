@@ -18,9 +18,9 @@ angular.module('padApp')
         templateUrl: 'app/tangibles/tangibles.html',
         controller: 'TangiblesCtrl'
       })
-      /*.state('tangibles.ver', {
+      .state('tangibles.ver', {
         url: '/ver/:uid',
         templateUrl: 'app/tangibles/tangible.html',
         controller: 'TangibleCtrl'
-      })*/;
+      });
   });

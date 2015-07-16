@@ -10,14 +10,14 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var config = require('./config/environment');
 
-var empRest = require('epm-rest')({path: 'D:/dev/repository'});
+var empRest = require('./components/epm-rest');
 
 // Expose app
 exports = module.exports = function(cb){
   
   // Setup server
   var app = express();
-  app.use(empRest);
+  app.use('/epm', empRest({ path: 'D:/dev/repository' }));
 
   var server = require('http').createServer(app);
   require('./config/express')(app);
