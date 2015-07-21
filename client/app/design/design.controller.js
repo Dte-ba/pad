@@ -31,11 +31,11 @@ angular.module('padApp')
           );
       });*/
 
-    $http
-      .get('/epm/query/local/select area:EOE || area:Equipos de Orientación Escolar')
+    /*$http
+      .post('/epm/query/local/select area:EOE || area:Equipos de Orientación Escolar')
       .success(function(data){
         console.log( data);
-      });
+      });*/
 
     if ($scope.lvl === 0){
       $http

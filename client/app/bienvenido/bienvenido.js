@@ -7,7 +7,7 @@ angular.module('padApp')
         url: '/bienvenido',
         abstract: true,
         templateUrl: 'app/bienvenido/bienvenido.html',
-        controller: function($scope, $window) {
+        controller: function($scope) {
           $scope.menuItems = [
             {
               state: 'bienvenido.presentacion',
@@ -31,13 +31,13 @@ angular.module('padApp')
       .state('bienvenido.presentacion', {
         url: '/Presentacion',
         views: {
-          "content": {
+          'content': {
             templateUrl: 'app/bienvenido/presentacion.html',
             controller: function($scope, $window) {
               var timer = setInterval(function(){
                 if ($('.swiper-container').length > 0){
                   var Swiper = $window.Swiper;
-                   var swiperH = new Swiper('.swiper-container', {
+                   new Swiper('.swiper-container', {
                         pagination: '.swiper-pagination',
                         paginationClickable: true,
                         spaceBetween: 50,
@@ -54,7 +54,7 @@ angular.module('padApp')
       .state('bienvenido.acercade', {
         url: '/Acerca',
         views: {
-          "content": {
+          content: {
             templateUrl: 'app/bienvenido/acercade.html'
           }
         }
@@ -62,7 +62,7 @@ angular.module('padApp')
       /*.state('bienvenido.marco', {
         url: '/Marco',
         views: {
-          "content": {
+          'content': {
             templateUrl: 'app/bienvenido/marco.html'
           }
         }
@@ -70,7 +70,7 @@ angular.module('padApp')
       .state('bienvenido.encuadres', {
         url: '/Encuadres',
         views: {
-          "content": {
+          'content': {
             templateUrl: 'app/bienvenido/encuadres.html',
             controller: function($scope, $window, $http) {
               $http

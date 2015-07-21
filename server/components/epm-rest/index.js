@@ -9,6 +9,8 @@ var path = require('path');
 var fs  = require('fs');
 var express = require('express');
 
+var _repos = {};
+
 module.exports = function(ops){
 
   var dir = ops.path;
@@ -35,27 +37,23 @@ module.exports = function(ops){
 
   });
 
-  router.get('/query/:repository/:query', function(req, res, next){
+  router.post('/query/:repository', function(req, res, next){
     var rname = req.params.repository;
-    var query = req.params.query;
+
     getRepository(rname, function(err, repo){
       if (err) return next(err);
 
       repo
-        .get(query)
-        .fail(function(err){
-          if (err) return next(err);
-        })
-        .done(function(pkgs){
-          //console.log(Object.keys(pkgs.packages));
-          res.json(pkgs);
-      });
+        .find(req.body, function(err, items){
+          res.json(items);
+        });
 
     });
 
   });
 
   router.get('/asset/:repository/:uid/:type/:name', function(req, res, next){
+
     var rname = req.params.repository;
     var uid = req.params.uid;
     var asset = req.params.asset;
@@ -63,32 +61,36 @@ module.exports = function(ops){
     var name = req.params.name;
 
     getRepository(rname, function(err, repo){
-      if (err) return next(err);
-
+      if (err) {
+        console.log(err);
+        return next(err)
+      }
+      //res.json('');
       repo
-        .infoByUid(uid, function(err, meta){
+        .findOne({uid: uid}, function(err, pkg){
 
-          repo
-            .get('select uid:'+uid)
-            .fail(function(err){
-              if (err) return next(err);
-            })
-            .done(function(p){
-              var info = {
-                uid: uid,
-                build: meta.build || 1,
-                filename: meta.filename    
-              };
+          if (err){
+            console.log(err);
+          }
+          var info = {
+            uid: uid,
+            build: pkg.build || 1,
+            filename: pkg.filename    
+          };
 
-              var single = p.length >0 ? p[0] : {};
+          repo.engine.asset(repo, info, pkg, name, function(err, filename){
+            if (err) { return next(err); }
 
-              repo.engine.asset(repo, info, single, name, function(err, filename){
-                if (err) { return netx(err); }
+            var options = {
+              root: path.dirname(filename),
+              dotfiles: 'deny',
+              headers: {
+                  'x-timestamp': Date.now(),
+                  'x-sent': true
+              }
+            };
 
-                res.sendfile(filename);
-                //var stats = fs.statSync(filename);
-                //res.json({filename: filename, stats: stats});
-              });
+            res.sendfile(filename);
           });
 
         });
@@ -99,6 +101,10 @@ module.exports = function(ops){
   return router;
 
   function getRepository(name, cb){
+    if (_repos[name] !== undefined){
+      //console.log(name + ' exists');
+      return cb && cb(null, _repos[name]);
+    }
     Epm.finder.find(dir, function(err, repos){
       var list = repos.filter(function(r){
         return r.name === name;
@@ -113,9 +119,15 @@ module.exports = function(ops){
       }
 
       var info = list[0];
-      var repo = new Epm(info.path);
-      repo.init();
-      cb && cb(null, repo);
+      var repo = _repos[name]  = new Epm(info.path);
+      console.log(name + ' loading...');
+      repo
+        .load(true)
+        .done(function(){
+          cb(null, repo);
+          console.log(repo.REPONAME + ' loaded');
+        });
+      
     });
   }
 };

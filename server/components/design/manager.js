@@ -36,10 +36,10 @@ var getAreas = function(force, cb){
         
         var areas = JSON.parse(content).areas;
         _areas = areas;
-        cb && cb (null, areas);
+        cb (null, areas);
       });
     } else {
-      cb && cb(null, []);
+      cb(null, []);
     }
 
   });
@@ -49,7 +49,7 @@ var getAreas = function(force, cb){
 var createStructure = function(force, cb){
   getAreas(force, function(err, areas){
     if (err){
-      return cb && cb(err);
+      return cb(err);
     }
 
     var res = areas.map(function(item){
@@ -95,7 +95,7 @@ var createStructure = function(force, cb){
 
     });
 
-    cb && cb(null, res);
+    cb(null, res);
   });
 };
 

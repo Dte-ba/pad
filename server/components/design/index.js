@@ -22,10 +22,10 @@ var getAreas = function(cb){
         
         var areas = JSON.parse(content).areas;
 
-        cb && cb (null, areas);
+        cb (null, areas);
       });
     } else {
-      cb && cb(null, []);
+      cb(null, []);
     }
 
   });
@@ -56,7 +56,7 @@ design.encuadres = function(cb){
       cover: '/assets/img/areas/artistica/encuadre.png'
     });
     
-    cb && cb(null, encuadres);
+    cb(null, encuadres);
   });
 
 };
@@ -69,11 +69,10 @@ design.ejes = function(area, cb){
       return cb && cb(null, []);
     }
 
-    cb && cb(null, a.axis);
+    cb(null, a.axis);
   });
-  return;
 
-  var a = _.find(areas, { area: area });
+  /*var a = _.find(areas, { area: area });
 
   var client = config.env === 'production' ? 'public' : 'client';
   var imgFolder = path.join(config.root, client);
@@ -99,8 +98,8 @@ design.ejes = function(area, cb){
       };
     });
 
-    cb && cb(null,  axis);
-  });
+    cb(null,  axis);
+  });*/
 
 };
 
@@ -135,7 +134,7 @@ design.bloques = function(area, eje, cb){
       };
     });
 
-    cb && cb(null, blocks);
+    cb(null, blocks);
   });
 
 };

@@ -6,7 +6,7 @@ angular.module('padApp')
     var uid = $stateParams.uid;
 
     $http
-      .get('/epm/query/local/' + 'select uid:' + uid)
+      .post('/epm/query/local', {uid: uid})
       .success(function(data){
         if (data instanceof Array && data.length === 1){
           $scope.tangible = data[0];

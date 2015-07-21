@@ -25,7 +25,7 @@ angular.module('padApp')
           '  <div class="center-aside-menu"></div>',
         ].join('\n'),
       restrict: 'A',
-      link: function (scope, element, attrs) {
+      link: function (scope, element) {
         $('a[data-toggle="tooltip"]').tooltip();
         
         element.bind('click', function() {

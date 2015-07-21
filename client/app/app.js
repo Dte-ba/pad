@@ -7,8 +7,7 @@ angular.module('padApp', [
   'ui.router',
   'ngAnimate',
   'angular-loading-bar',
-  'ngGridPanel',
-  'angular-preload-image'
+  'ngGridPanel'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -21,8 +20,8 @@ angular.module('padApp', [
     $rootScope.$stateParams = $stateParams;
     $rootScope.showCartoon = false;
 
-    $rootScope.$on('$stateChangeStart', function (event, next) {
+    $rootScope.$on('$stateChangeStart', function () {
       $rootScope.showCartoon = false;
       $rootScope.area = '';
     });
-  });;
+  });

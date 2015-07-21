@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('padApp')
-  .directive('padMenuAreas', function ($rootScope, $document) {
+  .directive('padMenuAreas', function ($rootScope) {
     return {
       templateUrl: 'app/directives/padMenuAreas/padMenuAreas.html',
       restrict: 'A',
-      link: function (scope, element, attrs) {
+      link: function (scope, element) {
         scope.menu = element.roulette();
 
         angular
@@ -24,7 +24,7 @@ angular.module('padApp')
           var rotation = br.rotation();
           br.rotation(rotation);
           element.toggleClass('inactive');
-          scope.menu.toggle( window.Math.convertDegs("degs", rotation) );
+          scope.menu.toggle( window.Math.convertDegs('degs', rotation) );
           e.stopPropagation();
         });
 
@@ -39,7 +39,7 @@ angular.module('padApp')
           
             var currentArea = $('html').data('area');
 
-             if(e.type === "mouseover" || e.type === "mouseenter" ) {
+             if(e.type === 'mouseover' || e.type === 'mouseenter' ) {
               element
                 .children('.center-roulette-area')
                 .addClass('active');
