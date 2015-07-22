@@ -49,3 +49,12 @@ html, body {
   background: url('#{$pad-img-path}/logo-ba.png') center center no-repeat;
   margin-right: 5%;
 }
+
+#to-home {
+  position:absolute;
+  width: 52px;
+  height: 52px;
+  background: url('#{$pad-img-path}/home_btn.png') center center no-repeat;
+  top: 10px;
+  left: 10px;
+}

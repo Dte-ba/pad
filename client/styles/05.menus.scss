@@ -3,7 +3,7 @@
   height: $menu-weight;
   width: $menu-weight;
   border-radius: 50%;
-  top: calc(50% - #{$menu-weight-middle - $footer-height-middle});
+  top: calc(50% - #{$menu-weight-middle + $footer-height-middle});
   left: calc(50% - #{$menu-weight-middle});
   cursor: pointer;
   
@@ -27,4 +27,267 @@
     background: url('#{$pad-img-path}/logo_pad_home.png') center center no-repeat;
   }
 
+  .center-roulette-area {
+    position: absolute;
+    width: 176px;
+    height: 176px;
+    top: ($menu-weight - 176px)/2;
+    left: ($menu-weight - 176px)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/assets.png');
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
+
+    @each $area, $key in $areas {
+      &[data-area="#{$area}"] {
+        background-position: map-get($key, mPosCenter);
+      }
+    }
+
+  }
+
+}
+
+.bg-lock {
+  display: none;
+
+  &.showing {
+    display: block;    
+  }
+}
+
+.menu-roulette.inactive ul.roulette {
+  //visibility: hidden;
+}
+
+.menu-roulette ul.roulette {
+  list-style: none;
+  position: relative;
+  float: left;
+  height: $menu-weight;
+  width: $menu-weight;
+
+  li {
+    border-radius: 50%;
+    border: 0px;
+    height: 62px;
+    margin-left: -31px;
+    margin-top: -31px;
+    position: absolute;
+    width: 62px;
+
+    top: $menu-weight/2;
+    left: $menu-weight/2;
+
+    .item-area {
+      height: 56px;
+      width: 56px;
+      margin-top: 3px;
+      margin-left: 3px;
+      border-radius: 50%;
+      background-color: white;
+      background-image: url('#{$pad-img-path}/assets.png');
+
+      @each $area, $key in $areas {
+        &[data-area="#{$area}"] {
+          background-position: map-get($key, mPosItem);
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      height: 94px;
+      margin-left: -47px;
+      margin-top: -47px;
+      width: 94px;
+
+      .item-area {
+        height: 88px;
+        width: 88px;
+        margin-top: 3px;
+        margin-left: 3px;
+
+        @each $area, $key in $areas {
+          &[data-area="#{$area}"] {
+            background-position: map-get($key, mPosItemHover);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include keyframes('rotate'){
+  from { 
+    @include transform(rotate(0deg)) 
+  }
+  to { 
+    @include transform(rotate(360deg)) 
+  }
+}
+
+.menu-roulette.inactive .border-roulette {
+  @include transition( transform 10s);
+  @include animation( rotate 20s linear infinite);
+}
+
+#aside-area-menu {
+  cursor: pointer;
+  height: 110px;
+  right: -60px;
+  margin-top: -55px - $footer-height-middle;
+  position: fixed;
+  top: 50%;
+  width: 110px;
+  
+  .roulette-aside-area-menu {
+    height: 110px;
+    width: 110px;
+    background: url('#{$pad-img-path}/circle_color_sec.png');
+    position: absolute;
+  }
+
+  .center-aside-area-menu{
+    height: 110px;
+    width: 110px;
+    top: 5px;
+    left: 5px;
+    background: url('#{$pad-img-path}/assets.png') center center;
+    background-position: 0px -741px;
+    position: absolute;
+  }
+
+  &:hover {
+    .roulette-aside-area-menu {
+      @include transition( transform 10s);
+      @include animation( rotate 20s linear infinite);
+    }
+  }
+}
+
+
+#aside-menu {
+  cursor: pointer;
+  height: 100px;
+  left: -7px;
+  margin-top: -50px - $footer-height-middle;
+  position: fixed;
+  top: 50%;
+  width: 50px;
+
+  @include transition(all .1s ease-in-out);
+
+  &:hover,
+  &:focus {
+    left: 0px;
+  }
+
+  &.active{ 
+   left: 0px; 
+    ul li {
+      @each $item, $key in $asideMenu {
+        &[data-target="#{$item}"] {
+          top: map-get(map-get($key, pos), top);
+          left: map-get(map-get($key, pos), left);
+        }
+      }
+    }
+  }
+  
+  ul {
+    list-style: none;
+    position: relative;
+
+    li {
+      margin: none;
+      background: url('#{$pad-img-path}/assets.png');
+      width: 64px;
+      height: 61px;
+      margin-top: -32px;
+      margin-left: -30px;
+      background-position: 0px -566px;
+      position: absolute;
+      top: 70px;
+      left: -20px;
+      //border-radius: 40%;
+
+      @include transition(all .1s ease-in-out);
+
+      @each $item, $key in $asideMenu {
+        &[data-target="#{$item}"] {
+          background-position: map-get($key, bgPos);
+        }
+      }
+
+      a {
+        border-radius: 50%;
+        position: absolute;
+        .expand {
+          width: 64px;
+          height: 61px;
+        }
+      }
+    }
+
+  }
+
+}
+
+.center-aside-menu {
+  width: 50px;
+  height: 100px;
+  background: url('#{$pad-img-path}/assets.png') no-repeat;
+  background-position: 0px -632px;
+  position: absolute;
+}
+
+#menu-welcome {
+  list-style: none;
+  padding: 0px;
+
+  li {
+    background: url('#{$pad-img-path}/menu-bienvenida.png') no-repeat;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+
+    @each $item, $key in $menuWelcome {
+      &[data-target="#{$item}"] {
+        background-position: $key;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &.active, {
+      background-position-y: -64px;
+    }
+    
+    a {
+      width: 64px;
+      height: 64px;
+      display: block;
+
+      .expand {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+}
+
+
+.bg-lock {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7);
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
 }

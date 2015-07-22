@@ -1,0 +1,42 @@
+.area-cartoon {
+  background-position: 0px -340px;
+  background: url('#{$pad-img-path}/assets.png');
+  bottom: $footer-height;
+  height: 225px;
+  position: absolute;
+  right: 0px;
+  visibility: hidden;
+  width: 216px;
+  z-index: 10002;
+}
+
+.area-cartoon.active {
+  visibility: visible;
+}
+
+html {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area="#{$area}"], 
+    &[data-area="#{$aname}"], {
+      .area-cartoon {
+        background-position: map-get($key, cartoon);
+      }
+    }
+  }
+}
+
+@each $area, $key in $areas {
+  $aname: map-get($key, name);
+  html[data-area="#{$aname}"] {
+    background-color: map-get($key, color);
+    body {
+      background-color: map-get($key, color);
+    }
+  }
+
+  .pin[data-area="#{$area}"], 
+  .pin[data-area="#{$aname}"] {
+    background-color: map-get($key, color); 
+  }
+}
