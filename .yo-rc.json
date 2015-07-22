@@ -9,12 +9,13 @@
     "registerSocketsFile": "server/config/socketio.js",
     "socketsNeedle": "// Insert sockets below",
     "filters": {
+      "babel": false,
       "js": true,
       "html": true,
-      "less": true,
+      "sass": true,
       "uirouter": true,
       "bootstrap": true,
-      "uibootstrap": false
+      "uibootstrap": true
     }
   },
   "generator-ng-component": {
@@ -30,7 +31,7 @@
     "extensions": [
       "js",
       "html",
-      "less"
+      "scss"
     ],
     "directiveSimpleTemplates": "",
     "directiveComplexTemplates": "",

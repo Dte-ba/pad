@@ -18,6 +18,7 @@ module.exports = function(config) {
       'client/bower_components/angular-cookies/angular-cookies.js',
       'client/bower_components/angular-sanitize/angular-sanitize.js',
       'client/bower_components/angular-route/angular-route.js',
+      'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'client/bower_components/lodash/dist/lodash.compat.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/app/app.js',
@@ -46,11 +47,13 @@ module.exports = function(config) {
       stripPrefix: 'client/'
     },
 
+    
+
     // list of files / patterns to exclude
     exclude: [],
 
     // web server port
-    port: 8080,
+    port: 9090,
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG

@@ -3,9 +3,9 @@
 angular.module('padApp')
   .controller('TangiblesCtrl', function ($rootScope, $scope, $stateParams, $http) {
     
-    $scope.imgLoadedEvents = {
+    /*$scope.imgLoadedEvents = {
 
-        always: function(instance) {
+        always: function(always) {
             // Do stuff
             console.log(always);
         },
@@ -20,7 +20,7 @@ angular.module('padApp')
             console.log(instance);
         }
 
-    };
+    };*/
 
     var _query = {};
     _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
@@ -72,7 +72,8 @@ angular.module('padApp')
       .success(function(data){
         $scope.tangibles = data;
       })
-      .error(function(err){
+      .error(function(){
+        
       });
 
   });

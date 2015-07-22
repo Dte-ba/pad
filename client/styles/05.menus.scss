@@ -1,0 +1,30 @@
+.menu-roulette {
+  position: absolute;
+  height: $menu-weight;
+  width: $menu-weight;
+  border-radius: 50%;
+  top: calc(50% - #{$menu-weight-middle - $footer-height-middle});
+  left: calc(50% - #{$menu-weight-middle});
+  cursor: pointer;
+  
+  .border-roulette {
+    position: absolute;
+    height: $menu-weight-center;
+    width: $menu-weight-center;
+    top: ($menu-weight - $menu-weight-center)/2;
+    left: ($menu-weight - $menu-weight-center)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/circle_color_home.png') center center no-repeat;
+  }
+
+  .center-roulette {
+    position: absolute;
+    height: $menu-weight-center;
+    width: $menu-weight-center;
+    top: ($menu-weight - $menu-weight-center)/2;
+    left: ($menu-weight - $menu-weight-center)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/logo_pad_home.png') center center no-repeat;
+  }
+
+}
