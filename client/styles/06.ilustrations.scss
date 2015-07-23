@@ -18,7 +18,19 @@ html {
   @each $area, $key in $areas {
     $aname: map-get($key, name);
     &[data-area="#{$area}"], 
-    &[data-area="#{$aname}"], {
+    &[data-area="#{$aname}"],
+    &[data-area-cartoon="#{$aname}"] {
+      .area-cartoon {
+        background-position: map-get($key, cartoon);
+      }
+    }
+  }
+}
+
+html {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area-cartoon="#{$aname}"] {
       .area-cartoon {
         background-position: map-get($key, cartoon);
       }

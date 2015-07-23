@@ -51,3 +51,36 @@
     </div>
   </div>
 </div>
+
+<div class="container-fluid" >
+  <div class="row" id="header-relations">
+    <div class="col-sm-12 text-center">
+      <p><a class="btn btn-default relacionado-first"
+            ng-click="relFirst()">Mostrar contenido relacionado</a></p>
+    </div>
+  </div>
+  <div ng-show="tangibles.length>0">
+    <div class="row">
+      <hr>
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h3>Paquete relacionados</h3>
+      </div>
+    </div>
+    <div class="tangibles-wrapper" >
+      <div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="tangibles-columns">
+        <div ng-repeat="tangible in tangibles" >
+          <a ui-sref="tangibles.ver({uid: tangible.uid})"
+             title="{{tangible.content.title}}">
+            <div class="pin" data-area="{{tangible.content.area}}">
+              <img class="img-responsive" 
+                   images-loaded-events="imgLoadedEvents"
+                   ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
+                   alt="{{tangible.content.title}}">
+              <p class="pin-caption">{{tangible.content.title}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
