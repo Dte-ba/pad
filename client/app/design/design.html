@@ -1,0 +1,99 @@
+<div class="container-fluid" ng-switch="lvl">
+  
+  <div ng-switch-when="0" >
+    <div class="section-header">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+          <h1>{{target}}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+
+         <grid-panel repeat="eje in axisCollection" class="grid-panel-ejes"
+                     on-panel-opened="panelIsOpened(eje)" on-panel-closed="panelIsClosed(eje)">
+           <grid-panel-item>
+              <div>
+                <div class="eje" data-level="{{lvl}}" data-target="{{eje.name}}" data-owner="{{$parent.$parent.target}}">
+                  <a ng-show="eje.blocks.length===0" ui-sref="tangibles.design({area: $parent.$parent.target, eje: eje.name})">
+                    <div class="img-wrap">
+                      <img ng-src="{{eje.img}}" alt="{{eje.name}}">
+                    </div>
+                    <div class="title-wrap">
+                      {{eje.name}}
+                    </div>
+                  </a>
+                  <a ng-hide="eje.blocks.length===0">
+                    <div class="img-wrap">
+                      <img ng-src="{{eje.img}}" alt="{{eje.name}}">
+                    </div>
+                    <div class="title-wrap">
+                      {{eje.name}}
+                    </div>
+                  </a>
+                 </div>
+              </div>
+          </grid-panel-item>
+          <grid-panel-content class="grid-panel-content-block">
+              <div>
+                <h4>{{eje.name}}</h4>
+                <ul class="blocks-list">
+                  <li ng-repeat="bloque in eje.blocks">
+                    <a ui-sref="tangibles.design({area: $parent.$parent.$parent.target, eje: eje.name, bloque: bloque.name})">
+                      <div class="img-wrap">
+                        <img ng-src="{{bloque.img}}" alt="{{bloque.name}}">
+                      </div>
+                      <div class="title-wrap">
+                        {{bloque.name}}
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          </grid-panel-content>
+         </grid-panel>
+      </div>
+    </div>
+  </div>
+  
+  <div ng-switch-when="1">
+    <div class="section-header">
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-2 col-lg-10 col-lg-offset-1">
+          <h1><a ui-sref="design({area: area, axis: undefined })">{{area}}</a> <small>&rsaquo; {{axis}}</small></h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+
+          <div class="row">
+              <div ng-repeat="bloque in blocksCollection" class="col-sm-4 col-md-3 col-lg-2 repeat-animation hide-fade">
+                <div class="eje" data-level="{{lvl}}" data-target="{{bloque.name}}" data-owner="{{area}}">
+                  <a ui-sref="design({area: area, axis: bloque.name})">
+                    <div class="img-wrap">
+                      <img ng-src="{{bloque.img}}" alt="{{bloque.name}}">
+                    </div>
+                    <div class="title-wrap">
+                      {{bloque.name}}
+                    </div>
+                  </a>
+                 </div>
+              </div>
+          </div>
+          
+          <div ng-show="blocksCollection.length===0">
+            <div class="on-contruction" >
+              <img src="/assets/img/padnet-construction.png" alt="">
+            </div>
+            <p class="ups-msg">Ups! No hay bloques por el momento.</p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div ng-switch-when="2"></div>
+
+</div>

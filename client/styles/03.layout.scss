@@ -1,0 +1,60 @@
+
+html, body {
+  background-color: $pad-cream-color;
+  color: white;
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -$footer-height; 
+  position: relative;
+    
+  &::after {
+    content: "";
+    display: block;
+  }
+}
+
+.dte-footer,
+.page-wrap:after {
+  height: $footer-height; 
+}
+
+.dte-footer {
+  background: #232425;
+  position: relative;
+}
+
+.dte-footer .logo-dte {
+  float: left;
+  height: $footer-height;
+  width: 225px;
+  background: url('#{$pad-img-path}/logo-dte.png') center center no-repeat;
+  margin-left: 5%;
+}
+
+.dte-footer .logo-pad {
+  float: right;
+  height: $footer-height;
+  width: 170px;
+  background: url('#{$pad-img-path}/logo_pad_footer.png') center center no-repeat;
+  margin-right: 2%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: $footer-height;
+  width: 151px;
+  background: url('#{$pad-img-path}/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}
+
+#to-home {
+  position:absolute;
+  width: 52px;
+  height: 52px;
+  background: url('#{$pad-img-path}/home_btn.png') center center no-repeat;
+  top: 10px;
+  left: 10px;
+}

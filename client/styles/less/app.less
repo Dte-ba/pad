@@ -1,0 +1,127 @@
+@import 'bootstrap/less/bootstrap.less';
+@import 'font-awesome/less/font-awesome.less';
+
+@icon-font-path: '/bower_components/bootstrap/fonts/';
+@fa-font-path: '/bower_components/font-awesome/fonts';
+@pad-font-path: '/assets/fonts';
+@pad-img-path: '/assets/img';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/**
+ * Common styles
+ */
+
+@font-face {
+    font-family: 'concert_oneregular';
+    src: url('@{pad-font-path}/concertone-regular-webfont.eot');
+    src: url('@{pad-font-path}/concertone-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{pad-font-path}/concertone-regular-webfont.woff') format('woff'),
+         url('@{pad-font-path}/concertone-regular-webfont.ttf') format('truetype'),
+         url('@{pad-font-path}/concertone-regular-webfont.svg#concert_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Patua One';
+    src: url('@{pad-font-path}/PatuaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Comfortaa Bold';
+    src: url('@{pad-font-path}/Comfortaa-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Comfortaa Light';
+    src: url('@{pad-font-path}/Comfortaa-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Comfortaa Regular';
+    src: url('@{pad-font-path}/Comfortaa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html, body {
+  background-color: @pad-cream-color;
+  color: white;
+  height: 100%;
+}
+
+/**
+ * Dte
+ */
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -@footer-height; 
+  position: relative;
+    
+  &::after {
+    content: "";
+    display: block;
+  }
+}
+
+.dte-footer,
+.page-wrap:after {
+  height: @footer-height; 
+}
+
+.dte-footer {
+  background: #232425;
+  position: relative;
+}
+
+.dte-footer .logo-dte {
+  float: left;
+  height: @footer-height;
+  width: 225px;
+  background: url('@{pad-img-path}/logo-dte.png') center center no-repeat;
+  margin-left: 5%;
+}
+
+.dte-footer .logo-pad {
+  float: right;
+  height: @footer-height;
+  width: 170px;
+  background: url('@{pad-img-path}/logo_pad_footer.png') center center no-repeat;
+  margin-right: 2%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: @footer-height;
+  width: 151px;
+  background: url('@{pad-img-path}/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}
+
+// injector
+@import 'animations.less';
+@import 'elements.less';
+@import 'functions.less';
+@import 'menu.less';
+@import 'variables.less';
+// endinjector

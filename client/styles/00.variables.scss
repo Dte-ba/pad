@@ -1,0 +1,138 @@
+$pad-cream-color: #EEEBD5;
+
+$ba-color: #ec7f24;
+$black-color: #242526;
+
+$light-cover: 70%;
+$bg-deph: hsla(253, 123, 179, 0.3);
+
+$footer-height: 45px;
+$footer-height-middle: $footer-height/2;
+
+$menu-weight: 300px;
+$menu-weight-middle: $menu-weight/2;
+
+$menu-weight-center: 200px;
+
+$areas: (
+  cec: ( name: 'Centros Educativos Complementarios',
+    color: $ba-color, fcolor: white,
+    mPosCenter:   -180px -160px, mPosItem:   -60px 0px, mPosItemHover:  -100px -60px,
+    cartoon: -216px -852px,
+  ),
+  cn: ( name: 'Ciencias Naturales',
+    color: #9ba23d, fcolor: white,
+    mPosCenter:   -1980px -160px, mPosItem:   -660px 0px, mPosItemHover:  -1100px -60px,
+    cartoon: -2376px -852px,
+  ),
+  cs: ( name: 'Ciencias Sociales',
+    color: #761113, fcolor: white,
+    mPosCenter:   -1620px -160px, mPosItem:   -540px 0px, mPosItemHover:  -900px -60px,
+    cartoon: -1944px -852px,
+  ),
+  edard: ( name: 'Ed. Artística - Danza',
+    color: #ed1c24, fcolor: $black-color,
+    mPosCenter:   -720px -160px, mPosItem:   -240px 0px, mPosItemHover:  -400px -60px,
+    cartoon: -864px -852px,
+  ),
+  edarm: ( name: 'Ed. Artística - Música',
+    color: #ebbf1c, fcolor: $black-color,
+    mPosCenter:   -900px -160px, mPosItem:   -300px 0px, mPosItemHover:  -500px -60px,
+    cartoon: -1080px -852px,
+  ),
+  edarp: ( name: 'Ed. Artística - Plástica',
+    color: #6bb144, fcolor: $black-color,
+    mPosCenter:   -1080px -160px, mPosItem:   -360px 0px, mPosItemHover:  -600px -60px,
+    cartoon: -1296px -852px,
+  ),
+  edart: ( name: 'Ed. Artística - Teatro',
+    color: #c51d64, fcolor: white,
+    mPosCenter:   -540px -160px, mPosItem:   -180px 0px, mPosItemHover:  -300px -60px,
+    cartoon: -648px -852px,
+  ),
+  ef: ( name: 'Educación Física',
+    color: #00adef, fcolor: white,
+    mPosCenter:   -1800px -160px, mPosItem:   -600px 0px, mPosItemHover:  -1000px -60px,
+    cartoon: -2160px -852px,
+  ),
+  eoe: ( name: 'Equipos de Orientación Escolar',
+    color: $ba-color, fcolor: white,
+    mPosCenter:   -360px -160px, mPosItem:   -120px 0px, mPosItemHover:  -200px -60px,
+    cartoon: -432px -852px,
+  ),
+  ing: ( name: 'Inglés',
+    color: #41235f, fcolor: white,
+    mPosCenter:   0px -160px, mPosItem:   0px 0px, mPosItemHover:  0px -60px,
+    cartoon: 0px -852px,
+  ),
+  mat: ( name: 'Matemática',
+    color: #21418a, fcolor: white,
+    mPosCenter:   -1440px -160px, mPosItem:   -480px 0px, mPosItemHover:  -800px -60px,
+    cartoon: -1728px -852px,
+  ),
+  op: ( name: 'Orientación PAD',
+    color: $ba-color, fcolor: $black-color,
+    mPosCenter:   0px, mPosItem:  0px, mPosItemHover:  0px,
+    cartoon: 0px 0px,
+  ),
+  pdl: ( name: 'Prácticas del Lenguaje',
+    color: #004c33, fcolor: white,
+    mPosCenter:   -1260px -160px, mPosItem:   -420px 0px, mPosItemHover:  -700px -60px,
+    cartoon: -1512px -852px,
+  ),
+  pea: ( name: 'PAD en acción',
+    color: $ba-color, fcolor: $black-color,
+    mPosCenter:   0px, mPosItem:  0px, mPosItemHover:  0px,
+    cartoon: 0px 0px,
+  ),
+  tt: ( name: 'Temas Transversales',
+    color: $ba-color, fcolor: $black-color,
+    mPosCenter:   0px, mPosItem:  0px, mPosItemHover:  0px,
+    cartoon: 0px 0px,
+  ),
+);
+
+$asideMenu: (
+  bienvenida: (
+    pos: (
+      top: -45px,
+      left: 54px
+    ),
+    bgPos: 0px -566px,
+  ),
+  cloud: (
+    pos: (
+      top: -5px,
+      left: 109px
+    ),
+    bgPos: -66px -566px,
+  ),
+  orientaciones: (
+    pos: (
+      top: 60px,
+      left: 130px
+    ),
+    bgPos: -132px -566px,
+  ),
+  transversales: (
+    pos: (
+      top: 125px,
+      left: 109px
+    ),
+    bgPos: -198px -566px,
+  ),
+  contacto: (
+    pos: (
+      top: 165px,
+      left: 54px
+    ),
+    bgPos: -264px -566px,
+  ),
+);
+
+$menuWelcome:(
+  'Presentación': 0px 0px,
+  'Acerca del PAD': -64px 0px,
+  'Marco General': -128px 0px,
+  'Encuadre de la Areas y CEC': -192px 0px,
+);
