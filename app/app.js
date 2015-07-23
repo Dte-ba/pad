@@ -1,6 +1,7 @@
 'use strict';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.PAD_MODE = 'desktop';
 
 var path = require('path');
 var http = require('http');

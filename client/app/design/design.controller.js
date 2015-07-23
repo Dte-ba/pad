@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('padApp')
-  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http) {
+  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout) {
     
     $scope.target = $stateParams.area;
     $scope.axis = $stateParams.axis;
@@ -37,20 +37,28 @@ angular.module('padApp')
         console.log( data);
       });*/
 
-    if ($scope.lvl === 0){
+    if ($scope.lvl === 0 || $scope.lvl === 1){
       $http
         .get('/api/design/ejes/'+$scope.target)
         .success(function(data){
           $scope.axisCollection = data;
           //console.log(data);
+          $timeout(function () {
+            if ($scope.axis !== undefined) {
+              var elem = angular.element('div[data-target="' + $scope.axis + '"]');
+              if (elem.length > 0){
+                elem.click();
+              }
+            }
+          });
         });
-    } else if ($scope.lvl === 1){
+    } /*else if ($scope.lvl === 1){
       $http
         .get('/api/design/bloques/'+$scope.target+'/'+$scope.axis)
         .success(function(data){
           $scope.blocksCollection = data;
           //console.log(data);
         });
-    }
+    }*/
 
   });

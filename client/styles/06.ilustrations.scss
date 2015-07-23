@@ -36,7 +36,26 @@ html {
   }
 
   .pin[data-area="#{$area}"], 
-  .pin[data-area="#{$aname}"] {
-    background-color: map-get($key, color); 
+  .pin[data-area="#{$aname}"],
+  .bg-#{$area} {
+    background-color: lighten(map-get($key, color), 5%);
+    .pin-caption {
+      color: map-get($key, fcolor);
+    }
+
+    &:hover {
+      background-color: map-get($key, color);
+    }
+  }
+
+  a[data-area="#{$area}"].btn-info, 
+  a[data-area="#{$aname}"].btn-info {
+    border-color: map-get($key, color);
+    background-color: lighten(map-get($key, color), 5%);
+    color: map-get($key, fcolor);
+    &:hover,
+    &:focus {
+      background-color: lighten(map-get($key, color), 10%);
+    }
   }
 }

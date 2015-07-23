@@ -3,18 +3,15 @@
   <div class="section-header">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-        <h1>
-          <a ui-sref="design({area: tangible.content.area})">
+        <h1 class="tangibles-current-section">
+          <a ui-sref="design({area: area})" data-area="{{area}}" class="btn btn-info larea">
             {{area}} &rsaquo; 
           </a>
-          <a ui-sref="design({area: tangible.content.area, axis: tangible.content.axis})"><small>
-            {{axis}}</small>
+          <a ui-sref="design({area: area, axis: axis})" data-area="{{area}}" class="btn btn-info laxis">
+            &rsaquo; {{axis}}
           </a>
-          <a href="tangibles.design({
-                    area: area,
-                    axis: axis, 
-                    block: block})">
-          <small> &rsaquo; {{block}}</small></a></h1>
+          <span href="" class="lblock">
+          &rsaquo; {{block}}</span></h1>
       </div>
     </div>
   </div>
@@ -38,7 +35,7 @@
                  images-loaded-events="imgLoadedEvents"
                  ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
                  alt="{{tangible.content.title}}">
-            <p>{{tangible.content.title}}</p>
+            <p class="pin-caption">{{tangible.content.title}}</p>
           </div>
         </a>
       </div>

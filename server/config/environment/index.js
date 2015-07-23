@@ -15,6 +15,12 @@ function requiredProcessEnv(name) {
 var all = {
   env: process.env.NODE_ENV,
 
+  mode: process.env.PAD_MODE,
+
+  repository: process.env.REPOSITORY_PATH,
+
+  defaultRepository: 'local',
+
   // Root path of server
   root: path.normalize(__dirname + '/../../..'),
 

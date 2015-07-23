@@ -50,7 +50,7 @@
     text-transform: uppercase;
     font-size: 23px;
 
-    small {
+    /*small {
       color: white;
       font-family: 'Comfortaa Regular';
       font-size: 18px;
@@ -64,7 +64,31 @@
       &:focus {
         color: $black-color;
       }
-    }
+    }*/
+  }
+}
+
+.tangibles-current-section {
+
+  a {
+    text-decoration: none;
+  }
+
+  .larea {
+    font-size: 16px;
+    font-family: 'Patua One';
+    text-transform: uppercase;
+  }
+
+  .laxis {
+    font-family: 'Comfortaa Regular';
+    font-size: 14px;
+  }
+
+  .lblock {
+    color: $black-color;
+    font-family: 'Comfortaa Regular';
+    font-size: 14px;
   }
 }
 
