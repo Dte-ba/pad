@@ -14,9 +14,14 @@ angular.module('padApp')
         controller: 'TangiblesCtrl'
       })
       .state('tangibles.buscar', {
-        url: '/buscar/:content',
-        templateUrl: 'app/tangibles/tangibles.html',
-        controller: 'TangiblesCtrl'
+        url: '/buscar?texto?',
+        templateUrl: 'app/tangibles/tangibles.search.html',
+        controller: 'SearchTangiblesCtrl'
+      })
+      .state('tangibles.tag', {
+        url: '/tag/:tag',
+        templateUrl: 'app/tangibles/tangibles.tag.html',
+        controller: 'TagTangiblesCtrl'
       })
       .state('tangibles.ver', {
         url: '/ver/:uid',

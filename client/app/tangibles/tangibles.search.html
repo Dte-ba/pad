@@ -1,17 +1,21 @@
 <div class="container-fluid">
-  <div class="section-header">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-        <h1 class="tangibles-current-section">
-          <a ui-sref="design({area: area})" data-area="{{area}}" class="btn btn-info larea">
-            {{area}} &rsaquo; 
-          </a>
-          <a ui-sref="design({area: area, axis: axis})" data-area="{{area}}" class="btn btn-info laxis">
-            &rsaquo; {{axis}}
-          </a>
-          <span href="" class="lblock">
-          &rsaquo; {{block}}</span></h1>
-      </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <form class="form-horizontal" ng-submit="search()">
+        <p></p>
+        <div class="row">
+          <div class="col-sm-offset-2  col-sm-8">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" type="search" delayed-model="searchText" data-delay="500" autofocus>  
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="tangibles-wrapper">

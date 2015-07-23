@@ -2,10 +2,38 @@
 
 var Epm = require('epm');
 var path = require('path');
+var _ = require('lodash');
 var fs  = require('fs');
 var express = require('express');
 
 var manager = require('../epm-manager');
+
+var transformQuery = function(part){
+
+  if (_.isArray(part)){
+    var a = [];
+    part.forEach(function(p){
+      a.push(transformQuery(p))
+    });
+    return a;
+  }
+
+  var q = {};
+
+  _.forIn(part, function(value, key) {
+
+    if (_.isObject(value) || _.isArray(value)) {
+      q[key] = transformQuery(value);
+    } else if (key === '$regex') {
+      q[key] = new RegExp(value, 'ig');
+    } else {
+      q[key] = value;
+    }
+
+  });
+
+  return q;
+};
 
 module.exports = function(){
 
@@ -42,8 +70,12 @@ module.exports = function(){
         next(err);
       })
       .done(function(repo){
+        var q = transformQuery(req.body);
+
+        console.log(q);
+
         repo
-        .find(req.body, function(err, items){
+        .find(q, function(err, items){
           res.json(items);
         });
       });

@@ -3,25 +3,6 @@
 angular.module('padApp')
   .controller('TangiblesCtrl', function ($rootScope, $scope, $stateParams, $http) {
     
-    /*$scope.imgLoadedEvents = {
-
-        always: function(always) {
-            // Do stuff
-            console.log(always);
-        },
-
-        done: function(instance) {
-            console.log(instance);
-            //angular.element(instance.elements[0]).addClass('loaded');
-        },
-
-        fail: function(instance) {
-            // Do stuff
-            console.log(instance);
-        }
-
-    };*/
-
     var _query = {};
     _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
     _query['Inglés'] = [{'content.area':'Inglés'}];
@@ -42,6 +23,9 @@ angular.module('padApp')
     $scope.area = $stateParams.area;
     $scope.axis = $stateParams.eje;
     $scope.block = $stateParams.bloque;
+
+    //$rootScope.area = $scope.area;
+    //$rootScope.showCartoon = true;
 
     var q = [];
 
@@ -66,14 +50,111 @@ angular.module('padApp')
     } else if (q.length > 1) {
       q = { $or: q};
     }
-    
+
+    var take = 10;
+    var last = 5;
+
+    $scope.all = [];
+    $scope.tangibles = [];
+
+    $scope.loadMore = function() {
+      take += last;
+      $scope.tangibles = _.take($scope.all, take);
+    };
+
     $http
       .post('/epm/query/local', q)
       .success(function(data){
-        $scope.tangibles = data;
+        $scope.all = data;
+        $scope.tangibles = _.take($scope.all, take);
       })
       .error(function(){
         
       });
 
+  })
+  .controller('TagTangiblesCtrl', function ($scope, $stateParams, $http) {
+    $scope.tag = $stateParams.tag;
+    var etag = _.escapeRegExp(_.trim($scope.tag));
+
+    var q = { 'content.tags': { $regex: etag } };
+
+    var take = 10;
+    var last = 5;
+
+    $scope.all = [];
+    $scope.tangibles = [];
+
+    $scope.loadMore = function() {
+      take += last;
+      $scope.tangibles = _.take($scope.all, take);
+    };
+
+    $http
+      .post('/epm/query/local', q)
+      .success(function(data){
+        $scope.all = data;
+        $scope.tangibles = _.take($scope.all, take);
+      })
+      .error(function(){
+        
+      });
+
+  })
+  .controller('SearchTangiblesCtrl', function ($scope, $state, $stateParams, $http) {
+    $scope.texto = $stateParams.texto;
+    $scope.searchText = $scope.texto;
+
+    var trimTexto = _.trim($scope.texto);
+    var texto = _.escapeRegExp(trimTexto);
+
+    var q = { 
+      $or: [
+        { 'content.tags': { $regex: texto } },
+        { 'content.content': { $regex: texto } },
+        { 'content.title': { $regex: texto } },
+        { 'uid': { $regex: texto } }
+      ]
+    };
+
+    var take = 10;
+    var last = 5;
+
+    $scope.all = [];
+    $scope.tangibles = [];
+
+    $scope.loadMore = function() {
+      take += last;
+      $scope.tangibles = _.take($scope.all, take);
+    };
+
+    $scope.search = function(){
+      if ($scope.searchText === trimTexto) {
+        return;
+      }
+      $state.go('tangibles.buscar', {texto: $scope.searchText });
+    };
+
+    $scope.$watch('searchText', function(){
+      if ($scope.searchText === undefined) {
+        return;
+      }
+      if ($scope.searchText === trimTexto) {
+        return;
+      }
+      $state.go('tangibles.buscar', {texto: $scope.searchText });
+    });
+
+    if (trimTexto !== undefined && trimTexto !== ''){
+      $http
+        .post('/epm/query/local', q)
+        .success(function(data){
+          $scope.all = data;
+          $scope.tangibles = _.take($scope.all, take);
+        })
+        .error(function(){
+          
+        });  
+    }
+    
   });

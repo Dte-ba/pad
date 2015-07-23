@@ -58,4 +58,9 @@ html {
       background-color: lighten(map-get($key, color), 10%);
     }
   }
+
+  h1[data-area="#{$area}"], 
+  h1[data-area="#{$aname}"] {
+    color: map-get($key, fcolor);
+  }
 }

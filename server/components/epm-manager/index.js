@@ -25,6 +25,7 @@ manager.load = function(){
   if (!fs.existsSync(path.join(repopath, '.epm'))){
     Epm.create({path: repopath, name: 'local', engine: 'epm-pad-engine' }, function(err){
       if (err) {
+        console.log(err);
         var e = new Error('Error creating the repository');
         createDef.reject(e)
         throw e;
