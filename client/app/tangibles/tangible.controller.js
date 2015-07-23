@@ -6,12 +6,9 @@ angular.module('padApp')
     var uid = $stateParams.uid;
 
     $http
-      .post('/epm/query/local', {uid: uid})
+      .get('/epm/metadata/local/' + uid)
       .success(function(data){
-        if (data instanceof Array && data.length === 1){
-          $scope.tangible = data[0];
-          //console.log(data);
-        }
+        $scope.tangible = data;
       });
 
   });

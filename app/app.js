@@ -1,7 +1,11 @@
 'use strict';
 
+var osenv = require('osenv');
+var path = require('path');
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.PAD_MODE = 'desktop';
+process.env.REPOSITORY_PATH = path.join(osenv.home(), '/repository');
 
 var path = require('path');
 var http = require('http');
