@@ -1,6 +1,10 @@
-# PAD 5 - En Desarrollo
+# PAD 5
 
 Plataforma de alfabetización digital utilizando [EPM](https://github.com/Dte-ba/epm) como kernel
+
+## Online
+
+Versión [online oficial](http://pad.nticx.net/)
 
 # Ambiente en las Netbooks
 
