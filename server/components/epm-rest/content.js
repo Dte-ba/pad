@@ -36,30 +36,35 @@ module.exports = function(router){
               filename: pkg.filename    
             };
 
-            repo.engine.content(repo, info, pkg, function(err, data){
-              if (err) { return next(err); }
+            repo
+              .engine
+              .content(repo, info, pkg)
+              .fail(function(err){
+                next(err);
+              })
+              .done(function(data){
+                var files = data.map(function(f){ 
+                  if (process.platform !== 'win32') {
+                    f = f.replace('\\', '/');
+                  } else {
+                    f = f.replace('/', '\\');
+                  }
 
-              var files = data.map(function(f){ 
-                if (process.platform !== 'win32') {
-                  f = f.replace('\\', '/');
-                } else {
-                  f = f.replace('/', '\\');
-                }
+                  return {
+                    filename: f,
+                    stats: fs.statSync(path.resolve(f))
+                  }
+                });
 
-                return {
-                  filename: f,
-                  stats: fs.statSync(path.resolve(f))
-                }
+                var thefiles = {
+                  uid: uid,
+                  type: 'files',
+                  files: files
+                };
+
+                writeResolved(thefiles, res, rname);
               });
-
-              var thefiles = {
-                uid: uid,
-                type: 'files',
-                files: files
-              };
-
-              writeResolved(thefiles, res, rname);
-            });
+              
         });
       });
 

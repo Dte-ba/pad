@@ -33,21 +33,24 @@ module.exports =  function(req, res, next){
             filename: pkg.filename    
           };
 
-          repo.engine.asset(repo, info, pkg, name, function(err, filename){
-            if (err) { return next(err); }
+          repo
+            .engine
+            .asset(repo, info, pkg, name)
+            .fail(function(err){
+              next(err);
+            })
+            .done(function(filename){
+              var options = {
+                root: path.dirname(filename),
+                dotfiles: 'deny',
+                headers: {
+                    'x-timestamp': Date.now(),
+                    'x-sent': true
+                }
+              };
 
-            var options = {
-              root: path.dirname(filename),
-              dotfiles: 'deny',
-              headers: {
-                  'x-timestamp': Date.now(),
-                  'x-sent': true
-              }
-            };
-
-            res.sendFile(filename);
-          });
-
+              res.sendFile(filename);
+            });
         });
     });
 
