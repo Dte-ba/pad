@@ -10,6 +10,7 @@ var manager = {};
 var config = require('../../config/environment');
 
 var createDef = Q.defer();
+var loading = false;
 
 // keep repository instances
 var _repos = {};
@@ -19,6 +20,8 @@ manager.load = function(){
   if (config.repository === undefined){
     throw new Error('Repository path is not defined');
   }
+
+  loading = true;
 
   var repopath = config.repository ;
 
@@ -32,14 +35,19 @@ manager.load = function(){
       }
       createDef.resolve(repopath);
     });
+  } else {
+    createDef.resolve(repopath);
   }
 
-  createDef.resolve(repopath);
-
+  return createDef.promise;
 };
 
 manager.get = function(name){
   var deferred = Q.defer();
+
+  if (loading===false) {
+    manager.load();
+  }
 
   var repopath = config.repository;
 

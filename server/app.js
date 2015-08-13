@@ -9,65 +9,58 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
 var fs = require('fs');
+var Q = require('q');
 var path = require('path');
-var config = require('./config/environment');
 
-var ProgressBar = require('progress');
+var pad = exports = module.exports = {};
 
-var manager = require('./components/epm-manager');
+// the expressjs app
+var app = pad.app = express(); 
+
+// the repository manager
+var manager = pad.epmManager = require('./components/epm-manager');
 var empRest = require('./components/epm-rest');
 
-// Expose app
-exports = module.exports = function(cb){
+// the config
+var config = pad.config = require('./config/environment');;
+
+pad.startServer = function(){
+  // the promise for web and repository
+  var defer = Q.defer();
   
-  // Setup server
-  var app = express();
-  manager.load();
+  var server = pad.server = require('http').createServer(app);
 
-  var server = require('http').createServer(app);
-  require('./config/express')(app);
-  app.use('/epm', empRest());
-  require('./routes')(app);
-
-  var startServer = function(){
-    // Start server
-    server.listen(config.port, config.ip, function () {
-      if (typeof cb === 'function') {
-        cb(null, app, config);
-      }
-    });
-  };
-
-  if (process.env.PAD_MODE === 'server'){
-    console.log('Loading the repository:');
-
-    console.log();
-    var bar = new ProgressBar(' loading repository [:bar] :percent', {
-      complete: '=',
-      incomplete: ' ',
-      width: 20,
-      total: 100
-    });
-
-    manager
+  manager
       .get('local')
       .progress(function(info){
         var p = info.currents === 0 ? 0 : info.progress/info.currents;
-        //p = p *100;
-        bar.update(p);
-        //console.log(p);
+
+        defer.notify({
+          msg: "Cargando los paquetes de contenido digital.",
+          progress: p
+        });
+
       })
       .fail(function(err){
         throw err;
       })
       .done(function(){
-        console.log('\n');
-        console.log('Local repository ready!');
-        startServer();
+
+        // then configure the express
+        // define the EPM routes
+        // define the routes for the app
+        require('./config/express')(app);
+        app.use('/epm', empRest());
+        require('./routes')(app);
+
+        // Start server
+        server.listen(config.port, config.ip, function () {
+          setTimeout(function(){
+            defer.resolve();
+          }, 500);
+        });
+
       });
-  } else {
-    startServer();
-  }
-  
-  return app;
+
+  return defer.promise;
 };

@@ -7,6 +7,9 @@
 var osenv = require('osenv');
 var path = require('path');
 var fs = require('fs');
+var util = require('util');
+
+var ProgressBar = require('progress');
 
 var localConfig = path.join(osenv.home(), '.pad');
 
@@ -18,10 +21,33 @@ if (fs.existsSync(localConfig)){
   process.env.REPOSITORY_PATH = cfg.path;
 }
 
-require('./app.js')(function(err, app, config){
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+var pad = require('./app.js');
+
+var bar = new ProgressBar(' Cargando contenido [:bar] :percent', {
+  complete: '=',
+  incomplete: ' ',
+  width: 20,
+  total: 100
 });
 
-/*process.on('uncaughtException', function(err) {
-  console.log('Caught exception: ' + err);
-});*/
+pad
+  .startServer()
+  .progress(function(info){
+    
+    // print the current percent
+    bar.update(info.progress);
+
+  })
+  .fail(function(err){
+    throw err;
+  })
+  .done(function(){
+    console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
+  });
+
+if (pad.app.get('env') === "production") {
+  process.on('uncaughtException', function(err) {
+    console.log('Caught exception: ');
+    console.log(util.inspect(err))
+  });
+}
