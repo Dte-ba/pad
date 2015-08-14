@@ -72,35 +72,6 @@ design.ejes = function(area, cb){
     cb(null, a.axis);
   });
 
-  /*var a = _.find(areas, { area: area });
-
-  var client = config.env === 'production' ? 'public' : 'client';
-  var imgFolder = path.join(config.root, client);
-  var defaultImg = '/assets/img/areas/portada.png'
-
-  getAreas(function(err, areas){
-    var a = _.find(areas, { area: area });
-    var encodeArea = _.kebabCase(area).replace(/\-/ig, '_');
-    var sub = '/assets/img/areas/'
-
-    var axis = a.axis.map(function(ax){
-      var encodeAx = _.kebabCase(ax.name).replace(/\-/ig, '_');
-      var relative = path.join('/assets/img/areas/', encodeArea, encodeAx, 'padnet.png');
-      var full = path.join(imgFolder, relative);
-
-      var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
-
-      return {
-        name: ax.name,
-        img: img,
-        full: full,
-        blockCount: ax.blocks.length
-      };
-    });
-
-    cb(null,  axis);
-  });*/
-
 };
 
 design.bloques = function(area, eje, cb){
@@ -135,6 +106,22 @@ design.bloques = function(area, eje, cb){
     });
 
     cb(null, blocks);
+  });
+
+};
+
+design.transversales = function(cb){
+
+  design.manager.areas(false, function(err, areas){
+    var trans = _.filter(areas, function(item){
+      return item.name === "Equipos de Orientación Escolar" || item.name === "Centros Educativos Complementarios";
+    });
+
+    if (trans === undefined){
+      return cb && cb(null, []);
+    }
+
+    cb(null, trans);
   });
 
 };

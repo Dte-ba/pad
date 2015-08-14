@@ -9,7 +9,7 @@ angular.module('padApp')
           '      <a ui-sref="bienvenido.presentacion" data-toggle="tooltip" data-placement="top" title="Bienvenida"><div class="expand"></div></a>',
           '    </li>',
           '    <li data-target="cloud">',
-          '      <a href="#/tangibles/?area=PAD en acción&axis=PAD en acción" data-toggle="tooltip" data-placement="right" title="PAD en acción"><div class="expand"></div></a>',
+          '      <a ui-sref="tangibles.design({area: \'PAD en acción\', eje: \'PAD en acción\'})" data-toggle="tooltip" data-placement="right" title="PAD en acción"><div class="expand"></div></a>',
           '    </li>',
           '    <li data-target="orientaciones">',
           '      <a ui-sref="orientacion" data-toggle="tooltip" data-placement="right" title="Orientaciones"><div class="expand"></div></a>',

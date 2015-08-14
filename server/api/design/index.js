@@ -56,4 +56,12 @@ router.get('/bloques/:area/:eje', function(req, res) {
   
 });
 
+router.get('/transversales', function(req, res) {
+  design.transversales(function(err, trans){
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
+    res.json(trans);
+  });
+  
+});
+
 module.exports = router;

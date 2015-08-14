@@ -53,9 +53,16 @@ var createStructure = function(force, cb){
     }
 
     var res = areas.map(function(item){
+      var encodeArea = _.kebabCase(item.area).replace(/\-/ig, '_');
+    
+      var relative = path.join(rootUrl, encodeArea, 'padnet.png');
+      var full = path.join(imgFolder, relative);
+      var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
+
       var a = {
         name: item.area,
-        kebadCase: _.kebabCase(item.area).replace(/\-/ig, '_')
+        kebadCase: encodeArea,
+        img: img
       };
 
       a.axis = item.axis.map(function(ax){

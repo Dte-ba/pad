@@ -59,14 +59,6 @@ angular.module('padApp')
           }
         }
       })
-      /*.state('bienvenido.marco', {
-        url: '/Marco',
-        views: {
-          'content': {
-            templateUrl: 'app/bienvenido/marco.html'
-          }
-        }
-      })*/
       .state('bienvenido.encuadres', {
         url: '/Encuadres',
         views: {
