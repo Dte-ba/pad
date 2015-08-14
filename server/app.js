@@ -12,7 +12,7 @@ var fs = require('fs');
 var Q = require('q');
 var path = require('path');
 
-var pad = exports = module.exports = {};
+var pad = module.exports = {};
 
 // the expressjs app
 var app = pad.app = express(); 
@@ -22,7 +22,7 @@ var manager = pad.epmManager = require('./components/epm-manager');
 var empRest = require('./components/epm-rest');
 
 // the config
-var config = pad.config = require('./config/environment');;
+var config = pad.config = require('./config/environment');
 
 pad.startServer = function(){
   // the promise for web and repository
