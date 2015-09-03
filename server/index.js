@@ -8,6 +8,7 @@ var osenv = require('osenv');
 var path = require('path');
 var fs = require('fs');
 var util = require('util');
+var moment = require('moment');
 
 var ProgressBar = require('progress');
 
@@ -30,6 +31,8 @@ var bar = new ProgressBar(' Cargando contenido [:bar] :percent', {
   total: 100
 });
 
+var started = new Date();
+
 pad
   .startServer()
   .progress(function(info){
@@ -42,6 +45,7 @@ pad
     throw err;
   })
   .done(function(){
+    console.log(moment.duration(new Date() - started).asMinutes());
     console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
   });
 

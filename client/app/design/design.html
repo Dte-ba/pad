@@ -3,11 +3,11 @@
   <div class="section-header">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-        <h1 data-area="{{target}}">{{target}}</h1>
+        <h1 data-area="{{target}}">{{titleArea}}</h1>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-hide="axisCollection.length === 0">
     <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
 
        <grid-panel repeat="eje in axisCollection" class="grid-panel-ejes"
@@ -52,6 +52,25 @@
             </div>
         </grid-panel-content>
        </grid-panel>
+    </div>
+  </div>
+
+  <div class="row" ng-hide="areaCollection.length === 0">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      
+      <ul class="area-list">
+        <li class="eje" data-target="{{area.name}}" ng-repeat="area in areaCollection">
+          <a ui-sref="design({area: $parent.target, subarea: area.name})">
+            <div class="img-wrap">
+              <img ng-src="{{area.img}}" alt="{{area.name}}">
+            </div>
+            <div class="title-wrap">
+              {{area.name}}
+            </div>
+          </a>
+         </li>
+      </ul>
+
     </div>
   </div>
 

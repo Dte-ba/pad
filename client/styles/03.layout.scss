@@ -1,29 +1,31 @@
 
-html, body {
-  background-color: $pad-cream-color;
-  color: $black-color;
+html,
+body {
+  margin:0;
+  padding:0;
   height: 100%;
 }
 
-.page-wrap {
-  min-height: 100%;
-  margin-bottom: -$footer-height; 
-  position: relative;
-    
-  &::after {
-    content: "";
-    display: block;
-  }
+body {
+  background: $pad-cream-color url('#{$pad-img-path}/texture_triangles30.png') repeat;
 }
 
-.dte-footer,
-.page-wrap:after {
-  height: $footer-height; 
+#wrapper {
+  min-height:100%;
+  position:relative;
 }
 
-.dte-footer {
+#content {
+  padding-bottom: $footer-height + 15px; /* Height of the footer element */
+}
+
+#footer {
   background: #232425;
-  position: relative;
+  width:100%;
+  height: $footer-height;
+  position:absolute;
+  bottom:0;
+  left:0;
 }
 
 .dte-footer .logo-dte {

@@ -28,20 +28,24 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div class="page-wrap">
+    
+    <div id="wrapper">
+      
       <div id="content">
         <div ui-view></div>
       </div>
-      <div class="area-cartoon" ng-class="{active: showCartoon}"></div>
+      
+      <div id="area-cartoon" class="area-cartoon" ng-class="{active: showCartoon}"></div>
+      <div id="area-cartoon-hover" class="area-cartoon"></div>
+
+      <footer id="footer" class="dte-footer clearfix">
+        <div class="logo-dte"></div>
+        <div class="logo-ba"></div>
+        <div class="logo-pad"></div>
+      </footer>
+
     </div>
-       
-    <footer class="dte-footer clearfix">
-      <div class="logo-dte"></div>
-      <div class="logo-ba"></div>
-      <div class="logo-pad"></div>
-    </footer>
-    
+
     <div id="aside-menu" pad-aside-menu></div>
     
     <a id="to-home" ui-sref="main" ng-hide="$state.includes('main')"></a>
@@ -75,8 +79,6 @@
       <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
       <!-- endbower -->
       <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-      <script src="assets/js/menu.roulette.js"></script>
-      <script src="assets/js/utils.js"></script>
     <!-- endbuild -->
 
         
@@ -97,6 +99,7 @@
           <script src="app/tangibles/tangible.controller.js"></script>
           <script src="app/tangibles/tangibles.controller.js"></script>
           <script src="app/tangibles/tangibles.js"></script>
+          <script src="components/menu.roulette.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->

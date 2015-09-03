@@ -1,12 +1,11 @@
 .area-cartoon {
-  background-position: 0px -340px;
-  background: url('#{$pad-img-path}/assets.png');
+  background: url('#{$pad-img-path}/personajes_asset.png');
   bottom: $footer-height;
-  height: 225px;
+  height: 226px;
   position: absolute;
   right: 0px;
   visibility: hidden;
-  width: 216px;
+  width: 226px;
   z-index: 10002;
 }
 
@@ -14,14 +13,31 @@
   visibility: visible;
 }
 
+//background: $pad-cream-color url('#{$pad-img-path}/texture_triangles15.png') repeat;
+
 html {
   @each $area, $key in $areas {
     $aname: map-get($key, name);
     &[data-area="#{$area}"], 
     &[data-area="#{$aname}"],
     &[data-area-cartoon="#{$aname}"] {
-      .area-cartoon {
-        background-position: map-get($key, cartoon);
+      $idx: map-get($key, index);
+      body {
+        @if $idx == 0 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        } @else if $idx == 1 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 2 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 3 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        } @else if $idx == 4 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 5 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 6 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        }
       }
     }
   }
@@ -30,10 +46,24 @@ html {
 html {
   @each $area, $key in $areas {
     $aname: map-get($key, name);
+    &[data-area="#{$area}"], 
+    &[data-area="#{$aname}"],
     &[data-area-cartoon="#{$aname}"] {
+      $p: map-get($key, index) * 226;
       .area-cartoon {
-        background-position: map-get($key, cartoon);
+        background-position: -#{$p}px 0px;
       }
+    }
+  }
+}
+
+#area-cartoon-hover {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area="#{$area}"],
+    &[data-area="#{$aname}"] {
+      $p: map-get($key, index) * 226;
+      background-position: -#{$p}px 0px;
     }
   }
 }

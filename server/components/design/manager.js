@@ -46,65 +46,75 @@ var getAreas = function(force, cb){
 };
 
 // TODO: generate cache
-var createStructure = function(force, cb){
+function createStructure(force, cb){
   getAreas(force, function(err, areas){
     if (err){
       return cb(err);
     }
 
-    var res = areas.map(function(item){
-      var encodeArea = _.kebabCase(item.area).replace(/\-/ig, '_');
-    
-      var relative = path.join(rootUrl, encodeArea, 'padnet.png');
+    cb(null, mapAreas(areas));
+  });
+}
+
+function mapAreas(areas){
+  
+  if (areas === undefined || areas.length === 0) {
+    return [];
+  }
+
+  var res = areas.map(function(item){
+    var encodeArea = _.kebabCase(item.area).replace(/\-/ig, '_');
+  
+    var relative = path.join(rootUrl, encodeArea, 'padnet.png');
+    var full = path.join(imgFolder, relative);
+    var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
+
+    var a = {
+      name: item.area,
+      kebadCase: encodeArea,
+      img: img,
+      subareas: mapAreas(item.subareas)
+    };
+
+    a.axis = item.axis.map(function(ax){
+      var encodeAx = _.kebabCase(ax.name).replace(/\-/ig, '_');
+      var relative = path.join(rootUrl, a.kebadCase, encodeAx, 'padnet.png');
       var full = path.join(imgFolder, relative);
       var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
 
-      var a = {
-        name: item.area,
-        kebadCase: encodeArea,
-        img: img
+      var rax = {
+        name: ax.name,
+        kebadCase: encodeAx,
+        img: img,
+        //fullpath: full
       };
 
-      a.axis = item.axis.map(function(ax){
-        var encodeAx = _.kebabCase(ax.name).replace(/\-/ig, '_');
-        var relative = path.join(rootUrl, a.kebadCase, encodeAx, 'padnet.png');
-        var full = path.join(imgFolder, relative);
-        var img = fs.existsSync(full) ? relative.replace(/\\/ig, '/') : defaultImg;
+      rax.blocks = ax.blocks.map(function(b){
+        
+        var encodeBlock = _.kebabCase(b).replace(/\-/ig, '_');
+        var relativeb = path.join(rootUrl, a.kebadCase, rax.kebadCase, encodeBlock, 'portada.png');
+        var fullb = path.join(imgFolder, relativeb);
+        var imgb = fs.existsSync(fullb) ? relativeb.replace(/\\/ig, '/') : defaultImg;
 
-        var rax = {
-          name: ax.name,
-          kebadCase: encodeAx,
-          img: img,
-          //fullpath: full
+        var rb = {
+          name: b,
+          kebadCase: encodeBlock,
+          img: imgb,
+          fullpath: fullb,
         };
 
-        rax.blocks = ax.blocks.map(function(b){
-          
-          var encodeBlock = _.kebabCase(b).replace(/\-/ig, '_');
-          var relativeb = path.join(rootUrl, a.kebadCase, rax.kebadCase, encodeBlock, 'portada.png');
-          var fullb = path.join(imgFolder, relativeb);
-          var imgb = fs.existsSync(fullb) ? relativeb.replace(/\\/ig, '/') : defaultImg;
-
-          var rb = {
-            name: b,
-            kebadCase: encodeBlock,
-            img: imgb,
-            fullpath: fullb,
-          };
-
-          return rb;
-        });
-
-        return rax;
+        return rb;
       });
 
-      return a;
-
+      return rax;
     });
 
-    cb(null, res);
+    return a;
+
   });
-};
+
+  return res;
+}
 
 manager.areas = function(force, cb){
   createStructure(force, cb);

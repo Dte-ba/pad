@@ -225,148 +225,154 @@
       ]
     },
     {
-      "area": "Ed. Artística - Plástica",
-      "axis": [
+      "area": "Educación Artística",
+      "axis": [],
+      "subareas": [
         {
-          "name": "Imagen",
-          "blocks": [
-            "La imagen",
-            "Imágenes Artísticas",
-            "Imágenes Informativas",
-            "Imágenes Persuasivas",
-            "Imágenes Lúdicas"
+          "area": "Ed. Artística - Plástica",
+          "axis": [
+            {
+              "name": "Imagen",
+              "blocks": [
+                "La imagen",
+                "Imágenes Artísticas",
+                "Imágenes Informativas",
+                "Imágenes Persuasivas",
+                "Imágenes Lúdicas"
+              ]
+            },
+            {
+              "name": "Recepción",
+              "blocks": [
+                "La Mirada como Construcción Cultural",
+                "Relaciones intertextuales",
+                "Construcción de Ciudadanos Críticos",
+                "Motivos",
+                "Otros aspectos"
+              ]
+            },
+            {
+              "name": "Producción",
+              "blocks": [
+                "Producción de la Imagen",
+                "Tradicionales",
+                "Contemporáneos",
+                "Nuevas Tecnologías"
+              ]
+            },
+            {
+              "name": "Proyectos",
+              "blocks": [
+                "Texto Escrito para el Programa",
+                "Construcción de Proyectos",
+                "Construcción de Problemáticas",
+                "Banco de Imágenes"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
           ]
         },
         {
-          "name": "Recepción",
-          "blocks": [
-            "La Mirada como Construcción Cultural",
-            "Relaciones intertextuales",
-            "Construcción de Ciudadanos Críticos",
-            "Motivos",
-            "Otros aspectos"
+          "area": "Ed. Artística - Música",
+          "axis": [
+            {
+              "name": "Materiales del Lenguaje Musical",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Organización del Lenguaje Musical",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Composición",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
           ]
         },
         {
-          "name": "Producción",
-          "blocks": [
-            "Producción de la Imagen",
-            "Tradicionales",
-            "Contemporáneos",
-            "Nuevas Tecnologías"
+          "area": "Ed. Artística - Danza",
+          "axis": [
+            {
+              "name": "El cuerpo en relación con...",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "La danza como lenguaje",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Los discursos corporales y el contexto socio–cultural",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
           ]
         },
         {
-          "name": "Proyectos",
-          "blocks": [
-            "Texto Escrito para el Programa",
-            "Construcción de Proyectos",
-            "Construcción de Problemáticas",
-            "Banco de Imágenes"
+          "area": "Ed. Artística - Teatro",
+          "axis": [
+            {
+              "name": "Elementos del Lenguaje Teatral",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Organización de los Elementos del Lenguaje Teatral",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
           ]
-        },
-        {
-          "name": "Sala de Docentes",
-          "blocks": []
-        }
-      ]
-    },
-    {
-      "area": "Ed. Artística - Música",
-      "axis": [
-        {
-          "name": "Materiales del Lenguaje Musical",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Organización del Lenguaje Musical",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Composición",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Sala de Docentes",
-          "blocks": []
-        }
-      ]
-    },
-    {
-      "area": "Ed. Artística - Danza",
-      "axis": [
-        {
-          "name": "El cuerpo en relación con...",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "La danza como lenguaje",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Los discursos corporales y el contexto socio–cultural",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Sala de Docentes",
-          "blocks": []
-        }
-      ]
-    },
-    {
-      "area": "Ed. Artística - Teatro",
-      "axis": [
-        {
-          "name": "Elementos del Lenguaje Teatral",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Organización de los Elementos del Lenguaje Teatral",
-          "blocks": [
-            "Lenguaje",
-            "Producción",
-            "Recepción",
-            "Contexto sociocultural"
-          ]
-        },
-        {
-          "name": "Sala de Docentes",
-          "blocks": []
         }
       ]
     },

@@ -61,6 +61,19 @@ design.encuadres = function(cb){
 
 };
 
+design.areaByName = function(name, cb){
+
+  design.manager.areas(false, function(err, areas){
+    var a = _.find(areas, { name: name });
+    if (a === undefined){
+      return cb && cb(null, []);
+    }
+
+    cb(null, a);
+  });
+
+};
+
 design.ejes = function(area, cb){
 
   design.manager.areas(false, function(err, areas){

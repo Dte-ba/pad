@@ -1,4 +1,14 @@
 
+.area-list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+  li {
+    display: inline-block;
+  }
+}
+
 .eje {
   width: 166px;
   height: 186px;
@@ -488,4 +498,14 @@ p.agradecimientos {
   .bounce2 {
     background-color: white;
   }
+}
+
+.grid-panel .grid-panel-content .triangle, .grid-panel grid-panel-content .triangle, grid-panel .grid-panel-content .triangle, grid-panel grid-panel-content .triangle{
+  //border-bottom: 15px solid white;
+}
+
+.grid-panel .grid-panel-content, .grid-panel grid-panel-content, grid-panel .grid-panel-content, grid-panel grid-panel-content {
+  //background: none;
+  //border: 5px solid white;
+  //border-top: 3px;
 }

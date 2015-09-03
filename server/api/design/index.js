@@ -35,6 +35,16 @@ router.get('/areas', function(req, res) {
   
 });
 
+router.get('/area/:name', function(req, res) {
+  var name = req.params.name;
+
+  design.areaByName(name, function(err, area){
+    res.set({ 'content-type': 'application/json; charset=utf-8' });
+    res.json(area);
+  });
+  
+});
+
 router.get('/ejes/:area', function(req, res) {
   var area = req.params.area;
 

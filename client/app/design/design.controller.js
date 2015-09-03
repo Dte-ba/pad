@@ -3,62 +3,59 @@
 angular.module('padApp')
   .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout) {
     
+    var _ = window._;
+
     $scope.target = $stateParams.area;
+    $scope.titleArea = $stateParams.area;
+    $scope.subarea = $stateParams.subarea;
     $scope.axis = $stateParams.axis;
-    $scope.block = $stateParams.block;
     $scope.lvl = 0;
 
     $rootScope.area = $scope.target;
     $rootScope.showCartoon = true;
 
     $scope.axisCollection = [];
+    $scope.areaCollection = [];    
 
-    if ($scope.axis !== undefined && $scope.axis !== ''){
-      $scope.lvl=1;
-    }
-
-    if ($scope.block !== undefined && $scope.block !== ''){
-      $scope.lvl=2;
-    }
-
-    /*$http
-      .get('http://localhost:9000/epm/query/local/all')
+    // request the current area
+    $http
+      .get('/api/design/area/'+$scope.target)
       .success(function(data){
-        console.log(
-            _.groupBy(
-              _.map(data, function(a){ return a.content; })
-              , 'area')
-          );
-      });*/
 
-    /*$http
-      .post('/epm/query/local/select area:EOE || area:Equipos de Orientación Escolar')
-      .success(function(data){
-        console.log( data);
-      });*/
+        // has subareas?
+        if (data.subareas !== undefined && data.subareas.length > 0){
+          if ($scope.subarea != null && $scope.subarea !== '') {
 
-    if ($scope.lvl === 0 || $scope.lvl === 1){
-      $http
-        .get('/api/design/ejes/'+$scope.target)
-        .success(function(data){
-          $scope.axisCollection = data;
-          //console.log(data);
-          $timeout(function () {
-            if ($scope.axis !== undefined) {
-              var elem = angular.element('div[data-target="' + $scope.axis + '"]');
-              if (elem.length > 0){
-                elem.click();
-              }
+            var a = _.findWhere(data.subareas, { name: $scope.subarea});
+
+            if (a === undefined) {
+              return;
             }
-          });
+
+            $scope.titleArea = a.name;
+
+            // set the area axis
+            $scope.axisCollection = a.axis;
+          } else {
+            $scope.areaCollection = data.subareas;
+            return;            
+          }
+        } else {
+          $scope.axis = $scope.subarea;
+          // set the currents axis
+          $scope.axisCollection = data.axis;
+        }
+        
+        // open the current axis
+        $timeout(function () {
+          if ($scope.axis !== undefined) {
+            var elem = angular.element('div[data-target="' + $scope.axis + '"]');
+            if (elem.length > 0){
+              elem.click();
+            }
+          }
         });
-    } /*else if ($scope.lvl === 1){
-      $http
-        .get('/api/design/bloques/'+$scope.target+'/'+$scope.axis)
-        .success(function(data){
-          $scope.blocksCollection = data;
-          //console.log(data);
-        });
-    }*/
+
+      });
 
   });

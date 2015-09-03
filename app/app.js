@@ -1,43 +1,61 @@
 'use strict';
 
-var osenv = require('osenv');
-var path = require('path');
+function start() {
+  var osenv = require('osenv');
+  var path = require('path');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-process.env.PAD_MODE = 'desktop';
-process.env.REPOSITORY_PATH = path.join(osenv.home(), '/repository');
 
-var path = require('path');
-var http = require('http');
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+  process.env.PAD_MODE = 'desktop';
+  process.env.REPOSITORY_PATH = path.join(osenv.home(), '/repository');
 
-var cfg = path.join(process.cwd(), '/../server/config/environment/index.js');
-var config = require(cfg);
+  var path = require('path');
+  var http = require('http');
 
-var options = {
-  host: 'localhost',
-  port: config.port
-};
+  var cfg = path.join(process.cwd(), '/../server/config/environment/index.js');
+  var config = require(cfg);
 
-process.on('uncaughtException', function(err) {
-  console.log('Caught exception: ' + err);
-});
+  var options = {
+    host: 'localhost',
+    port: config.port
+  };
 
-//require('nw.gui').Window.get().showDevTools();
+  process.on('uncaughtException', function(err) {
+    console.log('Caught exception: ' + err);
+  });
 
-//check if server is already running
-http.get(options, function(res) {
-  console.log('server is running, redirecting to localhost');
-  if (window.location.href.indexOf('localhost') < 0) { 
-    window.location = 'http://localhost:' + config.port;
-  }
-}).on('error', function(e) {
-  console.log(e);
-  //server is not yet running
-  var app = require(path.join(process.cwd(),'/../server/app.js'))(function(err, app){
-    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  //require('nw.gui').Window.get().showDevTools();
+
+  //check if server is already running
+  http.get(options, function(res) {
+    console.log('server is running, redirecting to localhost');
     if (window.location.href.indexOf('localhost') < 0) { 
       window.location = 'http://localhost:' + config.port;
     }
+  }).on('error', function(e) {
+    console.log(e);
+    //server is not yet running
+    var app = require(path.join(process.cwd(),'/../server/app.js'))(function(err, app){
+      console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+      if (window.location.href.indexOf('localhost') < 0) { 
+        window.location = 'http://localhost:' + config.port;
+      }
+    });
+
   });
 
-});
+}
+
+function waitForConsoleThenStart() {
+  if (typeof global.window !== 'undefined') {
+    
+    // Here you can use console.log
+    console.log("test");
+    start();
+
+  } else {
+    setTimeout(waitForConsoleThenStart, 100);
+  }
+}
+
+waitForConsoleThenStart();

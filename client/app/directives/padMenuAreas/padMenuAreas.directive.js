@@ -8,6 +8,10 @@ angular.module('padApp')
       link: function (scope, element) {
         scope.menu = element.roulette();
 
+        var areaCartoonActive = false;
+
+        // close the aside menu when 
+        // click outside
         angular
           .element(window.document)
           .bind('click', function() {
@@ -19,74 +23,92 @@ angular.module('padApp')
            }
 
         });
+        
+        // stop rotation
+        element
+          .bind('click', function(e) {
+            var br = element.children('.border-roulette');
 
-        element.bind('click', function(e) {
-          var br = element.children('.border-roulette');
-          
-          var rotation = br.rotation();
-          br.rotation(rotation);
-          element.toggleClass('inactive');
-          scope.menu.toggle( window.Math.convertDegs('degs', rotation) );
-          e.stopPropagation();
+            var rotation = br.rotation();
+            br.rotation(rotation);
+            element.toggleClass('inactive');
+            scope.menu.toggle( window.Math.convertDegs('degs', rotation) );
+            e.stopPropagation();
         });
 
+        // on item hover
         element
           .children('ul.roulette')
           .children('li')
           .hover(function(e) {
+            // get the hover element
             var elem = $(e.currentTarget);
+            // get the area attribute 
             var area = elem.children('a')
                            .children('.item-area')
                            .attr('data-area');
-          
-            var currentArea = $('html').data('area');
 
-             if(e.type === 'mouseover' || e.type === 'mouseenter' ) {
+
+            if(e.type === 'mouseover' || e.type === 'mouseenter' ) {
+              // hide border (fix that thing)
               element
-                .children('.center-roulette-area')
-                .addClass('active');
+                .children('.border-roulette')
+                .hide();
 
-              $rootScope.showCartoon = true;
-              $('.area-cartoon').addClass('active');
-              
+              // set the current area to the cartoon
               element
                 .children('.center-roulette-area')
                 .attr('data-area', area);
 
-              $('html').attr('data-area', area);
+              // paint the center
+              element
+                .children('.center-roulette-area')
+                .addClass('active');
+
+              // set the current area to the cartoon
+              $('#area-cartoon-hover').attr('data-area', area);
+              // showthe cartoon
+              $('#area-cartoon-hover').addClass('active');
+
+              areaCartoonActive = $('#area-cartoon').hasClass('active');
+
+              if (areaCartoonActive) {
+                $('#area-cartoon').removeClass('active');
+              }
+
             } else {
+              // remove the center
               element
                 .children('.center-roulette-area')
                 .removeClass('active');
 
-              $rootScope.showCartoon = false;
-              $('.area-cartoon').removeClass('active');
-
+              // show border (fix that thing)
               element
-                .children('.center-roulette-area')
-                .removeAttr('data-area');
-
-              $('html').attr('data-area', area);
-
-              if (currentArea !== undefined && !$('body').hasClass('home')) {
-                $('.area-cartoon').addClass('active');
-                $rootScope.showCartoon = true;
-                $('html').attr('data-area', currentArea);              
-              }
+                .children('.border-roulette')
+                .show();
             }
-          });
 
+          });
+          
+          // hide the cartoon when mouse leave the item
           element
-          .children('ul.roulette')
-          .children('li')
-          .on('mouseleave', function() {
-              $('.area-cartoon').removeClass('active');
-          });
+            .children('ul.roulette')
+            .children('li')
+            .on('mouseleave', function() {
+                $('#area-cartoon-hover').removeClass('active');
+                if (areaCartoonActive) {
+                  $('#area-cartoon').addClass('active');
+                }
+            });
 
+          // when item is clicked remove the lock background
           element
           .children('ul.roulette')
           .children('li')
           .click(function(e) {
+
+            $('#area-cartoon-hover').removeClass('active');
+            
             if ($('.bg-lock').hasClass('showing')){
               if (scope.menu.opened === true) {
                  scope.menu.hide();
@@ -100,7 +122,7 @@ angular.module('padApp')
 
           // remove from here
           $timeout(function(){
-            
+
             $('#aside-area-menu').click(function(){
               $('.bg-lock').toggleClass('showing');
             });
@@ -119,6 +141,7 @@ angular.module('padApp')
             });
 
           });
+
       }
-    };
+    }
   });
