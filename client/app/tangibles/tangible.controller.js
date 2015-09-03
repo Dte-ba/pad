@@ -3,6 +3,7 @@
 angular.module('padApp')
   .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http) {
     
+
     var _query = {};
     _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
     _query['Inglés'] = [{'content.area':'Inglés'}];
@@ -56,7 +57,6 @@ angular.module('padApp')
       $http
       .post('/epm/query/local', q)
       .success(function(data){
-        console.log(data);
         $scope.all = data;
         $scope.tangibles = _.take($scope.all, take);
 

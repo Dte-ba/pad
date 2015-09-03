@@ -71,6 +71,7 @@ function mapAreas(areas){
 
     var a = {
       name: item.area,
+      shortname: item.shortname,
       kebadCase: encodeArea,
       img: img,
       subareas: mapAreas(item.subareas)

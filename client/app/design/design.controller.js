@@ -11,9 +11,6 @@ angular.module('padApp')
     $scope.axis = $stateParams.axis;
     $scope.lvl = 0;
 
-    $rootScope.area = $scope.target;
-    $rootScope.showCartoon = true;
-
     $scope.axisCollection = [];
     $scope.areaCollection = [];    
 
@@ -21,6 +18,9 @@ angular.module('padApp')
     $http
       .get('/api/design/area/'+$scope.target)
       .success(function(data){
+
+        $rootScope.area = data.shortname;
+        $rootScope.showCartoon = true;  
 
         // has subareas?
         if (data.subareas !== undefined && data.subareas.length > 0){

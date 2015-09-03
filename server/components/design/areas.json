@@ -1,14 +1,15 @@
 {
   "areas": [
-  {
-    "area": "PAD en acción",
-    "axis": [
-      {
-        "name": "PAD en acción",
-        "blocks": []
-      }
-    ]
-  },
+    {
+      "area": "PAD en acción",
+      "axis": [
+        {
+          "name": "PAD en acción",
+          "blocks": []
+        }
+      ],
+      "shortname": "pea"
+    },
     {
       "area": "Inglés",
       "axis": [
@@ -51,7 +52,8 @@
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "ing"
     },
     {
       "area": "Ciencias Naturales",
@@ -83,17 +85,18 @@
         },
         {
           "name": "Seres Vivos",
-        "blocks": [
-        "Diversidad de los seres vivos",
-        "Funciones de los seres vivos",
-        "Interacciones entre los seres vivos y el ambiente"
+          "blocks": [
+            "Diversidad de los seres vivos",
+            "Funciones de los seres vivos",
+            "Interacciones entre los seres vivos y el ambiente"
           ]
         },
         {
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "cn"
     },
     {
       "area": "Educación Física",
@@ -114,7 +117,8 @@
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "ef"
     },
     {
       "area": "Ciencias Sociales",
@@ -145,7 +149,8 @@
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "cs"
     },
     {
       "area": "Matemática",
@@ -176,7 +181,8 @@
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "mat"
     },
     {
       "area": "Prácticas del Lenguaje",
@@ -195,9 +201,9 @@
           "name": "Formación del estudiante",
           "blocks": [
             "Para buscar y seleccionar información: Textos digitales",
-      "Para buscar y seleccionar información: Recursos Multimediales",
-      "Para comunicar lo aprendido: Textos Digitales",
-      "Para comunicar lo aprendido: Recursos"
+            "Para buscar y seleccionar información: Recursos Multimediales",
+            "Para comunicar lo aprendido: Textos Digitales",
+            "Para comunicar lo aprendido: Recursos"
           ]
         },
         {
@@ -207,7 +213,7 @@
             "Para construir y expresar opiniones: Recursos Multimediales",
             "Para leer y comentar: Prensa",
             "Para leer y comentar: Publicidad"
-            ]
+          ]
         },
         {
           "name": "Reflexión sobre el lenguaje",
@@ -222,7 +228,8 @@
           "name": "Sala de Docentes",
           "blocks": []
         }
-      ]
+      ],
+      "shortname": "pdl"
     },
     {
       "area": "Educación Artística",
@@ -374,7 +381,8 @@
             }
           ]
         }
-      ]
+      ],
+      "shortname": "ea"
     },
     {
       "area": "Equipos de Orientación Escolar",
@@ -390,8 +398,9 @@
         {
           "name": "Situaciones Emergentes",
           "blocks": []
-        }   
-      ]
+        }
+      ],
+      "shortname": "eoe"
     },
     {
       "area": "Centros Educativos Complementarios",
@@ -411,37 +420,40 @@
         {
           "name": "Sala de Docentes",
           "blocks": []
-        }   
-      ]
+        }
+      ],
+      "shortname": "cec"
     },
     {
       "area": "Orientación PAD",
-      "axis": [        
-    {
+      "axis": [
+        {
           "name": "Ideas para pensar la asisitencia digital en las prácticas de enseñanza",
           "blocks": []
         }
-    ]
+      ],
+      "shortname": "op"
     },
     {
       "area": "Temas Transversales",
-      "axis": [        
-    {
+      "axis": [
+        {
           "name": "Planes y Programas",
           "blocks": [
-        "Programa Provincial de Actividades Científicas y Tecnológicas Educativas",
-        "Programa de Derechos Humanos, Memoria y Educación",
-        "Educación en Contextos de Encierro",
-        "Programa de Educación y Seguridad Vial",
-        "Programa de Educación Intercultural",
-        "Programa de promoción de derechos de niñas niños y adolescentes",
-        "Programa de Educación Plurilingüe",
-        "Programa de Educación para la Ruralidad continental y de Islas",
-        "Programa de Arte y Medios en la Escuela",
-        "Programa Escuelas Promotoras de Salud"
-      ]
+            "Programa Provincial de Actividades Científicas y Tecnológicas Educativas",
+            "Programa de Derechos Humanos, Memoria y Educación",
+            "Educación en Contextos de Encierro",
+            "Programa de Educación y Seguridad Vial",
+            "Programa de Educación Intercultural",
+            "Programa de promoción de derechos de niñas niños y adolescentes",
+            "Programa de Educación Plurilingüe",
+            "Programa de Educación para la Ruralidad continental y de Islas",
+            "Programa de Arte y Medios en la Escuela",
+            "Programa Escuelas Promotoras de Salud"
+          ]
         }
-    ]
-    } 
+      ],
+      "shortname": "tt"
+    }
   ]
 }

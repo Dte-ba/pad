@@ -70,6 +70,7 @@ html {
 
 @each $area, $key in $areas {
   $aname: map-get($key, name);
+  html[data-area="#{$area}"],
   html[data-area="#{$aname}"] {
     background-color: map-get($key, color);
     body {
