@@ -3,14 +3,17 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
         <h1 class="tangibles-current-section">
-          <a ui-sref="design({area: area})" data-area="{{area}}" class="btn btn-info larea">
-            {{area}} &rsaquo; 
+          <a title="Volver" href="javascript:window.history.back()" class="go-back"><i class="fa fa-chevron-circle-left"></i></a>
+          <a ui-sref="design({area: area})" 
+             data-area="{{sarea}}"
+             class="btn btn-info larea">
+            <i class="fa fa-caret-left"> </i> {{area}}
           </a>
-          <a ui-sref="design({area: area, axis: axis})" data-area="{{area}}" class="btn btn-info laxis">
-            &rsaquo; {{axis}}
+          <a ui-sref="design({area: area, eje: axis})" 
+             data-area="{{sarea}}" class="btn btn-info laxis">
+            <i class="fa fa-caret-left"> </i> {{axis}}
           </a>
-          <span href="" class="lblock">
-          &rsaquo; {{block}}</span></h1>
+          <span href="" data-area="{{sarea}}" class="lblock">{{block}}</span></h1>
       </div>
     </div>
   </div>

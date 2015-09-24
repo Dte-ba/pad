@@ -68,6 +68,31 @@ html {
   }
 }
 
+ul.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    color: $black-color;
+    padding-right: 5px;
+    a {
+      text-decoration: none;
+      color: $black-color;
+    }
+  }
+}
+
+@each $area, $key in $areas {
+  $aname: map-get($key, name);
+  ul.legend li[data-area="#{$area}"] {
+    i {
+      color: map-get($key, color);
+    }
+  }
+}
+
 @each $area, $key in $areas {
   $aname: map-get($key, name);
   html[data-area="#{$area}"],

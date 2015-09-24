@@ -9,6 +9,8 @@ angular.module('padApp')
     $scope.titleArea = $stateParams.area;
     $scope.subarea = $stateParams.subarea;
     $scope.axis = $stateParams.axis;
+    $scope.eje = $stateParams.eje;
+
     $scope.lvl = 0;
 
     $scope.axisCollection = [];
@@ -48,8 +50,8 @@ angular.module('padApp')
         
         // open the current axis
         $timeout(function () {
-          if ($scope.axis !== undefined) {
-            var elem = angular.element('div[data-target="' + $scope.axis + '"]');
+          if ($scope.eje !== undefined) {
+            var elem = angular.element('div[data-target="' + $scope.eje + '"]');
             if (elem.length > 0){
               elem.click();
             }

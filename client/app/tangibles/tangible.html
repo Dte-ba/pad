@@ -3,19 +3,25 @@
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
         <h1 class="tangibles-current-section">
-          <a ui-sref="design({area: tangible.content.area})" data-area="{{tangible.content.area}}" class="btn btn-info larea">
-            {{tangible.content.area}} &rsaquo; 
+          <a title="Volver" 
+            href="javascript:window.history.back()" 
+            class="go-back"><i class="fa fa-chevron-circle-left"></i>
           </a>
-          <a ui-sref="design({area: tangible.content.area, axis: tangible.content.axis})"
-             data-area="{{tangible.content.area}}" class="btn btn-info laxis">
-            {{tangible.content.axis}}
+          <a ui-sref="design({area: tangible.content.area})" 
+             data-area="{{tangible.sarea}}"
+             class="btn btn-info larea">
+            <i class="fa fa-caret-left"></i> {{tangible.content.area}}
+          </a>
+          <a ui-sref="design({area: tangible.content.area, eje: tangible.content.axis})"
+             data-area="{{tangible.sarea}}" class="btn btn-info laxis">
+            <i class="fa fa-caret-left"></i> {{tangible.content.axis}}
           </a>
           <a ui-sref="tangibles.design({
                     area: tangible.content.area,
                     axis: tangible.content.axis, 
                     block: tangible.content.block})"
-              data-area="{{tangible.content.area}}" class="btn btn-info lblock">
-          &rsaquo; {{tangible.content.block}}</a></h1>
+              data-area="{{tangible.sarea}}" class="btn btn-info lblock">
+          <i class="fa fa-caret-left"></i> {{tangible.content.block}}</a></h1>
       </div>
     </div>
   </div>
@@ -28,12 +34,12 @@
 
   <div class="row">
     <div class="col-sm-6 text-center">
-      <img class="img-responsive" 
+      <img class="text-center" style="max-width: 100%" 
            ng-src="/epm/asset/local/{{tangible.uid}}/cover/content"
            alt="{{tangible.title}}"/>
     </div>
     <div class="col-sm-6 tangible-body">
-      <h4>Ficha Técnica</h4>
+      <h3><i class="fa fa-info-circle"></i> Ficha Técnica</h3>
       <p> {{tangible.content.content}} </p>
       <a class="btn btn-default btn-tangible" style="width: 100%;" 
          href="/epm/content/local/{{tangible.uid}}" target="_blank"></i> Acceder al Contenido</a>
@@ -42,7 +48,7 @@
       <hr>
       <ul class="tangible-tags">
         <li class="cloud text-center">
-          <i class="fa fa-tags"></i>
+          <i class="fa fa-tag"></i>
         </li>
         <li ng-repeat="tag in tangible.content.tags.split(',')">
           <a ui-sref="tangibles.tag({tag: tag})">{{tag}}</a>
@@ -56,14 +62,67 @@
   <div class="row" id="header-relations">
     <div class="col-sm-12 text-center">
       <p><a class="btn btn-default relacionado-first"
-            ng-click="relFirst()">Mostrar contenido relacionado</a></p>
+            ng-click="relFirst()"><i class="fa fa-tags"></i> Mostrar contenido relacionado</a></p>
     </div>
   </div>
   <div ng-show="tangibles.length>0">
     <div class="row">
       <hr>
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-        <h3>Paquete relacionados</h3>
+        <h3 class="relacionados text-center"><i class="fa fa-tags"></i> Paquete relacionados</h3>
+        <hr>
+        <ul class="legend text-center">
+          <li data-area="cn">
+            <a href="javascript:void(0)" 
+               title="Ciencias Naturales" ng-click="filter('Ciencias Naturales')">
+              <i class="fa fa-circle"></i> CN</li>
+            </a>
+          <li data-area="cs">
+            <a href="javascript:void(0)" 
+               title="Ciencias Sociales" ng-click="filter('Ciencias Sociales')">
+              <i class="fa fa-circle"></i> CS</li>
+            </a>
+          <li data-area="edar">
+            <a href="javascript:void(0)" 
+               title="Educación Artística" ng-click="filter('Educación Artística')">
+              <i class="fa fa-circle"></i> EA</li>
+            </a>
+          <li data-area="ef">
+            <a href="javascript:void(0)" 
+               title="Educación Física" ng-click="filter('Educación Física')">
+              <i class="fa fa-circle"></i> EF</li>
+            </a>
+          <li data-area="ing">
+            <a href="javascript:void(0)" 
+               title="Inglés" ng-click="filter('Inglés')">
+              <i class="fa fa-circle"></i> ING</li>
+            </a>
+          <li data-area="mat">
+            <a href="javascript:void(0)" 
+               title="Matemática" ng-click="filter('Matemática')">
+              <i class="fa fa-circle"></i> M</li>
+            </a>
+          <li data-area="pdl">
+            <a href="javascript:void(0)" 
+               title="Prácticas del Lenguaje" ng-click="filter('Prácticas del Lenguaje')">
+              <i class="fa fa-circle"></i> PDL</li>
+            </a>
+          <li data-area="pea">
+            <a href="javascript:void(0)" 
+               title="PAD en acción" ng-click="filter('PAD en acción')">
+              <i class="fa fa-circle"></i> PA</li>
+            </a>
+          <li data-area="cec">
+            <a href="javascript:void(0)" 
+               title="Centros Educativos Complementarios" ng-click="filter('Centros Educativos Complementarios')">
+              <i class="fa fa-circle"></i> CEC</li>
+            </a>
+          <li data-area="eoe">
+            <a href="javascript:void(0)" 
+               title="Equipos de Orientación Escolar" ng-click="filter('Equipos de Orientación Escolar')">
+              <i class="fa fa-circle"></i> EOE</li>
+            </a>
+        </ul>
       </div>
     </div>
     <div class="tangibles-wrapper" >
@@ -71,7 +130,7 @@
         <div ng-repeat="tangible in tangibles" >
           <a ui-sref="tangibles.ver({uid: tangible.uid})"
              title="{{tangible.content.title}}">
-            <div class="pin" data-area="{{tangible.content.area}}">
+            <div class="pin" data-area="{{tangible.sarea}}">
               <img class="img-responsive" 
                    images-loaded-events="imgLoadedEvents"
                    ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"

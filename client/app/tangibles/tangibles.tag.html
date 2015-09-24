@@ -11,7 +11,7 @@
       <div ng-repeat="tangible in tangibles" >
         <a ui-sref="tangibles.ver({uid: tangible.uid})"
            title="{{tangible.content.title}}">
-          <div class="pin" data-area="{{tangible.content.area}}">
+          <div class="pin" data-area="{{tangible.sarea}}">
             <img class="img-responsive" 
                  images-loaded-events="imgLoadedEvents"
                  ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"

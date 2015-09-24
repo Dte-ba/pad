@@ -8,20 +8,25 @@ angular.module('padApp')
       link: function (scope, element) {
         scope.menu = element.roulette();
 
+        var bubble_hover = $("#bubble_hover")[0];
+        var bubble_click = $("#bubble_click")[0];
+
         var areaCartoonActive = false;
 
         // close the aside menu when 
         // click outside
         angular
           .element(window.document)
-          .bind('click', function() {
+          .bind('click', function(e) {
            if ($('#aside-menu').hasClass('active')) {
               $('#aside-menu').removeClass('active');
-            }
+           }
            if (scope.menu.opened === true) {
              scope.menu.hide();
+             element.addClass('inactive');
            }
 
+           e.stopPropagation();
         });
         
         // stop rotation
@@ -48,8 +53,9 @@ angular.module('padApp')
                            .children('.item-area')
                            .attr('data-area');
 
-
             if(e.type === 'mouseover' || e.type === 'mouseenter' ) {
+              bubble_hover.play();
+
               // hide border (fix that thing)
               element
                 .children('.border-roulette')
@@ -106,6 +112,7 @@ angular.module('padApp')
           .children('ul.roulette')
           .children('li')
           .click(function(e) {
+            //bubble_click.play();
 
             $('#area-cartoon-hover').removeClass('active');
             

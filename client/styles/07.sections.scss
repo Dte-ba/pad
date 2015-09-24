@@ -77,6 +77,12 @@
   }
 }
 
+h4.eje-bloque {
+  font-family: 'Patua One';
+  //text-transform: uppercase;
+  font-size: 20px;
+}
+
 .section-tagibles-header {
   font-family: 'Patua One';
   margin-bottom: 25px;
@@ -95,9 +101,15 @@
   }
 
   .larea {
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Patua One';
     text-transform: uppercase;
+  }
+
+  @each $area, $key in $areas {
+    a.larea[data-area="#{$area}"] {
+      background-color: map-get($key, color);
+    }
   }
 
   .laxis {
@@ -105,15 +117,37 @@
     font-size: 14px;
   }
 
-  a.lblock {
+  @each $area, $key in $areas {
+    a.laxis[data-area="#{$area}"] {
+      background-color: map-get($key, color);
+    }
+  }
+
+  .lblock {
     font-family: 'Comfortaa Regular';
     font-size: 14px;
+  }
+
+  @each $area, $key in $areas {
+    a.lblock[data-area="#{$area}"] {
+      background-color: map-get($key, color);
+    }
   }
 
   span.lblock {
     color: $black-color;
     font-family: 'Comfortaa Regular';
     font-size: 14px;
+    padding: 6px 12px;
+    border: solid 2px white;
+    border-radius: 6px;
+  }
+
+  @each $area, $key in $areas {
+    span.lblock[data-area="#{$area}"] {
+      border-color: map-get($key, color);
+      color: map-get($key, color);
+    }
   }
 }
 
@@ -277,7 +311,8 @@ ul.blocks-list {
 }
 
 .tangible-body {
-  h4, p {
+  h4, h3 {
+    font-family: 'Comfortaa Regular';
     color: $black-color !important;
   }
 }
@@ -384,6 +419,9 @@ ul.tangible-tags {
   }
 }
 
+h3.relacionados {
+  font-family: 'Patua One';
+}
 
 .encuadre {
   padding: 20px;
@@ -508,4 +546,22 @@ p.agradecimientos {
   //background: none;
   //border: 5px solid white;
   //border-top: 3px;
+}
+
+.grid-panel .grid-panel-content,
+.grid-panel grid-panel-content,
+grid-panel .grid-panel-content,
+grid-panel grid-panel-content {
+  border-radius: 6px;
+  border: solid 3px white;
+  background: none;
+}
+
+.grid-panel .grid-panel-content .triangle,
+.grid-panel grid-panel-content .triangle,
+grid-panel .grid-panel-content .triangle,
+grid-panel grid-panel-content .triangle {
+  border-bottom: 15px solid white;
+  top: -14px;
+  display: none;
 }

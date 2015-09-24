@@ -3,6 +3,23 @@
 angular.module('padApp')
   .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http) {
     
+    var alias = {};
+    alias['PAD en acción'] = 'pea';
+    alias['Inglés'] = 'ing';
+    alias['Ciencias Naturales'] = 'cn';
+    alias['Educación Física'] = 'ef';
+    alias['Ciencias Sociales'] = 'cs';
+    alias['Matemática'] = 'mat';
+    alias['Prácticas del Lenguaje'] = 'pdl';
+    alias['Educación Artística'] = 'edar';
+    alias['Ed. Artística - Plástica'] = 'edarp';
+    alias['Ed. Artística - Música'] = 'edarm';
+    alias['Ed. Artística - Danza'] = 'edard';
+    alias['Ed. Artística - Teatro'] = 'edart';
+    alias['Equipos de Orientación Escolar'] = 'eoe';
+    alias['Centros Educativos Complementarios'] = 'cec';
+    alias['Orientación PAD'] = 'op';
+    alias['Temas Transversales'] = 'tt';
 
     var _query = {};
     _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
@@ -26,6 +43,7 @@ angular.module('padApp')
     $http
       .get('/epm/metadata/local/' + uid)
       .success(function(data){
+        data.sarea = alias[data.content.area];
         $scope.tangible = data;
       });
 
@@ -57,6 +75,11 @@ angular.module('padApp')
       $http
       .post('/epm/query/local', q)
       .success(function(data){
+        data = _.map(data, function(i){
+          i.sarea = alias[i.content.area];
+          return i;
+        });
+        
         $scope.all = data;
         $scope.tangibles = _.take($scope.all, take);
 

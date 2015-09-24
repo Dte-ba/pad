@@ -9,7 +9,7 @@ angular.module('padApp')
         template: '<ui-view/>'
       })
       .state('tangibles.design', {
-        url: '/diseño/{area}/{eje}/{bloque}',
+        url: '/diseño/:area/:axis/:block',
         templateUrl: 'app/tangibles/tangibles.html',
         controller: 'TangiblesCtrl'
       })
