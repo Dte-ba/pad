@@ -1,0 +1,48 @@
+<div class="container stats">
+  <div class="page-header">
+    <h2>Estadísticas</h2>
+  </div>
+
+  <p><h2>{{total}} tangibles <small>{{ totalSize | numeraljs:'00.00 b' }}</small></h2></p>
+  
+  <hr>
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <canvas id="pie" class="chart chart-pie"
+          chart-data="data" chart-labels="labels" chart-legend="true">
+        </canvas> 
+      </div>
+      <div class="col-sm-6">
+        <canvas id="pie" class="chart chart-pie"
+          chart-data="dataSize" chart-labels="labelsSize" chart-legend="true">
+        </canvas> 
+      </div>
+    </div>
+
+  <hr>
+  
+  <article ng-repeat="area in areas">
+    <h4>{{area.name}}
+        <span class="label label-primary"> {{area.length}}</span>
+        <span class="label label-info">{{ area.size | numeraljs:'00.00 b' }}</span>
+    </h4>
+    <ul>
+      <li ng-repeat="ax in area.axis">
+        <p>{{ax.name}}
+          <strong>  {{ax.length}}<strong> 
+          <strong> {{ ax.size | numeraljs:'00.00 b' }}<strong> 
+        </p>
+        <ul>
+          <li ng-repeat="bl in ax.blocks">
+            <p>{{bl.name}}
+              <strong> {{bl.length}}</strong>
+              <strong> {{ bl.size | numeraljs:'00.00 b' }}</strong>
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </article>
+
+</div>

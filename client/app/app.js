@@ -8,7 +8,9 @@ angular.module('padApp', [
   'ngAnimate',
   'angular-loading-bar',
   'ngGridPanel',
-  'infinite-scroll'
+  'infinite-scroll',
+  'chart.js',
+  'ngNumeraljs'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
