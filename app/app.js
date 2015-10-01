@@ -24,7 +24,7 @@ function start() {
     console.log('Caught exception: ' + err);
   });
 
-  //require('nw.gui').Window.get().showDevTools();
+  require('nw.gui').Window.get().showDevTools();
 
   //check if server is already running
   http.get(options, function(res) {

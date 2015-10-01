@@ -14,7 +14,7 @@
          <grid-panel-item>
             <div>
               <div class="eje" data-target="{{area.name}}">
-                <a ng-show="area.axis.length===0" ui-sref="tangibles.design({area: area.name})">
+                <a ng-show="area.axis.length===0" ui-sref="tangibles.design({area: area.name, axis: 'Sin Especificar', block: 'Sin Especificar' })">
                   <div class="img-wrap">
                     <img ng-src="{{area.img}}" alt="{{area.name}}">
                   </div>
@@ -38,7 +38,7 @@
               <h4>{{area.name}}</h4>
               <ul class="blocks-list">
                 <li ng-repeat="ax in area.axis">
-                  <a ui-sref="tangibles.design({area: area.name, eje: ax.name})">
+                  <a ui-sref="tangibles.design({area: area.name, axis: ax.name, block: 'Sin Especificar'})">
                     <div class="img-wrap">
                       <img ng-src="{{ax.img}}" alt="{{ax.name}}">
                     </div>
