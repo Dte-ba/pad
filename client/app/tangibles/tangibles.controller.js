@@ -245,6 +245,9 @@ angular.module('padApp')
             });
 
             $scope.all = data;
+            console.log(_.filter($scope.all, function(item){
+              return item.content.files.length > 1;
+            }));
             $scope.tangibles = _.take($scope.all, take);
 
             $scope.noResults = $scope.all.length === 0 && trimTexto !== '';

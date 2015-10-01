@@ -47,6 +47,7 @@ angular.module('padApp')
       .success(function(data){
         data.sarea = alias[data.content.area];
         $scope.tangible = data;
+        
         var d = $scope.tangible.content.description;
         $scope.tangible.hasDescription = d !== '' && d !== undefined && d !== null;
       });

@@ -7,6 +7,9 @@ var mime = require('mime');
 var path = require('path');
 var _ = require('lodash');
 
+var Log = require('log')
+  , log = new Log('info');
+
 var manager = require('../epm-manager');
 
 module.exports = function(router){
@@ -14,6 +17,8 @@ module.exports = function(router){
   router.get('/content/:repository/:uid', function(req, res, next){
     var rname = req.params.repository;
     var uid = req.params.uid;
+
+    log.debug('/content/:repository/:uid');
 
     manager
       .get(rname)
@@ -31,39 +36,39 @@ module.exports = function(router){
             return next(err);
           }
           var info = {
-              uid: uid,
-              build: pkg.build || 1,
-              filename: pkg.filename    
-            };
+            uid: uid,
+            build: pkg.build || 1,
+            filename: pkg.filename    
+          };
 
-            repo
-              .engine
-              .content(repo, info, pkg)
-              .fail(function(err){
-                next(err);
-              })
-              .done(function(data){
-                var files = data.map(function(f){ 
-                  if (process.platform !== 'win32') {
-                    f = f.replace('\\', '/');
-                  } else {
-                    f = f.replace('/', '\\');
-                  }
+          repo
+            .engine
+            .content(repo, info, pkg)
+            .fail(function(err){
+              next(err);
+            })
+            .done(function(data){
+              var files = data.map(function(f){ 
+                if (process.platform !== 'win32') {
+                  f = f.replace(/\\/ig, '/');
+                } else {
+                  f = f.replace(/\//ig, '\\');
+                }
 
-                  return {
-                    filename: f,
-                    stats: fs.statSync(path.resolve(f))
-                  }
-                });
-
-                var thefiles = {
-                  uid: uid,
-                  type: 'files',
-                  files: files
-                };
-
-                writeResolved(thefiles, res, rname);
+                return {
+                  filename: f,
+                  stats: fs.statSync(path.resolve(f))
+                }
               });
+
+              var thefiles = {
+                uid: uid,
+                type: 'files',
+                files: files
+              };
+
+              writeResolved(thefiles, res, rname);
+            });
               
         });
       });
@@ -74,36 +79,43 @@ module.exports = function(router){
     var rname = req.params.repository;
     var uid = req.params.uid;
 
+    log.debug('/files/:repository/:uid');
+
     var route = '/files/' + rname + '/' + uid;
 
     var p = router.cacheContent[route];
     
     if (p === undefined) {
-      return res.redirect('/epm/content/' + rname + '/' + uid);
+      log.debug('the route is not %s cached', route);
+      var to = '/epm/content/' + rname + '/' + uid;
+      log.debug('redirect to %s', to);
+      return res.redirect(to);
     }
+
+    log.debug('indexing %s', route);
 
     req.url = req.url.replace(route, '/');
 
     var dfn = serveIndex(p.path, {'icons': true});
     
-    //router.use(route, serveIndex(p.path, {'icons': true}));
-
-    //res.redirect('/epm/' + route);
-    //console.log(p.path);
     dfn.apply(router, [req, res, next]);
-    //next('route');
   });
 
   router.get('/files/:repository/:uid/*', function(req, res, next){
     var rname = req.params.repository;
     var uid = req.params.uid;
 
+    log.debug('/files/:repository/:uid/*');
+
     var route = '/files/' + rname + '/' + uid;
 
     var p = router.cacheContent[route];
     
     if (p === undefined) {
-      return res.redirect('/epm/content/' + rname + '/' + uid);
+      log.debug('the route is not %s cached', route);
+      var to = '/epm/content/' + rname + '/' + uid;
+      log.debug('redirect to %s', to);
+      return res.redirect(to);
     }
 
     req.url = req.url.replace(route, '');
@@ -116,12 +128,34 @@ module.exports = function(router){
       }
 
       if (stat.isDirectory()){
+        log.debug('indexing %s', filename);
         var dfn = serveIndex(filename, { 'icons': true });
         dfn.apply(router, [req, res, next]);
         return;
       }
 
-      sendFile(res, filename);
+      log.debug('sending file: %s', filename);
+      //log.debug(p);
+      
+      //res.sendFile(filename);
+      var options = {
+        root: p.path,
+        //dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+      };
+
+      res.sendFile(filename.replace(p.path, ''), options, function (err) {
+        if (err) {
+          console.log(err);
+          res.status(err.status).end();
+        }
+        else {
+          //console.log('Sent:', filename);
+        }
+      });
 
     });
 
@@ -142,13 +176,14 @@ module.exports = function(router){
     res.setHeader('Content-disposition', 'inline; filename="' + fname + '"');
     res.setHeader('Content-Type', mime.lookup(filename));
 
-    res.download(filename);
+    res.sendFile(filename);
   }
 
   /**
    * Write epm-pad-engine resutls
    */
   function writeResolved(info, res, rname, statusCode){
+    
     statusCode = statusCode || 200;
     if (info.files.length === 1){
       //res.setHeader('Content-Type', mime.lookup( info.files[0].filename) );
@@ -156,7 +191,7 @@ module.exports = function(router){
       return true;
     } else {
       var bpath = extractBasepath(info.files.map(function(f){ return f.filename; }));
-
+      
       var relfiles = info.files.map(function(f){
         var fname = f.filename.replace(/\\/ig, '/');
         return fname.replace(bpath, '');
@@ -177,6 +212,7 @@ module.exports = function(router){
         // index.html doesn't exists 
         // any html
         idxhtml = (htmls.length > 0 ? htmls[0] : undefined);
+        idxhtml = idxhtml.replace(bpath, '');
       }
 
       var route = '/files/' + rname + '/' + info.uid;
@@ -187,13 +223,16 @@ module.exports = function(router){
         };
       }
       var r = route;
+      
       var item = router.cacheContent[route];
       if (item.index !== undefined){
         r += '/' + item.index;
       }
+      var uri = '/epm' + r;
+      log.debug('writeResolved: redirect to %s', uri);
       
-      res.redirect('/epm' + r);
-      //res.sendFile(idxhtml, {root: bpath });
+      res.redirect(uri);
+      return true;
     }
 
     function extractBasepath(entries) {
@@ -203,7 +242,12 @@ module.exports = function(router){
       });
 
       var sdirs = dirs.map(function(d){ 
-        return d.split('\\');
+        
+        if (process.platform !== 'win32') {
+          return d.split(/\//i);
+        } else {
+          return d.split(/\\/i);
+        }
       });
 
       var idx = 0;
@@ -246,3 +290,4 @@ module.exports = function(router){
     }
   }
 };
+
