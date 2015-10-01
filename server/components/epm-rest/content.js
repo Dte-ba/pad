@@ -67,8 +67,6 @@ module.exports = function(router){
                 files: files
               };
 
-              console.log('process.env.PAD_MODE ', process.env.PAD_MODE);
-              console.log('process.env.NW_GUI ', process.env.NW_GUI);
               writeResolved(thefiles, res, rname);
             });
               
