@@ -67,6 +67,8 @@ module.exports = function(router){
                 files: files
               };
 
+              console.log('process.env.PAD_MODE ', process.env.PAD_MODE);
+              console.log('process.env.NW_GUI ', process.env.NW_GUI);
               writeResolved(thefiles, res, rname);
             });
               
@@ -186,7 +188,20 @@ module.exports = function(router){
     
     statusCode = statusCode || 200;
     if (info.files.length === 1){
-      //res.setHeader('Content-Type', mime.lookup( info.files[0].filename) );
+      
+      //for desktop applications
+       if (process.env.PAD_MODE === 'desktop' && process.env.NW_GUI !== undefined) {
+        var gui = process.env.NW_GUI;
+        try {
+          console.log('trying open with NW_GUI');
+          gui.Shell.openItem(info.files[0].filename);
+          return true;
+        } catch(ex){
+          console.log(ex);
+        }
+      }
+
+      // if has error download
       sendFile(res, info.files[0].filename);
       return true;
     } else {

@@ -1,0 +1,64 @@
+
+
+@import '../../client/styles/00.variables.scss';
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height: 100%;
+}
+
+body {
+  background: $pad-cream-color url('../img/texture_triangles30.png') repeat;
+}
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+#content {
+  padding-bottom: $footer-height + 15px; /* Height of the footer element */
+}
+
+#footer {
+  background: #232425;
+  width:100%;
+  height: $footer-height;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+.dte-footer .logo-dte {
+  float: left;
+  height: $footer-height;
+  width: 225px;
+  background: url('../img/logo-dte.png') center center no-repeat;
+  margin-left: 5%;
+}
+
+.dte-footer .logo-pad {
+  float: right;
+  height: $footer-height;
+  width: 170px;
+  background: url('../img/logo_pad_footer.png') center center no-repeat;
+  margin-right: 2%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: $footer-height;
+  width: 151px;
+  background: url('../img/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}
+
+.footer-divider {
+  height: 40px;
+}
+
+#init-screen {
+  padding-top: 15%;
+}

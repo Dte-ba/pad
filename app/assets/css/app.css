@@ -1,0 +1,53 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+body {
+  background: #f3eddd url("../img/texture_triangles30.png") repeat; }
+
+#wrapper {
+  min-height: 100%;
+  position: relative; }
+
+#content {
+  padding-bottom: 60px;
+  /* Height of the footer element */ }
+
+#footer {
+  background: #232425;
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.dte-footer .logo-dte {
+  float: left;
+  height: 45px;
+  width: 225px;
+  background: url("../img/logo-dte.png") center center no-repeat;
+  margin-left: 5%; }
+
+.dte-footer .logo-pad {
+  float: right;
+  height: 45px;
+  width: 170px;
+  background: url("../img/logo_pad_footer.png") center center no-repeat;
+  margin-right: 2%; }
+
+.dte-footer .logo-ba {
+  float: right;
+  height: 45px;
+  width: 151px;
+  background: url("../img/logo-ba.png") center center no-repeat;
+  margin-right: 5%; }
+
+.footer-divider {
+  height: 40px; }
+
+#init-screen {
+  padding-top: 15%; }
+
+/*# sourceMappingURL=app.css.map */

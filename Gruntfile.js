@@ -86,6 +86,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: [
+          'app/assets/css/**/*.{scss,sass}',
           '<%= yeoman.client %>/{app,components,styles}/**/*.{scss,sass}'],
         tasks: ['sass', 'autoprefixer']
       },
@@ -476,11 +477,13 @@ module.exports = function (grunt) {
             '<%= yeoman.client %>/app',
             '<%= yeoman.client %>/components',
             '<%= yeoman.client %>/styles',
+            '/app/assets/css/',
           ],
           compass: true
         },
         files: {
-          '.tmp/app/app.css' : '<%= yeoman.client %>/app/app.scss'
+          '.tmp/app/app.css' : '<%= yeoman.client %>/app/app.scss',
+          'app/assets/css/app.css': 'app/assets/css/app.scss'
         }
       }
     },

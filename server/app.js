@@ -24,7 +24,10 @@ var empRest = require('./components/epm-rest');
 // the config
 var config = pad.config = require('./config/environment');
 
-pad.startServer = function(){
+pad.startServer = function(gui){
+
+  process.env.NW_GUI = gui;
+  
   // the promise for web and repository
   var defer = Q.defer();
   
