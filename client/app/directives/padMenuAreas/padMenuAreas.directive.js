@@ -8,8 +8,8 @@ angular.module('padApp')
       link: function (scope, element) {
         scope.menu = element.roulette();
 
-        var bubble_hover = $("#bubble_hover")[0];
-        var bubble_click = $("#bubble_click")[0];
+        var bubbleHover = $('#bubble_hover')[0];
+        //var bubbleClick = $('#bubble_click')[0];
 
         var areaCartoonActive = false;
 
@@ -54,7 +54,7 @@ angular.module('padApp')
                            .attr('data-area');
 
             if(e.type === 'mouseover' || e.type === 'mouseenter' ) {
-              bubble_hover.play();
+              bubbleHover.play();
 
               // hide border (fix that thing)
               element
@@ -112,7 +112,7 @@ angular.module('padApp')
           .children('ul.roulette')
           .children('li')
           .click(function(e) {
-            //bubble_click.play();
+            //bubbleHover.play();
 
             $('#area-cartoon-hover').removeClass('active');
             
@@ -150,5 +150,5 @@ angular.module('padApp')
           });
 
       }
-    }
+    };
   });

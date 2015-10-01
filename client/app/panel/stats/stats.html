@@ -1,27 +1,69 @@
 <div class="container stats">
   <div class="page-header">
-    <h2>Estadísticas</h2>
+    <h2>{{total}} tangibles <small>{{ totalSize | numeraljs:'00.00 b' }}</small></h2>
   </div>
-
-  <p><h2>{{total}} tangibles <small>{{ totalSize | numeraljs:'00.00 b' }}</small></h2></p>
   
   <hr>
     
     <div class="row">
       <div class="col-sm-6">
+        <p><h3><i class="fa fa-cubes"></i> Cantidad de paquetes</h3></p>
         <canvas id="pie" class="chart chart-pie"
-          chart-data="data" chart-labels="labels" chart-legend="true">
+          chart-data="data" chart-labels="labels" chart-legend="true" chart-options="charOptions">
         </canvas> 
       </div>
       <div class="col-sm-6">
+        <p><h3><i class="fa fa-database"></i> Tamaño del paquete</h3></p>
         <canvas id="pie" class="chart chart-pie"
-          chart-data="dataSize" chart-labels="labelsSize" chart-legend="true">
+          chart-data="dataSize" chart-labels="labelsSize" chart-legend="true"  chart-options="charOptions">
         </canvas> 
       </div>
     </div>
 
   <hr>
-  
+  <h2>Detalle</h2>
+  <hr>
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-repeat="area in areas">
+      <div class="panel-heading" role="tab" id="heading{{$index}">
+        <h3 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" ng-click="collapse('area' + $index)"
+             href="javascript:void(0)" aria-expanded="true" aria-controls="area{{$index}}">
+            <ul class="st-legend">
+              <li>{{area.name}}</li>
+              <li><small><i class="fa fa-cubes"></i> {{area.length}}</small></li>
+              <li><small><i class="fa fa-database"></i> {{ area.size | numeraljs:'00.00 b' }}</small></li>
+            </ul>
+          </a>
+        </h3>
+      </div>
+      <div id="area{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}">
+        <div class="panel-body">
+          <ul >
+            <li ng-repeat="ax in area.axis">
+              <ul class="st-legend axis">
+                <li>{{ax.name}}</li>
+                <li><small>({{ax.length}})</small></li>
+                <li><small>{{ ax.size | numeraljs:'00.00 b' }}</small></li>
+              </ul>
+              <ul>
+                <li ng-repeat="bl in ax.blocks">
+                  <ul class="st-legend block">
+                    <li>{{bl.name}}</li>
+                    <li><small>({{bl.length}})</small></li>
+                    <li><small>{{ bl.size | numeraljs:'00.00 b' }}</small></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
   <article ng-repeat="area in areas">
     <h4>{{area.name}}
         <span class="label label-primary"> {{area.length}}</span>
@@ -44,5 +86,6 @@
       </li>
     </ul>
   </article>
+  -->
 
 </div>

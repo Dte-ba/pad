@@ -40,11 +40,15 @@ angular.module('padApp')
 
     var uid = $stateParams.uid;
 
+    $scope.accedio = false;
+
     $http
       .get('/epm/metadata/local/' + uid)
       .success(function(data){
         data.sarea = alias[data.content.area];
         $scope.tangible = data;
+        var d = $scope.tangible.content.description;
+        $scope.tangible.hasDescription = d !== '' && d !== undefined && d !== null;
       });
 
     var take = 10;

@@ -45,7 +45,6 @@ pad
     throw err;
   })
   .done(function(){
-    console.log(moment.duration(new Date() - started).asMinutes());
     console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
   });
 

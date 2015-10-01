@@ -40,9 +40,20 @@
     </div>
     <div class="col-sm-6 tangible-body">
       <h3><i class="fa fa-info-circle"></i> Ficha Técnica</h3>
-      <p> {{tangible.content.content}} </p>
-      <a class="btn btn-default btn-tangible" style="width: 100%;" 
-         href="/epm/content/local/{{tangible.uid}}" target="_blank"></i> Acceder al Contenido</a>
+      <blockquote class="datasheet">
+        <p> {{tangible.content.content}} </p>  
+        <footer><i class="fa fa-certificate"></i> {{tangible.content.contentAuthor}} <cite title="Fuente">{{tangible.content.source}}</cite></footer>
+      </blockquote>
+      <div class="alert alert-info" role="alert" ng-show="accedio">
+        <p><i class="fa fa-info"></i> Se abrirá una nueva pestaña, si su navegador no soporta el contenido el mismo será descargado a su equipo.</p>
+        <p ng-show="tangible.hasDescription"><i class="fa fa-warning"></i> {{tangible.content.description}}</p>
+        <hr>
+        <a class="btn btn-primary" style="width: 100%;" 
+         href="/epm/content/local/{{tangible.uid}}" target="_blank">Aceptar</a>
+      </div>
+      <a class="btn btn-default btn-tangible" style="width: 100%;"
+         ng-hide="accedio" ng-click="accedio=true"
+         href="javascript:void(0)">Acceder al Contenido</a>
     </div>
     <div class="col-sm-12">
       <hr>

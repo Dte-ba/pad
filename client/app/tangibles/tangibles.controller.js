@@ -47,7 +47,7 @@ angular.module('padApp')
     $scope.axis = $stateParams.axis;
     $scope.block = $stateParams.block;
 
-    $scope.filter = function(area){
+    $scope.filter = function(/*area*/){
       
     };
 
@@ -109,6 +109,7 @@ angular.module('padApp')
 
   })
   .controller('TagTangiblesCtrl', function ($scope, $stateParams, $http) {
+
     $scope.tag = $stateParams.tag;
     var etag = _.escapeRegExp(_.trim($scope.tag));
 
@@ -119,6 +120,7 @@ angular.module('padApp')
 
     $scope.all = [];
     $scope.tangibles = [];
+    $scope.noResults = false;
 
     $scope.loadMore = function() {
       take += last;
@@ -159,12 +161,13 @@ angular.module('padApp')
       });
 
   })
-  .controller('SearchTangiblesCtrl', function ($scope, $state, $stateParams, $http) {
+  .controller('SearchTangiblesCtrl', function ($scope, $state, $stateParams, $location, $timeout, $http) {
     $scope.texto = $stateParams.texto;
     $scope.searchText = $scope.texto;
 
     var trimTexto = _.trim($scope.texto);
-    var texto = _.escapeRegExp(trimTexto);
+
+    console.log('reload');
 
     var alias = {};
     alias['PAD en acción'] = 'pea';
@@ -184,15 +187,6 @@ angular.module('padApp')
     alias['Orientación PAD'] = 'op';
     alias['Temas Transversales'] = 'tt';
 
-    var q = { 
-      $or: [
-        { 'content.tags': { $regex: texto } },
-        { 'content.content': { $regex: texto } },
-        { 'content.title': { $regex: texto } },
-        { 'uid': { $regex: texto } }
-      ]
-    };
-
     var take = 10;
     var last = 5;
 
@@ -204,39 +198,67 @@ angular.module('padApp')
       $scope.tangibles = _.take($scope.all, take);
     };
 
-    $scope.search = function(){
-      if ($scope.searchText === trimTexto) {
-        return;
-      }
-      $state.go('tangibles.buscar', {texto: $scope.searchText });
-    };
-
-    $scope.$watch('searchText', function(){
+    function _search(){
       if ($scope.searchText === undefined) {
         return;
       }
       if ($scope.searchText === trimTexto) {
         return;
       }
-      $state.go('tangibles.buscar', {texto: $scope.searchText });
+      //$state.go('tangibles.buscar', {texto: $scope.searchText });
+      $stateParams['texto'] = $scope.searchText;
+      $state.params['texto'] = $scope.searchText;
+      $location.search('texto', $scope.searchText);
+
+      _realseSearch($scope.searchText);
+    }
+
+    $scope.search = function(){
+      _search();
+    };
+
+    $scope.$watch('searchText', function(){
+      _search();
     });
 
-    if (trimTexto !== undefined && trimTexto !== ''){
-      $http
-        .post('/epm/query/local', q)
-        .success(function(data){
-          
-          data = _.map(data, function(i){
-            i.sarea = alias[i.content.area];
-            return i;
-          });
+    function _realseSearch(target){
+      trimTexto = _.trim(target);
+      var texto = _.escapeRegExp(trimTexto);
 
-          $scope.all = data;
-          $scope.tangibles = _.take($scope.all, take);
-        })
-        .error(function(){
-          
-        });  
+      var q = { 
+        $or: [
+          { 'content.tags': { $regex: texto } },
+          { 'content.content': { $regex: texto } },
+          { 'content.title': { $regex: texto } },
+          { 'uid': { $regex: texto } }
+        ]
+      };
+
+      if (trimTexto !== undefined && trimTexto !== ''){
+        $http
+          .post('/epm/query/local', q)
+          .success(function(data){
+            
+            data = _.map(data, function(i){
+              i.sarea = alias[i.content.area];
+              return i;
+            });
+
+            $scope.all = data;
+            $scope.tangibles = _.take($scope.all, take);
+
+            $scope.noResults = $scope.all.length === 0 && trimTexto !== '';
+          })
+          .error(function(){
+            
+          });  
+      }
     }
-    
+
+    _realseSearch($scope.texto);
+
+    $timeout(function(){
+      $('#searchInput').focus();
+    }, 1000);
+        
   });

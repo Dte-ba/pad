@@ -4,19 +4,49 @@ var numeral = window.numeral;
 
 angular.module('padApp')
   .controller('StatsCtrl', function ($scope, $http) {
+
+    $scope.collapse = function(ele){
+      //console.log(ele);
+      $('#'+ele).collapse('toggle');
+
+    };
+
+    $scope.charOptions = { 
+      animationEasing: "easeOutQuart",
+      animationSteps: 30
+    };
+
     $http
       .get('/epm/stats/local')
       .success(function(data){
         
-         //console.log(cts);
+        //console.log(data);
         var res = [];
 
-        var ts = _.sum(data, function(d){
-          return d.size;
+        var alias = {};
+        alias['CEC'] = 'CEC';
+        alias['Centros Educativos Complementarios'] = 'CEC';
+        alias['Ciencias Naturales'] = 'Ciencias Naturales';
+        alias['Ciencias Sociales'] = 'Ciencias Sociales';
+        alias['Ed. Artística - Danza'] = 'Ed. Artística - Danza';
+        alias['Ed. Artística - Música'] = 'Ed. Artística - Música';
+        alias['Ed. Artística - Plástica'] = 'Ed. Artística - Plástica';
+        alias['Ed. Artística - Música'] = 'Ed. Artística - Música';
+        alias['Educación Artística - Música'] = 'Ed. Artística - Música';
+        alias['Educación Física'] = 'Educación Física';
+        alias['EOE'] = 'EOE';
+        alias['Equipos de Orientación Escolar'] = 'EOE';
+        alias['Inglés'] = 'Inglés';
+        alias['Matemática'] = 'Matemática';
+        alias['PAD en acción'] = 'PAD en acción';
+        alias['Prácticas del Lenguaje'] = 'Prácticas del Lenguaje';
+        alias['Temas Transversales'] = 'Temas Transversales';
+
+        _.each(data, function(item){
+          item.area = alias[item.area];
         });
 
         var areas = _.groupBy(data, 'area');
-
         // AREAS
         _.each(Object.keys(areas), function(a){
           
@@ -26,7 +56,8 @@ angular.module('padApp')
             name: a,
             axis: [],
             length: areas[a].length,
-            size: _.sum(areas[a], function(ai){ return ai.size; })
+            size: _.sum(areas[a], function(ai){ return ai.size; }),
+            shortname: _.kebabCase(a)
           };
 
           var ct = areas[a];
@@ -65,6 +96,8 @@ angular.module('padApp')
 
         });
 
+        res = _.sortBy(res, 'name');
+
         
         $scope.total = Object.keys(data).length;
         $scope.areas = res;
@@ -85,7 +118,7 @@ angular.module('padApp')
           $scope.labelsSize.push(key + ' (' + formatedSize + ')');
           $scope.dataSize.push(size);
 
-          $scope.labels.push(key + ' (' + areas[key].length + ')');
+          $scope.labels.push(key);
           $scope.data.push(areas[key].length);
         });
 

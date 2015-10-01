@@ -26,7 +26,7 @@ angular.module('padApp')
 
         // has subareas?
         if (data.subareas !== undefined && data.subareas.length > 0){
-          if ($scope.subarea != null && $scope.subarea !== '') {
+          if ($scope.subarea !== undefined && $scope.subarea !== null && $scope.subarea !== '') {
 
             var a = _.findWhere(data.subareas, { name: $scope.subarea});
 

@@ -1,0 +1,27 @@
+ul.st-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    color: $black-color;
+    padding-right: 5px;
+    small {
+      color: gray;
+    }
+  }
+
+}
+
+ul.st-legend.axis {
+  li:first-child {
+    font-size: 120%;
+  }
+}
+
+ul.st-legend.block {
+  li:first-child {
+    font-size: 100%;
+  }
+}

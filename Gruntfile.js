@@ -421,8 +421,8 @@ module.exports = function (grunt) {
       },
       dist: [
         'sass',
-        'imagemin',
-        'svgmin'
+        //'imagemin',
+        //'svgmin'
       ]
     },
 
@@ -667,7 +667,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
+    //'newer:jshint',
     //'test',
     //'build',
     'serve'
