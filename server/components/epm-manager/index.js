@@ -23,7 +23,7 @@ manager.load = function(){
 
   loading = true;
 
-  var repopath = config.repository ;
+  var repopath = config.repository || process.env.REPOSITORY_PATH;
 
   if (!fs.existsSync(path.join(repopath, '.epm'))){
     Epm.create({path: repopath, name: 'local', engine: 'epm-pad-engine' }, function(err){

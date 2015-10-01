@@ -39,6 +39,7 @@ pad
     
     // print the current percent
     bar.update(info.progress);
+    //console.log(info.progress);
 
   })
   .fail(function(err){

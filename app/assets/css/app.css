@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "concert_oneregular";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/concertone-regular-webfont.eot?1442512560") format("embedded-opentype"), url("../fonts/concertone-regular-webfont.woff?1442512560") format("woff"), url("../fonts/concertone-regular-webfont.ttf?1442512560") format("truetype"), url("../fonts/concertone-regular-webfont.svg?1442512560") format("svg");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Patua One";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/PatuaOne-Regular.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Comfortaa Bold";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Bold.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Comfortaa Light";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Light.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+@font-face {
+  font-family: "Comfortaa Regular";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Regular.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
 html,
 body {
   margin: 0;
@@ -48,6 +78,29 @@ body {
   height: 40px; }
 
 #init-screen {
-  padding-top: 15%; }
+  padding-top: 10%; }
+
+.area-cartoon {
+  bottom: 45px;
+  height: 226px;
+  width: 100%;
+  position: absolute;
+  z-index: 10002; }
+  .area-cartoon img {
+    position: absolute;
+    bottom: 0; }
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Patua One';
+  font-size: 90px;
+  color: #242526; }
+
+#progreso {
+  background-color: #ec7f24; }
+
+#textProgress {
+  font-family: 'Comfortaa Light';
+  font-size: 18px; }
 
 /*# sourceMappingURL=app.css.map */

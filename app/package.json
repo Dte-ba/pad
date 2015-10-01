@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.html",
   "window": {
+    "icon": "assets/img/favicon24.png",
     "width": 1024,
-    "height": 768,
+    "height": 600,
     "title": "PAD",
-    "toolbar": true,
-	  "fullscreen": false
+    "position": "center",
+    "toolbar": false,
+	  "fullscreen": false,
+    "frame": true
+  },
+  "webkit": {
+    "plugin": true
   }
 }

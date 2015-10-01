@@ -24,9 +24,14 @@ var empRest = require('./components/epm-rest');
 // the config
 var config = pad.config = require('./config/environment');
 
-pad.startServer = function(gui){
+pad.startServer = function(ops){
 
-  process.env.NW_GUI = gui;
+  ops = ops || {};
+  if (ops.env !== undefined){
+    process.env.NODE_ENV = ops.env;
+  }
+
+  process.env.NW_GUI = ops.gui;
   
   // the promise for web and repository
   var defer = Q.defer();
@@ -36,11 +41,10 @@ pad.startServer = function(gui){
   manager
       .get('local')
       .progress(function(info){
-        var p = info.currents === 0 ? 0 : info.progress/info.currents;
 
         defer.notify({
           msg: "Cargando los paquetes de contenido digital.",
-          progress: p
+          progress: info.progress
         });
 
       })
