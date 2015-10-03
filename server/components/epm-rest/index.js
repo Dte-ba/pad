@@ -17,7 +17,9 @@ module.exports = function(){
   var app = express.Router();
   app.cacheContent = {};
 
-  app.post('/query/:repository', routes.query);
+  app.post('/query/:repository', routes.query.query);
+
+  app.post('/queryp/:repository', routes.query.queryp);
 
   app.get('/asset/:repository/:uid/:type/:name', routes.asset);
 

@@ -18,19 +18,13 @@
     </div>
   </div>
   <div class="tangibles-wrapper">
-    <div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="tangibles-columns">
-      <div ng-repeat="tangible in tangibles" >
-        <a ui-sref="tangibles.ver({uid: tangible.uid})"
-           title="{{tangible.content.title}}">
-          <div class="pin" data-area="{{tangible.sarea}}">
-            <img class="img-responsive" 
-                 images-loaded-events="imgLoadedEvents"
-                 ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
-                 alt="{{tangible.content.title}}">
-            <p class="pin-caption">{{tangible.content.title}}</p>
-          </div>
-        </a>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-info" role="alert" ng-show="noResults">
+          <p class="text-center"><i class="fa fa-warning"></i> No hay resultados para mostrar</p>
+        </div>
       </div>
     </div>
+    <div tangibles-scroller="query" tangibles-take="take"></div>
   </div>
 </div>

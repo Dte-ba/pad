@@ -83,11 +83,12 @@ body {
 
 .go-back {
   text-decoration: none;
-  color: white;
+  color: $black-color;
   margin-right: 7px;
+  padding-top: 3px;
 
   &:hover,
   &:focus {
-    color: white;
+    color: $black-color;
   }
 }
