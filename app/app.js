@@ -45,7 +45,7 @@ function start() {
     .progress(function(info){
       
       // print the current percent
-      var percent = info.progress * 100;
+      var percent = Math.round(info.progress * 100);
       $('#progreso').width(percent + '%');
       $('#progreso').attr('aria-valuenow', percent);
       $('#progreso').text(percent + '%');

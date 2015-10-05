@@ -36,11 +36,10 @@ pad.startServer = function(gui){
   manager
       .get('local')
       .progress(function(info){
-        var p = info.currents === 0 ? 0 : info.progress/info.currents;
 
         defer.notify({
           msg: "Cargando los paquetes de contenido digital.",
-          progress: p
+          progress: info.progress
         });
 
       })

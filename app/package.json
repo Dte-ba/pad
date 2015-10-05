@@ -7,7 +7,7 @@
     "width": 1024,
     "height": 768,
     "title": "PAD",
-    "toolbar": true,
+    "toolbar": false,
 	  "fullscreen": false
   }
 }
