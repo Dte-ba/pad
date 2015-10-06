@@ -8,7 +8,7 @@
     "width": 1024,
     "height": 600,
     "title": "PAD",
-    "position": "center",
+	"position": "center",
     "toolbar": false,
 	  "fullscreen": false,
     "frame": true

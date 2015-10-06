@@ -31,7 +31,9 @@ var transformQuery = function(part){
   return q;
 };
 
-module.exports =  function(req, res, next){
+module.exports =  {
+
+query: function(req, res, next){
   var rname = req.params.repository;
 
   manager
@@ -53,5 +55,46 @@ module.exports =  function(req, res, next){
         res.json(items);
       });
     });
+  },
+  queryp: function(req, res, next){
+    var rname = req.params.repository;
+
+    manager
+      .get(rname)
+      .progress(function(info){
+
+      })
+      .fail(function(err){
+        next(err);
+      })
+      .done(function(repo){
+        var qobj = req.body;
+
+        var q = transformQuery(qobj.query);
+        var take = qobj.take;
+        var skip = qobj.skip;
+
+        repo
+        .find(q, function(err, items){
+          if (err) {
+            return next(err);
+          }
+          var total = items.length;
+          if (take !== undefined && skip !== undefined) {
+            var taked = _(items).slice(skip, skip+take).value();
+            
+            //console.log('items.length ', taked.length);
+            //console.log('skip ', skip);
+            //console.log('take ', take);
+
+            res.json({items: taked, total: total, skip: skip});
+          } else {
+            res.json({items: items, total: total, take: take });  
+          }
+          
+        });
+        
+      });
+    }
 
 };

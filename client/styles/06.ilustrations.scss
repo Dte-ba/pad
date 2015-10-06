@@ -101,6 +101,10 @@ ul.legend {
     body {
       background-color: map-get($key, color);
     }
+
+    .go-back {
+     color: map-get($key, fcolor); 
+    }
   }
 
   .pin[data-area="#{$area}"], 

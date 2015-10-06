@@ -50,6 +50,9 @@
                   </a>
                 </li>
               </ul>
+              <div ng-show="eje.blocks.length == 0">
+                <p style="font-size: 120%">Esta sección no contiene bloques, hace <a class="btn btn-default" ui-sref="tangibles.design({area: $parent.$parent.target, axis: eje.name, block: 'Sin Especificar'})">click aquí</a> para acceder a los tangibles.</p>
+              </div>
             </div>
         </grid-panel-content>
        </grid-panel>

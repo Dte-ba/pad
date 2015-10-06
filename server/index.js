@@ -37,9 +37,8 @@ pad
   .startServer()
   .progress(function(info){
     
-    // print the current percent
-    bar.update(info.progress);
-    //console.log(info.progress);
+	var percent = info.progress;
+    bar.update(percent);
 
   })
   .fail(function(err){

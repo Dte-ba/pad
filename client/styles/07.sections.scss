@@ -204,6 +204,33 @@ blockquote.datasheet {
   transition: all .2s ease;
 }
 
+.pin:first-child {
+  width: 100%;
+}
+
+.pin-preload {
+  width: 100%;
+  height: 125px;
+  background: rgba(255,255,255,.6);
+  position: relative;
+  border-radius: 6px;
+
+ .i-wrapper {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   margin-top: -20px;
+   margin-left: -20px;
+   top: 50%;
+   left: 50%;
+
+   i {
+    text-decoration: none;
+    color: $black-color;
+   }
+ }
+}
+
 .pin img {
   width: 100%;
   //padding-bottom: 15px;
@@ -218,6 +245,26 @@ blockquote.datasheet {
   padding: 5px;
   font-family: 'Comfortaa Regular';
   font-size: 13px;
+}
+
+@media (min-width: 960px) {
+  .tangibles-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media (min-width: 1100px) {
+  .tangibles-columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+
+.tangibles-columns:hover .pin:not(:hover) {
+  //opacity: 0.4;
 }
 
 ul.blocks-list {
@@ -272,26 +319,6 @@ ul.blocks-list {
       @include transition(all .1s);
     }
   }
-}
-
-@media (min-width: 960px) {
-  .tangibles-columns {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-  }
-}
-
-@media (min-width: 1100px) {
-  .tangibles-columns {
-    -webkit-column-count: 5;
-    -moz-column-count: 5;
-    column-count: 5;
-  }
-}
-
-.tangibles-columns:hover .pin:not(:hover) {
-  //opacity: 0.4;
 }
 
 .tangible-content {

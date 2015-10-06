@@ -22,6 +22,7 @@ angular.module('padApp', [
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.showCartoon = false;
+    $rootScope.repository = 'local';
 
     $rootScope.$on('$stateChangeStart', function () {
       $rootScope.showCartoon = false;

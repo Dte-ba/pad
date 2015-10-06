@@ -1,0 +1,15 @@
+<div infinite-scroll='loadMore()' infinite-scroll-distance='1' infinite-scroll-disabled='busy' class="tangibles-columns">
+  <div ng-repeat="tangible in tangibles" >
+    <a ui-sref="tangibles.ver({uid: tangible.uid})" title="{{tangible.content.title}}">
+      <div class="pin" data-area="{{tangible.sarea}}">
+        <div class="pin-preload">
+          <div class="i-wrapper"><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
+        </div>
+        <img class="img-responsive" pin-preload
+             ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
+             alt="{{tangible.content.title}}">
+        <p class="pin-caption">{{tangible.content.title}}</p>
+      </div>
+    </a>
+  </div>
+</div>
