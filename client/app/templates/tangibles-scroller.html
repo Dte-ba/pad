@@ -9,7 +9,18 @@
              ng-src="/epm/asset/local/{{tangible.uid}}/cover/front"
              alt="{{tangible.content.title}}">
         <p class="pin-caption">{{tangible.content.title}}</p>
+        <div class="text-right like-zone">
+          <i ng-show="tangible.like" class="fa fa-star"></i>
+          <i ng-hide="tangible.like" class="fa fa-star-o"></i>
+        </div>
       </div>
     </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="alert alert-warning" role="alert" ng-show="noResults">
+      <p class="text-center"><i class="fa fa-warning"></i> No hay resultados para mostrar</p>
+    </div>
   </div>
 </div>

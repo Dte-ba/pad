@@ -8,6 +8,8 @@ angular.module('padApp')
     $scope.axis = $stateParams.axis;
     $scope.block = $stateParams.block;
 
+    $scope.iniciando = true;
+
     $scope.query = {};
     $scope.take = 15;
     
@@ -37,7 +39,8 @@ angular.module('padApp')
 
     $timeout(function(){
       $scope.query = q;
-    }, 1000);
+      $scope.iniciando = false;
+    }, 500);
 
 
   })
@@ -48,10 +51,12 @@ angular.module('padApp')
 
     $scope.take = 10;
     $scope.query = {};
+    $scope.iniciando = true;
 
     $timeout(function(){
       $scope.query = { 'content.tags': { $regex: etag } };
-    }, 1000);
+      $scope.iniciando = false;
+    }, 500);
     
   })
   .controller('SearchTangiblesCtrl', function ($scope, $state, $stateParams, $location, $timeout, $http) {
@@ -102,6 +107,18 @@ angular.module('padApp')
     $timeout(function(){
       _search();
       $('#searchInput').focus();
-    }, 1000);
+    }, 500);
         
+  })
+  .controller('FavoritosTangiblesCtrl', function ($scope, $rootScope, $stateParams, $timeout, $http, Favoritos) {
+    $scope.take = 10;
+    $scope.query = {};
+    $scope.iniciando = true;
+
+    $timeout(function(){
+      var favs = Favoritos.getFavoritos();
+      $scope.query = { 'uid': { '$in': $rootScope.favoritos } };
+      $scope.iniciando = false;
+    }, 500);
   });
+  

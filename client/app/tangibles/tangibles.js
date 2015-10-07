@@ -23,6 +23,11 @@ angular.module('padApp')
         templateUrl: 'app/tangibles/tangibles.tag.html',
         controller: 'TagTangiblesCtrl'
       })
+      .state('tangibles.favoritos', {
+        url: '/favoritos',
+        templateUrl: 'app/tangibles/tangibles.favoritos.html',
+        controller: 'FavoritosTangiblesCtrl'
+      })
       .state('tangibles.ver', {
         url: '/ver/:uid',
         templateUrl: 'app/tangibles/tangible.html',

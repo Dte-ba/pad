@@ -17,8 +17,9 @@ var transformQuery = function(part){
   var q = {};
 
   _.forIn(part, function(value, key) {
-
-    if (_.isObject(value) || _.isArray(value)) {
+    if (key === '$in') {
+      q[key] = value;
+    } else if (_.isObject(value) || _.isArray(value)) {
       q[key] = transformQuery(value);
     } else if (key === '$regex') {
       q[key] = new RegExp(value, 'ig');

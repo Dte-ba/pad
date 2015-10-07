@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('padApp')
-  .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, Tangible) {
+  .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, Tangible, Favoritos) {
 
     var uid = $stateParams.uid;
 
@@ -25,6 +25,7 @@ angular.module('padApp')
 
           $timeout(function(){
             $('#source').linkify();
+             $('[data-toggle="tooltip"]').tooltip();
           });
         }
       });
@@ -32,6 +33,10 @@ angular.module('padApp')
     $scope.take = 10;
     $scope.query = {};
     $scope.showRel = false;
+
+    $scope.addFavoritos = function(){
+      $scope.tangible.like = Favoritos.toggle($scope.tangible.uid);
+    };
     
 
     $scope.relFirst = function(){

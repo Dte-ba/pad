@@ -16,6 +16,7 @@ angular
         var skip = 0;
         scope.tangibles = [];
         scope.busy = true;
+        scope.noResults = false;
 
         var _reload = function(){
           scope.busy = true;
@@ -25,7 +26,7 @@ angular
             .queryp(scope.query, take, skip)
             .then(function(data){
               scope.tangibles = scope.tangibles.concat(data.items);
-              
+              scope.noResults = scope.tangibles.length === 0;
               if (data.total === scope.tangibles.length) {
                 return;
               }

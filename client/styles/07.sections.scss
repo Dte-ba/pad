@@ -247,6 +247,10 @@ blockquote.datasheet {
   font-size: 13px;
 }
 
+.pin .like-zone i {
+  color: white;
+}
+
 @media (min-width: 960px) {
   .tangibles-columns {
     -webkit-column-count: 4;
@@ -597,4 +601,16 @@ grid-panel grid-panel-content .triangle {
   border-bottom: 15px solid white;
   top: -14px;
   display: none;
+}
+
+.like {
+  text-decoration: none;
+  color: white;
+  margin-right: 7px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: white;
+  }
 }

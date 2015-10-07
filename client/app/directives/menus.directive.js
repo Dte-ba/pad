@@ -47,6 +47,27 @@ angular.module('padApp')
     };
   })
   .directive('padMenuAreas', function ($rootScope, $timeout) {
+    // remove from here
+    $(function(){
+
+      $('#aside-area-menu').click(function(e){
+        $('.bg-lock').toggleClass('showing');
+      });
+
+      $('.bg-lock').click(function(){
+        if ($('.bg-lock').hasClass('showing')){
+          /*if (scope.menu.opened === true) {
+             scope.menu.hide();
+          }*/
+          setTimeout(function() {
+            $('.bg-lock').removeClass('showing');
+          }, 300);
+          //$('.bg-lock').removeClass('showing');
+          event.stopPropagation();
+        }
+      });
+
+    });
     return {
       templateUrl: 'app/templates/menu-areas.html',
       restrict: 'A',
@@ -139,61 +160,38 @@ angular.module('padApp')
                 .show();
             }
 
-          });
-          
-          // hide the cartoon when mouse leave the item
-          element
-            .children('ul.roulette')
-            .children('li')
-            .on('mouseleave', function() {
-                $('#area-cartoon-hover').removeClass('active');
-                if (areaCartoonActive) {
-                  $('#area-cartoon').addClass('active');
-                }
-            });
-
-          // when item is clicked remove the lock background
-          element
+        });
+        
+        // hide the cartoon when mouse leave the item
+        element
           .children('ul.roulette')
           .children('li')
-          .click(function(e) {
-            //bubbleHover.play();
-
-            $('#area-cartoon-hover').removeClass('active');
-            
-            if ($('.bg-lock').hasClass('showing')){
-              if (scope.menu.opened === true) {
-                 scope.menu.hide();
+          .on('mouseleave', function() {
+              $('#area-cartoon-hover').removeClass('active');
+              if (areaCartoonActive) {
+                $('#area-cartoon').addClass('active');
               }
-              setTimeout(function() {
-                $('.bg-lock').removeClass('showing');
-              }, 500);
+          });
+
+        // when item is clicked remove the lock background
+        element
+        .children('ul.roulette')
+        .children('li')
+        .click(function(e) {
+          //bubbleHover.play();
+
+          $('#area-cartoon-hover').removeClass('active');
+          
+          if ($('.bg-lock').hasClass('showing')){
+            if (scope.menu.opened === true) {
+               scope.menu.hide();
             }
-            e.stopPropagation();
-          });
-
-          // remove from here
-          $timeout(function(){
-
-            $('#aside-area-menu').click(function(){
-              $('.bg-lock').toggleClass('showing');
-            });
-
-            $('.bg-lock').click(function(){
-              if ($('.bg-lock').hasClass('showing')){
-                if (scope.menu.opened === true) {
-                   scope.menu.hide();
-                }
-                setTimeout(function() {
-                  $('.bg-lock').removeClass('showing');
-                }, 300);
-                //$('.bg-lock').removeClass('showing');
-                event.stopPropagation();
-              }
-            });
-
-          });
-
+            setTimeout(function() {
+              $('.bg-lock').removeClass('showing');
+            }, 500);
+          }
+          e.stopPropagation();
+        });
       }
     };
   });

@@ -54,13 +54,24 @@
        ng-hide="$state.includes('main')"
        class="ng-hide">
      </a>
-
-    <a id="to-search"
-       ui-sref="tangibles.buscar"
-       ng-hide="$state.includes('tangibles.buscar')"
-       class="ng-hide"><i class="fa fa-search fa-2x"></i>
-     </a>
-
+    
+    <ul class="extra-tool">
+      <li>
+        <a id="to-search"
+         ui-sref="tangibles.buscar"
+         ng-hide="$state.includes('tangibles.buscar')"
+         class="ng-hide"><i class="fa fa-search fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="favoritosSupported">
+        <a id="to-favoritos" title="Favoritos" 
+         ui-sref="tangibles.favoritos"
+         ng-hide="$state.includes('tangibles.favoritos')"
+         class="ng-hide"><span class="badge"><i class="fa fa-star"> <span ng-bind="favoritos.length"></span></span></i>
+        </a>
+      </li>
+    </ul>
+    
     <div id="aside-area-menu" ng-hide="$state.includes('main')">
       <div class="center-aside-area-menu"></div>
       <div class="roulette-aside-area-menu"></div>
@@ -93,6 +104,7 @@
       <script src="bower_components/numeral/numeral.js"></script>
       <script src="bower_components/angular-numeraljs/dist/angular-numeraljs.js"></script>
       <script src="bower_components/jQuery-linkify/dist/jquery.linkify.js"></script>
+      <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
       <!-- endbower -->
       <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbuild -->
