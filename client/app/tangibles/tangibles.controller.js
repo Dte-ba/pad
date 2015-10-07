@@ -27,7 +27,7 @@ angular.module('padApp')
 
     if ($scope.block !== undefined){ 
       _.each(q, function(a){
-        a['content.block'] = $scope.block;
+        a['content.block'] = { $regex: $scope.block };
       });
     }
 

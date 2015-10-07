@@ -1,9 +1,17 @@
 'use strict';
 
 angular.module('padApp')
-  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout) {
+  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, AreaFactory) {
     
     var _ = window._;
+
+    // area is subarea?
+    var rootArea = AreaFactory.subarea($stateParams.area)
+    if (rootArea !== undefined){
+      $stateParams.axis = $stateParams.subarea;
+      $stateParams.subarea = $stateParams.area;
+      $stateParams.area = rootArea;
+    }
 
     $scope.target = $stateParams.area;
     $scope.titleArea = $stateParams.area;

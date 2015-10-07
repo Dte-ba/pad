@@ -25,6 +25,12 @@ angular
     _single['Prácticas del Lenguaje'] = 'Prácticas del Lenguaje';
     _single['Temas Transversales'] = 'Temas Transversales';
 
+    var _subarea = {};
+    _subarea['Ed. Artística - Plástica'] = 'Educación Artística';
+    _subarea['Ed. Artística - Música'] = 'Educación Artística';
+    _subarea['Ed. Artística - Danza'] = 'Educación Artística';
+    _subarea['Ed. Artística - Teatro'] = 'Educación Artística';
+
     var _alias ={};
     _alias['PAD en acción'] = 'pea';
     _alias['Inglés'] = 'ing';
@@ -60,12 +66,43 @@ angular
     _query['Orientación PAD'] = [{'content.area':'Orientación PAD'}];
     _query['Temas Transversales'] = [{'content.area':'Temas Transversales'}];
 
+    var _blockAlias = {};
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Materiales)'] = 'Contexto sociocultural';
+    _blockAlias['Lenguaje (Ed.Ar. - Música - Materiales)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Música - Materiales)'] = 'Producción';
+    _blockAlias['Recepción (Ed.Ar. - Música - Materiales)'] = 'Recepción';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Lenguaje)'] = 'Contexto sociocultural';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Música - Lenguaje)'] = 'Producción';
+    _blockAlias['Recepción (Ed.Ar. - Música - Lenguaje)'] = 'Recepción';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Composición)'] = 'Contexto sociocultural';
+    _blockAlias['Lenguaje (Ed.Ar. - Música - Composición)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Música - Composición)'] = 'Producción';
+    _blockAlias['Recepción (Ed.Ar. - Música - Composición)'] = 'Recepción';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)'] = 'Contexto sociocultural';
+    _blockAlias['Lenguaje (Ed.Ar. - Danza - El cuerpo)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Danza - El cuerpo)'] = 'Producción';
+    _blockAlias['Recepción (Ed.Ar. - Danza - El cuerpo)'] = 'Recepción';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)'] = 'Contexto sociocultural';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Recepción (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Recepción (Ed.Ar. - Danza - Lenguaje)'] = 'Recepción';
+    _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Discursos)'] = 'Contexto sociocultural';
+    _blockAlias['Lenguaje (Ed.Ar. - Danza - Discursos)'] = 'Lenguaje';
+    _blockAlias['Producción (Ed.Ar. - Danza - Discursos)'] = 'Producción';
+    _blockAlias['Recepción (Ed.Ar. - Danza - Discursos)'] = 'Recepción';
+
     var single = function(area){
       return _single[area];
     };
 
     var alias = function(area){
       return _alias[single(area)];
+    };
+
+    var subarea = function(area){
+      return _subarea[single(area)];
     };
     
     var query = function(area){
@@ -89,11 +126,21 @@ angular
       item.sarea = alias(a);
     };
 
+    var blockAlias = function(block){
+      var b = _blockAlias[block];
+      if (b !== undefined){
+        return b;
+      }
+      return block;
+    };
+
     return {
       alias: alias,
+      subarea: subarea,
       single: single,
       normalize: single,
       query: query,
-      addAlias: addAlias
+      addAlias: addAlias,
+      blockAlias: blockAlias
     };
   }]);

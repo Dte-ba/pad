@@ -32,7 +32,6 @@ angular.module('padApp', [
       var fav = localStorageService.get('favoritos');
       
       if (fav === undefined || fav === null){
-        console.log('favoritos iniciados')
         localStorageService.set('favoritos', []);
       }
 

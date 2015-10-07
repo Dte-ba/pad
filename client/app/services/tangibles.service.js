@@ -18,6 +18,7 @@ angular
             data.items = _.map(data.items, function(item){
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
+              item.content.block = AreaFactory.blockAlias(item.content.block);
               return item;
             });
             def.resolve(data);
@@ -39,6 +40,7 @@ angular
             data = _.map(data, function(item){
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
+              item.content.block = AreaFactory.blockAlias(item.content.block);
               return item;
             });
             def.resolve(data);
@@ -67,6 +69,7 @@ angular
             .success(function(data){
               AreaFactory.addAlias(data);
               data.like = Favoritos.isFavorito(data.uid);
+              data.content.block = AreaFactory.blockAlias(data.content.block);
               def.resolve(data);
             })
             .error(function(e){

@@ -101,6 +101,7 @@ angular.module('padApp')
         
         $scope.total = Object.keys(data).length;
         $scope.areas = res;
+        //console.log(JSON.stringify($scope.areas, null, 2));
 
         $scope.labels = [];
         $scope.data = [];

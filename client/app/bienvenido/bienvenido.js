@@ -62,7 +62,6 @@ angular.module('padApp')
                 .success(function(info){
                   $scope.version = info.version;
                   $scope.kernel = info.kernel;
-                  console.log(info);
                 });
             }
           }
