@@ -55,7 +55,16 @@ angular.module('padApp')
         url: '/Acerca',
         views: {
           content: {
-            templateUrl: 'app/bienvenido/acercade.html'
+            templateUrl: 'app/bienvenido/acercade.html',
+            controller: function($scope, $http) {
+              $http
+                .get('/api/info')
+                .success(function(info){
+                  $scope.version = info.version;
+                  $scope.kernel = info.kernel;
+                  console.log(info);
+                });
+            }
           }
         }
       })

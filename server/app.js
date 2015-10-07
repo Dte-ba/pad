@@ -24,6 +24,18 @@ var empRest = require('./components/epm-rest');
 // the config
 var config = pad.config = require('./config/environment');
 
+app.version = 'v6';
+app.kernel = 'EPM';
+
+var j = path.join(__dirname, '/../package.json');
+if (fs.existsSync(j)){
+  try {
+    var info = JSON.parse(fs.readFileSync(j, 'utf-8'));
+    app.version = 'v' + info.version; 
+  } catch(e){
+  }
+}
+
 pad.startServer = function(ops){
 
   ops = ops || {};

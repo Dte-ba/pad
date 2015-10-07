@@ -11,6 +11,13 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/design', require('./api/design'));
+
+  // add application information
+  app
+    .route('/api/info')
+    .get(function(req, res){
+      res.json({ version: app.version, kernel: app.kernel });
+    });
   
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
