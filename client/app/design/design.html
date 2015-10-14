@@ -16,7 +16,7 @@
          <grid-panel-item>
             <div>
               <div class="eje" data-target="{{eje.name}}" data-owner="{{$parent.$parent.target}}">
-                <a ng-show="eje.blocks.length===0" ui-sref="tangibles.design({area: $parent.$parent.target, axis: eje.name, block: 'Sin Especificar'})">
+                <a ng-show="eje.blocks.length===0" ui-sref="tangibles.design({area: $parent.$parent.titleArea, axis: eje.name, block: 'Sin Especificar'})">
                   <div class="img-wrap">
                     <img ng-src="{{eje.img}}" alt="{{eje.name}}">
                   </div>
@@ -51,7 +51,7 @@
                 </li>
               </ul>
               <div ng-show="eje.blocks.length == 0">
-                <p style="font-size: 120%">Esta sección no contiene bloques, hace <a class="btn btn-default" ui-sref="tangibles.design({area: $parent.$parent.target, axis: eje.name, block: 'Sin Especificar'})">click aquí</a> para acceder a los tangibles.</p>
+                <p style="font-size: 120%">Esta sección no contiene bloques, <a class="btn btn-default" ui-sref="tangibles.design({area: $parent.$parent.target, axis: eje.name, block: 'Sin Especificar'})">click aquí</a> para acceder al contenido.</p>
               </div>
             </div>
         </grid-panel-content>

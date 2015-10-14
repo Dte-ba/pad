@@ -71,27 +71,58 @@ angular
     _blockAlias['Lenguaje (Ed.Ar. - Música - Materiales)'] = 'Lenguaje';
     _blockAlias['Producción (Ed.Ar. - Música - Materiales)'] = 'Producción';
     _blockAlias['Recepción (Ed.Ar. - Música - Materiales)'] = 'Recepción';
+
     _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Lenguaje)'] = 'Contexto sociocultural';
-    _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje';
-    _blockAlias['Producción (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Lenguaje (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje';
     _blockAlias['Producción (Ed.Ar. - Música - Lenguaje)'] = 'Producción';
     _blockAlias['Recepción (Ed.Ar. - Música - Lenguaje)'] = 'Recepción';
+    
     _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Composición)'] = 'Contexto sociocultural';
     _blockAlias['Lenguaje (Ed.Ar. - Música - Composición)'] = 'Lenguaje';
     _blockAlias['Producción (Ed.Ar. - Música - Composición)'] = 'Producción';
     _blockAlias['Recepción (Ed.Ar. - Música - Composición)'] = 'Recepción';
+
     _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)'] = 'Contexto sociocultural';
     _blockAlias['Lenguaje (Ed.Ar. - Danza - El cuerpo)'] = 'Lenguaje';
     _blockAlias['Producción (Ed.Ar. - Danza - El cuerpo)'] = 'Producción';
     _blockAlias['Recepción (Ed.Ar. - Danza - El cuerpo)'] = 'Recepción';
+    
     _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)'] = 'Contexto sociocultural';
-    _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje';
-    _blockAlias['Recepción (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje';
+    _blockAlias['Lenguaje (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje';
     _blockAlias['Recepción (Ed.Ar. - Danza - Lenguaje)'] = 'Recepción';
+    _blockAlias['Producción (Ed.Ar. - Danza - Lenguaje)'] = 'Producción';
+    
     _blockAlias['Contexto sociocultural (Ed.Ar. - Danza - Discursos)'] = 'Contexto sociocultural';
     _blockAlias['Lenguaje (Ed.Ar. - Danza - Discursos)'] = 'Lenguaje';
     _blockAlias['Producción (Ed.Ar. - Danza - Discursos)'] = 'Producción';
     _blockAlias['Recepción (Ed.Ar. - Danza - Discursos)'] = 'Recepción';
+
+    var _inverseBlockAlias = {};
+    _inverseBlockAlias['Ed. Artística - MúsicaSala de DocentesSin Especificar'] = 'Sin Especificar';
+    _inverseBlockAlias['Ed. Artística - MúsicaComposiciónProducción'] = 'Producción (Ed.Ar. - Música - Composición)';
+    _inverseBlockAlias['Ed. Artística - MúsicaComposiciónContexto sociocultural'] = 'Contexto sociocultural (Ed.Ar. - Música - Composición)';
+    _inverseBlockAlias['Ed. Artística - MúsicaComposiciónLenguaje'] = 'Lenguaje (Ed.Ar. - Música - Composición)';
+    _inverseBlockAlias['Ed. Artística - MúsicaComposiciónRecepción'] = 'Recepción (Ed.Ar. - Música - Composición)';
+    _inverseBlockAlias['Ed. Artística - MúsicaMateriales del Lenguaje MusicalProducción'] = 'Producción (Ed.Ar. - Música - Materiales)';
+    _inverseBlockAlias['Ed. Artística - MúsicaMateriales del Lenguaje MusicalContexto sociocultural'] = 'Contexto sociocultural (Ed.Ar. - Música - Materiales)';
+    _inverseBlockAlias['Ed. Artística - MúsicaMateriales del Lenguaje MusicalLenguaje'] = 'Lenguaje (Ed.Ar. - Música - Materiales)';
+    _inverseBlockAlias['Ed. Artística - MúsicaMateriales del Lenguaje MusicalRecepción'] = 'Recepción (Ed.Ar. - Música - Materiales)';
+    _inverseBlockAlias['Ed. Artística - MúsicaOrganización del Lenguaje MusicalProducción'] = 'Producción (Ed.Ar. - Música - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - MúsicaOrganización del Lenguaje MusicalLenguaje (Ed.Ar. - Música - Lenguaje)'] = 'Lenguaje (Ed.Ar. - Música - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - MúsicaOrganización del Lenguaje MusicalLenguaje'] = 'Contexto sociocultural (Ed.Ar. - Música - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - MúsicaOrganización del Lenguaje MusicalRecepción'] = 'Recepción (Ed.Ar. - Música - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - DanzaEl cuerpo en relación con...Contexto sociocultural'] = 'Contexto sociocultural (Ed.Ar. - Danza - El cuerpo)';
+    _inverseBlockAlias['Ed. Artística - DanzaEl cuerpo en relación con...Producción'] = 'Producción (Ed.Ar. - Danza - El cuerpo)';
+    _inverseBlockAlias['Ed. Artística - DanzaEl cuerpo en relación con...Lenguaje'] = 'Lenguaje (Ed.Ar. - Danza - El cuerpo)';
+    _inverseBlockAlias['Ed. Artística - DanzaEl cuerpo en relación con...Recepción'] = 'Recepción (Ed.Ar. - Danza - El cuerpo)';
+    _inverseBlockAlias['Ed. Artística - DanzaLa danza como lenguajeRecepción'] = 'Recepción (Ed.Ar. - Danza - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - DanzaLa danza como lenguajeLenguaje (Ed.Ar. - Danza - Lenguaje)'] = 'Lenguaje (Ed.Ar. - Danza - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - DanzaLa danza como lenguajeLenguaje'] = 'Contexto sociocultural (Ed.Ar. - Danza - Lenguaje)';
+    _inverseBlockAlias['Ed. Artística - DanzaSala de DocentesSin Especificar'] = 'Sin Especificar';
+    _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalContexto sociocultural'] = 'Contexto sociocultural (Ed.Ar. - Danza - Discursos)';
+    _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalProducción'] = 'Producción (Ed.Ar. - Danza - Discursos)';
+    _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalLenguaje'] = 'Lenguaje (Ed.Ar. - Danza - Discursos)';
+    _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalRecepción'] = 'Recepción (Ed.Ar. - Danza - Discursos)';
 
     var single = function(area){
       return _single[area];
@@ -134,6 +165,14 @@ angular
       return block;
     };
 
+    var inverseBlockAlias = function(area, axis, block){
+      var b = _inverseBlockAlias[area+axis+block];
+      if (b !== undefined){
+        return b;
+      }
+      return block;
+    };
+
     return {
       alias: alias,
       subarea: subarea,
@@ -141,6 +180,7 @@ angular
       normalize: single,
       query: query,
       addAlias: addAlias,
-      blockAlias: blockAlias
+      blockAlias: blockAlias,
+      inverseBlockAlias: inverseBlockAlias
     };
   }]);

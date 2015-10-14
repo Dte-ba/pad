@@ -161,13 +161,13 @@ h4.eje-bloque {
   .tangibles-columns {
     -webkit-column-count: 3;
     -webkit-column-gap: 5px;
-    -webkit-column-fill: auto;
+    -webkit-column-fill: balance;
     -moz-column-count: 3;
     -moz-column-gap: 5px;
-    -moz-column-fill: auto;
+    -moz-column-fill: balance;
     column-count: 3;
     column-gap: 5px;
-    column-fill: auto;
+    column-fill: balance;
   }
 
 .tangible {
@@ -247,8 +247,16 @@ blockquote.datasheet {
   font-size: 13px;
 }
 
-.pin .like-zone i {
-  color: white;
+.pin .like-zone {
+  i {
+    color: $black-color;
+
+    &.fa.unlike {
+      opacity: .3;
+    }
+    margin-right: 7px;
+  }
+  padding: 3px;
 }
 
 @media (min-width: 960px) {
@@ -612,5 +620,9 @@ grid-panel grid-panel-content .triangle {
   &:focus,
   &:active {
     color: white;
+  }
+
+  .fa.unlike {
+    color: gray;
   }
 }

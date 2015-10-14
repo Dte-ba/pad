@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('padApp')
-  .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, Tangible, Favoritos) {
+  .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, Tangible, Favoritos, seoService) {
 
     var uid = $stateParams.uid;
 
@@ -28,6 +28,10 @@ angular.module('padApp')
              $('[data-toggle="tooltip"]').tooltip();
           });
         }
+
+        seoService.title($scope.tangible.content.title + ' | ' + $scope.tangible.content.area);
+        seoService.description($scope.tangible.content.content);
+        seoService.keyboards($scope.tangible.content.tags);
       });
 
     $scope.take = 10;

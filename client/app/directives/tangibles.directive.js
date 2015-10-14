@@ -27,6 +27,7 @@ angular
             .then(function(data){
               scope.tangibles = scope.tangibles.concat(data.items);
               scope.noResults = scope.tangibles.length === 0;
+              console.log(data);
               if (data.total === scope.tangibles.length) {
                 return;
               }

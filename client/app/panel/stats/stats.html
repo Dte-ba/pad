@@ -46,6 +46,7 @@
                 <li>{{ax.name}}</li>
                 <li><small>({{ax.length}})</small></li>
                 <li><small>{{ ax.size | numeraljs:'00.00 b' }}</small></li>
+                <li ng-show="ax.missing"><span class="label label-danger">miss</span></li>
               </ul>
               <ul>
                 <li ng-repeat="bl in ax.blocks">
@@ -53,6 +54,8 @@
                     <li>{{bl.name}}</li>
                     <li><small>({{bl.length}})</small></li>
                     <li><small>{{ bl.size | numeraljs:'00.00 b' }}</small></li>
+                    <li><small> <a ui-sref="tangibles.design({ area:area.name, axis: ax.name, block: bl.name  })" target="_blank"><i class="fa fa-link"></i></a></li>
+                    <li ng-show="bl.missing"><span class="label label-danger">miss</span></li>
                   </ul>
                 </li>
               </ul>

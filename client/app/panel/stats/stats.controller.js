@@ -3,12 +3,11 @@
 var numeral = window.numeral;
 
 angular.module('padApp')
-  .controller('StatsCtrl', function ($scope, $http) {
+  .controller('StatsCtrl', function ($scope, $rootScope, $http, AreaFactory, seoService) {
 
     $scope.collapse = function(ele){
       //console.log(ele);
       $('#'+ele).collapse('toggle');
-
     };
 
     $scope.charOptions = { 
@@ -16,92 +15,142 @@ angular.module('padApp')
       animationSteps: 30
     };
 
-    $http
-      .get('/epm/stats/local')
-      .success(function(data){
-        
-        //console.log(data);
-        var res = [];
+    seoService.title('Estadísticas | PAD');
+    seoService.description('Estadísticas sobre el contenido');
+    seoService.keyboards(['estadisticas','area','ejes','bloques']);
 
-        var alias = {};
-        alias['CEC'] = 'CEC';
-        alias['Centros Educativos Complementarios'] = 'CEC';
-        alias['Ciencias Naturales'] = 'Ciencias Naturales';
-        alias['Ciencias Sociales'] = 'Ciencias Sociales';
-        alias['Ed. Artística - Danza'] = 'Ed. Artística - Danza';
-        alias['Ed. Artística - Música'] = 'Ed. Artística - Música';
-        alias['Ed. Artística - Plástica'] = 'Ed. Artística - Plástica';
-        alias['Ed. Artística - Música'] = 'Ed. Artística - Música';
-        alias['Educación Artística - Música'] = 'Ed. Artística - Música';
-        alias['Educación Física'] = 'Educación Física';
-        alias['EOE'] = 'EOE';
-        alias['Equipos de Orientación Escolar'] = 'EOE';
-        alias['Inglés'] = 'Inglés';
-        alias['Matemática'] = 'Matemática';
-        alias['PAD en acción'] = 'PAD en acción';
-        alias['Prácticas del Lenguaje'] = 'Prácticas del Lenguaje';
-        alias['Temas Transversales'] = 'Temas Transversales';
+    var createStats = function(theareas, data){
+      var res = [];
 
-        _.each(data, function(item){
-          item.area = alias[item.area];
+      var _curricular = {};
+
+      var pluckArea = function(cda){
+        var a = _curricular[AreaFactory.single(cda.name)] = {
+          name: AreaFactory.single(cda.name)
+        };
+        a.axis = {};
+        _.each(cda.axis, function(iax){
+          var bls = _.map(iax.blocks, function(b){ return b.name; });
+
+          if (bls.length === 0){
+            bls.push('Sin Especificar');
+          }
+          a.axis[iax.name] = { blocks: bls };
         });
+      };
 
-        var areas = _.groupBy(data, 'area');
-        // AREAS
-        _.each(Object.keys(areas), function(a){
+      _.each(theareas, function(cda){
+        if (cda.subareas && cda.subareas.length > 0) {
+          _.each(cda.subareas, function(scda){
+            pluckArea(scda);
+          });
+        } else {
+          pluckArea(cda);
+        }
+
+      });
+
+      data = _.map(data, function(item){
+        item.area = AreaFactory.single(item.area);
+        return item;
+      });
+
+      var areas = _.groupBy(data, 'area');
+
+      // AREAS
+      _.each(Object.keys(areas), function(a){
+        
+        //console.log(a);
+
+        var CDA = _curricular[a];
+        if (CDA === undefined){
+          console.log('Unknown area '+a);
+        }
+
+        var area = {
+          name: a,
+          axis: [],
+          length: areas[a].length,
+          size: _.sum(areas[a], function(ai){ return ai.size; }),
+          shortname: _.kebabCase(a)
+        };
+
+        var ct = areas[a];
+        
+
+        var axises = _.groupBy(ct, 'axis');
+
+        // AXIS
+        _.each(Object.keys(axises), function(ax){
           
-          //console.log(a);
+          var CDax = CDA.axis[ax];
+          var amissing = CDax === undefined;
 
-          var area = {
-            name: a,
-            axis: [],
-            length: areas[a].length,
-            size: _.sum(areas[a], function(ai){ return ai.size; }),
-            shortname: _.kebabCase(a)
+          var axis = {
+            name: ax,
+            blocks: [],
+            length: axises[ax].length,
+            size: _.sum(axises[ax], function(axi){ return axi.size; }),
+            missing: amissing
           };
 
-          var ct = areas[a];
-          
+          var ct = axises[ax];
 
-          var axises = _.groupBy(ct, 'axis');
+          // BLOCKS
+          var blockes = _.groupBy(ct, 'block');
 
-          // AXIS
-          _.each(Object.keys(axises), function(ax){
-            var axis = {
-              name: ax,
-              blocks: [],
-              length: axises[ax].length,
-              size: _.sum(axises[ax], function(axi){ return axi.size; })
+          _.each(Object.keys(blockes), function(b) {
+            
+            var ba = AreaFactory.blockAlias(b);
+            var bn = b;
+            if (ba !== b){
+              bn = ba;
+            }
+
+            var bmissing = true;
+
+            if (CDax !== undefined){
+
+              bmissing = !_.include(CDax.blocks, bn);
+            }
+
+            var block = {
+              name: bn,
+              length: blockes[b].length,
+              size: _.sum(blockes[b], function(bi){ return bi.size; }),
+              missing: bmissing
             };
 
-            var ct = axises[ax];
-
-            // BLOCKS
-            var blockes = _.groupBy(ct, 'block');
-
-            _.each(Object.keys(blockes), function(b) {
-                var block = {
-                  name: b,
-                  length: blockes[b].length,
-                  size: _.sum(blockes[b], function(bi){ return bi.size; })
-                };
-
-                axis.blocks.push(block);
-            });
-
-            area.axis.push(axis);
+            axis.blocks.push(block);
           });
 
-          res.push(area);
-
+          area.axis.push(axis);
         });
 
-        res = _.sortBy(res, 'name');
+        res.push(area);
+      });
+
+      res = _.sortBy(res, 'name');
+      
+      var musica = _.find(res, function(a){ return a.name === 'Ed. Artística - Música'});
+      var danza = _.find(res, function(a){ return a.name === 'Ed. Artística - Danza'});
+      
+      _.each(musica.axis, function(ma){
+        _.each(ma.blocks, function(b){
+          //console.log("_largeBlockAlias['Ed. Artística - Música"+ma.name+AreaFactory.blockAlias(b.name)+"'] = '"+b.name+"';")
+        });
+      });
+
+       _.each(danza.axis, function(ma){
+        _.each(ma.blocks, function(b){
+          //console.log("_largeBlockAlias['Ed. Artística - Danza"+ma.name+AreaFactory.blockAlias(b.name)+"'] = '"+b.name+"';")
+        });
 
         
         $scope.total = Object.keys(data).length;
         $scope.areas = res;
         //console.log(JSON.stringify($scope.areas, null, 2));
+        //console.log($scope.areas);
 
         $scope.labels = [];
         $scope.data = [];
@@ -125,8 +174,28 @@ angular.module('padApp')
 
         $scope.totalSize = _.sum($scope.dataSize);
         //console.log($scope.totalSize);
+      });
+
+    };
+
+    $http
+      .get('/api/design/areas')
+      .success(function(theareas){
+
+        $http
+        .get('/epm/stats/'+$rootScope.repository)
+        .success(function(data){
+          createStats(theareas, data);
+        })
+        .error(function(err){
+          console.log('/epm/stats/'+$rootScope.repository);
+          console.log(err);
+        });
+
       })
       .error(function(err){
+        console.log('/epm/design/areas');
         console.log(err);
       });
+
   });

@@ -94,6 +94,30 @@
     return true;
   }
 
+  String.prototype.scapeRegex = function(){
+    var self = this;
+    var specialChars = [
+      { val:'a', regex: /[áàãâä]/g },
+      { val:'e', regex: /[éèêë]/g },
+      { val:'i', regex: /[íìîï]/g },
+      { val:'o', regex: /[óòõôö]/g },
+      { val:'u', regex: /[úùûü]/g },
+      { val:'n', regex: /[ñ]/g },
+      { val:'A', regex: /[ÁÀÃÂÄ]/g },
+      { val:'E', regex: /[ÉÈÊË]/g },
+      { val:'I', regex: /[ÍÌÎÏ]/g },
+      { val:'O', regex: /[ÓÒÕÔÖ]/g },
+      { val:'U', regex: /[ÚÙÛ]/g },
+      { val:'N', regex: /[Ñ]/g }
+    ];
+
+    specialChars.forEach(function(r){
+      self = self.replace(r.regex, r.val);
+    });
+
+    return self;
+  };
+
 })(jQuery, window, document);
 
 /*!

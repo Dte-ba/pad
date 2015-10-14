@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('padApp')
-  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, AreaFactory) {
+  .controller('DesignCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, AreaFactory, seoService) {
     
     var _ = window._;
 
@@ -48,6 +48,7 @@ angular.module('padApp')
             $scope.axisCollection = a.axis;
           } else {
             $scope.areaCollection = data.subareas;
+            createMeta(true);
             return;            
           }
         } else {
@@ -56,6 +57,8 @@ angular.module('padApp')
           $scope.axisCollection = data.axis;
         }
         
+        createMeta();
+
         // open the current axis
         $timeout(function () {
           if ($scope.eje !== undefined) {
@@ -67,5 +70,41 @@ angular.module('padApp')
         });
 
       });
+
+      function createMeta(isSubArea){
+
+        if (isSubArea) {
+          seoService.title('Area '+$scope.titleArea+' | PAD');
+        } else {
+          seoService.title('Area '+$scope.titleArea+' | PAD');
+        }
+
+        seoService.description('Bloques y ejes correspondientes a el area '+$scope.titleArea);
+        var keys = ['diseño curricular','area','ejes','bloques',$scope.titleArea];
+
+        var axis = [];
+
+        if (isSubArea) {
+          //axis = _.flatten(_.map($scope.areaCollection, function(a){ return a.axis; }));
+          keys = keys.concat(_.map($scope.areaCollection, function(a){ return a.name; }));
+        } else {
+          axis=$scope.axisCollection
+        }
+
+        if (axis.length > 0) {
+          keys = keys.concat(_.map(axis, function(a){ return a.name; }));
+          if (!isSubArea) {
+            _.each(axis, function(ax){
+              if (ax.blocks !== undefined && ax.blocks.length > 0) {
+                keys = keys.concat(_.map(ax.blocks, function(b){ return b.name; }));
+              }
+            });
+          }
+        }
+
+        keys = _.unique(keys);
+        
+        seoService.keyboards(keys);
+      };
 
   });

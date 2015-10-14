@@ -19,6 +19,7 @@ angular
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
               item.content.block = AreaFactory.blockAlias(item.content.block);
+              item.content.tags = item.content.tags.split(',');
               return item;
             });
             def.resolve(data);
@@ -41,6 +42,7 @@ angular
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
               item.content.block = AreaFactory.blockAlias(item.content.block);
+              item.content.tags = item.content.tags.split(',');
               return item;
             });
             def.resolve(data);
@@ -70,6 +72,7 @@ angular
               AreaFactory.addAlias(data);
               data.like = Favoritos.isFavorito(data.uid);
               data.content.block = AreaFactory.blockAlias(data.content.block);
+              data.content.tags = data.content.tags.split(',');
               def.resolve(data);
             })
             .error(function(e){
