@@ -50,7 +50,12 @@ angular.module('padApp')
 
       $scope.showRel = true;
 
-      var tags = $scope.tangible.content.tags.split(',');
+      var tags = $scope.tangible.content.tags;
+
+      if (typeof tags === 'string'){
+        tags = tags.spli(',');
+      }
+
       var mtags = _.map(tags, function(t){
         return _.escapeRegExp(_.trim(t));
       });

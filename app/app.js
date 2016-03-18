@@ -31,6 +31,8 @@ function start() {
   if (fs.existsSync(localConfig)){
     var cfg = JSON.parse(fs.readFileSync(localConfig, 'utf-8'));
     process.env.REPOSITORY_PATH = cfg.path;
+  } else {
+    process.env.REPOSITORY_PATH = path.join(process.cwd(), '/paquetes/');
   }
 
   config.repository = process.env.REPOSITORY_PATH;
@@ -81,7 +83,6 @@ function start() {
 
 win.on('maximize', function(e) {
   // Here can use console.log
-  console.log('maximize');
   win.removeAllListeners('maximize');
 
   setTimeout(function(){
