@@ -12,11 +12,15 @@ module.exports = function(app) {
   // Insert routes below
   app.use('/api/design', require('./api/design'));
 
+  var mode = 'server';
+  if (process.env.PAD_MODE) {
+    mode = process.env.PAD_MODE;
+  }
   // add application information
   app
     .route('/api/info')
     .get(function(req, res){
-      res.json({ version: app.version, kernel: app.kernel });
+      res.json({ version: app.version, kernel: app.kernel, mode: mode });
     });
   
   // All undefined asset or api routes should return a 404

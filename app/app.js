@@ -4,7 +4,6 @@ var osenv = require('osenv');
 var path = require('path');
 var http = require('http');
 var fs = require('fs');
-var $ = require('jquery');
 
 var gui = process.env.NW_GUI = require('nw.gui');
 var win = gui.Window.get();
@@ -19,9 +18,9 @@ if (process.env.NODE_ENV === 'development') {
   rootPath = path.join(process.cwd(), '/../');
 }
 
-function start() {
+function start(document) {
   
-  process.env.REPOSITORY_PATH = path.join(osenv.home(), '/repository');
+  process.env.REPOSITORY_PATH = path.join(osenv.home(), '/paquetes');
 
   var cfg = path.join(rootPath, 'server/config/environment/index.js');
   var config = require(cfg);
@@ -37,8 +36,10 @@ function start() {
 
   config.repository = process.env.REPOSITORY_PATH;
 
-  if (process.env.REPOSITORY_PATH === undefined) {
-    configureRespository();
+  if (process.env.REPOSITORY_PATH === undefined || !fs.existsSync(process.env.REPOSITORY_PATH)) {
+    configureRespository(config, function(){
+      startPad(config);
+    });
   } else {
     startPad(config);
   }
@@ -49,6 +50,8 @@ function start() {
     $('#textProgress').html('<i class="fa fa-cog fa-spin"></i> Cargando...   ¡En un momento estaremos listos!');
 
     $('init-screen').show();
+
+    $('#repositoryPath').text(process.env.REPOSITORY_PATH);
 
     pad
     .startServer({gui: gui, env: process.env.NODE_ENV})
@@ -73,10 +76,40 @@ function start() {
     });
   }
 
-  function configureRespository(){
+  function configureRespository(config, cb){
     // do stuff
     
+    $('#selectDirectory').click(function(e){
+
+      e.preventDefault();
+
+      var chooser = $('#folder_dialog_input');
+      chooser.unbind('change'); // Needed, otherwise the value will always be "" 
+      chooser.change(function(evt) {
+          var folder_path = $(this).val();
+          $(this).val(''); // Reset value of selected directory (so change event will *always* be triggered)
+          
+          if (folder_path !== undefined) {
+             $('#giveMeRepository').hide();
+            config.repository = folder_path;
+
+            // save the configuration
+            var localConfig = path.join(osenv.home(), '.pad');
+            var data = { path: config.repository };
+            process.env.REPOSITORY_PATH = folder_path;
+            
+            fs.writeFileSync(localConfig, JSON.stringify(data));
+
+            return cb(config);
+          }
+      });
+
+    });
+
+    chooser.trigger('click'); 
+
     $('init-screen').hide();
+    $('#giveMeRepository').show();
   }
 
 }
@@ -85,9 +118,11 @@ win.on('maximize', function(e) {
   // Here can use console.log
   win.removeAllListeners('maximize');
 
-  setTimeout(function(){
-    start();
-  }, 300);
+});
+
+win.on('maximize', function(e) {
+  var document = win.window.document;
+  start(document);
 
 });
 

@@ -4,6 +4,12 @@ angular.module('padApp')
   .controller('TangibleCtrl', function ($rootScope, $scope, $stateParams, $http, $timeout, Tangible, Favoritos, seoService) {
 
     var uid = $stateParams.uid;
+    
+    $http
+      .get('/api/info')
+      .success(function(info){
+        $scope.isDesktop = info.mode === 'desktop';
+      });
 
     $scope.accedio = false;
 
