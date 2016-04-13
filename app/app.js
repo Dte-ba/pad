@@ -72,7 +72,7 @@ function start(document) {
       $('init-screen').hide();
       $('#textProgress').hide();
       console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
-      global.window.location.href = 'http://localhost:'+pad.config.port+'/';
+      win.window.location.href = 'http://localhost:'+pad.config.port+'/';
     });
   }
 
