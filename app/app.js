@@ -103,10 +103,10 @@ function start(document) {
             return cb(config);
           }
       });
+      
+      chooser.trigger('click'); 
 
     });
-
-    chooser.trigger('click'); 
 
     $('init-screen').hide();
     $('#giveMeRepository').show();
