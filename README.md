@@ -1,10 +1,10 @@
-# PAD v6 - En Desarrollo
+# PAD v6
 
 Entorno digital para la Plataforma de alfabetización digital utilizando [EPM](https://github.com/Dte-ba/epm) como kernel
 
 ## Online
 
-Actualmente se encuentra [online](http://pad.nticx.net/) la versión 5.
+Actualmente se encuentra en [online](http://pad.nticx.net/).
 
 ## LICENSE
 
