@@ -62,7 +62,7 @@ function start(document) {
       $('#progreso').width(percent + '%');
       $('#progreso').attr('aria-valuenow', percent);
       $('#progreso').text(percent + '%');
-      //console.log(percent + '%');
+      
     })
     .fail(function(err){
       $('init-screen').hide();
@@ -71,7 +71,9 @@ function start(document) {
     .done(function(){
       $('init-screen').hide();
       $('#textProgress').hide();
-      console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
+      if (console) {
+        console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
+      }
       win.window.location.href = 'http://localhost:'+pad.config.port+'/';
     });
   }
