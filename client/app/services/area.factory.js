@@ -22,6 +22,7 @@ angular
     _single['Matemática'] = 'Matemática';
     _single['Orientación PAD'] = 'Orientación PAD';
     _single['PAD en acción'] = 'PAD en acción';
+    _single['Herramientas Digitales'] = 'Herramientas Digitales';
     _single['Prácticas del Lenguaje'] = 'Prácticas del Lenguaje';
     _single['Temas Transversales'] = 'Temas Transversales';
 
@@ -33,6 +34,7 @@ angular
 
     var _alias ={};
     _alias['PAD en acción'] = 'pea';
+    _alias['Herramientas Digitales'] = 'hd';
     _alias['Inglés'] = 'ing';
     _alias['Ciencias Naturales'] = 'cn';
     _alias['Educación Física'] = 'ef';
@@ -51,6 +53,7 @@ angular
 
     var _query = {};
     _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
+    _query['Herramientas Digitales'] = [{'content.area': 'Herramientas Digitales'}];
     _query['Inglés'] = [{'content.area':'Inglés'}];
     _query['Ciencias Naturales'] = [{'content.area':'Ciencias Naturales'}];
     _query['Educación Física'] = [{'content.area':'Educación Física'}];
