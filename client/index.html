@@ -25,6 +25,14 @@
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
+    <script>
+    console.log(window)
+    window.nodeRequire = require;
+    delete window.require;
+    delete window.exports;
+    delete window.module;
+    </script>
+    
   </head>
   <body ng-class="{home: $state.includes('main')}">
     <!--[if lt IE 7]>

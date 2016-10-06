@@ -74,6 +74,7 @@ pad.startServer = function(ops){
 
         // Start server
         server.listen(config.port, config.ip, function () {
+          console.log(config.port, config.ip);
           setTimeout(function(){
             defer.resolve();
           }, 500);

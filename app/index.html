@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
     
+    <script>
+    window.nodeRequire = require;
+    delete window.require;
+    delete window.exports;
+    delete window.module;
+    </script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
   </head>
   <body>
 
@@ -44,7 +51,6 @@
               <div id="giveMeRepository"
                    class="alert alert-info text-center"
                    role="alert"  style="display: none; font-size: 130%"><i class="fa fa-warning"></i> Carpeta de contenido no definida, <a id="selectDirectory" href="">seleccionar ..</a></div>
-              <input id="folder_dialog_input" type="file" nwdirectory value=""  style="display: none; font-size: 130%">
             </div>
           </div>
         </div>
@@ -63,7 +69,6 @@
 
     </div>
     
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>

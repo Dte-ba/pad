@@ -188,8 +188,8 @@ module.exports = function(router){
     if (info.files.length === 1){
       
       //for desktop applications
-       if (process.env.PAD_MODE === 'desktop' && process.env.NW_GUI !== undefined) {
-        var gui = process.env.NW_GUI;
+       if (process.env.PAD_MODE === 'desktop') {
+        
         try {
           console.log('trying open with NW_GUI');
           gui.Shell.openItem(info.files[0].filename);
