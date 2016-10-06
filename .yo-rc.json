@@ -1,5 +1,7 @@
 {
   "generator-angular-fullstack": {
+    "generatorVersion": "3.7.5",
+    "endpointDirectory": "server/api/",
     "insertRoutes": true,
     "registerRoutesFile": "server/routes.js",
     "routesNeedle": "// Insert routes below",
@@ -8,27 +10,44 @@
     "insertSockets": true,
     "registerSocketsFile": "server/config/socketio.js",
     "socketsNeedle": "// Insert sockets below",
+    "insertModels": true,
+    "registerModelsFile": "server/sqldb/index.js",
+    "modelsNeedle": "// Insert models below",
     "filters": {
-      "babel": false,
       "js": true,
+      "babel": true,
+      "flow": false,
       "html": true,
       "sass": true,
       "uirouter": true,
       "bootstrap": true,
-      "uibootstrap": true
+      "uibootstrap": false,
+      "noModels": true,
+      "gulp": true,
+      "mocha": true,
+      "jasmine": false,
+      "should": false,
+      "expect": true
     }
   },
   "generator-ng-component": {
     "routeDirectory": "client/app/",
     "directiveDirectory": "client/app/",
+    "componentDirectory": "client/app/components/",
     "filterDirectory": "client/app/",
     "serviceDirectory": "client/app/",
     "basePath": "client",
     "moduleName": "",
+    "modulePrompt": true,
     "filters": [
-      "uirouter"
+      "uirouter",
+      "mocha",
+      "expect",
+      "uirouter",
+      "es6"
     ],
     "extensions": [
+      "babel",
       "js",
       "html",
       "scss"
@@ -39,6 +58,7 @@
     "serviceTemplates": "",
     "factoryTemplates": "",
     "controllerTemplates": "",
+    "componentTemplates": "",
     "decoratorTemplates": "",
     "providerTemplates": "",
     "routeTemplates": ""

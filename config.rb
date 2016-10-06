@@ -9,6 +9,8 @@ http_path = "./client/"
 http_images_path = "../assets/img/"
 http_fonts_path = '../assets/fonts/'
 
+css_dir = "./client/app/"
+
 images_dir = "./client/assets/img/"
 fonts_dir = "./client/assets/fonts/"
 

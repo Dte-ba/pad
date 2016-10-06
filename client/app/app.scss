@@ -5,8 +5,8 @@ $pad-font-path: '/assets/fonts';
 $pad-img-path: '/assets/img';
 
 @import "compass";
-@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
-@import 'font-awesome/scss/font-awesome';
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import '../bower_components/font-awesome/scss/font-awesome';
 
 /**
  * App-wide Styles
@@ -19,14 +19,10 @@ $pad-img-path: '/assets/img';
     padding: 0.2em 0;
 }
 
-// Component styles are injected through grunt
-// injector
-@import 'modal/modal.scss';
-@import '00.variables.scss';
-@import '02.fonts.scss';
-@import '03.layout.scss';
-@import '05.menus.scss';
-@import '06.ilustrations.scss';
-@import '07.sections.scss';
-@import '08.panel.scss';
-// endinjector
+@import '../styles/00.variables.scss';
+@import '../styles/02.fonts.scss';
+@import '../styles/03.layout.scss';
+@import '../styles/05.menus.scss';
+@import '../styles/06.ilustrations.scss';
+@import '../styles/07.sections.scss';
+@import '../styles/08.panel.scss';
