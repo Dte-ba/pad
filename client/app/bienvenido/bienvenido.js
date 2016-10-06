@@ -20,11 +20,11 @@ angular.module('padApp')
             /*{
               state: 'bienvenido.marco',
               title: 'Marco General'
-            },*/
+            },
             {
               state: 'bienvenido.encuadres',
               title: 'Encuadre de la Areas y CEC'
-            }
+            }*/
           ];
         }
       })
