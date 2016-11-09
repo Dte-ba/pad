@@ -41,7 +41,8 @@ const paths = {
     server: {
         scripts: [
           `${serverPath}/**/!(*.spec|*.integration).js`,
-          `!${serverPath}/config/local.env.sample.js`
+          `!${serverPath}/config/local.env.sample.js`,
+          `!${serverPath}/components/design/areas.json`,
         ],
         json: [`${serverPath}/**/*.json`],
         test: {
