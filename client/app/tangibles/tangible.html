@@ -29,6 +29,11 @@
 
 <div class="container tangible-content">
   <div class="tangible-header clearfix">
+    
+    <a href="/epm/dl/local/{{tangible.uid}}" class="like pull-right" target="_blank"
+      data-toggle="tooltip" data-placement="top" title="Descargar Paquete">
+      <i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i>
+    </a>
     <a href="javascript:void(0)" class="like pull-right" ng-click="addFavoritos()" 
       data-toggle="tooltip" data-placement="top" title="Agregar/Quitar de Mis pines">
       <i ng-show="tangible.like" class="fa fa-thumb-tack fa-2x"></i>
