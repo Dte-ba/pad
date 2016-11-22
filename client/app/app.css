@@ -9511,19 +9511,19 @@ body {
 }
 
 .dte-footer .logo-dte {
-  float: left;
+  float: right;
   height: 45px;
   width: 225px;
   background: url("/assets/img/logo-dte.png") center center no-repeat;
-  margin-left: 5%;
+  margin-right: 2%;
 }
 
 .dte-footer .logo-pad {
-  float: right;
+  float: left;
   height: 45px;
-  width: 170px;
+  width: 181px;
   background: url("/assets/img/logo_pad_footer.png") center center no-repeat;
-  margin-right: 2%;
+  margin-left: 5%;
 }
 
 .dte-footer .logo-ba {

@@ -29,19 +29,20 @@ body {
 }
 
 .dte-footer .logo-dte {
-  float: left;
+  float: right;
   height: $footer-height;
   width: 225px;
   background: url('#{$pad-img-path}/logo-dte.png') center center no-repeat;
-  margin-left: 5%;
+  margin-right: 2%;
 }
 
 .dte-footer .logo-pad {
-  float: right;
+  float: left;
   height: $footer-height;
-  width: 170px;
+  width: 181px;
   background: url('#{$pad-img-path}/logo_pad_footer.png') center center no-repeat;
-  margin-right: 2%;
+  
+  margin-left: 5%;
 }
 
 .dte-footer .logo-ba {
