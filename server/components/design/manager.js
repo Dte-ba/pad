@@ -10,7 +10,7 @@ var config = require('../../config/environment');
 var manager = {};
 var _areas;
 
-var client = config.env === 'production' ? 'public' : 'client';
+var client = 'client'; //config.env === 'production' ? 'public' : 'client';
 var imgFolder = path.join(config.root, client);
 var defaultImg = '/assets/img/areas/portada.png';
 var rootUrl = '/assets/img/areas/';

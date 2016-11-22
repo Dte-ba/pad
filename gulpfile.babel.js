@@ -25,7 +25,7 @@ const serverPath = 'server';
 const paths = {
     client: {
         assets: `${clientPath}/assets/**/*`,
-        images: `${clientPath}/assets/images/**/*`,
+        images: `${clientPath}/assets/img/**/*`,
         scripts: [
             `${clientPath}/**/!(*.spec|*.mock).js`,
             `!${clientPath}/bower_components/**/*`
@@ -549,18 +549,7 @@ gulp.task('constant', function(cb) {
 
 gulp.task('build:images', () => {
     return gulp.src(paths.client.images)
-        .pipe(plugins.imagemin({
-            optimizationLevel: 5,
-            progressive: true,
-            interlaced: true
-        }))
-        .pipe(plugins.rev())
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
-        .pipe(plugins.rev.manifest(`${paths.dist}/${clientPath}/assets/rev-manifest.json`, {
-            base: `${paths.dist}/${clientPath}/assets`,
-            merge: true
-        }))
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets`));
+        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/img`));
 });
 
 gulp.task('copy:extras', () => {
@@ -586,7 +575,8 @@ gulp.task('copy:server', () => {
     return gulp.src([
         'package.json',
         'bower.json',
-        '.bowerrc'
+        '.bowerrc',
+        'server/components/design/areas.json'
     ], {cwdbase: true})
         .pipe(gulp.dest(paths.dist));
 });
