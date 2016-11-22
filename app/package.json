@@ -2,16 +2,16 @@
   "name": "pad",
   "version": "6.0.1",
   "description": "",
-  "main": "main.js",
+  "main": "index.html",
   "chromium-args": "--enable-experimental-web-platform-features --enable-threaded-compositing",
   "window": {
     "icon": "assets/img/favicon24.png",
     "width": 1024,
     "height": 600,
     "title": "PAD",
-	  "position": "center",
+    "position": "center",
     "toolbar": false,
-	  "fullscreen": false,
+    "fullscreen": false,
     "frame": true
   },
   "webkit": {

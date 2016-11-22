@@ -9577,6 +9577,15 @@ body {
   color: #242526;
 }
 
+#to-info {
+  color: #242526;
+  text-decoration: none;
+  cursor: pointer;
+}
+#to-info:hover, #to-info:focus {
+  color: #242526;
+}
+
 #to-favoritos {
   color: #242526;
   text-decoration: none;

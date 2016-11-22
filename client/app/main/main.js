@@ -4,7 +4,7 @@ angular.module('padApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {
-        url: '/',
+        url: '/?mode&ip&port',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
