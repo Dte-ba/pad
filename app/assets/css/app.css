@@ -84,7 +84,7 @@ body {
 
 .area-cartoon {
   bottom: 45px;
-  height: 226px;
+  height: 0px;
   width: 100%;
   position: absolute;
   z-index: 10002; }
