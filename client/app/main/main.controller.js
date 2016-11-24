@@ -14,6 +14,11 @@ angular.module('padApp')
                '<div class="text-center">Tu estudiantes pueden acceder en su navegador desde</div>' + 
                '<div class="text-center"><strong>http://'+$rootScope._localip+':'+ $rootScope._port+'</strong></div>';
 
+    if ($rootScope._localip === '127.0.0.1'){
+      html = '<div class="text-center"><strong>Tu PAD en Red</strong></div>' + 
+             '<div class="text-center">Al parecer no estas conectado a una red</div>';
+    }
+
     $('document').ready(function(){
       $('#to-info').popover({
         placement: 'bottom',
