@@ -1,5 +1,8 @@
 'use strict';
 
+var path = require('path');
+var mime = require('mime');
+
 var manager = require('../epm-manager');
 
 module.exports =  function(req, res, next){
@@ -21,6 +24,11 @@ module.exports =  function(req, res, next){
         if (err) {
           return next(err);
         }
+        var fname = pkg.filename;
+        fname = encodeURIComponent(fname);
+        res.setHeader('Content-disposition', 'inline; filename="' + fname + '"');
+        res.setHeader('Content-Type', mime.lookup(pkg.filename));
+
         res.sendFile(repo.resolve(pkg.filename));
       });
     });
