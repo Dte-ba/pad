@@ -19,7 +19,7 @@ npm install -g pad-cli
 - Accedé a la carpeta donde queres crear tus versiones
 
 ```
-$:cd /pad/portable
+cd /pad/portable
 ```
 
 - Luego tipea y seguí los pasos
