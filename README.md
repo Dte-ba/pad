@@ -9,7 +9,7 @@ Actualmente se encuentrala versión [online](http://pad.nticx.net/).
 ## Armá tu versión portable
 
 - Instalá [Node.js](https://nodejs.org/)
-- Luego abri una terminal y tipea
+- Luego abrí una terminal y tipea
 
 ```
 npm install -g pad-cli
