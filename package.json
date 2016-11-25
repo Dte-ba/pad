@@ -1,6 +1,6 @@
 {
   "name": "pad",
-  "version": "6.1.10",
+  "version": "6.1.11",
   "main": "server/app.js",
   "dependencies": {
     "async": "^2.0.1",
