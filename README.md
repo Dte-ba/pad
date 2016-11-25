@@ -13,7 +13,7 @@ Actualmente se encuentrala versión [online](http://pad.nticx.net/).
 - Luego abri una terminal y tipea
 
 ```
-$:npm install -g pad-cli
+npm install -g pad-cli
 ```
 
 - Accedé a la carpeta donde queres crear tus versiones
@@ -25,9 +25,13 @@ $:cd /pad/portable
 - Luego tipea y seguí los pasos
 
 ```
-$:pad build
-// Para que incluya versiones BETA
-$:pad build --beta
+pad build
+```
+
+Para que incluya versiones BETA
+
+```
+pad build --beta
 ```
 
 ## LICENSE
