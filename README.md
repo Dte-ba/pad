@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/Dte-ba/pad.png?label=ready&title=Ready)](https://waffle.io/Dte-ba/pad)
 # PAD v6
 
 Entorno digital para la Plataforma de alfabetización digital utilizando [EPM](https://github.com/Dte-ba/epm) como kernel.
