@@ -6,6 +6,7 @@ var serveIndex = require('serve-index');
 var mime = require('mime');
 var path = require('path');
 var _ = require('lodash');
+var open = require('open');
 
 var Log = require('log')
   , log = new Log('info');
@@ -191,8 +192,9 @@ module.exports = function(router){
        if (process.env.PAD_MODE === 'desktop') {
         
         try {
-          console.log('trying open with NW_GUI');
-          gui.Shell.openItem(info.files[0].filename);
+          //console.log('trying open with NW_GUI');
+          //gui.Shell.openItem(info.files[0].filename);
+          open(info.files[0].filename);
           return true;
         } catch(ex){
           console.log(ex);
