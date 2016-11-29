@@ -9,6 +9,7 @@ Actualmente se encuentrala versión [online](http://pad.nticx.net/).
 ## Armá tu versión portable
 
 - Instalá [Node.js](https://nodejs.org/)
+- Instalá [Git](https://git-scm.com/)
 - Luego abrí una terminal y tipea
 
 ```
