@@ -8,6 +8,9 @@ angular.module('padApp')
     $scope.axis = $stateParams.axis;
     $scope.block = $stateParams.block;
 
+    var regex = /sin\sespecificar/i;
+    $scope.blockSinEspecificar = regex.test($scope.block);
+
     $scope.iniciando = true;
 
     $scope.query = {};

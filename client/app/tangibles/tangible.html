@@ -20,8 +20,9 @@
                     area: tangible.content.area,
                     axis: tangible.content.axis, 
                     block: tangible.content.block})"
-              data-area="{{tangible.sarea}}" class="btn btn-info lblock">
-          <i class="fa fa-caret-left"></i> {{tangible.content.block}}</a></h1>
+              data-area="{{tangible.sarea}}" class="btn btn-info lblock"
+              ng-hide="tangible.content.blockSinEspecificar">
+          <i class="fa fa-caret-left" ></i> {{tangible.content.block}}</a></h1>
       </div>
     </div>
   </div>

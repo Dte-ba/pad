@@ -22,7 +22,7 @@ angular.module('padApp')
     $scope.lvl = 0;
 
     $scope.axisCollection = [];
-    $scope.areaCollection = [];    
+    $scope.areaCollection = []; 
 
     // request the current area
     $http

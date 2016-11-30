@@ -35,6 +35,11 @@ angular.module('padApp')
           });
         }
 
+        var b = $scope.tangible.content.block;
+
+        var regex = /sin\sespecificar/i;
+        $scope.tangible.content.blockSinEspecificar = regex.test(b);
+
         seoService.title($scope.tangible.content.title + ' | ' + $scope.tangible.content.area);
         seoService.description($scope.tangible.content.content);
         seoService.keyboards($scope.tangible.content.tags);
