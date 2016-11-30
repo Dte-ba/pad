@@ -11,8 +11,15 @@ angular.module('padApp')
       .state('orientacion', {
         url: '/Orientacion',
         templateUrl: 'app/main/orientacion.html',
-        controller: function(){
-
+        controller: function($scope, $http){
+          $http
+            .get('/api/info')
+            .success(function(info){
+              $scope.version = info.version;
+              $scope.kernel = info.kernel;
+              $scope.repository = info.repository;
+              $scope.isDesktop = info.mode === 'desktop';
+            });
         }
       })
       .state('transversales', {

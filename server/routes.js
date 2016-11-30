@@ -20,7 +20,12 @@ module.exports = function(app) {
   app
     .route('/api/info')
     .get(function(req, res){
-      res.json({ version: app.version, kernel: app.kernel, mode: mode });
+      res.json({ 
+        version: app.version, 
+        kernel: app.kernel, 
+        mode: mode,
+        repository: process.env.REPOSITORY_PATH
+     });
     });
   
   // All undefined asset or api routes should return a 404
