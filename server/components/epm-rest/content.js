@@ -189,17 +189,16 @@ module.exports = function(router){
     if (info.files.length === 1){
       
       //for desktop applications
-       if (process.env.PAD_MODE === 'desktop') {
-        
-        try {
-          //console.log('trying open with NW_GUI');
-          //gui.Shell.openItem(info.files[0].filename);
-          open(info.files[0].filename);
-          return true;
-        } catch(ex){
-          console.log(ex);
-        }
-      }
+      //if (process.env.PAD_MODE === 'desktop') {
+      //  try {
+      //    //console.log('trying open with NW_GUI');
+      //    //gui.Shell.openItem(info.files[0].filename);
+      //    open(info.files[0].filename);
+      //    return true;
+      //  } catch(ex){
+      //    console.log(ex);
+      //  }
+      //}
 
       // if has error download
       sendFile(res, info.files[0].filename);
