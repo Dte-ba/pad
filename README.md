@@ -4,7 +4,7 @@ Entorno digital para la Plataforma de alfabetización digital utilizando [EPM](h
 
 ## Online
 
-Actualmente se encuentrala versión [online](http://pad.nticx.net/).
+Actualmente se encuentrala versión [online](http://contenidos.alfabetizaciondigital.abc.gov.ar/).
 
 ## Armá tu versión portable
 
