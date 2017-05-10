@@ -4,7 +4,7 @@ Entorno digital para la Plataforma de alfabetización digital utilizando [EPM](h
 
 ## Online
 
-Actualmente se encuentrala versión [online](http://contenidos.alfabetizaciondigital.abc.gov.ar/).
+Actualmente se encuentra la versión [online](http://contenidos.alfabetizaciondigital.abc.gov.ar/).
 
 ## Armá tu versión portable
 
