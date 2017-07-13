@@ -1,0 +1,26 @@
+<div class="container">
+  
+  <div class="row welcome-wrap">
+    <div class="col-sm-11 col-sm-offset-1">
+
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-2 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
+          <ul id="menu-welcome">
+            <li ng-repeat="item in vm.menuItems" data-target="{{item.title}}"  ng-class="{ active: $state.includes(item.state) }">
+              <a data-toggle="tooltip" data-placement="bottom" 
+                 ui-sref="{{item.state}}" title="{{item.title}}"><div class="expand"></div></a>
+            </li>
+            <!--<li data-target="Marco General"  ng-class="{ active: $state.includes(item.state) }">
+              <a data-toggle="tooltip" data-placement="bottom" 
+                 href="/assets/files/marco_general.pdf" target="_blank" title="Marco General"><div class="expand"></div></a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+
+      <div class="welcome-content">
+        <div ui-view="content"></div>
+      </div>
+    </div>
+  </div>
+</div>

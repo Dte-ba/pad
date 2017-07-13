@@ -17,6 +17,8 @@ import {
 
 import main from './main/main.component';
 import design from './design/design.component';
+import bienvenido from './bienvenido/bienvenido';
+import contacto from './contacto/contacto.component';
 
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -40,8 +42,12 @@ angular.module('padApp', [
 	ngResource, 
 	ngSanitize, 
 	uiRouter, 
-	main,
+	
+  main,
   design,
+  bienvenido,
+  contacto,
+
   constants, 
   util,
   dcAngular,

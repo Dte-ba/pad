@@ -26,6 +26,7 @@ $pad-img-path: '/assets/img';
 
 // Component styles are injected through gulp
 /* inject:scss */
+@import 'contacto/contacto';
 @import 'design/design';
 @import 'main/main';
 @import '../components/menu-roulette/menu-roulette';
