@@ -51,8 +51,12 @@ module.exports = function makeWebpackConfig(options) {
 
 
                 'angular-ui-router',
-                'lodash'
+                'lodash',
+                'bootstrap'
             ]
+        };
+        config.externals = {
+            'jquery': '$'
         };
     }
 

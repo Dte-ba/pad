@@ -1,0 +1,136 @@
+.bg-lock {
+  display: none;
+
+  &.showing {
+    display: block;    
+  }
+}
+
+.menu-roulette-container {
+  position: relative;
+  min-height: 500px;
+}
+
+menu-roulette {
+  position: absolute;
+  height: $menu-weight;
+  width: $menu-weight;
+  border-radius: 50%;
+  top: calc(50% - #{$menu-weight-middle + $footer-height-middle});
+  left: calc(50% - #{$menu-weight-middle});
+  cursor: pointer;
+  
+  .border-roulette {
+    position: absolute;
+    height: $menu-weight-center;
+    width: $menu-weight-center;
+    top: ($menu-weight - $menu-weight-center)/2;
+    left: ($menu-weight - $menu-weight-center)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/circle_color_home.png') center center no-repeat;
+  }
+
+  .center-roulette {
+    position: absolute;
+    height: $menu-weight-center;
+    width: $menu-weight-center;
+    top: ($menu-weight - $menu-weight-center)/2;
+    left: ($menu-weight - $menu-weight-center)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/logo_pad_home.png') center center no-repeat;
+  }
+
+  .center-roulette-area {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: ($menu-weight - 220px)/2;
+    left: ($menu-weight - 220px)/2;
+    border-radius: 50%;
+    background: url('#{$pad-img-path}/assets-areas.png');
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
+
+    @each $area, $key in $areas {
+      &[data-area="#{$area}"] {
+        $p: map-get($key, index) * 220;
+        background-position: -#{$p}px -220px;
+      }
+    }
+  }
+
+  ul.roulette {
+    list-style: none;
+    position: relative;
+    float: left;
+    height: $menu-weight;
+    width: $menu-weight;
+    padding: 0px;
+    margin: 0px;
+
+    li {
+      border-radius: 50%;
+      border: 0px;
+      height: $item-area-normal;
+      margin-left: -($item-area-normal/2);
+      margin-top: -($item-area-normal/2);
+      position: absolute;
+      width: $item-area-normal;
+
+      top: $menu-weight/2;
+      left: $menu-weight/2;
+
+      .item-area {
+        height: $item-area-normal;
+        width: $item-area-normal;
+        border-radius: 50%;
+        background-color: white;
+        background-image: url('#{$pad-img-path}/assets-areas.png');
+
+        @each $area, $key in $areas {
+          &[data-area="#{$area}"] {
+            $p: map-get($key, index) * 100;
+            background-position: -#{$p}px 0px;
+          }
+        }
+      }
+
+      &:hover,
+      &:focus {
+        height: $item-area-hover;
+        margin-left: -($item-area-hover/2);
+        margin-top: -($item-area-hover/2);
+        width: $item-area-hover;
+
+        .item-area {
+          height: $item-area-hover;
+          width: $item-area-hover;
+
+          @each $area, $key in $areas {
+            &[data-area="#{$area}"] {
+              $p: map-get($key, index) * 120;
+              background-position: -#{$p}px -100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include keyframes('rotate'){
+  from { 
+    @include transform(rotate(0deg)) 
+  }
+  to { 
+    @include transform(rotate(360deg)) 
+  }
+}
+
+menu-roulette.inactive .border-roulette {
+  @include transition( transform 10s);
+  @include animation( rotate 20s linear infinite);
+}

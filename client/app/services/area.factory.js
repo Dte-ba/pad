@@ -2,7 +2,7 @@
 
 import angular from 'angular';
 
-export default  angular
+export default angular
   .module('pad.AreaFactory', [])
   .factory('AreaFactory', [function() {
 

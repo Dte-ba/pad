@@ -7,23 +7,40 @@ import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 
 import uiRouter from 'angular-ui-router';
+import LocalStorageModule from 'angular-local-storage';
 
 import {
-  routeConfig
+  routeConfig,
+  appRun
 } from './app.config';
 
-import navbar from '../components/navbar/navbar.component';
-import footer from '../components/footer/footer.component';
 import main from './main/main.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
+import dcAngular from '../lib/dc.angular';
+import menuRoulette from '../components/menu-roulette/menu-roulette.component';
+import padAsideMenu from '../components/pad-aside-menu/pad-aside-menu.component';
+// services
+import tangible from './services/tangible.service';
+import tangibles from './services/tangibles.service';
 
 import './app.scss';
 
-angular.module('padApp', [ngCookies, ngResource, ngSanitize, uiRouter, navbar, footer, main,
-  constants, util
+angular.module('padApp', [
+	ngCookies, 
+	ngResource, 
+	ngSanitize, 
+	uiRouter, 
+	main,
+  constants, 
+  util,
+  dcAngular,
+  menuRoulette,
+  padAsideMenu,
+  LocalStorageModule
 ])
-  .config(routeConfig);
+ .config(routeConfig)
+ .run(appRun);
 
 angular.element(document)
   .ready(() => {
