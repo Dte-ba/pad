@@ -1,17 +1,14 @@
 'use strict';
 
 import angular from 'angular';
-
-import AreaFactory from './area.factory';
-import Favoritos from './favoritos.factory';
-
 import _ from 'lodash';
 
-export default angular
-  .module('pad.Tangibles', [Favoritos, AreaFactory])
-  .service('Tangibles', ['$http', '$rootScope', '$q','AreaFactory', 'Favoritos', function($http, $rootScope, $q, AreaFactory, Favoritos) {
+import areaFactory from './area.factory';
+import favoritosFactory from './favoritos.factory';
 
-    return {
+/*@ngInject*/
+export function tangiblesService($http, $rootScope, $q, AreaFactory, Favoritos) {
+  return {
       // query plus
       queryp: function(query, take, skip){
         var def = $q.defer();
@@ -59,5 +56,8 @@ export default angular
         return def.promise;
       }
     };
+}
 
-  }]).name;
+export default angular.module('pad.Tangibles', [favoritosFactory, areaFactory])
+  .service('Tangibles', tangiblesService)
+  .name;

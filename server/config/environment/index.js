@@ -16,6 +16,8 @@ import _ from 'lodash';
 var all = {
   env: process.env.NODE_ENV,
 
+  repository: process.env.REPOSITORY_PATH,
+
   // Root path of server
   root: path.normalize(`${__dirname}/../../..`),
 

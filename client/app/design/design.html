@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    
+  <div class="section-header">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h1 data-area="{{area}}">
+          <a title="Volver" href="javascript:window.history.back()" class="go-back"><i class="fa fa-chevron-circle-left"></i></a> {{vm.titleArea}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-hide="vm.axisCollection.length === 0">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+
+       <grid-panel repeat="eje in vm.axisCollection" class="grid-panel-ejes"
+                   on-panel-opened="panelIsOpened(eje)" on-panel-closed="panelIsClosed(eje)">
+         <grid-panel-item>
+            <div>
+              <div class="eje" data-target="{{eje.name}}" data-owner="{{$parent.$parent.target}}">
+                <a ng-show="eje.blocks.length===0" ui-sref="tangibles.design({area: $parent.$parent.titleArea, axis: eje.name, block: 'Sin Especificar'})">
+                  <div class="img-wrap">
+                    <img ng-src="{{eje.img}}" alt="{{eje.name}}">
+                  </div>
+                  <div class="title-wrap">
+                    {{eje.name}}
+                  </div>
+                </a>
+                <a ng-hide="eje.blocks.length===0">
+                  <div class="img-wrap">
+                    <img ng-src="{{eje.img}}" alt="{{eje.name}}">
+                  </div>
+                  <div class="title-wrap">
+                    {{eje.name}}
+                  </div>
+                </a>
+               </div>
+            </div>
+        </grid-panel-item>
+        <grid-panel-content class="grid-panel-content-block">
+            <div>
+              <h4 class="eje-bloque">{{eje.name}}</h4>
+              <ul class="blocks-list">
+                <li ng-repeat="bloque in eje.blocks">
+                  <a ui-sref="tangibles.design({area: $parent.$parent.$parent.titleArea, axis: eje.name, block: bloque.name})">
+                    <div class="img-wrap">
+                      <img ng-src="{{bloque.img}}" alt="{{bloque.name}}">
+                    </div>
+                    <div class="title-wrap">
+                      {{bloque.name}}
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <div ng-show="eje.blocks.length == 0">
+                <p style="font-size: 120%">Esta sección no contiene bloques, <a class="btn btn-default" ui-sref="tangibles.design({area: $parent.$parent.target, axis: eje.name, block: 'Sin Especificar'})">click aquí</a> para acceder al contenido.</p>
+              </div>
+            </div>
+        </grid-panel-content>
+       </grid-panel>
+    </div>
+  </div>
+
+  <div class="row" ng-hide="vm.areaCollection.length === 0">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      
+      <ul class="area-list">
+        <li class="eje" data-target="{{area.name}}" ng-repeat="area in areaCollection">
+          <a ui-sref="design({area: $parent.target, subarea: area.name})">
+            <div class="img-wrap">
+              <img ng-src="{{area.img}}" alt="{{area.name}}">
+            </div>
+            <div class="title-wrap">
+              {{area.name}}
+            </div>
+          </a>
+         </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+</div>

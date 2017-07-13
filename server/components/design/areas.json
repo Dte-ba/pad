@@ -1,0 +1,468 @@
+{
+  "areas": [
+    {
+      "area": "PAD en acción",
+      "axis": [
+        {
+          "name": "PAD en acción",
+          "blocks": []
+        }
+      ],
+      "shortname": "pea"
+    },
+    {
+      "area": "Herramientas Digitales",
+      "axis": [
+        {
+          "name": "Herramientas Digitales",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "area": "Inglés",
+      "axis": [
+        {
+          "name": "Contextos de la Vida Cotidiana Escolar",
+          "blocks": [
+            "Yo",
+            "Mi escuela",
+            "Mis amigos",
+            "Mi Familia y mi Hogar",
+            "Mi Mascota",
+            "Mi Día a Día",
+            "Mi barrio - Ciudad - Provincia - País"
+          ]
+        },
+        {
+          "name": "Contextos de los contenidos escolares",
+          "blocks": [
+            "El espacio",
+            "Cuidado del medio ambiente",
+            "Los cambios en la naturaleza",
+            "Los seres vivos",
+            "Animales extintos",
+            "Las actividades humanas",
+            "La organización social"
+          ]
+        },
+        {
+          "name": "Contextos Literarios y Populares",
+          "blocks": [
+            "Ficción",
+            "Poesía",
+            "Drama",
+            "Géneros no Ficcionales",
+            "Medios",
+            "Colecciones"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "ing"
+    },
+    {
+      "area": "Ciencias Naturales",
+      "axis": [
+        {
+          "name": "La Tierra y el Universo",
+          "blocks": [
+            "Historia de la Tierra",
+            "Universo"
+          ]
+        },
+        {
+          "name": "Materiales",
+          "blocks": [
+            "Calor",
+            "Cambios Químicos",
+            "Electricidad",
+            "Estados de Agregación y Mezclas",
+            "Magnetismo"
+          ]
+        },
+        {
+          "name": "Mundo Físico",
+          "blocks": [
+            "Fuerzas",
+            "Luz",
+            "Sonido"
+          ]
+        },
+        {
+          "name": "Seres Vivos",
+          "blocks": [
+            "Diversidad de los seres vivos",
+            "Funciones de los seres vivos",
+            "Interacciones entre los seres vivos y el ambiente"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "cn"
+    },
+    {
+      "area": "Educación Física",
+      "axis": [
+        {
+          "name": "Corporeidad y motricidad",
+          "blocks": []
+        },
+        {
+          "name": "Corporeidad y sociomotricidad",
+          "blocks": []
+        },
+        {
+          "name": "Corporeidad y motricidad en relación con el ambiente",
+          "blocks": []
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "ef"
+    },
+    {
+      "area": "Ciencias Sociales",
+      "axis": [
+        {
+          "name": "Las Sociedades a través del Tiempo",
+          "blocks": [
+            "Pueblos originarios y del actual territorio argentino",
+            "Período Colonial",
+            "Revoluciones y Guerras de Independencia",
+            "Autonomías Provinciales. Unitarios y Federales",
+            "Construcción del Estado Nacional Argentino (1853-1880)",
+            "Régimen Político Oligárquico. Auge y Crisis (1880 - 1916)",
+            "Democracias y Dictaduras"
+          ]
+        },
+        {
+          "name": "Sociedades y Territorios",
+          "blocks": [
+            "Provincia de Buenos Aires",
+            "Argentina",
+            "Latinoamérica y el Mundo",
+            "Constitución de la Provincia de Buenos Aires",
+            "Constitución de la Nación Argentina"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "cs"
+    },
+    {
+      "area": "Matemática",
+      "axis": [
+        {
+          "name": "Geometría, Espacio y Medida",
+          "blocks": [
+            "Figuras y Cuerpos Geométricos",
+            "Planos y Recorridos"
+          ]
+        },
+        {
+          "name": "Números",
+          "blocks": [
+            "Números Naturales",
+            "Números Racionales"
+          ]
+        },
+        {
+          "name": "Operaciones",
+          "blocks": [
+            "Suma y Resta",
+            "Multiplicación y División",
+            "Proporcionalidad"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "mat"
+    },
+    {
+      "area": "Prácticas del Lenguaje",
+      "axis": [
+        {
+          "name": "Formación Literaria",
+          "blocks": [
+            "Para leer, ver y escuchar literatura: Narrativa",
+            "Para leer, ver y escuchar literatura: Poesía",
+            "Para leer, ver y escuchar literatura: Teatro",
+            "Para escribir en torno a la literatura: Textos Digitales",
+            "Para escribir en torno a la literatura: Recursos Multimediales"
+          ]
+        },
+        {
+          "name": "Formación del estudiante",
+          "blocks": [
+            "Para buscar y seleccionar información: Textos digitales",
+            "Para buscar y seleccionar información: Recursos Multimediales",
+            "Para comunicar lo aprendido: Textos Digitales",
+            "Para comunicar lo aprendido: Recursos"
+          ]
+        },
+        {
+          "name": "Formación del Ciudadano",
+          "blocks": [
+            "Para construir y expresar opiniones: Textos Digitales",
+            "Para construir y expresar opiniones: Recursos Multimediales",
+            "Para leer y comentar: Prensa",
+            "Para leer y comentar: Publicidad"
+          ]
+        },
+        {
+          "name": "Reflexión sobre el lenguaje",
+          "blocks": [
+            "Para reflexionar sobre las gramáticas",
+            "Para reflexionar sobre el sistema de escritura y la ortografía",
+            "Para reflexionar sobre la historia de la lengua",
+            "Para reflexionar sobre los usos sociales del lenguaje"
+          ]
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "pdl"
+    },
+    {
+      "area": "Educación Artística",
+      "axis": [],
+      "subareas": [
+        {
+          "area": "Ed. Artística - Plástica",
+          "axis": [
+            {
+              "name": "Imagen",
+              "blocks": [
+                "La imagen",
+                "Imágenes Artísticas",
+                "Imágenes Informativas",
+                "Imágenes Persuasivas",
+                "Imágenes Lúdicas"
+              ]
+            },
+            {
+              "name": "Recepción",
+              "blocks": [
+                "La Mirada como Construcción Cultural",
+                "Relaciones intertextuales",
+                "Construcción de Ciudadanos Críticos",
+                "Motivos",
+                "Otros aspectos"
+              ]
+            },
+            {
+              "name": "Producción",
+              "blocks": [
+                "Producción de la Imagen",
+                "Tradicionales",
+                "Contemporáneos",
+                "Nuevas Tecnologías"
+              ]
+            },
+            {
+              "name": "Proyectos",
+              "blocks": [
+                "Texto Escrito para el Programa",
+                "Construcción de Proyectos",
+                "Construcción de Problemáticas",
+                "Banco de Imágenes"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
+          ]
+        },
+        {
+          "area": "Ed. Artística - Música",
+          "axis": [
+            {
+              "name": "Materiales del Lenguaje Musical",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Organización del Lenguaje Musical",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Composición",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
+          ]
+        },
+        {
+          "area": "Ed. Artística - Danza",
+          "axis": [
+            {
+              "name": "El cuerpo en relación con...",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "La danza como lenguaje",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Los discursos corporales y el contexto socio–cultural",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
+          ]
+        },
+        {
+          "area": "Ed. Artística - Teatro",
+          "axis": [
+            {
+              "name": "Elementos del Lenguaje Teatral",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Organización de los Elementos del Lenguaje Teatral",
+              "blocks": [
+                "Lenguaje",
+                "Producción",
+                "Recepción",
+                "Contexto sociocultural"
+              ]
+            },
+            {
+              "name": "Sala de Docentes",
+              "blocks": []
+            }
+          ]
+        }
+      ],
+      "shortname": "ea"
+    },
+    {
+      "area": "Equipos de Orientación Escolar",
+      "axis": [
+        {
+          "name": "Convivencia escolar",
+          "blocks": []
+        },
+        {
+          "name": "Inclusión Educativa",
+          "blocks": []
+        },
+        {
+          "name": "Situaciones Emergentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "eoe"
+    },
+    {
+      "area": "Centros Educativos Complementarios",
+      "axis": [
+        {
+          "name": "Construcción de Lazos sociales y comunitarios",
+          "blocks": []
+        },
+        {
+          "name": "Alfabetización y Múltiples Lenguajes",
+          "blocks": []
+        },
+        {
+          "name": "Salud: cuidado de sí y cuidado del otro",
+          "blocks": []
+        },
+        {
+          "name": "Sala de Docentes",
+          "blocks": []
+        }
+      ],
+      "shortname": "cec"
+    },
+    {
+      "area": "Orientación PAD",
+      "axis": [
+        {
+          "name": "Ideas para pensar la asisitencia digital en las prácticas de enseñanza",
+          "blocks": []
+        }
+      ],
+      "shortname": "op"
+    },
+    {
+      "area": "Temas Transversales",
+      "axis": [
+        {
+          "name": "Planes y Programas",
+          "blocks": [
+            "Programa Provincial de Actividades Científicas y Tecnológicas Educativas",
+            "Programa de Derechos Humanos, Memoria y Educación",
+            "Educación en Contextos de Encierro",
+            "Programa de Educación y Seguridad Vial",
+            "Programa de Educación Intercultural",
+            "Programa de promoción de derechos de niñas niños y adolescentes",
+            "Programa de Educación Plurilingüe",
+            "Programa de Educación para la Ruralidad continental y de Islas",
+            "Programa de Arte y Medios en la Escuela",
+            "Programa Escuelas Promotoras de Salud"
+          ]
+        }
+      ],
+      "shortname": "tt"
+    }
+  ]
+}

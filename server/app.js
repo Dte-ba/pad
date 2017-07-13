@@ -5,24 +5,77 @@
 'use strict';
 
 import express from 'express';
-import config from './config/environment';
 import http from 'http';
+import path from 'path';
+import fs from 'fs';
+import Q from 'q';
 
+var pad = module.exports = {};
+// the expressjs app
+var app = pad.app = express(); 
 
-// Setup server
-var app = express();
-var server = http.createServer(app);
-require('./config/express').default(app);
-require('./routes').default(app);
+// the repository manager
+var manager = pad.epmManager = require('./components/epm-manager');
+var empRest = require('./components/epm-rest');
 
-// Start server
-function startServer() {
-  app.angularFullstack = server.listen(config.port, config.ip, function() {
-    console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
-  });
+// the config
+var config = pad.config = require('./config/environment');
+
+app.version = 'v6.5';
+app.kernel = 'EPM';
+
+var j = path.join(__dirname, '/../package.json');
+if (fs.existsSync(j)){
+  try {
+    var info = JSON.parse(fs.readFileSync(j, 'utf-8'));
+    app.version = 'v' + info.version; 
+  } catch(e){
+  }
 }
 
-setImmediate(startServer);
+pad.startServer = function(ops){
 
-// Expose app
-exports = module.exports = app;
+  ops = ops || {};
+  if (ops.env !== undefined){
+    process.env.NODE_ENV = ops.env;
+  }
+
+  process.env.NW_GUI = ops.gui;
+  
+  // the promise for web and repository
+  var defer = Q.defer();
+  
+  var server = pad.server = require('http').createServer(app);
+
+  // then configure the express
+  // define the EPM routes
+  // define the routes for the app
+  require('./config/express').default(app);
+  app.use('/epm', empRest());
+  require('./routes').default(app);
+
+  manager
+      .get('local')
+      .progress((info) => {
+
+        defer.notify({
+          msg: "Cargando los paquetes de contenido digital.",
+          progress: info.progress
+        });
+
+      })
+      .fail((err) => {
+        throw err;
+      })
+      .done(() => {
+        // Start server
+        server.listen(config.port, config.ip, function () {
+          setTimeout(function(){
+            defer.resolve();
+          }, 500);
+        });
+
+      });
+
+  return defer.promise;
+};
