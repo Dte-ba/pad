@@ -6,7 +6,7 @@ import LocalStorageModule from 'angular-local-storage';
 import _ from 'lodash';
 
 /*@ngInject*/
-export function favoritosFactory($http, $rootScope, $q, AreaFactory, Favoritos) {
+export function favoritosFactory($http, $rootScope, $q) {
   var getFavoritos = function(){
     return localStorageService.get('favoritos');
   };

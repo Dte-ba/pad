@@ -16,7 +16,8 @@ export function tangiblesService($http, $rootScope, $q, AreaFactory, Favoritos) 
 
         $http
           .post(url, {query:query, take: take, skip: skip})
-          .success(function(data){
+          .then(function(response){
+            let data = response.data;
             data.items = _.map(data.items, function(item){
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
@@ -26,7 +27,7 @@ export function tangiblesService($http, $rootScope, $q, AreaFactory, Favoritos) 
             });
             def.resolve(data);
           })
-          .error(function(e){
+          .catch(function(e){
             def.reject(e);
           });
 
@@ -39,7 +40,8 @@ export function tangiblesService($http, $rootScope, $q, AreaFactory, Favoritos) 
 
         $http
           .post(url, query)
-          .success(function(data){
+          .then(function(response){
+            let data = response.data;
             data = _.map(data, function(item){
               AreaFactory.addAlias(item);
               item.like = Favoritos.isFavorito(item.uid);
@@ -49,7 +51,7 @@ export function tangiblesService($http, $rootScope, $q, AreaFactory, Favoritos) 
             });
             def.resolve(data);
           })
-          .error(function(e){
+          .catch(function(e){
             def.reject(e);
           });
 

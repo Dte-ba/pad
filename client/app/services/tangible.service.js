@@ -16,14 +16,15 @@ export function tangibleService($http, $rootScope, $q, AreaFactory, Favoritos) {
 
       $http
         .get(url)
-        .success(function(data){
+        .then(function(response){
+          let data = response.data;
           AreaFactory.addAlias(data);
           data.like = Favoritos.isFavorito(data.uid);
           data.content.block = AreaFactory.blockAlias(data.content.block);
           data.content.tags = data.content.tags.split(',');
           def.resolve(data);
         })
-        .error(function(e){
+        .catch(function(e){
           def.reject(e);
         });
 

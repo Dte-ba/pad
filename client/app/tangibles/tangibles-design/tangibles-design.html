@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="section-header">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h1 class="tangibles-current-section">
+          <a title="Volver" href="javascript:window.history.back()" class="go-back"><i class="fa fa-chevron-circle-left"></i></a>
+          <a ui-sref="design({area: vm.area})" 
+             data-area="{{vm.sarea}}"
+             class="btn btn-info larea">
+            <i class="fa fa-caret-left"> </i> {{vm.area}}
+          </a>
+          <a ui-sref="design({area: vm.area, eje: vm.axis})" 
+             data-area="{{vm.sarea}}" class="btn btn-info laxis">
+            <i class="fa fa-caret-left"> </i> {{vm.axis}}
+          </a>
+          <span href="" data-area="{{vm.sarea}}" class="lblock"
+                ng-hide="{{vm.blockSinEspecificar}}">{{vm.block}}</span></h1>
+      </div>
+    </div>
+  </div>
+  <div class="tangibles-wrapper">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-info" role="alert" ng-show="vm.iniciando">
+          <p class="text-center"><i class="fa fa-spinner fa-pulse"></i> Preparando el contenido ...</p>
+        </div>
+      </div>
+    </div>
+    <div tangibles-scroller="vm.query" tangibles-take="vm.take"></div>
+  </div>
+</div>

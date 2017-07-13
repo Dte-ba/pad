@@ -15,10 +15,15 @@ import {
   appRun
 } from './app.config';
 
+// components
 import main from './main/main.component';
 import design from './design/design.component';
 import bienvenido from './bienvenido/bienvenido';
 import contacto from './contacto/contacto.component';
+import tangibles from './tangibles/tangibles';
+
+// directives
+import tangiblesScroller from '../components/tangiblesScroller/tangiblesScroller.directive';
 
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -28,8 +33,8 @@ import padAsideMenu from '../components/pad-aside-menu/pad-aside-menu.component'
 
 // services
 import areaFactory from './services/area.factory';
-import tangible from './services/tangible.service';
-import tangibles from './services/tangibles.service';
+import tangibleService from './services/tangible.service';
+import tangiblesService from './services/tangibles.service';
 
 // TODO: please change me
 import ngGridPanel from 'ng-grid-panel';
@@ -47,6 +52,9 @@ angular.module('padApp', [
   design,
   bienvenido,
   contacto,
+  tangibles,
+
+  tangiblesScroller,
 
   constants, 
   util,
@@ -57,8 +65,8 @@ angular.module('padApp', [
   ngLoader,
 
   areaFactory,
-  tangible,
-  tangibles,
+  tangibleService,
+  tangiblesService,
 
   'ngGridPanel'
 ])

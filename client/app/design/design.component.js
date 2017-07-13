@@ -19,6 +19,7 @@ export class DesignComponent {
     }
 
     this.target = $stateParams.area;
+    this.area = $stateParams.area;
     this.titleArea = $stateParams.area;
     this.subarea = $stateParams.subarea;
     this.axis = $stateParams.axis;
@@ -41,7 +42,7 @@ export class DesignComponent {
         if (data.subareas !== undefined && data.subareas.length > 0){
           if (this.subarea !== undefined && this.subarea !== null && this.subarea !== '') {
 
-            var a = _.findWhere(data.subareas, { name: this.subarea});
+            var a = _.find(data.subareas, { name: this.subarea});
 
             if (a === undefined) {
               return;
@@ -53,6 +54,11 @@ export class DesignComponent {
             this.axisCollection = a.axis;
           } else {
             this.areaCollection = data.subareas;
+            this.areaCollection = _.map(this.areaCollection, a => {
+              a.owner = this.target;
+              return a;
+            });
+            
             this.createMeta(true);
             return;            
           }
@@ -61,6 +67,11 @@ export class DesignComponent {
           // set the currents axis
           this.axisCollection = data.axis;
         }
+
+        this.axisCollection = _.map(this.axisCollection, a => {
+          a.area = this.target;
+          return a;
+        });
         
         this.createMeta();
 
