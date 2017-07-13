@@ -5,9 +5,8 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 
 // @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
 
-/**
- * App-wide Styles
- */
+$pad-font-path: '/assets/fonts';
+$pad-img-path: '/assets/img';
 
 .browserupgrade {
   margin: 0.2em 0;
@@ -15,6 +14,15 @@ $fa-font-path: '/assets/fonts/font-awesome/';
   color: #000;
   padding: 0.2em 0;
 }
+
+@import '../styles/mixin.scss';
+@import '../styles/00.variables.scss';
+@import '../styles/02.fonts.scss';
+@import '../styles/03.layout.scss';
+@import '../styles/05.menus.scss';
+@import '../styles/06.ilustrations.scss';
+@import '../styles/07.sections.scss';
+@import '../styles/08.panel.scss';
 
 // Component styles are injected through gulp
 /* inject:scss */

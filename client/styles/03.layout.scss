@@ -1,0 +1,138 @@
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height: 100%;
+}
+
+body {
+  background: $pad-cream-color url('#{$pad-img-path}/texture_triangles30.png') repeat;
+}
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+#content {
+  padding-bottom: $footer-height + 15px; /* Height of the footer element */
+}
+
+#footer {
+  background: #232425;
+  width:100%;
+  height: $footer-height;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+.dte-footer .logo-dte {
+  float: right;
+  height: $footer-height;
+  width: 225px;
+  background: url('#{$pad-img-path}/logo-dte.png') center center no-repeat;
+  margin-right: 2%;
+}
+
+.dte-footer .logo-pad {
+  float: left;
+  height: $footer-height;
+  width: 181px;
+  background: url('#{$pad-img-path}/logo_pad_footer.png') center center no-repeat;
+  
+  margin-left: 5%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: $footer-height;
+  width: 151px;
+  background: url('#{$pad-img-path}/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}
+
+.footer-divider {
+  height: 40px;
+}
+
+#to-home {
+  position:absolute;
+  width: 54px;
+  height: 54px;
+  background: url('#{$pad-img-path}/home_btn.png') center center no-repeat;
+  top: 10px;
+  left: 10px;
+}
+
+.extra-tool {
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    display: inline-block;
+    margin-right: 7px;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+
+    a {
+      display: block;
+      span.badge {
+        background-color: $black-color;
+      }
+    }
+  }
+}
+
+#to-search {
+  color: $black-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $black-color;
+   }
+}
+
+#to-info {
+  color: $black-color;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    color: $black-color;
+   }
+}
+
+#to-favoritos {
+  color: $black-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $black-color;
+  }
+}
+
+.ng-hide {
+  visibility: hidden;
+}
+
+.go-back {
+  text-decoration: none;
+  color: $black-color;
+  margin-right: 7px;
+  padding-top: 3px;
+
+  &:hover,
+  &:focus {
+    color: $black-color;
+  }
+}

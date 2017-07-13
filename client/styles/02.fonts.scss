@@ -1,0 +1,41 @@
+// fonts
+
+@include font-face(
+  'concert_oneregular', 
+  '#{$pad-font-path}concertone-regular-webfont',
+  '',
+  'normal',
+  'normal'
+);
+
+@include font-face(
+  'Patua One',
+  '#{$pad-font-path}PatuaOne-Regular',
+  '',
+  'normal',
+  'normal'
+);
+
+@include font-face(
+  'Comfortaa Bold',
+  '#{$pad-font-path}Comfortaa-Bold',
+  '',
+  'normal',
+  'normal'
+);
+
+@include font-face(
+  'Comfortaa Light',
+  '#{$pad-font-path}Comfortaa-Light',
+  '',
+  'normal',
+  'normal'
+);
+
+@include font-face(
+  'Comfortaa Regular',
+  '#{$pad-font-path}Comfortaa-Regular',
+  '',
+  'normal',
+  'normal'
+);

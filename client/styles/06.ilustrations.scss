@@ -1,0 +1,138 @@
+.area-cartoon {
+  background: url('#{$pad-img-path}/personajes_asset.png');
+  bottom: $footer-height;
+  height: 226px;
+  position: absolute;
+  right: 0px;
+  visibility: hidden;
+  width: 226px;
+  z-index: 10002;
+}
+
+.area-cartoon.active {
+  visibility: visible;
+}
+
+//background: $pad-cream-color url('#{$pad-img-path}/texture_triangles15.png') repeat;
+
+html {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area="#{$area}"], 
+    &[data-area="#{$aname}"],
+    &[data-area-cartoon="#{$aname}"] {
+      $idx: map-get($key, index);
+      body {
+        @if $idx == 0 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        } @else if $idx == 1 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 2 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 3 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        } @else if $idx == 4 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 5 {
+          background-image: url('#{$pad-img-path}/texture_triangles12.png');
+        } @else if $idx == 6 {
+          background-image: url('#{$pad-img-path}/texture_triangles6.png');
+        }
+      }
+    }
+  }
+}
+
+html {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area="#{$area}"], 
+    &[data-area="#{$aname}"],
+    &[data-area-cartoon="#{$aname}"] {
+      $p: map-get($key, index) * 226;
+      .area-cartoon {
+        background-position: -#{$p}px 0px;
+      }
+    }
+  }
+}
+
+#area-cartoon-hover {
+  @each $area, $key in $areas {
+    $aname: map-get($key, name);
+    &[data-area="#{$area}"],
+    &[data-area="#{$aname}"] {
+      $p: map-get($key, index) * 226;
+      background-position: -#{$p}px 0px;
+    }
+  }
+}
+
+ul.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    color: $black-color;
+    padding-right: 5px;
+    a {
+      text-decoration: none;
+      color: $black-color;
+    }
+  }
+}
+
+@each $area, $key in $areas {
+  $aname: map-get($key, name);
+  ul.legend li[data-area="#{$area}"] {
+    i {
+      color: map-get($key, color);
+    }
+  }
+}
+
+@each $area, $key in $areas {
+  $aname: map-get($key, name);
+  html[data-area="#{$area}"],
+  html[data-area="#{$aname}"] {
+    background-color: map-get($key, color);
+    body {
+      background-color: map-get($key, color);
+    }
+
+    .go-back {
+     color: map-get($key, fcolor); 
+    }
+  }
+
+  .pin[data-area="#{$area}"], 
+  .pin[data-area="#{$aname}"],
+  .bg-#{$area} {
+    background-color: lighten(map-get($key, color), 5%);
+    .pin-caption {
+      color: map-get($key, fcolor);
+    }
+
+    &:hover {
+      background-color: map-get($key, color);
+    }
+  }
+
+  a[data-area="#{$area}"].btn-info, 
+  a[data-area="#{$aname}"].btn-info {
+    border-color: map-get($key, color);
+    background-color: lighten(map-get($key, color), 5%);
+    color: map-get($key, fcolor);
+    &:hover,
+    &:focus {
+      background-color: lighten(map-get($key, color), 10%);
+    }
+  }
+
+  h1[data-area="#{$area}"], 
+  h1[data-area="#{$aname}"] {
+    color: map-get($key, fcolor);
+  }
+}

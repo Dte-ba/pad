@@ -1,0 +1,134 @@
+$pad-cream-color: #f3eddd;
+
+$ba-color: #80a424;
+$black-color: #242526;
+
+$light-cover: 70%;
+$bg-deph: hsla(253, 123, 179, 0.3);
+
+$footer-height: 45px;
+$footer-height-middle: $footer-height/2;
+
+$menu-weight: 340px;
+$menu-weight-middle: $menu-weight/2;
+
+$menu-weight-center: 220px;
+
+$areas: (
+  cec: ( name: 'Centros Educativos Complementarios',
+    color: $ba-color, fcolor: white,
+    index: 20, cartoon: 0px 0px
+  ),
+  cn: ( name: 'Ciencias Naturales',
+    color: #5bb947, fcolor: white,
+    index: 6, cartoon: 0px 0px
+  ),
+  cs: ( name: 'Ciencias Sociales',
+    color: #d60918, fcolor: white,
+    index: 2, cartoon: 0px 0px
+  ),
+  ea: ( name: 'Educación Artística',
+    color: #f4d100, fcolor: $black-color,
+    index: 4, cartoon: 0px 0px
+  ),
+  edar: ( name: 'Educación Artística',
+    color: #f4d100, fcolor: $black-color,
+    index: 4, cartoon: 0px 0px
+  ),
+  edard: ( name: 'Ed. Artística - Danza',
+    color: #f4d100, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px
+  ),
+  edarm: ( name: 'Ed. Artística - Música',
+    color: #f4d100, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px
+  ),
+  edarp: ( name: 'Ed. Artística - Plástica',
+    color: #f4d100, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px
+  ),
+  edart: ( name: 'Ed. Artística - Teatro',
+    color: #00bcf2, fcolor: white,
+    index: 20, cartoon: 0px 0px
+  ),
+  ef: ( name: 'Educación Física',
+    color: #00bcf2, fcolor: white,
+    index: 1, cartoon: 0px 0px
+  ),
+  eoe: ( name: 'Equipos de Orientación Escolar',
+    color: $ba-color, fcolor: white, index: 20,
+  ),
+  ing: ( name: 'Inglés',
+    color: #562f84, fcolor: white,
+    index: 0, cartoon: 0px 0px
+  ),
+  mat: ( name: 'Matemática',
+    color: #163e87, fcolor: white,
+    index: 3, cartoon: 0px 0px
+  ),
+  op: ( name: 'Orientación PAD',
+    color: $ba-color, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px,
+  ),
+  pdl: ( name: 'Prácticas del Lenguaje',
+    color: #ec008b, fcolor: white,
+    index: 5, cartoon: 0px 0px
+  ),
+  pea: ( name: 'PAD en acción',
+    color: $ba-color, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px,
+  ),
+  hd: ( name: 'Herramientas Digitales',
+    color: #117f89, fcolor: white,
+    index: 20, cartoon: 0px 0px,
+  ),
+  tt: ( name: 'Temas Transversales',
+    color: $ba-color, fcolor: $black-color,
+    index: 20, cartoon: 0px 0px,
+  ),
+);
+
+$asideMenu: (
+  bienvenida: (
+    pos: (
+      top: -45px,
+      left: 54px
+    ),
+    bgPos: 0px -566px,
+  ),
+  cloud: (
+    pos: (
+      top: -5px,
+      left: 109px
+    ),
+    bgPos: -66px -566px,
+  ),
+  orientaciones: (
+    pos: (
+      top: 60px,
+      left: 130px
+    ),
+    bgPos: -132px -566px,
+  ),
+  transversales: (
+    pos: (
+      top: 125px,
+      left: 109px
+    ),
+    bgPos: -198px -566px,
+  ),
+  contacto: (
+    pos: (
+      top: 165px,
+      left: 54px
+    ),
+    bgPos: -264px -566px,
+  ),
+);
+
+$menuWelcome:(
+  'Presentación': 0px 0px,
+  'Acerca del PAD': -64px 0px,
+  'Marco General': -128px 0px,
+  'Encuadre de la Areas y CEC': -192px 0px,
+);

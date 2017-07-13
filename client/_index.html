@@ -1,32 +1,122 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" data-area="{{area}}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <base href="/">
-    <title>Angular Full-Stack Generator</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <base href="/">
+  
+  <title>Bienvenidos | PAD</title>
+
+  <meta name="viewport" content="width=device-width">
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+  <link rel="manifest" href="/assets/img/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- build:css(client) app/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/swiper/dist/css/swiper.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <!-- endbower -->
+    <link href="bower_components/ng-grid-panel/ng-grid-panel.min.css" rel="stylesheet" type="text/css">
+  <!-- endbuild -->
+  <!-- build:css({.tmp,client}) app/app.css -->
+  <link rel="stylesheet" href="app/app.css">
+    <!-- injector:css -->
+    <!-- endinjector -->
+  <!-- endbuild -->
+  <script>
+  if (window.require){
+    window.nodeRequire = window.require;
+    delete window.require;
+    delete window.exports;
+    delete window.module;  
+  }
+  </script>
+  
 </head>
-<body>
+<body  ng-class="{home: $state.includes('main')}">
     <!--[if lt IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-56733109-1', 'auto');
+        ga('send', 'pageview');
+      </script>
 
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    </script>
+    <div id="wrapper">
+      
+      <div id="content">
+        <div ui-view></div>
+      </div>
+      
+      <div id="area-cartoon" class="area-cartoon" ng-class="{active: showCartoon}"></div>
+      <div id="area-cartoon-hover" class="area-cartoon"></div>
 
-    <navbar></navbar>
-    <div ui-view=""></div>
-    <footer></footer>
+      <footer id="footer" class="dte-footer clearfix">
+        <div class="logo-pad"></div>
+        <div class="logo-ba"></div>
+        <div class="logo-dte"></div>
+      </footer>
+
+    </div>
+
+    <div id="aside-menu" pad-aside-menu></div>
+    
+    <a id="to-home" 
+       ui-sref="main"
+       ng-hide="$state.includes('main')"
+       class="ng-hide">
+     </a>
+    
+    <ul class="extra-tool">
+      <li ng-show="_mode==='desktop'">
+        <a id="to-info"  >
+          <i class="fa fa-sitemap fa-2x"></i>
+        </a>
+      </li>
+      <li>
+        <a id="to-search"
+         ui-sref="tangibles.buscar"
+         ng-hide="$state.includes('tangibles.buscar')"
+         class="ng-hide"><i class="fa fa-search fa-2x"></i>
+        </a>
+      </li>
+      <li ng-show="favoritosSupported">
+        <a id="to-favoritos" title="Mis pines" 
+         ui-sref="tangibles.favoritos"
+         ng-hide="$state.includes('tangibles.favoritos')"
+         class="ng-hide"><span class="badge"><i class="fa fa-thumb-tack"> <span ng-bind="favoritos.length"></span></span></i>
+        </a>
+      </li>
+    </ul>
+    
+    <div id="aside-area-menu" ng-hide="$state.includes('main')">
+      <div class="center-aside-area-menu"></div>
+      <div class="roulette-aside-area-menu"></div>
+    </div>
+    <div class="bg-lock" class="showing">
+      <div class="menu-roulette inactive" pad-menu-areas></div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,28 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+$pad-font-path: '/assets/fonts';
+$pad-img-path: '/assets/img';
+
+@import "compass";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+@import '../styles/00.variables.scss';
+@import '../styles/02.fonts.scss';
+@import '../styles/03.layout.scss';
+@import '../styles/05.menus.scss';
+@import '../styles/06.ilustrations.scss';
+@import '../styles/07.sections.scss';
+@import '../styles/08.panel.scss';

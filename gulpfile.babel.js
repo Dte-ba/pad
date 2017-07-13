@@ -27,7 +27,7 @@ const serverPath = 'server';
 const paths = {
     client: {
         assets: `${clientPath}/assets/**/*`,
-        images: `${clientPath}/assets/images/**/*`,
+        images: `${clientPath}/assets/img/**/*`,
         revManifest: `${clientPath}/assets/rev-manifest.json`,
         scripts: [
             `${clientPath}/**/!(*.spec|*.mock).js`
