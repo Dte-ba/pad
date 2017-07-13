@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <form class="form-horizontal" ng-submit="vm.search()">
+        <p></p>
+        <div class="row">
+          <div class="col-sm-2 text-right">
+            <a href="javascript:window.history.back()" class="go-back"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+          </div>
+          <div class="col-sm-8">
+            <div class="form-group">
+              <div class="input-group">
+                <input id="searchInput" class="form-control" type="search" delayed-model="vm.searchText" data-delay="500" autofocus>  
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- area legend -->
+      <div>
+        <ul class="legend text-center">
+          <li data-area="cn">
+            <a href="javascript:void(0)" 
+               title="Ciencias Naturales" ng-click="filter('Ciencias Naturales')">
+              <i class="fa fa-circle"></i> CN</li>
+            </a>
+          <li data-area="cs">
+            <a href="javascript:void(0)" 
+               title="Ciencias Sociales" ng-click="filter('Ciencias Sociales')">
+              <i class="fa fa-circle"></i> CS</li>
+            </a>
+          <li data-area="edar">
+            <a href="javascript:void(0)" 
+               title="Educación Artística" ng-click="filter('Educación Artística')">
+              <i class="fa fa-circle"></i> EA</li>
+            </a>
+          <li data-area="ef">
+            <a href="javascript:void(0)" 
+               title="Educación Física" ng-click="filter('Educación Física')">
+              <i class="fa fa-circle"></i> EF</li>
+            </a>
+          <li data-area="ing">
+            <a href="javascript:void(0)" 
+               title="Inglés" ng-click="filter('Inglés')">
+              <i class="fa fa-circle"></i> ING</li>
+            </a>
+          <li data-area="mat">
+            <a href="javascript:void(0)" 
+               title="Matemática" ng-click="filter('Matemática')">
+              <i class="fa fa-circle"></i> M</li>
+            </a>
+          <li data-area="pdl">
+            <a href="javascript:void(0)" 
+               title="Prácticas del Lenguaje" ng-click="filter('Prácticas del Lenguaje')">
+              <i class="fa fa-circle"></i> PDL</li>
+            </a>
+          <li data-area="pea">
+            <a href="javascript:void(0)" 
+               title="PAD en acción" ng-click="filter('PAD en acción')">
+              <i class="fa fa-circle"></i> PA</li>
+            </a>
+          <li data-area="cec">
+            <a href="javascript:void(0)" 
+               title="Centros Educativos Complementarios" ng-click="filter('Centros Educativos Complementarios')">
+              <i class="fa fa-circle"></i> CEC</li>
+            </a>
+          <li data-area="eoe">
+            <a href="javascript:void(0)" 
+               title="Equipos de Orientación Escolar" ng-click="filter('Equipos de Orientación Escolar')">
+              <i class="fa fa-circle"></i> EOE</li>
+            </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="tangibles-wrapper">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-info" role="alert" ng-show="vm.iniciando">
+          <p class="text-center"><i class="fa fa-spinner fa-pulse"></i> Preparando el contenido ...</p>
+        </div>
+      </div>
+    </div>
+    <div tangibles-scroller="vm.query" tangibles-take="vm.take"></div>
+  </div>
+</div>

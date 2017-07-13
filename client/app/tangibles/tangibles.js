@@ -1,14 +1,22 @@
 const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
-import routes from './tangibles.routes';
-import TangiblesDesignComponent from './tangibles-design/tangibles-design.component'
+import delayedModel from '../../components/delayedModel/delayedModel.directive';
 
-export default angular.module('padApp.tangibles', [uiRouter])
+import routes from './tangibles.routes';
+import TangiblesDesignComponent from './tangibles-design.component'
+import TangiblesSearchComponent from './tangibles-search.component'
+
+export default angular.module('padApp.tangibles', [uiRouter, delayedModel])
   .config(routes)
   .component('tangiblesDesign', {
-    template: require('./tangibles-design/tangibles-design.html'),
+    template: require('./tangibles-design.html'),
     controller: TangiblesDesignComponent,
+    controllerAs: 'vm'
+  })
+  .component('tangiblesSearch', {
+    template: require('./tangibles-search.html'),
+    controller: TangiblesSearchComponent,
     controllerAs: 'vm'
   })
   .name;

@@ -12,10 +12,10 @@ export default function($stateProvider) {
       url: '/diseño/:area/:axis/:block',
       template: '<tangibles-design></tangibles-design>'
     })
-    //.state('tangibles.buscar', {
-    //  url: '/buscar?texto?',
-    //  template: '<tangibles-search></tangibles-search>'
-    //})
+    .state('tangibles.buscar', {
+      url: '/buscar?texto?',
+      template: '<tangibles-search></tangibles-search>'
+    })
     //.state('tangibles.tag', {
     //  url: '/tag/:tag',
     //  template: '<tangibles-tag></tangibles-tag>'
