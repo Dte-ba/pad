@@ -1,25 +1,45 @@
-# pad
+# PAD 6.2.x
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 4.2.2.
+Entorno digital para la Plataforma de alfabetización digital utilizando [EPM](https://github.com/Dte-ba/epm) como kernel.
 
-## Getting Started
+## Online
 
-### Prerequisites
+Actualmente se encuentra la versión [online](http://contenidos.alfabetizaciondigital.abc.gov.ar/).
 
-- [Git](https://git-scm.com/)
-- [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
-- [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
+## Armá tu versión portable
 
-### Developing
+- Instalá [Node.js](https://nodejs.org/)
+- Instalá [Git](https://git-scm.com/)
+- Luego abrí una terminal y tipea
 
-1. Run `npm install` to install server dependencies.
+```
+npm install -g pad-cli
+```
 
-2. Run `gulp serve` to start the development server. It should automatically open the client in your browser when ready.
+- Accedé a la carpeta donde queres crear tus versiones
 
-## Build & development
+```
+cd /pad/portable
+```
 
-Run `gulp build` for building and `gulp serve` for preview.
+- Luego tipea y seguí los pasos
 
-## Testing
+```
+pad build
+```
 
-Running `npm test` will run the unit tests with karma.
+Para que incluya versiones BETA
+
+```
+pad build --beta
+```
+
+## Versiones Anteriores
+
+[pad 6.1.x](https://github.com/Dte-ba/pad-history).
+
+## LICENSE
+
+Copyright(c) 2013-2016 Dirección de Tecnología Educativa de Buenos Aires (Dte-ba)
+
+Distribuido bajo la licencia [GNU GPL v3](http://www.gnu.org/licenses/gpl-3.0.html
