@@ -1,0 +1,126 @@
+<div class="container container-nofound"  ng-show="vm.noTangible">
+  <div class="row" >
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+      <div class="alert alert-warning" role="alert">
+        <p class="text-center"><i class="fa fa-warning"></i> Error 404, no existe el contenido</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" ng-hide="vm.noTangible">
+  <div class="section-header">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h1 class="tangibles-current-section">
+          <a title="Volver" 
+            href="javascript:window.history.back()" 
+            class="go-back"><i class="fa fa-chevron-circle-left"></i>
+          </a>
+          <a ui-sref="design({area: tangible.content.area})" 
+             data-area="{{vm.tangible.sarea}}"
+             class="btn btn-info larea">
+            <i class="fa fa-caret-left"></i> {{vm.tangible.content.area}}
+          </a>
+          <a ui-sref="design({area: tangible.content.area, eje: tangible.content.axis})"
+             data-area="{{vm.tangible.sarea}}" class="btn btn-info laxis">
+            <i class="fa fa-caret-left"></i> {{vm.tangible.content.axis}}
+          </a>
+          <a ui-sref="tangibles.design({
+                    area: tangible.content.area,
+                    axis: tangible.content.axis, 
+                    block: tangible.content.block})"
+              data-area="{{vm.tangible.sarea}}" class="btn btn-info lblock"
+              ng-hide="tangible.content.blockSinEspecificar">
+          <i class="fa fa-caret-left" ></i> {{vm.tangible.content.block}}</a></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container tangible-content"  ng-hide="vm.noTangible">
+  <div class="tangible-header clearfix">
+    
+    <a href="/epm/dl/local/{{vm.tangible.uid}}" class="like pull-right" target="_blank"
+      data-toggle="tooltip" data-placement="top" title="Descargar Paquete">
+      <i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i>
+    </a>
+    <a href="javascript:void(0)" class="like pull-right" ng-click="vm.addFavoritos()" 
+      data-toggle="tooltip" data-placement="top" title="Agregar/Quitar de Mis pines">
+      <i ng-show="vm.tangible.like" class="fa fa-thumb-tack fa-2x"></i>
+      <i ng-hide="vm.tangible.like" class="fa fa-thumb-tack fa-2x unlike"></i>
+    </a>
+    <h3>{{vm.tangible.content.title}}</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 text-center">
+      <img class="text-center" style="max-width: 100%" 
+           ng-src="/epm/asset/local/{{vm.tangible.uid}}/cover/content"
+           alt="{{vm.tangible.title}}"/>
+    </div>
+    <div class="col-sm-6 tangible-body">
+      <h3><i class="fa fa-info-circle"></i> Ficha Técnica</h3>
+      <blockquote class="datasheet">
+        <p ng-bind-html="vm.tangible.content.content"></p>  
+        <footer>
+          <i class="fa fa-certificate"></i> {{vm.tangible.content.contentAuthor}} <cite id="source" title="Fuente"> <span ng-bind="vm.tangible.content.source" linkify></span></cite>
+        </footer>
+      </blockquote>
+      <div ng-show="vm.accedio">
+        <div class="alert alert-info" role="alert" ng-show="vm.tangible.hasObservations">
+          <p ><i class="fa fa-info"></i> {{vm.tangible.content.observations}}</p>
+        </div>
+        <div class="alert alert-warning" role="alert">
+          <p><i class="fa fa-warning"></i> Se abrirá una nueva pestaña, si su navegador no soporta el contenido el mismo será descargado a su equipo.</p>
+          <hr>
+          <a class="btn btn-primary" style="width: 100%;"
+           href="/epm/content/local/{{vm.tangible.uid}}" target="_blank">Aceptar</a>
+        </div>
+      </div>
+      <a class="btn btn-default btn-tangible" style="width: 100%;"
+         ng-hide="vm.accedio" ng-click="vm.accedio=true"
+         href="javascript:void(0)">Acceder al Contenido</a>
+    </div>
+    <div class="col-sm-12">
+      <hr>
+      <ul class="tangible-tags">
+        <li class="cloud text-center">
+          <i class="fa fa-tag"></i>
+        </li>
+        <li ng-repeat="tag in vm.tangible.content.tags">
+          <a ui-sref="tangibles.tag({tag: tag})">{{tag}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid"  ng-hide="vm.noTangible">
+  <div class="row" id="header-relations">
+    <div class="col-sm-12 text-center">
+      <p><a class="btn btn-default relacionado-first"
+            ng-click="vm.relFirst()"><i class="fa fa-tags"></i> Mostrar contenido relacionado</a></p>
+    </div>
+  </div>
+  <div ng-show="vm.showRel">
+    <div class="row">
+      <hr>
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <h3 class="relacionados text-center"><i class="fa fa-tags"></i> Paquete relacionados</h3>
+        <hr>
+        <!--<ng-include src="'app/templates/area-legend.html'"></ng-include>-->
+      </div>
+    </div>
+    <div class="tangibles-wrapper">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+          <div class="alert alert-info" role="alert" ng-show="vm.noResults">
+            <p class="text-center"><i class="fa fa-warning"></i> No hay resultados para mostrar</p>
+          </div>
+        </div>
+      </div>
+      <div tangibles-scroller="vm.query" tangibles-take="vm.take"></div>
+    </div>
+  </div>
+</div>

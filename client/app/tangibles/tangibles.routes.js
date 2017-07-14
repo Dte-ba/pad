@@ -16,16 +16,16 @@ export default function($stateProvider) {
       url: '/buscar?texto?',
       template: '<tangibles-search></tangibles-search>'
     })
-    //.state('tangibles.tag', {
-    //  url: '/tag/:tag',
-    //  template: '<tangibles-tag></tangibles-tag>'
-    //})
-    //.state('tangibles.favoritos', {
-    //  url: '/favoritos',
-    //  template: '<tangibles-favoritos></tangibles-favoritos>'
-    //})
-    //.state('tangibles.ver', {
-    //  url: '/ver/:uid',
-    //  template: '<tangibles-ver></tangibles-ver>'
-    //});
+    .state('tangibles.tag', {
+      url: '/tag/:tag',
+      template: '<tangibles-tag></tangibles-tag>'
+    })
+    .state('tangibles.favoritos', {
+      url: '/favoritos',
+      template: '<tangibles-favoritos></tangibles-favoritos>'
+    })
+    .state('tangibles.ver', {
+      url: '/ver/:uid',
+      template: '<tangibles-ver></tangibles-ver>'
+    });
 }

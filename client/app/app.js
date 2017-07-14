@@ -9,6 +9,7 @@ import ngSanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
 import LocalStorageModule from 'angular-local-storage';
 import ngLoader from 'angular-loading-bar';
+import angularLinkify from 'angular-linkify';
 
 import {
   routeConfig,
@@ -71,6 +72,7 @@ angular.module('padApp', [
   tangibleService,
   tangiblesService,
 
+  'linkify',
   'ngGridPanel'
 ])
  .config(routeConfig)

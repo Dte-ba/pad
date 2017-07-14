@@ -18,6 +18,9 @@ export function tangibleService($http, $rootScope, $q, AreaFactory, Favoritos) {
         .get(url)
         .then(function(response){
           let data = response.data;
+          if (!data){
+            return def.resolve(undefined);
+          }
           AreaFactory.addAlias(data);
           data.like = Favoritos.isFavorito(data.uid);
           data.content.block = AreaFactory.blockAlias(data.content.block);

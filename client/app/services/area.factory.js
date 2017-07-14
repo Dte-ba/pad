@@ -25,13 +25,13 @@ export function areaFactory() {
         _single['Prácticas del Lenguaje'] = 'Prácticas del Lenguaje';
         _single['Temas Transversales'] = 'Temas Transversales';
 
-        var _subarea = {};
+    var _subarea = {};
         _subarea['Ed. Artística - Plástica'] = 'Educación Artística';
         _subarea['Ed. Artística - Música'] = 'Educación Artística';
         _subarea['Ed. Artística - Danza'] = 'Educación Artística';
         _subarea['Ed. Artística - Teatro'] = 'Educación Artística';
 
-        var _alias ={};
+    var _alias ={};
         _alias['PAD en acción'] = 'pea';
         _alias['Herramientas Digitales'] = 'hd';
         _alias['Inglés'] = 'ing';
@@ -50,7 +50,7 @@ export function areaFactory() {
         _alias['Orientación PAD'] = 'op';
         _alias['Temas Transversales'] = 'tt';
 
-        var _query = {};
+    var _query = {};
         _query['PAD en acción'] = [{'content.area': 'PAD en acción'}];
         _query['Herramientas Digitales'] = [{'content.area': 'Herramientas Digitales'}];
         _query['Inglés'] = [{'content.area':'Inglés'}];
@@ -68,7 +68,7 @@ export function areaFactory() {
         _query['Orientación PAD'] = [{'content.area':'Orientación PAD'}];
         _query['Temas Transversales'] = [{'content.area':'Temas Transversales'}];
 
-        var _blockAlias = {};
+    var _blockAlias = {};
         _blockAlias['Contexto sociocultural (Ed.Ar. - Música - Materiales)'] = 'Contexto sociocultural';
         _blockAlias['Lenguaje (Ed.Ar. - Música - Materiales)'] = 'Lenguaje';
         _blockAlias['Producción (Ed.Ar. - Música - Materiales)'] = 'Producción';
@@ -99,7 +99,7 @@ export function areaFactory() {
         _blockAlias['Producción (Ed.Ar. - Danza - Discursos)'] = 'Producción';
         _blockAlias['Recepción (Ed.Ar. - Danza - Discursos)'] = 'Recepción';
 
-        var _inverseBlockAlias = {};
+    var _inverseBlockAlias = {};
         _inverseBlockAlias['Ed. Artística - MúsicaSala de DocentesSin Especificar'] = 'Sin Especificar';
         _inverseBlockAlias['Ed. Artística - MúsicaComposiciónProducción'] = 'Producción (Ed.Ar. - Música - Composición)';
         _inverseBlockAlias['Ed. Artística - MúsicaComposiciónContexto sociocultural'] = 'Contexto sociocultural (Ed.Ar. - Música - Composición)';
@@ -126,65 +126,65 @@ export function areaFactory() {
         _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalLenguaje'] = 'Lenguaje (Ed.Ar. - Danza - Discursos)';
         _inverseBlockAlias['Ed. Artística - DanzaLos discursos corporales y el contexto socio–culturalRecepción'] = 'Recepción (Ed.Ar. - Danza - Discursos)';
 
-        var single = function(area){
-          return _single[area];
-        };
+    var single = function(area){
+      return _single[area];
+    };
 
-        var alias = function(area){
-          return _alias[single(area)];
-        };
+    var alias = function(area){
+      return _alias[single(area)];
+    };
 
-        var subarea = function(area){
-          return _subarea[single(area)];
-        };
-        
-        var query = function(area){
-          return _query[single(area)];
-        };
+    var subarea = function(area){
+      return _subarea[single(area)];
+    };
+    
+    var query = function(area){
+      return _query[single(area)];
+    };
 
-        var addAlias = function(item){
-          if (item === undefined) {
-            return;
-          }
+    var addAlias = function(item){
+      if (!item) {
+        return;
+      }
 
-          var a = 'unknown';
-          if (item.hasOwnProperty('area')) {
-            a = item.area;
-          } else if(item.hasOwnProperty('content')) {
-            if(item.content.hasOwnProperty('area')) {
-              a = item.content.area;
-            }
-          }
+      var a = 'unknown';
+      if (item.hasOwnProperty('area')) {
+        a = item.area;
+      } else if(item.hasOwnProperty('content')) {
+        if(item.content.hasOwnProperty('area')) {
+          a = item.content.area;
+        }
+      }
 
-          item.sarea = alias(a);
-        };
+      item.sarea = alias(a);
+    };
 
-        var blockAlias = function(block){
-          var b = _blockAlias[block];
-          if (b !== undefined){
-            return b;
-          }
-          return block;
-        };
+    var blockAlias = function(block){
+      var b = _blockAlias[block];
+      if (b !== undefined){
+        return b;
+      }
+      return block;
+    };
 
-        var inverseBlockAlias = function(area, axis, block){
-          var b = _inverseBlockAlias[area+axis+block];
-          if (b !== undefined){
-            return b;
-          }
-          return block;
-        };
+    var inverseBlockAlias = function(area, axis, block){
+      var b = _inverseBlockAlias[area+axis+block];
+      if (b !== undefined){
+        return b;
+      }
+      return block;
+    };
 
-        return {
-          alias: alias,
-          subarea: subarea,
-          single: single,
-          normalize: single,
-          query: query,
-          addAlias: addAlias,
-          blockAlias: blockAlias,
-          inverseBlockAlias: inverseBlockAlias
-        };
+    return {
+      alias: alias,
+      subarea: subarea,
+      single: single,
+      normalize: single,
+      query: query,
+      addAlias: addAlias,
+      blockAlias: blockAlias,
+      inverseBlockAlias: inverseBlockAlias
+    };
 }
 
 export default angular.module('pad.areaFactory', [])

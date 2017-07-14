@@ -1,10 +1,12 @@
 'use strict';
-const angular = require('angular');
 
+import angular from 'angular';
+import _ from 'lodash';
 import tangiblesService from '../../app/services/tangibles.service';
 
 export default angular.module('padApp.tangiblesScroller', [tangiblesService])
-  .directive('tangiblesScroller', function(Tangibles) {
+  .directive('tangiblesScroller', (Tangibles) => {
+    'ngInject';
     return {
       template: require('./tangibles-scroller.html'),
       restrict: 'EA',
@@ -22,6 +24,20 @@ export default angular.module('padApp.tangiblesScroller', [tangiblesService])
         var _reload = function(){
           scope.busy = true;
 
+          if (_.keys(scope.query).length === 0){
+            scope.busy = false;
+            scope.noResults = true;
+            return;
+          }
+
+          if (scope.query.hasOwnProperty('text')){
+            if (!scope.query.text || scope.query.text === ''){
+              scope.busy = false;
+              scope.noResults = true;
+              return;
+            }
+          }
+          
           Tangibles
             // query, take, skip
             .queryp(scope.query, take, skip)
@@ -38,8 +54,8 @@ export default angular.module('padApp.tangiblesScroller', [tangiblesService])
             });
         };
 
-        scope.$watch('query', function(newVal, oldVal){
-          
+        scope.$watch(() => { return scope.query; }, function(newVal, oldVal){
+          console.log(newVal, oldVal);
           if (Object.equals(newVal, oldVal) === true){
             return;
           }
@@ -56,6 +72,8 @@ export default angular.module('padApp.tangiblesScroller', [tangiblesService])
           }
           _reload();
         };
+
+        _reload();
       }
     };
   })

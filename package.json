@@ -7,6 +7,7 @@
     "angular-animate": "~1.6.0",
     "angular-aria": "~1.6.0",
     "angular-cookies": "~1.6.0",
+    "angular-linkify": "^2.0.0",
     "angular-loading-bar": "^0.9.0",
     "angular-local-storage": "^0.6.0",
     "angular-resource": "~1.6.0",

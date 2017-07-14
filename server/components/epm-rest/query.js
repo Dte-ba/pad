@@ -24,7 +24,9 @@ var transformQuery = function(part){
     } else if (key === '$regex') {
       q[key] = new RegExp(value, 'ig');
     } else {
-      q[key] = value;
+      if (key !== 'text'){
+        q[key] = value;
+      }
     }
 
   });

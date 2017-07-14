@@ -17,16 +17,20 @@ export default class TangiblesSearchComponent {
 
     this.trimTexto = _.trim(this.texto);
     this.iniciando = true;
-    this.query = {};
+    this.query = { text: '' };
+
+     this.realTimeSearch = false;
   }
 
   $onInit(){
     this.$timeout(() => {
       //_search();
 
-      this.$scope.$watch(() => { return this.searchText; }, () => {
-        this._search();
-      });
+      if (this.realTimeSearch){
+        this.$scope.$watch(() => { return this.searchText; }, () => {
+          this._search();
+        });
+      }
 
       this.iniciando = false;
       $('#searchInput').focus();
@@ -34,16 +38,14 @@ export default class TangiblesSearchComponent {
   }
 
   _search(){
-    if (this.searchText === undefined) {
-      return;
-    }
-    /*if (this.searchText === trimTexto) {
-      return;
-    }*/
-    //this.$state.go('tangibles.buscar', {texto: this.searchText });
     this.$stateParams['texto'] = this.searchText;
     this.$state.params['texto'] = this.searchText;
+    
+    this.$state.current.reloadOnSearch = false;
     this.$location.search('texto', this.searchText);
+    this.$timeout(() => {
+      this.$state.current.reloadOnSearch = undefined;
+    });
 
     this._realseSearch(this.searchText);
   }
@@ -54,9 +56,10 @@ export default class TangiblesSearchComponent {
 
   _realseSearch(target){
     this.trimTexto = _.trim(target);
-    var texto = _.escapeRegExp(this.trimTexto);
+    let texto = _.escapeRegExp(this.trimTexto);
 
-    this.query = { 
+    this.query = {
+      text: texto,
       $or: [
         { 'content.tags': { $regex: texto.scapeRegex() } },
         { 'content.content': { $regex: texto.scapeRegex() } },

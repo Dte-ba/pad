@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="section-tagibles-header">
+    <div class="row">
+      <div class="col-sm-2 text-right">
+        <div style="margin-top: 18px">
+          <a href="javascript:window.history.back()" 
+             class="go-back"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+         </div>        
+      </div>
+      <div class="col-sm-8 col-md-8 col-lg-10">
+        <h1>Resultados para el Tag: {{vm.tag}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="tangibles-wrapper">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-info" role="alert" ng-show="vm.iniciando">
+          <p class="text-center"><i class="fa fa-spinner fa-pulse"></i> Preparando el contenido ...</p>
+        </div>
+      </div>
+    </div>
+    <div tangibles-scroller="vm.query" tangibles-take="vm.take"></div>
+  </div>
+</div>
