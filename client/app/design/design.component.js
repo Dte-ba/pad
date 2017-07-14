@@ -52,6 +52,10 @@ export class DesignComponent {
 
             // set the area axis
             this.axisCollection = a.axis;
+            this.axisCollection = _.map(this.axisCollection, a => {
+              a.area = this.titleArea;
+              return a;
+            });
           } else {
             this.areaCollection = data.subareas;
             this.areaCollection = _.map(this.areaCollection, a => {
@@ -66,12 +70,11 @@ export class DesignComponent {
           this.axis = this.subarea;
           // set the currents axis
           this.axisCollection = data.axis;
+          this.axisCollection = _.map(this.axisCollection, a => {
+            a.area = this.target;
+            return a;
+          });
         }
-
-        this.axisCollection = _.map(this.axisCollection, a => {
-          a.area = this.target;
-          return a;
-        });
         
         this.createMeta();
 

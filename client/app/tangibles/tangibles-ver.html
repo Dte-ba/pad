@@ -17,19 +17,19 @@
             href="javascript:window.history.back()" 
             class="go-back"><i class="fa fa-chevron-circle-left"></i>
           </a>
-          <a ui-sref="design({area: tangible.content.area})" 
+          <a ui-sref="design({area: vm.tangible.content.area})" 
              data-area="{{vm.tangible.sarea}}"
              class="btn btn-info larea">
             <i class="fa fa-caret-left"></i> {{vm.tangible.content.area}}
           </a>
-          <a ui-sref="design({area: tangible.content.area, eje: tangible.content.axis})"
+          <a ui-sref="design({area: vm.tangible.content.area, eje: vm.tangible.content.axis})"
              data-area="{{vm.tangible.sarea}}" class="btn btn-info laxis">
             <i class="fa fa-caret-left"></i> {{vm.tangible.content.axis}}
           </a>
           <a ui-sref="tangibles.design({
-                    area: tangible.content.area,
-                    axis: tangible.content.axis, 
-                    block: tangible.content.block})"
+                    area: vm.tangible.content.area,
+                    axis: vm.tangible.content.axis, 
+                    block: vm.tangible.content.block})"
               data-area="{{vm.tangible.sarea}}" class="btn btn-info lblock"
               ng-hide="tangible.content.blockSinEspecificar">
           <i class="fa fa-caret-left" ></i> {{vm.tangible.content.block}}</a></h1>

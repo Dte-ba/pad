@@ -11,19 +11,19 @@ export class PadAsideMenu {
   $onInit(){
     // configure
     $('a[data-toggle="tooltip"]').tooltip();
-      this.elem.bind('click', () => {
-        this.elem.toggleClass('active');
-        event.stopPropagation();
-      });
+    this.elem.click((event) => {
+      this.elem.toggleClass('active');
+      event.stopPropagation();
+    });
 
-      angular
-        .element(window.document)
-        .bind('click', () => {
-        
-        if (this.elem.hasClass('active')) {
-          this.elem.removeClass('active');
-        }
-      });
+    angular
+      .element(window.document)
+      .bind('click', () => {
+      
+      if (this.elem.hasClass('active')) {
+        this.elem.removeClass('active');
+      }
+    });
   }
 }
 

@@ -55,7 +55,7 @@ export default angular.module('padApp.tangiblesScroller', [tangiblesService])
         };
 
         scope.$watch(() => { return scope.query; }, function(newVal, oldVal){
-          console.log(newVal, oldVal);
+
           if (Object.equals(newVal, oldVal) === true){
             return;
           }

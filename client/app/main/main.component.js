@@ -4,8 +4,6 @@ import routing from './main.routes';
 
 export class MainController {
 
-  awesomeThings = [];
-
   /*@ngInject*/
   constructor($http) {
     this.$http = $http;

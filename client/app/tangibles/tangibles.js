@@ -1,7 +1,7 @@
 const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
-import delayedModel from '../../components/delayedModel/delayedModel.directive';
+import delayedModel from '../../components/delayed-model/delayed-model.directive';
 
 import routes from './tangibles.routes';
 import TangiblesDesignComponent from './tangibles-design.component'

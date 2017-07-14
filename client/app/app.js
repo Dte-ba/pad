@@ -24,8 +24,9 @@ import contacto from './contacto/contacto.component';
 import tangibles from './tangibles/tangibles';
 
 // directives
-import tangiblesScroller from '../components/tangiblesScroller/tangiblesScroller.directive';
-import pinPreload from '../components/pinPreload/pinPreload.directive';
+import tangiblesScroller from '../components/tangibles-scroller/tangibles-scroller.directive';
+import pinPreload from '../components/pin-preload/pin-preload.directive';
+import padMenuAreas from '../components/pad-menu-areas/pad-menu-areas.directive';
 
 import constants from './app.constants';
 import util from '../components/util/util.module';
@@ -59,6 +60,7 @@ angular.module('padApp', [
 
   tangiblesScroller,
   pinPreload,
+  padMenuAreas,
 
   constants, 
   util,
