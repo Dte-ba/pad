@@ -12,23 +12,7 @@ var design = {};
 design.manager = require('./manager');
 
 var getAreas = function(cb){
-  var filename = path.join(__dirname, 'areas.json');
-
-  fs.exists(filename, function(exists){
-    
-    if (exists) {
-      fs.readFile(filename, 'utf-8', function(err, content){
-        if (err) { return cb && cb(err); }
-        
-        var areas = JSON.parse(content).areas;
-
-        cb (null, areas);
-      });
-    } else {
-      cb(null, []);
-    }
-
-  });
+  return cb(null, require('./areas.json'))
 };
 
 design.encuadres = function(cb){
