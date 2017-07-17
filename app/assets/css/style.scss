@@ -1,0 +1,170 @@
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height: 100%;
+}
+
+body {
+  background: $pad-cream-color url('../img/texture_triangles30.png') repeat;
+}
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+  background: url('../img/personajes_asset.png') no-repeat;
+  background-position: bottom 43px center;
+}
+
+#content {
+  padding-bottom: $footer-height + 15px; /* Height of the footer element */
+}
+
+#footer {
+  background: #232425;
+  width:100%;
+  height: $footer-height;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+.dte-footer .logo-dte {
+  float: left;
+  height: $footer-height;
+  width: 225px;
+  background: url('../img/logo-dte.png') center center no-repeat;
+  margin-left: 5%;
+}
+
+.dte-footer .logo-pad {
+  float: right;
+  height: $footer-height;
+  width: 186px;
+  background: url('../img/logo_pad_footer.png') center center no-repeat;
+  margin-right: 2%;
+}
+
+.dte-footer .logo-ba {
+  float: right;
+  height: $footer-height;
+  width: 151px;
+  background: url('../img/logo-ba.png') center center no-repeat;
+  margin-right: 5%;
+}
+
+.footer-divider {
+  height: 40px;
+}
+
+#init-screen {
+  padding-top: 10%;
+}
+
+.area-cartoon {
+  bottom: $footer-height;
+  height: 226px;
+  width: 100%;
+  position: absolute;
+  z-index: 10002;
+
+  img {
+    position:absolute;
+    bottom: 0;
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Patua One';
+  font-size: 90px;
+  color: $black-color;
+}
+
+#progreso {
+  background-color: $ba-color;
+}
+
+#textProgress {
+  font-family: 'Comfortaa Light';
+  font-size: 18px;
+}
+
+.portable {
+  margin-top: 2%;
+  background-color: #29aae3;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  padding-left: 90px !important;
+  padding-right: 90px !important;
+
+  h1 {
+    font-family: 'Patua One';
+    font-size: 58px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px;
+    small {
+      font-size: 44px;
+      font-family: 'Comfortaa Light';
+      color: white;
+      text-transform: none;
+    }
+  }
+
+  p.contenido {
+    border-radius: 6px;
+    font-family: 'Comfortaa Regular';
+    font-size: 28px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+
+  p.tip {
+    font-family: 'Comfortaa Light';
+    font-size: 22px;
+    color: white;
+    margin-bottom: 7px;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Comfortaa Bold';
+    }
+
+    i {
+      color: #6EEA6E;
+      margin-right: 15px;
+    }
+  }
+
+  .importante {
+    border-radius: 6px;
+    border: solid 1px #94d5f1;
+    margin-top: 25px;
+    
+    i {
+      margin-top: 18px;
+      color: #6EEA6E;
+    }
+    h3, p {
+      text-transform: uppercase;
+      color: white;
+    }
+  
+    h3 {
+      margin: 0px;
+      margin-top: 15px;
+      font-family: 'Patua One';
+      font-size: 16px;  
+    }
+
+    p {
+      font-family: 'Comfortaa Light';
+      font-size: 14px;
+    }
+  }
+}

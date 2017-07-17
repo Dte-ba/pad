@@ -18,6 +18,7 @@ import {protractor, webdriver_update} from 'gulp-protractor';
 import {Instrumenter} from 'isparta';
 import webpack from 'webpack-stream';
 import makeWebpackConfig from './webpack.make';
+import sass from 'gulp-sass';
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -44,7 +45,7 @@ const paths = {
           `${serverPath}/**/!(*.spec|*.integration).js`,
           `!${serverPath}/config/local.env.sample.js`
         ],
-        json: [`${serverPath}/**/*.json`],
+        //json: [`${serverPath}/**/*.json`],
         test: {
           integration: [`${serverPath}/**/*.integration.js`, 'mocha.global.js'],
           unit: [`${serverPath}/**/*.spec.js`, 'mocha.global.js']
@@ -187,6 +188,20 @@ gulp.task('env:prod', () => {
 /********************
  * Tasks
  ********************/
+
+gulp.task('nw:scss', cb => {
+  return gulp.src('./app/assets/css/app.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/assets/css'));
+});
+
+gulp.task('nw:watch', cb => {
+  return plugins.watch('./app/assets/css/*.scss', ['nw:scss']);
+});
+
+gulp.task('nw', cb => {
+  runSequence(['nw:scss', 'nw:watch'], cb);
+});
 
 gulp.task('inject', cb => {
     runSequence(['inject:scss'], cb);
@@ -460,9 +475,9 @@ gulp.task('build', cb => {
         ],
         'inject',
         'transpile:server',
-        [
-            'build:images'
-        ],
+        //[
+        //    'build:images'
+        //],
         [
             'copy:extras',
             'copy:assets',

@@ -1,0 +1,273 @@
+@font-face {
+  font-family: "concert_oneregular";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/concertone-regular-webfont.eot?1442512560") format("embedded-opentype"), url("../fonts/concertone-regular-webfont.woff?1442512560") format("woff"), url("../fonts/concertone-regular-webfont.ttf?1442512560") format("truetype"), url("../fonts/concertone-regular-webfont.svg?1442512560") format("svg");
+  font-weight: "normal";
+  font-style: "normal"; }
+
+@font-face {
+  font-family: "Patua One";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/PatuaOne-Regular.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+
+@font-face {
+  font-family: "Comfortaa Bold";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Bold.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+
+@font-face {
+  font-family: "Comfortaa Light";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Light.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+
+@font-face {
+  font-family: "Comfortaa Regular";
+  src: url("../fonts/?1442512560");
+  src: url("../fonts/?&1442512560#iefix") format("embedded-opentype"), url("../fonts/Comfortaa-Regular.ttf?1442512560") format("truetype");
+  font-weight: "normal";
+  font-style: "normal"; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+body {
+  background: #f3eddd url("/assets/img/texture_triangles30.png") repeat; }
+
+#wrapper {
+  min-height: 100%;
+  position: relative; }
+
+#content {
+  padding-bottom: 60px;
+  /* Height of the footer element */ }
+
+#footer {
+  background: #232425;
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.dte-footer .logo-dte {
+  float: right;
+  height: 45px;
+  width: 225px;
+  background: url("/assets/img/logo-dte.png") center center no-repeat;
+  margin-right: 2%; }
+
+.dte-footer .logo-pad {
+  float: left;
+  height: 45px;
+  width: 181px;
+  background: url("/assets/img/logo_pad_footer.png") center center no-repeat;
+  margin-left: 5%; }
+
+.dte-footer .logo-ba {
+  float: right;
+  height: 45px;
+  width: 151px;
+  background: url("/assets/img/logo-ba.png") center center no-repeat;
+  margin-right: 5%; }
+
+.footer-divider {
+  height: 40px; }
+
+#to-home {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background: url("/assets/img/home_btn.png") center center no-repeat;
+  top: 10px;
+  left: 10px; }
+
+.extra-tool {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px; }
+  .extra-tool li {
+    display: inline-block;
+    margin-right: 7px;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle; }
+    .extra-tool li a {
+      display: block; }
+      .extra-tool li a span.badge {
+        background-color: #242526; }
+
+#to-search {
+  color: #242526;
+  text-decoration: none; }
+  #to-search:hover, #to-search:focus {
+    color: #242526; }
+
+#to-info {
+  color: #242526;
+  text-decoration: none;
+  cursor: pointer; }
+  #to-info:hover, #to-info:focus {
+    color: #242526; }
+
+#to-favoritos {
+  color: #242526;
+  text-decoration: none; }
+  #to-favoritos:hover, #to-favoritos:focus {
+    color: #242526; }
+
+.ng-hide {
+  visibility: hidden; }
+
+.go-back {
+  text-decoration: none;
+  color: #242526;
+  margin-right: 7px;
+  padding-top: 3px; }
+  .go-back:hover, .go-back:focus {
+    color: #242526; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+body {
+  background: #f3eddd url("../img/texture_triangles30.png") repeat; }
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  background: url("../img/personajes_asset.png") no-repeat;
+  background-position: bottom 43px center; }
+
+#content {
+  padding-bottom: 60px;
+  /* Height of the footer element */ }
+
+#footer {
+  background: #232425;
+  width: 100%;
+  height: 45px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.dte-footer .logo-dte {
+  float: left;
+  height: 45px;
+  width: 225px;
+  background: url("../img/logo-dte.png") center center no-repeat;
+  margin-left: 5%; }
+
+.dte-footer .logo-pad {
+  float: right;
+  height: 45px;
+  width: 186px;
+  background: url("../img/logo_pad_footer.png") center center no-repeat;
+  margin-right: 2%; }
+
+.dte-footer .logo-ba {
+  float: right;
+  height: 45px;
+  width: 151px;
+  background: url("../img/logo-ba.png") center center no-repeat;
+  margin-right: 5%; }
+
+.footer-divider {
+  height: 40px; }
+
+#init-screen {
+  padding-top: 10%; }
+
+.area-cartoon {
+  bottom: 45px;
+  height: 226px;
+  width: 100%;
+  position: absolute;
+  z-index: 10002; }
+  .area-cartoon img {
+    position: absolute;
+    bottom: 0; }
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Patua One';
+  font-size: 90px;
+  color: #242526; }
+
+#progreso {
+  background-color: #80a424; }
+
+#textProgress {
+  font-family: 'Comfortaa Light';
+  font-size: 18px; }
+
+.portable {
+  margin-top: 2%;
+  background-color: #29aae3;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  padding-left: 90px !important;
+  padding-right: 90px !important; }
+  .portable h1 {
+    font-family: 'Patua One';
+    font-size: 58px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px; }
+    .portable h1 small {
+      font-size: 44px;
+      font-family: 'Comfortaa Light';
+      color: white;
+      text-transform: none; }
+  .portable p.contenido {
+    border-radius: 6px;
+    font-family: 'Comfortaa Regular';
+    font-size: 28px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-bottom: 25px; }
+  .portable p.tip {
+    font-family: 'Comfortaa Light';
+    font-size: 22px;
+    color: white;
+    margin-bottom: 7px; }
+    .portable p.tip a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Comfortaa Bold'; }
+    .portable p.tip i {
+      color: #6EEA6E;
+      margin-right: 15px; }
+  .portable .importante {
+    border-radius: 6px;
+    border: solid 1px #94d5f1;
+    margin-top: 25px; }
+    .portable .importante i {
+      margin-top: 18px;
+      color: #6EEA6E; }
+    .portable .importante h3, .portable .importante p {
+      text-transform: uppercase;
+      color: white; }
+    .portable .importante h3 {
+      margin: 0px;
+      margin-top: 15px;
+      font-family: 'Patua One';
+      font-size: 16px; }
+    .portable .importante p {
+      font-family: 'Comfortaa Light';
+      font-size: 14px; }

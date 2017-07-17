@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenidos | PAD</title>
+    
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    
+    <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      
+      <div id="content">
+
+        <div id="init-screen" style="display: none">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1">
+                <h1 class="text-center">Bienvenidos</h1>
+                <p>
+                  <div class="progress">
+                    <div id="progreso" class="progress-bar progress-bar-striped" 
+                         role="progressbar" aria-valuenow="0" 
+                         aria-valuemin="0" aria-valuemax="100" 
+                         style="width: 0%;">
+                    </div>
+                  </div>
+                </p>
+                <p id="textProgress" class="text-center"></p>
+                <p class="text-center"><small id="repositoryPath"></small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--<div class="container">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div id="errorMsg" class="alert alert-danger" role="alert" style="display: none">Oops!! Error inesperado</div>
+
+              <div id="giveMeRepository"
+                   class="alert alert-info text-center"
+                   role="alert"  style="display: none; font-size: 130%"><i class="fa fa-warning"></i> Carpeta de contenido no definida, <a id="selectDirectory" href="">seleccionar ..</a></div>
+              <input id="folder_dialog_input" type="file" nwdirectory value=""  style="display: none; font-size: 130%">
+            </div>
+          </div>
+        </div>-->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 jumbotron portable">
+              <h1><small>Estás en tu</small><br /> Versión Portable</h1>
+              
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                  <p class="contenido"><i class="fa fa-chevron-right"></i> Tu pad se encuentra sin contenido</p>    
+                </div>
+              </div>
+
+              <p class="tip"><i class="fa fa-cloud-download"></i> Podés descargar tus recursos <a href="http://dte.abc.gov.ar/padweb/descarga">acá</a></p>
+              <p class="tip"><i class="fa fa-folder"></i>  Luego guardalos en la carpeta <strong>"Contenidos pad"</strong></p>
+
+              <div class="row importante">
+                <div class="col-sm-1 text-right">
+                  <i class="fa fa-info-circle fa-2x"></i> 
+                </div>
+                <div class="col-sm-11">
+                  <h3>Importante</h3>
+                  <p>Para que tu pad funcione correctamente ubicá la carpeta del pad portable en <strong>"documentos"</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--<div id="area-cartoon" class="area-cartoon text-center">
+        <img src="assets/img/personajes_asset.png" alt="" class="img-responsive">
+      </div>-->
+      
+      <footer id="footer" class="dte-footer clearfix">
+        <div class="logo-dte"></div>
+        <div class="logo-ba"></div>
+        <div class="logo-pad"></div>
+      </footer>
+
+    </div>
+    
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
