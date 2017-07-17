@@ -37,6 +37,7 @@
     "method-override": "^2.3.5",
     "morgan": "^1.8.0",
     "ng-grid-panel": "git+https://github.com/Dte-ba/ng-grid-panel.git",
+    "ng-infinite-scroll": "^1.3.0",
     "osenv": "^0.1.4",
     "serve-favicon": "^2.3.0",
     "serve-index": "^1.9.0",

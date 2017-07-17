@@ -10,6 +10,7 @@ import uiRouter from 'angular-ui-router';
 import LocalStorageModule from 'angular-local-storage';
 import ngLoader from 'angular-loading-bar';
 import angularLinkify from 'angular-linkify';
+import ngInfiniteScroll from 'ng-infinite-scroll';
 
 import {
   routeConfig,
@@ -74,6 +75,7 @@ angular.module('padApp', [
   tangibleService,
   tangiblesService,
 
+  ngInfiniteScroll,
   'linkify',
   'ngGridPanel'
 ])
