@@ -222,7 +222,7 @@ module.exports = function(router){
 
       var idxhtml = ihtml.length > 0 ? ihtml[0] : undefined;
 
-      if ( idxhtml === undefined){
+      if ( idxhtml !== undefined){
         // index.html doesn't exists 
         // any html
         idxhtml = (htmls.length > 0 ? htmls[0] : undefined);
@@ -285,11 +285,11 @@ module.exports = function(router){
 
         curr = sdirs[0][idx];
 
-        var have = _.all(sdirs, haveFunc);
+        var have = _.every(sdirs, haveFunc);
 
         eq = have;
         if (have === true){
-          eq = _.all(sdirs.map(eqmapFunc), eqFunc);
+          eq = _.every(sdirs.map(eqmapFunc), eqFunc);
         }
 
         if(eq) {
