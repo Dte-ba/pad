@@ -64,17 +64,17 @@
       <blockquote class="datasheet">
         <p ng-bind-html="vm.tangible.content.content"></p>  
         <footer>
-          <i class="fa fa-certificate"></i> {{vm.tangible.content.contentAuthor}} <cite id="source" title="Fuente"> <span ng-bind="vm.tangible.content.source" linkify></span></cite>
+          <i class="fa fa-certificate"></i> {{vm.tangible.content.contentAuthor}} <cite id="source" title="Fuente"> <span ng-bind-html="vm.tangible.content.source | linky"></span></cite>
         </footer>
       </blockquote>
       <div ng-show="vm.accedio">
-        <div class="alert alert-info" role="alert" ng-show="vm.tangible.hasObservations">
+        <!--<div class="alert alert-info" role="alert" ng-show="vm.tangible.hasObservations">
           <p ><i class="fa fa-info"></i> {{vm.tangible.content.observations}}</p>
-        </div>
-        <div class="alert alert-warning" role="alert">
-          <p><i class="fa fa-warning"></i> Se abrirá una nueva pestaña, si su navegador no soporta el contenido el mismo será descargado a su equipo.</p>
-          <hr>
-          <a class="btn btn-primary" style="width: 100%;"
+        </div>-->
+        <div class="alert alert-gray" role="alert">
+          <p><span ng-bind-html="vm.tangible.content.observations | linky"></span></p>
+          <p>Se abrirá una nueva pestaña, si su navegador no soporta el contenido el mismo será descargado a su equipo.</p>
+          <a class="btn btn-primary btn-download" style="width: 100%;"
            href="/epm/content/local/{{vm.tangible.uid}}" target="_blank">Aceptar</a>
         </div>
       </div>

@@ -136,3 +136,21 @@ ul.legend {
     color: map-get($key, fcolor);
   }
 }
+
+.btn-download {
+  margin-top: 15px;
+}
+
+.alert-gray {
+    background-color: #eee;
+    border-color: #eee;
+    color: gray;
+
+    a {
+      color: gray !important;      
+    }
+
+    .btn {
+      color: white !important;
+    }
+}
