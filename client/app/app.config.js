@@ -1,5 +1,7 @@
 'use strict';
 
+import $ from 'jquery';
+
 export function routeConfig($urlRouterProvider, $locationProvider, seoServiceProvider, localStorageServiceProvider) {
   'ngInject';
 
@@ -17,7 +19,7 @@ export function routeConfig($urlRouterProvider, $locationProvider, seoServicePro
   });
 }
 
-export function appRun($rootScope, $state, $stateParams, localStorageService) {
+export function appRun($rootScope, $state, $location, $stateParams, localStorageService) {
   'ngInject';
 
   $rootScope.$state = $state;
@@ -26,6 +28,33 @@ export function appRun($rootScope, $state, $stateParams, localStorageService) {
   $rootScope.repository = 'local';
   $rootScope.favoritos = [];
   $rootScope.favoritosSupported = localStorageService.isSupported;
+
+  $rootScope._localip = $rootScope._localip || $location.$$search.ip;
+  $rootScope._mode = $rootScope._mode || $location.$$search.mode;
+  $rootScope._port = $rootScope._port || $location.$$search.port;
+
+  var html = '<div class="text-center"><strong>Tu PAD en Red</strong></div>' + 
+             '<div class="text-center">Tus estudiantes pueden acceder en su navegador desde</div>' + 
+             '<div class="text-center"><strong>http://'+$rootScope._localip+':'+ $rootScope._port+'</strong></div>';
+
+  if ($rootScope._localip === '127.0.0.1'){
+    html = '<div class="text-center"><strong>Tu PAD en Red</strong></div>' + 
+           '<div class="text-center">Al parecer no estas conectado a una red</div>';
+  }
+    
+  $('document').ready(function(){
+    $('#to-info').popover({
+      placement: 'bottom',
+      html: true,
+      content: html,
+      show: 0, 
+      hide: 200
+    });
+
+    $('#to-info').click(function(){
+      //$(this).popover('toggle');
+    });
+  });
   
   if (localStorageService.isSupported) {
     var fav = localStorageService.get('favoritos');

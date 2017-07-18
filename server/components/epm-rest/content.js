@@ -6,7 +6,6 @@ var serveIndex = require('serve-index');
 var mime = require('mime');
 var path = require('path');
 var _ = require('lodash');
-var open = require('open');
 
 var Log = require('log')
   , log = new Log('info');

@@ -5,8 +5,9 @@ import routing from './main.routes';
 export class MainController {
 
   /*@ngInject*/
-  constructor($http) {
+  constructor($http, $rootScope) {
     this.$http = $http;
+    console.log($rootScope);
   }
 
   $onInit() {

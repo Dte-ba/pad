@@ -15,6 +15,7 @@ process.env.PAD_MODE = 'desktop';
 var rootPath = process.cwd();
 
 if (process.env.NODE_ENV === 'development') {
+  require('babel-register');
   win.showDevTools();
   rootPath = path.join(process.cwd(), '/../dist/');
 }
@@ -78,7 +79,8 @@ function start(document) {
       if (console) {
         console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
       }
-      win.window.location.href = 'http://localhost:'+pad.config.port+'/?mode=desktop&ip='+encodeURIComponent(localip)+'&port='+pad.config.port;
+      var uri = 'http://localhost:'+pad.config.port+'/?mode=desktop&ip='+encodeURIComponent(localip)+'&port='+pad.config.port;
+      win.window.location.href = uri;
     });
   }
 

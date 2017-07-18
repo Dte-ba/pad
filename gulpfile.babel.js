@@ -19,6 +19,7 @@ import {Instrumenter} from 'isparta';
 import webpack from 'webpack-stream';
 import makeWebpackConfig from './webpack.make';
 import sass from 'gulp-sass';
+import bump from 'gulp-bump';
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -45,7 +46,7 @@ const paths = {
           `${serverPath}/**/!(*.spec|*.integration).js`,
           `!${serverPath}/config/local.env.sample.js`
         ],
-        //json: [`${serverPath}/**/*.json`],
+        json: [`${serverPath}/**/*.json`],
         test: {
           integration: [`${serverPath}/**/*.integration.js`, 'mocha.global.js'],
           unit: [`${serverPath}/**/*.spec.js`, 'mocha.global.js']
@@ -126,7 +127,7 @@ let lintServerTestScripts = lazypipe()
     .pipe(plugins.eslint.format);
 
 let transpileServer = lazypipe()
-    .pipe(plugins.sourcemaps.init)
+    //.pipe(plugins.sourcemaps.init)
     .pipe(plugins.babel, {
         plugins: [
             'transform-class-properties',
@@ -264,7 +265,7 @@ gulp.task('styles', () => {
 });
 
 gulp.task('transpile:server', () => {
-    return gulp.src(_.union(paths.server.scripts, paths.server.json))
+    return gulp.src(_.union(paths.server.scripts/*, paths.server.json*/))
         .pipe(transpileServer())
         .pipe(gulp.dest(`${paths.dist}/${serverPath}`));
 });
@@ -475,15 +476,16 @@ gulp.task('build', cb => {
         ],
         'inject',
         'transpile:server',
-        //[
-        //    'build:images'
-        //],
+        [
+            'build:images'
+        ],
         [
             'copy:extras',
             'copy:assets',
             'copy:fonts:dist',
             'copy:server',
-            'webpack:dist'
+            'webpack:dist',
+            'bump'
         ],
         'revReplaceWebpack',
         cb);
@@ -492,20 +494,23 @@ gulp.task('build', cb => {
 gulp.task('clean:dist', () => del([`${paths.dist}/!(.git*|.openshift|Procfile)**`], {dot: true}));
 
 gulp.task('build:images', () => {
-    return gulp.src(paths.client.images)
-        .pipe(plugins.imagemin([
-            plugins.imagemin.optipng({optimizationLevel: 5}),
-            plugins.imagemin.jpegtran({progressive: true}),
-            plugins.imagemin.gifsicle({interlaced: true}),
-            plugins.imagemin.svgo({plugins: [{removeViewBox: false}]})
-        ]))
-        .pipe(plugins.rev())
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
-        .pipe(plugins.rev.manifest(`${paths.dist}/${paths.client.revManifest}`, {
-            base: `${paths.dist}/${clientPath}/assets`,
-            merge: true
-        }))
-        .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets`));
+    return gulp.src(paths.client.images, {cwdbase: true})
+        .pipe(gulp.dest(paths.dist));
+
+    //return gulp.src(paths.client.images)
+    //    .pipe(plugins.imagemin([
+    //        plugins.imagemin.optipng({optimizationLevel: 5}),
+    //        plugins.imagemin.jpegtran({progressive: true}),
+    //        plugins.imagemin.gifsicle({interlaced: true}),
+    //        plugins.imagemin.svgo({plugins: [{removeViewBox: false}]})
+    //    ]))
+    //    .pipe(plugins.rev())
+    //    .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/img`))
+    //    .pipe(plugins.rev.manifest(`${paths.dist}/${paths.client.revManifest}`, {
+    //        base: `${paths.dist}/${clientPath}/assets`,
+    //        merge: true
+    //    }))
+    //    .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets`));
 });
 
 gulp.task('revReplaceWebpack', function() {
@@ -558,10 +563,14 @@ gulp.task('copy:assets', () => {
 });
 
 gulp.task('copy:server', () => {
-    return gulp.src([
-        'package.json'
-    ], {cwdbase: true})
+    return gulp.src( _.union(['package.json'], paths.server.json), {cwdbase: true})
         .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('bump', function(){
+  gulp.src('package.json')
+  .pipe(bump())
+  .pipe(gulp.dest('./'));
 });
 
 /********************
