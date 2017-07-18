@@ -19,7 +19,7 @@ export function routeConfig($urlRouterProvider, $locationProvider, seoServicePro
   });
 }
 
-export function appRun($rootScope, $state, $location, $stateParams, localStorageService) {
+export function appRun($http, $rootScope, $state, $location, $stateParams, localStorageService) {
   'ngInject';
 
   $rootScope.$state = $state;
@@ -54,6 +54,17 @@ export function appRun($rootScope, $state, $location, $stateParams, localStorage
     $('#to-info').click(function(){
       //$(this).popover('toggle');
     });
+
+    $http
+      .get('/api/info')
+      .then(function(response){
+        var info = response.data;
+        $('#to-folder').click(() =>{
+          $http.post('/open?path='+ encodeURIComponent(info.repository));
+        });
+      });
+    
+    
   });
   
   if (localStorageService.isSupported) {

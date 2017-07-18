@@ -34,11 +34,11 @@ if (fs.existsSync(j)){
 }
 
 pad.startServer = function(ops){
-  console = ops.console;
-  let mode = ops.mode || process.env.PAD_MODE || 'server';
-
-  app.set('pad-mode', mode);
+  
   ops = ops || {};
+  let mode = ops.mode || process.env.PAD_MODE || 'server';
+  app.set('pad-mode', mode);
+  
   if (ops.env !== undefined){
     process.env.NODE_ENV = ops.env;
   }

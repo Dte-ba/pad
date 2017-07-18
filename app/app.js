@@ -5,6 +5,7 @@ var path = require('path');
 var http = require('http');
 var fs = require('fs');
 var ip = require('ip');
+var open = require('open');
 
 var gui = process.env.NW_GUI = require('nw.gui');
 var win = gui.Window.get();
@@ -52,7 +53,6 @@ function start(document) {
     var pad = require(path.join(rootPath,  'server/app.js'));
     var localip = ip.address();
 
-
     $('head').append( '<meta name="keyboards" content="'+localip+'">' );
     $('#textProgress').html('<i class="fa fa-cog fa-spin"></i> Cargando...   ¡En un momento estaremos listos!');
     $('#init-screen').show();
@@ -85,6 +85,11 @@ function start(document) {
   }
 
   function configureRespository(config, cb){
+    
+    $('#toDownload').click(function(){
+      open('http://dte.abc.gov.ar/padweb/descarga');
+    });
+
     $('#repositoryPath').text(process.env.REPOSITORY_PATH);
 
     $('#selectDirectory').click(function(e){

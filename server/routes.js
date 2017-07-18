@@ -6,6 +6,7 @@
 
 import errors from './components/errors';
 import path from 'path';
+import open from 'open';
 
 export default function(app) {
   // Insert routes below
@@ -15,6 +16,18 @@ export default function(app) {
   if (process.env.PAD_MODE) {
     mode = process.env.PAD_MODE;
   }
+
+  // make open for desktop apps
+  if (mode==='desktop'){
+    app
+    .route('/open')
+    .post((req, res) => {
+      let p = req.query.path;
+      open(p);
+      res.json({});
+    });
+  }
+
   // add application information
   app
     .route('/api/info')

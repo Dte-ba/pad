@@ -21,7 +21,7 @@ var ProgressBar = require('progress');
 
 var localConfig = path.join(osenv.home(), '.pad');
 
-process.env.PAD_MODE = 'server';
+process.env.PAD_MODE = process.env.PAD_MODE || 'server';
 process.env.REPOSITORY_PATH = path.join(osenv.home());
 
 if (fs.existsSync(localConfig)){

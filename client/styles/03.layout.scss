@@ -111,6 +111,17 @@ body {
    }
 }
 
+#to-folder {
+  color: $black-color;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    color: $black-color;
+   }
+}
+
 #to-favoritos {
   color: $black-color;
   text-decoration: none;
