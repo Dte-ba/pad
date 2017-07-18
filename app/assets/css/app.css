@@ -215,6 +215,9 @@ h1 {
   font-family: 'Comfortaa Light';
   font-size: 18px; }
 
+#giveMeRepository {
+  display: none; }
+
 .portable {
   margin-top: 2%;
   background-color: #29aae3;
@@ -241,6 +244,8 @@ h1 {
     color: white;
     padding: 10px;
     margin-bottom: 25px; }
+  .portable p.contenido.withContent {
+    background-color: #39b449; }
   .portable p.tip {
     font-family: 'Comfortaa Light';
     font-size: 22px;

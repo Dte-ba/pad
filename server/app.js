@@ -21,7 +21,7 @@ var empRest = require('./components/epm-rest');
 // the config
 var config = pad.config = require('./config/environment');
 
-app.version = 'v6.5';
+app.version = 'v6.2';
 app.kernel = 'EPM';
 
 var j = path.join(__dirname, '/../package.json');
@@ -34,14 +34,15 @@ if (fs.existsSync(j)){
 }
 
 pad.startServer = function(ops){
+  console = ops.console;
+  let mode = ops.mode || process.env.PAD_MODE || 'server';
 
+  app.set('pad-mode', mode);
   ops = ops || {};
   if (ops.env !== undefined){
     process.env.NODE_ENV = ops.env;
   }
 
-  process.env.NW_GUI = ops.gui;
-  
   // the promise for web and repository
   var defer = Q.defer();
   

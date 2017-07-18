@@ -1,6 +1,6 @@
 {
   "name": "pad",
-  "version": "6.2.1",
+  "version": "6.2.4",
   "main": "server/index.js",
   "dependencies": {
     "angular": "~1.6.0",

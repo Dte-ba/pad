@@ -91,6 +91,10 @@ h1 {
   font-size: 18px;
 }
 
+#giveMeRepository {
+  display: none;
+}
+
 .portable {
   margin-top: 2%;
   background-color: #29aae3;
@@ -121,6 +125,10 @@ h1 {
     color: white;
     padding: 10px;
     margin-bottom: 25px;
+  }
+
+  p.contenido.withContent {
+    background-color: #39b449;
   }
 
   p.tip {

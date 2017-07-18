@@ -17,6 +17,7 @@ import config from './environment';
 
 export default function(app) {
   var env = app.get('env');
+  var mode = app.get('pad-mode');
 
   if(env === 'development' || env === 'test') {
     app.use(express.static(path.join(config.root, '.tmp')));
@@ -39,11 +40,11 @@ export default function(app) {
   app.use(cookieParser());
 
 
-  if(env === 'development') {
+  if(env === 'development' && mode !== 'desktop') {
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const stripAnsi = require('strip-ansi');
     const webpack = require('webpack');
-    const makeWebpackConfig = require('../../webpack.make');
+    const makeWebpackConfig = require(path.resolve(__dirname, '../../webpack.make'));
     const webpackConfig = makeWebpackConfig({ DEV: true });
     const compiler = webpack(webpackConfig);
     const browserSync = require('browser-sync').create();

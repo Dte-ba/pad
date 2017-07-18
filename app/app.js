@@ -17,7 +17,7 @@ var rootPath = process.cwd();
 if (process.env.NODE_ENV === 'development') {
   require('babel-register');
   win.showDevTools();
-  rootPath = path.join(process.cwd(), '/../dist/');
+  rootPath = path.join(process.cwd(), '../dist');
 }
 
 function start(document) {
@@ -27,14 +27,15 @@ function start(document) {
 
   var cfg = path.join(rootPath, 'server/config/environment/index.js');
   var config = require(cfg);
-
+  var initialized = false;
   var localConfig = path.join(osenv.home(), '.pad');
   
   if (fs.existsSync(localConfig)){
-    var cfg = JSON.parse(fs.readFileSync(localConfig, 'utf-8'));
-    process.env.REPOSITORY_PATH = cfg.path;
+    var localCfg = JSON.parse(fs.readFileSync(localConfig, 'utf-8'));
+    process.env.REPOSITORY_PATH = localCfg.path;
+    initialized = localCfg.initialized || false;
   } else {
-    process.env.REPOSITORY_PATH = path.join(process.cwd(), '/paquetes/');
+    process.env.REPOSITORY_PATH = path.join(process.cwd(), '../contenido-pad/');
   }
 
   config.repository = process.env.REPOSITORY_PATH;
@@ -50,16 +51,15 @@ function start(document) {
   function startPad(config){
     var pad = require(path.join(rootPath,  'server/app.js'));
     var localip = ip.address();
+
+
     $('head').append( '<meta name="keyboards" content="'+localip+'">' );
-
     $('#textProgress').html('<i class="fa fa-cog fa-spin"></i> Cargando...   ¡En un momento estaremos listos!');
-
-    $('init-screen').show();
-
+    $('#init-screen').show();
     $('#repositoryPath').text(process.env.REPOSITORY_PATH);
 
-    pad
-    .startServer({gui: gui, env: process.env.NODE_ENV})
+  pad
+    .startServer({console: console, env: process.env.NODE_ENV})
     .progress(function(info){
       
       // print the current percent
@@ -70,11 +70,11 @@ function start(document) {
       
     })
     .fail(function(err){
-      $('init-screen').hide();
+      $('#init-screen').hide();
       throw err;
     })
     .done(function(){
-      $('init-screen').hide();
+      $('#init-screen').hide();
       $('#textProgress').hide();
       if (console) {
         console.log('Express server listening on %d, in %s mode', pad.config.port, pad.app.get('env'));
@@ -85,8 +85,8 @@ function start(document) {
   }
 
   function configureRespository(config, cb){
-    // do stuff
-    
+    $('#repositoryPath').text(process.env.REPOSITORY_PATH);
+
     $('#selectDirectory').click(function(e){
 
       e.preventDefault();
@@ -103,11 +103,14 @@ function start(document) {
 
             // save the configuration
             var localConfig = path.join(osenv.home(), '.pad');
-            var data = { path: config.repository };
-            process.env.REPOSITORY_PATH = folder_path;
-            
-            fs.writeFileSync(localConfig, JSON.stringify(data));
+            var data = {
+              initialized: true,
+              send: $('#sendStats').is(':checked'), 
+              path: config.repository
+            };
 
+            process.env.REPOSITORY_PATH = folder_path;
+            fs.writeFileSync(localConfig, JSON.stringify(data));
             return cb(config);
           }
       });
@@ -116,7 +119,7 @@ function start(document) {
 
     });
 
-    $('init-screen').hide();
+    $('#init-screen').hide();
     $('#giveMeRepository').show();
   }
 

@@ -49,20 +49,20 @@
             </div>
           </div>
         </div>-->
-        <div class="container">
+        <div id="giveMeRepository" class="container">
           <div class="row">
             <div class="col-lg-10 col-lg-offset-1 jumbotron portable">
               <h1><small>Estás en tu</small><br /> Versión Portable</h1>
               
-              <div class="row">
+              <div id="noContent" class="row">
                 <div class="col-sm-10 col-sm-offset-1">
                   <p class="contenido"><i class="fa fa-chevron-right"></i> Tu pad se encuentra sin contenido</p>    
                 </div>
               </div>
-
-              <p class="tip"><i class="fa fa-cloud-download"></i> Podés descargar tus recursos <a href="http://dte.abc.gov.ar/padweb/descarga">acá</a></p>
-              <p class="tip"><i class="fa fa-folder"></i>  Luego guardalos en la carpeta <strong>"Contenidos pad"</strong></p>
-
+              <p class="tip"><i class="fa fa-cloud-download"></i> Podés descargar tus recursos <a href="http://dte.abc.gov.ar/padweb/descarga" target="_blank">acá</a></p>
+              
+              <p class="tip"><i class="fa fa-folder"></i>  Luego guardalos en la carpeta <strong><a id="selectDirectory" href="">"Contenidos pad"</a></strong></p>
+              <input id="folder_dialog_input" type="file" nwdirectory value=""  style="display: none; font-size: 130%">
               <div class="row importante">
                 <div class="col-sm-1 text-right">
                   <i class="fa fa-info-circle fa-2x"></i> 
@@ -71,6 +71,11 @@
                   <h3>Importante</h3>
                   <p>Para que tu pad funcione correctamente ubicá la carpeta del pad portable en <strong>"documentos"</strong></p>
                 </div>
+              </div>
+              <div class="checkbox" style="color: white; margin-top: 30px;">
+                <label>
+                  <input id="sendStats" type="checkbox" checked> Enviar estadísticas de forma anonima para mejorar nuestros servicios
+                </label>
               </div>
             </div>
           </div>
