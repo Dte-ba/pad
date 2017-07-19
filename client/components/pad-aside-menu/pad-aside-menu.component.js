@@ -11,6 +11,13 @@ export class PadAsideMenu {
   $onInit(){
     // configure
     $('a[data-toggle="tooltip"]').tooltip();
+    console.log($('a[data-toggle="tooltip"]'));
+    $('a[data-toggle="tooltip"]').each(function() {
+      $(this).click(ev => {
+        $(this).tooltip('hide');
+      });
+    });
+
     this.elem.click((event) => {
       this.elem.toggleClass('active');
       event.stopPropagation();
