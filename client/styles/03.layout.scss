@@ -17,6 +17,8 @@ body {
 
 #content {
   padding-bottom: $footer-height + 15px; /* Height of the footer element */
+  height: 100vh;
+  min-height: 100%;
 }
 
 #footer {
